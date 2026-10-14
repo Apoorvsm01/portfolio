@@ -37,15 +37,15 @@ export function IntentPicker() {
   };
 
   return (
-    <Reveal as="section" aria-label="What brings you here" className="py-24 md:py-32 border-b border-line">
-      <h2 className="text-xs uppercase tracking-[0.14em] text-muted font-medium mb-5">
+    <Reveal as="section" aria-labelledby="intent-picker-heading" className="py-24 md:py-32 border-b border-line">
+      <h2 id="intent-picker-heading" className="text-xs uppercase tracking-[0.14em] text-muted font-medium mb-5">
         What brings you here?
       </h2>
 
       <div
         role="tablist"
         aria-label="What brings you here"
-        className="flex flex-wrap gap-2.5 sm:gap-3"
+        className="flex flex-wrap gap-3"
       >
         {site.intents.map((intent, index) => {
           const isSelected = intent.id === activeIntent.id;
@@ -63,7 +63,7 @@ export function IntentPicker() {
               tabIndex={isSelected ? 0 : -1}
               onClick={() => setSelectedId(intent.id)}
               onKeyDown={(e) => handleKeyDown(e, index)}
-              className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium transition-colors cursor-pointer border ${
+              className={`min-h-[44px] px-4 sm:px-5 py-2.5 rounded-full text-xs sm:text-sm font-medium transition-colors cursor-pointer border inline-flex items-center justify-center ${
                 isSelected
                   ? "bg-text text-bg border-text shadow-sm"
                   : "bg-surface/60 text-muted border-line hover:text-text hover:border-muted/60"
@@ -85,34 +85,35 @@ export function IntentPicker() {
             aria-labelledby={`tab-${intent.id}`}
             hidden={!isSelected}
             tabIndex={0}
-            className="mt-8 max-w-[40rem]"
+            className="mt-8 max-w-[42rem]"
           >
             <p className="text-base sm:text-lg text-muted leading-relaxed">
               {intent.answer}
             </p>
 
             {intent.links && intent.links.length > 0 && (
-              <div className="mt-6 flex flex-wrap gap-2.5">
+              <ul className="mt-6 flex flex-wrap gap-3 list-none p-0" aria-label="Recommended studies">
                 {intent.links.map((slug) => {
                   const study = getStudy(slug);
                   const title = study?.title ?? slug;
                   return (
-                    <Link
-                      key={slug}
-                      href={studyHref(slug)}
-                      className="group inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs sm:text-sm bg-surface border border-line text-text hover:border-accent hover:text-accent transition-colors"
-                    >
-                      <span>{title}</span>
-                      <span
-                        aria-hidden="true"
-                        className="text-muted group-hover:text-accent transition-colors"
+                    <li key={slug}>
+                      <Link
+                        href={studyHref(slug)}
+                        className="group min-h-[44px] inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full text-xs sm:text-sm bg-surface border border-line text-text hover:border-accent hover:text-accent transition-colors"
                       >
-                        →
-                      </span>
-                    </Link>
+                        <span>{title}</span>
+                        <span
+                          aria-hidden="true"
+                          className="text-muted group-hover:text-accent transition-colors"
+                        >
+                          →
+                        </span>
+                      </Link>
+                    </li>
                   );
                 })}
-              </div>
+              </ul>
             )}
           </div>
         );

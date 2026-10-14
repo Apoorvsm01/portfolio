@@ -33,10 +33,11 @@ export function PrototypeEmbed({
           target="_blank"
           rel="noopener noreferrer"
           aria-label={`Open the interactive prototype for ${title}`}
-          className="inline-flex items-center gap-1.5 text-sm font-medium text-text hover:text-accent transition-colors"
+          className="min-h-[44px] inline-flex items-center gap-1.5 text-sm font-medium text-text hover:text-accent transition-colors"
         >
           <span>Open the interactive prototype</span>
           <span aria-hidden="true">↗</span>
+          <span className="sr-only"> (opens in new tab)</span>
         </a>
       </div>
     </Reveal>

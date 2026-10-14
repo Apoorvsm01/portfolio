@@ -81,7 +81,7 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
       onClick={toggleTheme}
       aria-pressed={mounted ? isDark : false}
       aria-label={ariaLabel}
-      className={`inline-flex items-center justify-center p-2 rounded-lg text-muted hover:text-text hover:bg-surface border border-line/60 transition-colors cursor-pointer ${className}`}
+      className={`min-w-[44px] min-h-[44px] inline-flex items-center justify-center p-2 rounded-lg text-muted hover:text-text hover:bg-surface border border-line/60 transition-colors cursor-pointer ${className}`}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

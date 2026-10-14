@@ -14,7 +14,7 @@ export function Hero({ study }: { study: CaseStudy }) {
       <div>
         <Link
           href="/#work"
-          className="inline-flex items-center gap-1.5 text-sm font-medium text-muted hover:text-text transition-colors group mb-8"
+          className="min-h-[44px] inline-flex items-center gap-1.5 text-sm font-medium text-muted hover:text-text transition-colors group mb-8"
         >
           <span
             aria-hidden="true"
@@ -28,33 +28,33 @@ export function Hero({ study }: { study: CaseStudy }) {
 
       {/* Tags as small pills */}
       {study.tags && study.tags.length > 0 && (
-        <div className="flex flex-wrap gap-2 mb-6">
+        <ul className="flex flex-wrap gap-2 mb-6 list-none p-0" aria-label="Study tags">
           {study.tags.map((tag) => (
-            <span
+            <li
               key={tag}
               className="text-xs px-2.5 py-1 rounded-md bg-surface text-muted border border-line"
             >
               {tag}
-            </span>
+            </li>
           ))}
-        </div>
+        </ul>
       )}
 
       {/* h1 Title */}
-      <h1 className="font-display text-[clamp(2.5rem,6vw,4.75rem)] font-bold tracking-tight text-text leading-[1.08] mb-6">
+      <h1 className="font-display text-[var(--step-h1)] font-bold tracking-tight text-text leading-[1.08] mb-6">
         {study.title}
       </h1>
 
       {/* Description as lede */}
       {hasDescription && (
-        <p className="text-lg sm:text-xl text-muted leading-relaxed max-w-[40rem] mb-8">
+        <p className="text-lg sm:text-xl text-muted leading-relaxed max-w-[42rem] mb-8">
           {study.description}
         </p>
       )}
 
       {/* "How might we" line */}
       {hasHmw && (
-        <div className="max-w-[40rem] pl-4 border-l-2 border-accent">
+        <div className="max-w-[42rem] pl-4 border-l-2 border-accent">
           <p className="font-serif italic text-base sm:text-lg text-text leading-relaxed">
             <span className="text-accent">How might we</span> {study.hmw}
           </p>

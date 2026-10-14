@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import type { Block, Section } from "../../../content/types";
+import { imageDims } from "../../lib/content";
 import { Reveal } from "../Reveal";
 
 function renderListItem(item: string) {
@@ -34,23 +35,31 @@ export function BlockRenderer({
     : (studyTitle ? `${studyTitle} screenshot` : "Screenshot");
 
   switch (block.type) {
-    case "heading":
+    case "heading": {
+      // SPEC S: skip a heading block whose text equals its section label
+      if (
+        cleanLabel &&
+        block.text.trim().toLowerCase() === cleanLabel.toLowerCase()
+      ) {
+        return null;
+      }
       return (
-        <h3 className="font-display text-xl sm:text-2xl font-bold tracking-tight text-text mt-8 first:mt-0 mb-4">
+        <h3 className="font-display text-[var(--step-h3)] sm:text-2xl font-bold tracking-tight text-text mt-8 first:mt-0 mb-4">
           {block.text}
         </h3>
       );
+    }
 
     case "paragraph":
       return (
-        <p className="max-w-[40rem] text-[1.0625rem] leading-[1.65] text-text/90 mb-6 last:mb-0 whitespace-pre-line">
+        <p className="max-w-[42rem] text-[1.0625rem] leading-[1.65] text-text/90 mb-6 last:mb-0 whitespace-pre-line">
           {block.text}
         </p>
       );
 
     case "list":
       return (
-        <ul className="max-w-[40rem] list-disc pl-5 space-y-2.5 mb-6 last:mb-0 text-[1.0625rem] leading-[1.65] text-text/90 marker:text-muted">
+        <ul className="max-w-[42rem] list-disc pl-5 space-y-2.5 mb-6 last:mb-0 text-[1.0625rem] leading-[1.65] text-text/90 marker:text-muted">
           {block.items.map((item, i) => (
             <li key={i} className="pl-1">
               {renderListItem(item)}
@@ -66,15 +75,18 @@ export function BlockRenderer({
       if (images.length === 1) {
         const img = images[0];
         const alt = img.alt?.trim() ? img.alt : imageFallbackAlt;
+        const dims = imageDims(img.src);
         return (
-          <div className="w-full rounded-[16px] overflow-hidden border border-line bg-surface my-8 first:mt-0 last:mb-0">
+          <figure className="w-full rounded-[16px] overflow-hidden border border-line bg-surface my-8 first:mt-0 last:mb-0">
             <img
               src={img.src}
               alt={alt}
+              width={dims.width}
+              height={dims.height}
               className="w-full h-auto object-cover rounded-[16px]"
               loading="lazy"
             />
-          </div>
+          </figure>
         );
       }
 
@@ -83,18 +95,21 @@ export function BlockRenderer({
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 my-8 first:mt-0 last:mb-0">
             {images.map((img, i) => {
               const alt = img.alt?.trim() ? img.alt : imageFallbackAlt;
+              const dims = imageDims(img.src);
               return (
-                <div
+                <figure
                   key={i}
                   className="rounded-[16px] overflow-hidden border border-line bg-surface"
                 >
                   <img
                     src={img.src}
                     alt={alt}
+                    width={dims.width}
+                    height={dims.height}
                     className="w-full h-auto object-cover rounded-[16px]"
                     loading="lazy"
                   />
-                </div>
+                </figure>
               );
             })}
           </div>
@@ -105,18 +120,21 @@ export function BlockRenderer({
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 my-8 first:mt-0 last:mb-0">
           {images.map((img, i) => {
             const alt = img.alt?.trim() ? img.alt : imageFallbackAlt;
+            const dims = imageDims(img.src);
             return (
-              <div
+              <figure
                 key={i}
                 className="rounded-[16px] overflow-hidden border border-line bg-surface"
               >
                 <img
                   src={img.src}
                   alt={alt}
+                  width={dims.width}
+                  height={dims.height}
                   className="w-full h-auto object-cover rounded-[16px]"
                   loading="lazy"
                 />
-              </div>
+              </figure>
             );
           })}
         </div>
@@ -202,21 +220,41 @@ export function SectionBlock({
 
   const hasLabel = Boolean(section.label && section.label.trim() !== "");
 
+  if (hasLabel) {
+    return (
+      <Reveal
+        as="section"
+        id={`section-${index}`}
+        aria-labelledby={`section-heading-${index}`}
+        className="py-16 sm:py-24 border-b border-line scroll-mt-24"
+      >
+        <h2
+          id={`section-heading-${index}`}
+          className="text-xs uppercase tracking-[0.14em] text-muted font-medium mb-8 sm:mb-12"
+        >
+          {section.label}
+        </h2>
+        <div>
+          {section.blocks.map((b, bIdx) => (
+            <BlockRenderer
+              key={bIdx}
+              block={b}
+              studyTitle={studyTitle}
+              sectionLabel={section.label}
+            />
+          ))}
+        </div>
+      </Reveal>
+    );
+  }
+
+  // Untitled section: MUST be a <div>, not a section (SPEC S)
   return (
     <Reveal
-      as="section"
+      as="div"
       id={`section-${index}`}
       className="py-16 sm:py-24 border-b border-line scroll-mt-24"
     >
-      {hasLabel ? (
-        <h2 className="text-xs uppercase tracking-[0.14em] text-muted font-medium mb-8 sm:mb-12">
-          {section.label}
-        </h2>
-      ) : (
-        <h2 className="sr-only">
-          {studyTitle ? `${studyTitle} overview` : "Overview"}
-        </h2>
-      )}
       <div>
         {section.blocks.map((b, bIdx) => (
           <BlockRenderer

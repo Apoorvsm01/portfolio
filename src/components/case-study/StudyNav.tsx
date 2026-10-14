@@ -17,7 +17,8 @@ export function StudyNav({ currentSlug }: { currentSlug: string }) {
         {prev ? (
           <Link
             href={studyHref(prev.slug)}
-            className="group flex flex-col p-6 rounded-[20px] bg-surface border border-line hover:border-muted/60 transition-colors"
+            rel="prev"
+            className="group flex flex-col p-6 rounded-[20px] bg-surface border border-line hover:border-muted/60 transition-colors min-h-[44px]"
           >
             <span className="text-xs uppercase tracking-[0.14em] text-muted font-medium mb-2 flex items-center gap-1.5 group-hover:text-accent transition-colors">
               <span
@@ -39,7 +40,8 @@ export function StudyNav({ currentSlug }: { currentSlug: string }) {
         {next && (
           <Link
             href={studyHref(next.slug)}
-            className={`group flex flex-col p-6 rounded-[20px] bg-surface border border-line hover:border-muted/60 transition-colors text-right ${
+            rel="next"
+            className={`group flex flex-col p-6 rounded-[20px] bg-surface border border-line hover:border-muted/60 transition-colors text-right min-h-[44px] ${
               !prev ? "sm:col-start-2" : ""
             }`}
           >

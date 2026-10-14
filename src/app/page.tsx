@@ -8,7 +8,7 @@ import { PlatformStrip } from "../components/PlatformStrip";
 
 export default function Home() {
   return (
-    <main id="main" className="max-w-[72rem] w-full mx-auto px-4 sm:px-6 lg:px-8 flex-1">
+    <main id="main" className="container-page flex-1">
       <Hero />
       <IntentPicker />
       <Featured />

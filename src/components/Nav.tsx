@@ -2,12 +2,14 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { site } from "../../content/site";
 import { ThemeToggle } from "./ThemeToggle";
 
 export function Nav() {
   const [isOpen, setIsOpen] = useState(false);
   const toggleButtonRef = useRef<HTMLButtonElement | null>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     if (!isOpen) return;
@@ -25,12 +27,16 @@ export function Nav() {
     };
   }, [isOpen]);
 
+  const isHome = pathname === "/";
+  const isAbout = pathname === "/about" || pathname === "/about/";
+
   return (
     <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-bg/80 border-b border-line">
-      <div className="max-w-[72rem] mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div className="container-page h-16 flex items-center justify-between">
         <Link
           href="/"
-          className="font-display font-semibold text-base sm:text-lg text-text hover:text-accent transition-colors tracking-tight"
+          aria-current={isHome ? "page" : undefined}
+          className="font-display font-semibold text-base sm:text-lg text-text hover:text-accent transition-colors tracking-tight min-h-[44px] inline-flex items-center"
         >
           {site.name}
         </Link>
@@ -38,23 +44,25 @@ export function Nav() {
         {/* Desktop Navigation */}
         <nav
           aria-label="Primary"
-          className="hidden md:flex items-center gap-6 text-sm text-muted"
+          className="hidden md:flex items-center gap-2 text-sm text-muted"
         >
           <Link
             href="/#work"
-            className="hover:text-text transition-colors"
+            className="min-h-[44px] px-3 inline-flex items-center hover:text-text transition-colors"
           >
             Work
           </Link>
           <Link
             href="/about/"
-            className="hover:text-text transition-colors"
+            aria-current={isAbout ? "page" : undefined}
+            className="min-h-[44px] px-3 inline-flex items-center hover:text-text transition-colors data-[current=true]:text-text"
+            data-current={isAbout ? "true" : undefined}
           >
             About
           </Link>
           <a
             href={`mailto:${site.email}`}
-            className="hover:text-text transition-colors"
+            className="min-h-[44px] px-3 inline-flex items-center hover:text-text transition-colors"
           >
             Contact
           </a>
@@ -62,11 +70,14 @@ export function Nav() {
             href={site.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-text transition-colors"
+            className="min-h-[44px] px-3 inline-flex items-center hover:text-text transition-colors"
           >
-            LinkedIn
+            <span>LinkedIn</span>
+            <span className="sr-only"> (opens in new tab)</span>
           </a>
-          <ThemeToggle />
+          <div className="ml-2">
+            <ThemeToggle />
+          </div>
         </nav>
 
         {/* Mobile controls */}
@@ -79,7 +90,7 @@ export function Nav() {
             aria-expanded={isOpen}
             aria-controls="mobile-nav"
             aria-label="Toggle navigation menu"
-            className="inline-flex items-center justify-center p-2 rounded-lg text-muted hover:text-text hover:bg-surface border border-line/60 transition-colors cursor-pointer"
+            className="min-w-[44px] min-h-[44px] inline-flex items-center justify-center p-2.5 rounded-lg text-muted hover:text-text hover:bg-surface border border-line/60 transition-colors cursor-pointer"
           >
             <svg
               className="w-5 h-5"
@@ -106,26 +117,28 @@ export function Nav() {
         id="mobile-nav"
         aria-label="Mobile Navigation"
         hidden={!isOpen}
-        className={`${!isOpen ? "hidden" : "flex"} md:hidden border-t border-line bg-bg/95 backdrop-blur-md px-4 py-4 flex-col gap-3 text-sm text-muted`}
+        className={`${!isOpen ? "hidden" : "flex"} md:hidden border-t border-line bg-bg/95 backdrop-blur-md px-4 py-4 flex-col gap-2 text-sm text-muted`}
       >
         <Link
           href="/#work"
           onClick={() => setIsOpen(false)}
-          className="py-2 hover:text-text transition-colors"
+          className="min-h-[44px] px-3 py-2 flex items-center hover:text-text transition-colors"
         >
           Work
         </Link>
         <Link
           href="/about/"
+          aria-current={isAbout ? "page" : undefined}
           onClick={() => setIsOpen(false)}
-          className="py-2 hover:text-text transition-colors"
+          className="min-h-[44px] px-3 py-2 flex items-center hover:text-text transition-colors data-[current=true]:text-text"
+          data-current={isAbout ? "true" : undefined}
         >
           About
         </Link>
         <a
           href={`mailto:${site.email}`}
           onClick={() => setIsOpen(false)}
-          className="py-2 hover:text-text transition-colors"
+          className="min-h-[44px] px-3 py-2 flex items-center hover:text-text transition-colors"
         >
           Contact
         </a>
@@ -134,9 +147,10 @@ export function Nav() {
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => setIsOpen(false)}
-          className="py-2 hover:text-text transition-colors"
+          className="min-h-[44px] px-3 py-2 flex items-center hover:text-text transition-colors"
         >
-          LinkedIn
+          <span>LinkedIn</span>
+          <span className="sr-only"> (opens in new tab)</span>
         </a>
       </nav>
     </header>

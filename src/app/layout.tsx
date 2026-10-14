@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Mona_Sans, Newsreader } from "next/font/google";
 import { site } from "../../content/site";
 import { Nav } from "../components/Nav";
@@ -24,6 +24,14 @@ const fontSerif = Newsreader({
   display: "swap",
 });
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#0e0f0f" },
+    { media: "(prefers-color-scheme: light)", color: "#f6f4ef" },
+  ],
+  colorScheme: "dark light",
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
@@ -31,6 +39,9 @@ export const metadata: Metadata = {
     template: `%s — ${site.name}`,
   },
   description: site.hero.intro,
+  alternates: {
+    canonical: "./",
+  },
   openGraph: {
     title: `${site.name} — ${site.role}`,
     description: site.hero.intro,
@@ -76,7 +87,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col bg-bg text-text">
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-surface focus:text-text focus:border focus:border-line focus:rounded-md focus:shadow-lg focus:outline-none"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2.5 focus:min-h-[44px] focus:inline-flex focus:items-center focus:bg-surface focus:text-text focus:border focus:border-line focus:rounded-md focus:shadow-lg focus:outline-none"
         >
           Skip to content
         </a>
