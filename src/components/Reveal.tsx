@@ -10,6 +10,7 @@ type SupportedTag =
   | "header"
   | "footer"
   | "main"
+  | "nav"
   | "p"
   | "span"
   | "li"
