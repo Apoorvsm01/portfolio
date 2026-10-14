@@ -2,12 +2,9 @@ import { site } from "../../content/site";
 
 export function ContactCTA({ className = "" }: { className?: string }) {
   return (
-    <section
-      aria-label="Contact call to action"
-      className={`py-16 md:py-20 border-b border-line ${className}`}
-    >
+    <div className={`py-24 md:py-32 border-b border-line ${className}`}>
       <div className="max-w-[40rem]">
-        <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-text">
+        <h2 className="font-display text-[clamp(1.75rem,3.5vw,2.75rem)] font-bold tracking-tight text-text">
           {site.cta.headline}
         </h2>
         <p className="mt-4 text-base sm:text-lg text-muted leading-relaxed">
@@ -23,6 +20,6 @@ export function ContactCTA({ className = "" }: { className?: string }) {
           </a>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

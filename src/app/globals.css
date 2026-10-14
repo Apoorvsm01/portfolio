@@ -125,3 +125,13 @@ h6 {
   background-color: var(--accent);
   color: var(--bg);
 }
+
+/* Woven by Toyota logo inversion in dark mode */
+.woven-logo {
+  filter: invert(1);
+}
+
+[data-theme="light"] .woven-logo {
+  filter: none;
+}
+

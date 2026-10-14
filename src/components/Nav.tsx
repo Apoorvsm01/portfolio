@@ -1,12 +1,29 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { site } from "../../content/site";
 import { ThemeToggle } from "./ThemeToggle";
 
 export function Nav() {
   const [isOpen, setIsOpen] = useState(false);
+  const toggleButtonRef = useRef<HTMLButtonElement | null>(null);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsOpen(false);
+        toggleButtonRef.current?.focus();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen]);
 
   return (
     <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-bg/80 border-b border-line">
@@ -56,6 +73,7 @@ export function Nav() {
         <div className="flex md:hidden items-center gap-2">
           <ThemeToggle />
           <button
+            ref={toggleButtonRef}
             type="button"
             onClick={() => setIsOpen((prev) => !prev)}
             aria-expanded={isOpen}
@@ -63,7 +81,6 @@ export function Nav() {
             aria-label="Toggle navigation menu"
             className="inline-flex items-center justify-center p-2 rounded-lg text-muted hover:text-text hover:bg-surface border border-line/60 transition-colors cursor-pointer"
           >
-            <span className="sr-only">Toggle navigation menu</span>
             <svg
               className="w-5 h-5"
               fill="none"
@@ -85,44 +102,43 @@ export function Nav() {
       </div>
 
       {/* Mobile disclosure menu */}
-      {isOpen && (
-        <nav
-          id="mobile-nav"
-          aria-label="Mobile Navigation"
-          className="md:hidden border-t border-line bg-bg/95 backdrop-blur-md px-4 py-4 flex flex-col gap-3 text-sm text-muted"
+      <nav
+        id="mobile-nav"
+        aria-label="Mobile Navigation"
+        hidden={!isOpen}
+        className={`${!isOpen ? "hidden" : "flex"} md:hidden border-t border-line bg-bg/95 backdrop-blur-md px-4 py-4 flex-col gap-3 text-sm text-muted`}
+      >
+        <Link
+          href="/#work"
+          onClick={() => setIsOpen(false)}
+          className="py-2 hover:text-text transition-colors"
         >
-          <Link
-            href="/#work"
-            onClick={() => setIsOpen(false)}
-            className="py-2 hover:text-text transition-colors"
-          >
-            Work
-          </Link>
-          <Link
-            href="/about/"
-            onClick={() => setIsOpen(false)}
-            className="py-2 hover:text-text transition-colors"
-          >
-            About
-          </Link>
-          <a
-            href={`mailto:${site.email}`}
-            onClick={() => setIsOpen(false)}
-            className="py-2 hover:text-text transition-colors"
-          >
-            Contact
-          </a>
-          <a
-            href={site.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setIsOpen(false)}
-            className="py-2 hover:text-text transition-colors"
-          >
-            LinkedIn
-          </a>
-        </nav>
-      )}
+          Work
+        </Link>
+        <Link
+          href="/about/"
+          onClick={() => setIsOpen(false)}
+          className="py-2 hover:text-text transition-colors"
+        >
+          About
+        </Link>
+        <a
+          href={`mailto:${site.email}`}
+          onClick={() => setIsOpen(false)}
+          className="py-2 hover:text-text transition-colors"
+        >
+          Contact
+        </a>
+        <a
+          href={site.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => setIsOpen(false)}
+          className="py-2 hover:text-text transition-colors"
+        >
+          LinkedIn
+        </a>
+      </nav>
     </header>
   );
 }

@@ -19,11 +19,22 @@ function subscribe(callback: () => void) {
     attributeFilter: ["data-theme"],
   });
 
-  window.addEventListener("storage", callback);
+  const handleStorage = (event: StorageEvent) => {
+    if (event.key === "theme" && event.newValue) {
+      const nextTheme =
+        event.newValue === "light" || event.newValue === "dark"
+          ? event.newValue
+          : "dark";
+      document.documentElement.setAttribute("data-theme", nextTheme);
+      callback();
+    }
+  };
+
+  window.addEventListener("storage", handleStorage);
 
   return () => {
     observer.disconnect();
-    window.removeEventListener("storage", callback);
+    window.removeEventListener("storage", handleStorage);
   };
 }
 
@@ -37,7 +48,14 @@ function getServerSnapshot(): "dark" | "light" {
   return "dark";
 }
 
+const emptySubscribe = () => () => {};
+
 export function ThemeToggle({ className = "" }: { className?: string }) {
+  const mounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
   const theme = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   const toggleTheme = () => {
@@ -50,18 +68,21 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
     }
   };
 
+  const isDark = mounted && theme === "dark";
+  const ariaLabel = !mounted
+    ? "Toggle theme"
+    : theme === "dark"
+    ? "Switch to light theme"
+    : "Switch to dark theme";
+
   return (
     <button
       type="button"
       onClick={toggleTheme}
-      aria-label={
-        theme === "dark"
-          ? "Switch to light theme"
-          : "Switch to dark theme"
-      }
+      aria-pressed={mounted ? isDark : false}
+      aria-label={ariaLabel}
       className={`inline-flex items-center justify-center p-2 rounded-lg text-muted hover:text-text hover:bg-surface border border-line/60 transition-colors cursor-pointer ${className}`}
     >
-      <span className="sr-only">Toggle theme</span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
@@ -73,7 +94,10 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
         className="w-4 h-4"
         aria-hidden="true"
       >
-        {theme === "light" ? (
+        {!mounted ? (
+          /* Neutral placeholder circle icon until mounted */
+          <circle cx="12" cy="12" r="5" />
+        ) : theme === "light" ? (
           /* Moon icon for light mode (action: switch to dark) */
           <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
         ) : (

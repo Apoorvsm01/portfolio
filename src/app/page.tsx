@@ -1,11 +1,21 @@
-import { site } from "../../content/site";
+import { Hero } from "../components/Hero";
+import { IntentPicker } from "../components/IntentPicker";
+import { Featured } from "../components/Featured";
+import { WorkSection } from "../components/WorkCard";
+import { HowIWork } from "../components/HowIWork";
+import { Timeline } from "../components/Timeline";
+import { PlatformStrip } from "../components/PlatformStrip";
 
 export default function Home() {
   return (
-    <main className="max-w-[72rem] w-full mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 flex-1">
-      <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-text">
-        {site.hero.headline}
-      </h1>
+    <main id="main" className="max-w-[72rem] w-full mx-auto px-4 sm:px-6 lg:px-8 flex-1">
+      <Hero />
+      <IntentPicker />
+      <Featured />
+      <WorkSection />
+      <HowIWork />
+      <Timeline />
+      <PlatformStrip />
     </main>
   );
 }
