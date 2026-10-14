@@ -72,11 +72,15 @@ export function Nav() {
 
       if (e.key === "Tab") {
         const sheet = sheetRef.current;
+        const toggle = toggleButtonRef.current;
         if (!sheet) return;
 
-        const focusables = sheet.querySelectorAll<HTMLElement>(
-          'a[href], button:not([disabled]), input:not([disabled]), [tabindex="0"]'
+        const sheetFocusables = Array.from(
+          sheet.querySelectorAll<HTMLElement>(
+            'a[href], button:not([disabled]), input:not([disabled]), [tabindex="0"]'
+          )
         );
+        const focusables = toggle ? [toggle, ...sheetFocusables] : sheetFocusables;
         if (focusables.length === 0) return;
 
         const first = focusables[0];
@@ -282,10 +286,27 @@ export function Nav() {
         <nav
           ref={sheetRef}
           id="mobile-nav-sheet"
+          role="dialog"
+          aria-modal="true"
           aria-label="Mobile Navigation"
           className="fixed inset-0 top-16 z-50 bg-bg/98 backdrop-blur-xl flex flex-col justify-between p-6 sm:p-8 border-t border-line overflow-y-auto md:hidden"
         >
           <div className="flex flex-col gap-6 pt-4">
+            <Link
+              href="/"
+              aria-current={isHome ? "page" : undefined}
+              onClick={() => setIsOpen(false)}
+              className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-text hover:text-accent flex items-center justify-between min-h-[44px]"
+            >
+              <span>Home</span>
+              {isHome && (
+                <span
+                  className="w-2 h-2 rounded-full bg-accent inline-block"
+                  aria-hidden="true"
+                />
+              )}
+            </Link>
+
             <Link
               href="/work/"
               aria-current={isWork ? "page" : undefined}

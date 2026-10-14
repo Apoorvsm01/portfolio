@@ -30,7 +30,7 @@ export function AboutTeaser() {
     <Reveal
       as="section"
       aria-labelledby="about-teaser-heading"
-      className="py-24 md:py-32 border-b border-line"
+      className="py-16 md:py-24 border-b border-line"
     >
       <div className="mb-8">
         <h2
@@ -47,39 +47,41 @@ export function AboutTeaser() {
       </p>
 
       {/* The 3 most recent timeline rows */}
-      <ol className="relative pl-7 sm:pl-9 divide-y divide-line/60 list-none p-0 mb-10 max-w-[56rem]">
+      <div className="relative max-w-[56rem] mb-10">
         <div
           className="absolute left-[11px] sm:left-[15px] top-3 bottom-3 w-[2px] bg-line pointer-events-none"
           aria-hidden="true"
         />
-        {recentTimeline.map((item) => (
-          <li
-            key={`${item.years}-${item.role}`}
-            className="relative py-6 first:pt-0 last:pb-0 grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-8 items-baseline"
-          >
-            <span
-              className="absolute left-[7px] sm:left-[11px] top-2 sm:top-1.5 w-2.5 h-2.5 rounded-full border-2 border-accent bg-accent pointer-events-none"
-              aria-hidden="true"
-            />
-            <div className="md:col-span-4 text-sm font-mono text-muted">
-              {renderYears(item.years)}
-            </div>
-            <div className="md:col-span-8">
-              <div className="text-base sm:text-lg font-display font-semibold text-text">
-                {item.role}
-                {item.org && (
-                  <span className="font-normal text-muted"> · {item.org}</span>
+        <ol className="relative pl-7 sm:pl-9 divide-y divide-line/60 list-none p-0 m-0">
+          {recentTimeline.map((item) => (
+            <li
+              key={`${item.years}-${item.role}`}
+              className="relative py-6 first:pt-0 last:pb-0 grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-8 items-baseline"
+            >
+              <span
+                className="absolute left-[7px] sm:left-[11px] top-2 sm:top-1.5 w-2.5 h-2.5 rounded-full border-2 border-accent bg-accent pointer-events-none"
+                aria-hidden="true"
+              />
+              <div className="md:col-span-4 text-sm font-mono text-muted">
+                {renderYears(item.years)}
+              </div>
+              <div className="md:col-span-8">
+                <div className="text-base sm:text-lg font-display font-semibold text-text">
+                  {item.role}
+                  {item.org && (
+                    <span className="font-normal text-muted"> · {item.org}</span>
+                  )}
+                </div>
+                {item.note && (
+                  <p className="mt-1 text-sm sm:text-base text-muted leading-relaxed max-w-[42rem]">
+                    {item.note}
+                  </p>
                 )}
               </div>
-              {item.note && (
-                <p className="mt-1 text-sm sm:text-base text-muted leading-relaxed max-w-[42rem]">
-                  {item.note}
-                </p>
-              )}
-            </div>
-          </li>
-        ))}
-      </ol>
+            </li>
+          ))}
+        </ol>
+      </div>
 
       {/* Link to /about/ */}
       <div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import type { Section } from "../../../content/types";
 
 export function Toc({
@@ -14,38 +14,63 @@ export function Toc({
 }) {
   const [activeId, setActiveId] = useState<string>("");
 
-  const labelledSections = sections
-    .map((section, index) => ({ section, index }))
-    .filter(({ section }) => Boolean(section.label && section.label.trim() !== ""));
+  const labelledSections = useMemo(
+    () =>
+      sections
+        .map((section, index) => ({ section, index }))
+        .filter(({ section }) => Boolean(section.label && section.label.trim() !== "")),
+    [sections]
+  );
 
+  // Scrollspy: active item reflects the section whose top is nearest above 35% of the viewport;
+  // when scrolled above the first labelled section, no item is active.
   useEffect(() => {
-    if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
-      return;
-    }
+    if (typeof window === "undefined") return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const intersecting = entries.filter((e) => e.isIntersecting);
-        if (intersecting.length > 0) {
-          const top = intersecting.reduce((prev, curr) =>
-            prev.boundingClientRect.top < curr.boundingClientRect.top ? prev : curr
-          );
-          setActiveId(top.target.id);
+    let rafId: number | null = null;
+
+    const updateActive = () => {
+      const threshold = window.innerHeight * 0.35;
+      let currentActiveId = "";
+      let nearestTop = -Infinity;
+
+      for (const { index } of labelledSections) {
+        const el = document.getElementById(`section-${index}`);
+        if (!el) continue;
+        const top = el.getBoundingClientRect().top;
+        if (top <= threshold && top > nearestTop) {
+          nearestTop = top;
+          currentActiveId = `section-${index}`;
         }
-      },
-      {
-        rootMargin: "-10% 0px -65% 0px",
-        threshold: 0,
       }
-    );
 
-    labelledSections.forEach(({ index }) => {
-      const el = document.getElementById(`section-${index}`);
-      if (el) observer.observe(el);
-    });
+      setActiveId(currentActiveId);
+      rafId = null;
+    };
 
+    const handleScroll = () => {
+      if (rafId !== null) return;
+      rafId = requestAnimationFrame(updateActive);
+    };
+
+    updateActive();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll, { passive: true });
+
+    return () => {
+      if (rafId !== null) cancelAnimationFrame(rafId);
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, [labelledSections]);
+
+  // Keyboard navigation (j/k) guarded so only the currently visible variant handles the event
+  useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.metaKey || e.ctrlKey || e.altKey) return;
+      if (variant === "chip-row" && window.innerWidth >= 1024) return;
+      if (variant === "rail" && window.innerWidth < 1024) return;
+
       const target = e.target as HTMLElement | null;
       if (
         target &&
@@ -99,10 +124,9 @@ export function Toc({
     window.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      observer.disconnect();
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [labelledSections]);
+  }, [labelledSections, variant]);
 
   if (labelledSections.length < 3) return null;
 
@@ -135,7 +159,7 @@ export function Toc({
                       : "border-line bg-surface text-muted hover:text-text hover:border-accent"
                   }`}
                 >
-                  <span className={`font-mono text-xs ${isActive ? "text-accent/80" : "text-muted/60"}`}>
+                  <span className={`font-mono text-xs ${isActive ? "text-accent/80" : "text-muted"}`}>
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span>{section.label}</span>
@@ -168,7 +192,7 @@ export function Toc({
                       : "text-muted hover:text-text hover:bg-surface/50"
                   }`}
                 >
-                  <span className={`font-mono text-xs ${isActive ? "text-accent/80" : "text-muted/60"}`}>
+                  <span className={`font-mono text-xs ${isActive ? "text-accent/80" : "text-muted"}`}>
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span>{section.label}</span>

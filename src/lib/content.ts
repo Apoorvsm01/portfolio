@@ -1,6 +1,6 @@
 import type { CaseStudy, Img } from "../../content/types";
 import { site } from "../../content/site";
-import imageDimsData from "../../content/image-dims.json";
+import { imageDims } from "./image-dims";
 import wovenData from "../../content/case-studies/woven.json";
 import fleetCoPilotData from "../../content/case-studies/fleet-co-pilot.json";
 import fleetDashboardData from "../../content/case-studies/fleet-dashboard.json";
@@ -10,6 +10,8 @@ import omniaBrowserData from "../../content/case-studies/omniabrowser.json";
 import spatialShowroomData from "../../content/case-studies/spatialshowroom.json";
 import syncareAiHealthData from "../../content/case-studies/syncare-ai-health.json";
 import sitelensData from "../../content/case-studies/sitelens.json";
+
+export { imageDims };
 
 // Case studies in canonical display order (woven first, followed by site.work order)
 const studies: CaseStudy[] = [
@@ -27,19 +29,6 @@ const studies: CaseStudy[] = [
 const studyMap = new Map<string, CaseStudy>(
   studies.map((study) => [study.slug, study])
 );
-
-/**
- * Returns the intrinsic width and height for an image asset from content/image-dims.json.
- */
-export function imageDims(src: string): { width: number; height: number } {
-  const normalized = src.startsWith("/") ? src : `/${src}`;
-  const record = imageDimsData as Record<string, number[]>;
-  const dims = record[normalized] ?? record[src];
-  if (dims && typeof dims[0] === "number" && typeof dims[1] === "number") {
-    return { width: dims[0], height: dims[1] };
-  }
-  return { width: 1200, height: 800 };
-}
 
 /**
  * Returns all case studies in canonical order.

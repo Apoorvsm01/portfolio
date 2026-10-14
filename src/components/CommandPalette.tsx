@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect, useCallback, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import { site } from "../../content/site";
-import { getAllStudies, studyHref } from "../lib/content";
+import type { NavIndexItem } from "../lib/nav-index";
 
 export const OPEN_COMMAND_PALETTE_EVENT = "open-command-palette";
 
@@ -13,7 +13,7 @@ export function openCommandPalette() {
   }
 }
 
-interface PaletteItem {
+export interface PaletteItem {
   id: string;
   category: "Pages" | "Projects" | "Sections" | "Actions";
   title: string;
@@ -23,12 +23,11 @@ interface PaletteItem {
   action?: "email" | "linkedin";
 }
 
-// Static definition of all searchable items
-function buildAllItems(): PaletteItem[] {
-  const items: PaletteItem[] = [];
+function buildItemsFromNavIndex(items: NavIndexItem[]): PaletteItem[] {
+  const result: PaletteItem[] = [];
 
   // 1. Pages
-  items.push({
+  result.push({
     id: "page-home",
     category: "Pages",
     title: "Home",
@@ -36,7 +35,7 @@ function buildAllItems(): PaletteItem[] {
     keywords: "home start main overview",
     url: "/",
   });
-  items.push({
+  result.push({
     id: "page-work",
     category: "Pages",
     title: "Work",
@@ -44,7 +43,7 @@ function buildAllItems(): PaletteItem[] {
     keywords: "work projects portfolio case studies index",
     url: "/work/",
   });
-  items.push({
+  result.push({
     id: "page-about",
     category: "Pages",
     title: "About",
@@ -54,40 +53,33 @@ function buildAllItems(): PaletteItem[] {
   });
 
   // 2. Case Studies (with domains)
-  const studies = getAllStudies();
-  studies.forEach((study) => {
-    const domain =
-      study.slug === site.featured.slug
-        ? site.featuredDomain
-        : site.work.find((w) => w.slug === study.slug)?.domain ?? "";
-    items.push({
+  items.forEach((study) => {
+    result.push({
       id: `study-${study.slug}`,
       category: "Projects",
       title: study.title,
-      subtitle: domain ? `${domain} · Case Study` : "Case Study",
-      keywords: `${study.title} ${study.slug} ${domain} ${study.tags?.join(" ") || ""} ${study.description || ""}`,
-      url: studyHref(study.slug),
+      subtitle: study.domain ? `${study.domain} · Case Study` : "Case Study",
+      keywords: `${study.title} ${study.slug} ${study.domain} ${study.tags.join(" ")} ${study.blurb}`,
+      url: `/work/${study.slug}/`,
     });
   });
 
   // 3. Labelled Case Study Sections
-  studies.forEach((study) => {
-    study.sections.forEach((section, sIdx) => {
-      if (section.label && section.label.trim() !== "") {
-        items.push({
-          id: `sec-${study.slug}-${sIdx}`,
-          category: "Sections",
-          title: `${study.title} › ${section.label}`,
-          subtitle: "Section",
-          keywords: `${study.title} ${section.label} section jump`,
-          url: `/work/${study.slug}/#section-${sIdx}`,
-        });
-      }
+  items.forEach((study) => {
+    study.sections.forEach((sec) => {
+      result.push({
+        id: `sec-${study.slug}-${sec.index}`,
+        category: "Sections",
+        title: `${study.title} › ${sec.label}`,
+        subtitle: "Section",
+        keywords: `${study.title} ${sec.label} section jump`,
+        url: `/work/${study.slug}/#section-${sec.index}`,
+      });
     });
   });
 
   // 4. Actions
-  items.push({
+  result.push({
     id: "action-email",
     category: "Actions",
     title: "Email",
@@ -96,7 +88,7 @@ function buildAllItems(): PaletteItem[] {
     action: "email",
   });
 
-  items.push({
+  result.push({
     id: "action-linkedin",
     category: "Actions",
     title: "LinkedIn",
@@ -105,12 +97,47 @@ function buildAllItems(): PaletteItem[] {
     action: "linkedin",
   });
 
-  return items;
+  return result;
 }
 
-const STATIC_ITEMS = buildAllItems();
+function scorePaletteItem(item: PaletteItem, q: string): number {
+  const title = item.title.toLowerCase();
+  const keywords = (item.keywords + " " + (item.subtitle || "")).toLowerCase();
+  const isSection = item.category === "Sections";
+  const sectionPart =
+    isSection && item.title.includes("›")
+      ? item.title.split("›")[1].trim().toLowerCase()
+      : "";
 
-export function CommandPalette() {
+  // 1. Exact / prefix title matches (score >= 900)
+  if (!isSection) {
+    if (title === q) return 1000;
+    if (title.startsWith(q)) return 950;
+    const words = title.split(/\s+/);
+    if (words.some((w) => w.startsWith(q))) return 920;
+    if (title.includes(q)) return 900;
+  } else {
+    if (title.startsWith(q)) return 910;
+  }
+
+  // 2. Section-title matches (score 700-800)
+  // e.g. 'design' matches '<Study> › Design System'
+  if (isSection && sectionPart) {
+    if (sectionPart === q) return 800;
+    if (sectionPart.startsWith(q)) return 780;
+    const secWords = sectionPart.split(/\s+/);
+    if (secWords.some((w) => w.startsWith(q))) return 750;
+    if (sectionPart.includes(q)) return 720;
+  }
+
+  // 3. Tag / keyword / subtitle matches (score 300-500)
+  if (keywords.split(/\s+/).some((w) => w.startsWith(q))) return 500;
+  if (keywords.includes(q)) return 400;
+
+  return 0;
+}
+
+export function CommandPalette({ items = [] }: { items?: NavIndexItem[] }) {
   const router = useRouter();
   const dialogRef = useRef<HTMLDialogElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -123,18 +150,19 @@ export function CommandPalette() {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const copyTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Filtered items based on search query
+  const allItems = useMemo(() => buildItemsFromNavIndex(items), [items]);
+
+  // Filtered and ranked items
   const filteredItems = useMemo(() => {
     const q = query.trim().toLowerCase();
-    if (!q) return STATIC_ITEMS;
-    return STATIC_ITEMS.filter((item) => {
-      return (
-        item.title.toLowerCase().includes(q) ||
-        (item.subtitle && item.subtitle.toLowerCase().includes(q)) ||
-        item.keywords.toLowerCase().includes(q)
-      );
-    });
-  }, [query]);
+    if (!q) return allItems;
+
+    return allItems
+      .map((item, index) => ({ item, index, score: scorePaletteItem(item, q) }))
+      .filter(({ score }) => score > 0)
+      .sort((a, b) => b.score - a.score || a.index - b.index)
+      .map(({ item }) => item);
+  }, [allItems, query]);
 
   const safeIndex =
     filteredItems.length > 0
@@ -162,17 +190,27 @@ export function CommandPalette() {
     if (dialog && dialog.open) {
       dialog.close();
     }
+  }, []);
+
+  // Native dialog onClose callback restores focus and resets state
+  const handleDialogClose = useCallback(() => {
     setIsOpen(false);
     setQuery("");
-    triggerRef.current?.focus();
+    if (
+      triggerRef.current &&
+      typeof triggerRef.current.focus === "function" &&
+      triggerRef.current.isConnected
+    ) {
+      triggerRef.current.focus();
+    }
   }, []);
 
   // Handle item selection
   const handleSelectItem = useCallback(
     async (item: PaletteItem) => {
       if (item.url) {
-        router.push(item.url);
         closeModal();
+        router.push(item.url);
       } else if (item.action === "email") {
         try {
           await navigator.clipboard.writeText(site.email);
@@ -185,8 +223,8 @@ export function CommandPalette() {
           window.location.href = `mailto:${site.email}`;
         }
       } else if (item.action === "linkedin") {
-        window.open(site.linkedin, "_blank", "noopener,noreferrer");
         closeModal();
+        window.open(site.linkedin, "_blank", "noopener,noreferrer");
       }
     },
     [router, closeModal]
@@ -206,8 +244,14 @@ export function CommandPalette() {
         return;
       }
 
-      // / key (ignored in inputs, textareas, selects, or contentEditable)
-      if (e.key === "/" && !isOpen) {
+      // / key (ignored in inputs, textareas, selects, or contentEditable; verify no modifier keys)
+      if (
+        e.key === "/" &&
+        !isOpen &&
+        !e.metaKey &&
+        !e.ctrlKey &&
+        !e.altKey
+      ) {
         const target = e.target as HTMLElement | null;
         if (
           target &&
@@ -277,13 +321,12 @@ export function CommandPalette() {
   return (
     <dialog
       ref={dialogRef}
-      onClose={() => setIsOpen(false)}
+      onClose={handleDialogClose}
       onCancel={(e) => {
         e.preventDefault();
         closeModal();
       }}
       onClick={(e) => {
-        // Close on backdrop click
         if (e.target === dialogRef.current) {
           closeModal();
         }
@@ -311,6 +354,7 @@ export function CommandPalette() {
             ref={inputRef}
             type="text"
             role="combobox"
+            aria-haspopup="listbox"
             aria-expanded={isOpen}
             aria-autocomplete="list"
             aria-controls="command-palette-list"
@@ -352,19 +396,23 @@ export function CommandPalette() {
 
         {/* Listbox */}
         <div className="overflow-y-auto p-2 flex-1 scrollbar-thin">
-          {filteredItems.length === 0 ? (
-            <div className="py-12 text-center text-sm text-muted">
-              No results found
-            </div>
-          ) : (
-            <ul
-              ref={listRef}
-              id="command-palette-list"
-              role="listbox"
-              aria-label="Search suggestions"
-              className="list-none p-0 space-y-1"
-            >
-              {filteredItems.map((item, index) => {
+          <ul
+            ref={listRef}
+            id="command-palette-list"
+            role="listbox"
+            aria-label="Search suggestions"
+            className="list-none p-0 space-y-1"
+          >
+            {filteredItems.length === 0 ? (
+              <li
+                role="option"
+                aria-selected={false}
+                className="py-12 text-center text-sm text-muted cursor-default"
+              >
+                No results found
+              </li>
+            ) : (
+              filteredItems.map((item, index) => {
                 const isSelected = index === safeIndex;
                 const isEmailAction = item.id === "action-email";
 
@@ -400,59 +448,47 @@ export function CommandPalette() {
                         </span>
                       )}
                     </div>
-                    {isEmailAction ? (
-                      <span className="text-xs text-muted shrink-0">
-                        {copiedEmail ? (
-                          <span className="text-accent font-medium">Copied</span>
-                        ) : (
-                          "Copy"
-                        )}
-                      </span>
-                    ) : (
-                      <span
-                        aria-hidden="true"
-                        className="text-muted text-xs shrink-0"
-                      >
-                        ↵
-                      </span>
-                    )}
+                    <span
+                      aria-hidden="true"
+                      className="text-xs text-muted font-mono shrink-0"
+                    >
+                      {item.category === "Actions" ? "↵" : "→"}
+                    </span>
                   </li>
                 );
-              })}
-            </ul>
-          )}
+              })
+            )}
+          </ul>
         </div>
 
         {/* Footer shortcuts info */}
-        <div className="px-4 py-3 border-t border-line/60 bg-surface text-xs text-muted flex items-center justify-between">
+        <div className="p-3 border-t border-line bg-bg/50 flex items-center justify-between text-xs text-muted">
           <div className="flex items-center gap-3">
             <span className="inline-flex items-center gap-1">
-              <kbd className="px-1.5 py-0.5 rounded bg-bg border border-line font-mono text-[10px]">
+              <kbd className="px-1.5 py-0.5 rounded bg-surface border border-line font-mono text-[10px] text-text">
                 ↑
               </kbd>
-              <kbd className="px-1.5 py-0.5 rounded bg-bg border border-line font-mono text-[10px]">
+              <kbd className="px-1.5 py-0.5 rounded bg-surface border border-line font-mono text-[10px] text-text">
                 ↓
               </kbd>
               <span>navigate</span>
             </span>
             <span className="inline-flex items-center gap-1">
-              <kbd className="px-1.5 py-0.5 rounded bg-bg border border-line font-mono text-[10px]">
+              <kbd className="px-1.5 py-0.5 rounded bg-surface border border-line font-mono text-[10px] text-text">
                 ↵
               </kbd>
               <span>select</span>
             </span>
+            <span className="inline-flex items-center gap-1">
+              <kbd className="px-1.5 py-0.5 rounded bg-surface border border-line font-mono text-[10px] text-text">
+                esc
+              </kbd>
+              <span>close</span>
+            </span>
           </div>
-          <span className="inline-flex items-center gap-1">
-            <kbd className="px-1.5 py-0.5 rounded bg-bg border border-line font-mono text-[10px]">
-              esc
-            </kbd>
-            <span>close</span>
-          </span>
+          <span className="text-[11px] font-mono">⌘K /</span>
         </div>
       </div>
-      <span className="sr-only" aria-live="polite">
-        {copiedEmail ? "Copied email address to clipboard" : ""}
-      </span>
     </dialog>
   );
 }

@@ -1,107 +1,89 @@
-"use client";
-
-import { useRef, useEffect } from "react";
 import Link from "next/link";
-import { site, type WorkRef } from "../../content/site";
-import { coverFor, getStudy, imageDims, studyHref } from "../lib/content";
-import { Reveal } from "./Reveal";
+import { CardSpotlight } from "./CardSpotlight";
 import { FadeImage } from "./FadeImage";
+import type { NavIndexItem } from "../lib/nav-index";
+import { getNavIndex } from "../lib/nav-index";
+import { Reveal } from "./Reveal";
+
+export interface WorkCardProps {
+  work: NavIndexItem | { slug: string; org?: string; blurb?: string };
+  isLead?: boolean;
+  compact?: boolean;
+}
 
 export function WorkCard({
   work,
   isLead = false,
-}: {
-  work: WorkRef;
-  isLead?: boolean;
-}) {
-  const study = getStudy(work.slug);
-  const coverInfo = coverFor(work.slug);
-  const cover = coverInfo?.img;
-  const tags = study?.tags?.slice(0, 3) ?? [];
-  const title = study?.title ?? work.slug;
-  const dims = cover ? imageDims(cover.src) : undefined;
-  const cardRef = useRef<HTMLElement | null>(null);
+  compact = false,
+}: WorkCardProps) {
+  const navItem =
+    "title" in work && "cover" in work
+      ? (work as NavIndexItem)
+      : getNavIndex().find((s) => s.slug === work.slug);
 
-  useEffect(() => {
-    const el = cardRef.current;
-    if (!el) return;
-
-    let rafId: number | null = null;
-
-    const handlePointerMove = (e: PointerEvent) => {
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
-
-      const rect = el.getBoundingClientRect();
-      const mx = e.clientX - rect.left;
-      const my = e.clientY - rect.top;
-
-      if (rafId !== null) cancelAnimationFrame(rafId);
-      rafId = requestAnimationFrame(() => {
-        el.style.setProperty("--mx", `${mx.toFixed(1)}px`);
-        el.style.setProperty("--my", `${my.toFixed(1)}px`);
-      });
-    };
-
-    el.addEventListener("pointermove", handlePointerMove, { passive: true });
-
-    return () => {
-      if (rafId !== null) cancelAnimationFrame(rafId);
-      el.removeEventListener("pointermove", handlePointerMove);
-    };
-  }, []);
+  const title = navItem?.title ?? work.slug;
+  const blurb = navItem?.blurb ?? ("blurb" in work ? work.blurb : "");
+  const org = navItem?.org ?? ("org" in work ? work.org : undefined);
+  const tags = navItem?.tags ?? [];
+  const cover = navItem?.cover;
+  const href = `/work/${work.slug}/`;
 
   return (
-    <article
-      ref={cardRef}
-      className={`work-card group relative flex flex-col h-full rounded-[20px] bg-surface border border-line p-5 sm:p-6 focus-within:outline focus-within:outline-2 focus-within:outline-accent focus-within:outline-offset-2 ${
+    <CardSpotlight
+      className={`work-card group relative flex flex-col h-full rounded-[20px] bg-surface border border-line ${
+        compact ? "p-4 sm:p-5" : "p-5 sm:p-6"
+      } focus-within:outline focus-within:outline-2 focus-within:outline-accent focus-within:outline-offset-2 ${
         isLead ? "xl:grid xl:grid-cols-12 xl:gap-8 xl:items-center" : ""
       }`}
     >
-      <div className="work-card-spotlight" aria-hidden="true" />
       <span
         aria-hidden="true"
-        className="work-card-arrow absolute top-5 right-5 sm:top-6 sm:right-6 text-accent text-lg font-bold z-10"
+        className={`work-card-arrow absolute ${
+          compact ? "top-4 right-4 sm:top-5 sm:right-5" : "top-5 right-5 sm:top-6 sm:right-6"
+        } text-accent text-lg font-bold z-10`}
       >
         ↗
       </span>
 
-      {cover && dims && (
+      {cover && cover.src && (
         <figure
-          className={`aspect-[16/10] w-full overflow-hidden rounded-[16px] bg-bg/50 border border-line/40 mb-5 ${
+          className={`${
+            compact ? "aspect-[16/9] mb-4" : "aspect-[16/10] mb-5"
+          } w-full overflow-hidden rounded-[16px] bg-bg/50 border border-line/40 ${
             isLead ? "xl:col-span-7 xl:mb-0" : ""
           }`}
         >
           <FadeImage
             src={cover.src}
             alt=""
-            width={dims.width}
-            height={dims.height}
+            width={cover.width}
+            height={cover.height}
             loading="lazy"
             className={`w-full h-full ${
-              coverInfo?.fit === "contain" ? "object-contain" : "object-cover"
+              cover.fit === "contain" ? "object-contain" : "object-cover"
             }`}
           />
         </figure>
       )}
+
       <div className={`flex flex-col flex-1 relative z-10 ${isLead ? "xl:col-span-5" : ""}`}>
-        {work.org && (
+        {org && (
           <span className="text-xs uppercase tracking-[0.14em] text-muted font-medium mb-2">
-            {work.org}
+            {org}
           </span>
         )}
         <h3 className="font-display text-h3 font-bold text-text group-hover:text-accent transition-colors">
           <Link
-            href={studyHref(work.slug)}
+            href={href}
             className="after:absolute after:inset-0 after:content-[''] focus:outline-none"
           >
             {title}
           </Link>
         </h3>
         <p className="mt-2.5 text-sm sm:text-base text-muted leading-relaxed flex-1 max-w-[42rem]">
-          {work.blurb}
+          {blurb}
         </p>
-        {tags.length > 0 && (
+        {!compact && tags.length > 0 && (
           <ul
             className="mt-5 pt-4 border-t border-line/40 flex flex-wrap gap-2 list-none p-0"
             aria-label="Tags"
@@ -117,11 +99,12 @@ export function WorkCard({
           </ul>
         )}
       </div>
-    </article>
+    </CardSpotlight>
   );
 }
 
 export function WorkSection() {
+  const items = getNavIndex();
   return (
     <Reveal
       as="section"
@@ -138,7 +121,7 @@ export function WorkSection() {
         </h2>
       </div>
       <ul className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 list-none p-0">
-        {site.work.map((work, index) => (
+        {items.map((work, index) => (
           <li
             key={work.slug}
             className={

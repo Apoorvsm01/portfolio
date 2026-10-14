@@ -21,7 +21,9 @@ export function Figure({
   return (
     <figure
       className={`my-8 first:mt-0 last:mb-0 ${
-        wide ? "w-full" : "max-w-[42rem]"
+        wide
+          ? "w-full lg:-ml-[calc((100%+3rem)/3)] lg:w-[calc((400%+3rem)/3)] lg:max-w-none"
+          : "w-full max-w-[42rem]"
       }`}
     >
       <div className="rounded-[16px] overflow-hidden border border-line bg-surface">

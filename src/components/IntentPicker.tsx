@@ -3,10 +3,13 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { site } from "../../content/site";
-import { getStudy, studyHref } from "../lib/content";
 import { Reveal } from "./Reveal";
 
-export function IntentPicker() {
+export function IntentPicker({
+  slugTitleMap = {},
+}: {
+  slugTitleMap?: Record<string, string>;
+}) {
   const [selectedId, setSelectedId] = useState(site.intents[0]?.id ?? "");
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const [highlight, setHighlight] = useState<{
@@ -66,7 +69,7 @@ export function IntentPicker() {
   };
 
   return (
-    <Reveal as="section" aria-labelledby="intent-picker-heading" className="py-24 md:py-32 border-b border-line">
+    <Reveal as="section" aria-labelledby="intent-picker-heading" className="py-16 md:py-24 border-b border-line">
       <h2 id="intent-picker-heading" className="text-xs uppercase tracking-[0.14em] text-muted font-medium mb-5">
         What brings you here?
       </h2>
@@ -79,12 +82,11 @@ export function IntentPicker() {
         {highlight.ready && (
           <span
             aria-hidden="true"
-            className="absolute rounded-full bg-text pointer-events-none transition-all"
+            className="absolute top-0 left-0 w-[100px] h-[44px] rounded-full bg-text pointer-events-none"
             style={{
-              transform: `translate3d(${highlight.left}px, ${highlight.top}px, 0)`,
-              width: `${highlight.width}px`,
-              height: `${highlight.height}px`,
-              transitionProperty: "transform, width, height",
+              transform: `translate3d(${highlight.left}px, ${highlight.top}px, 0) scale(${highlight.width / 100}, ${highlight.height / 44})`,
+              transformOrigin: "0 0",
+              transitionProperty: "transform",
               transitionDuration: "var(--dur-2)",
               transitionTimingFunction: "var(--ease-out)",
             }}
@@ -139,12 +141,11 @@ export function IntentPicker() {
             {intent.links && intent.links.length > 0 && (
               <ul className="mt-6 flex flex-wrap gap-3 list-none p-0" aria-label="Recommended studies">
                 {intent.links.map((slug) => {
-                  const study = getStudy(slug);
-                  const title = study?.title ?? slug;
+                  const title = slugTitleMap[slug] ?? slug;
                   return (
                     <li key={slug}>
                       <Link
-                        href={studyHref(slug)}
+                        href={`/work/${slug}/`}
                         className="group min-h-[44px] inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full text-xs sm:text-sm bg-surface border border-line text-text hover:border-accent hover:text-accent transition-colors"
                       >
                         <span>{title}</span>

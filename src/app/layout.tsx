@@ -5,6 +5,7 @@ import { Nav } from "../components/Nav";
 import { Footer } from "../components/Footer";
 import { CommandPalette } from "../components/CommandPalette";
 import { BackToTop } from "../components/BackToTop";
+import { getNavIndex } from "../lib/nav-index";
 import "./globals.css";
 
 const fontDisplay = Bricolage_Grotesque({
@@ -97,7 +98,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <div className="flex-1 flex flex-col">{children}</div>
         <Footer />
         <BackToTop />
-        <CommandPalette />
+        <CommandPalette items={getNavIndex()} />
       </body>
     </html>
   );

@@ -88,13 +88,13 @@ function StatTile({
   }
 
   return (
-    <div className="p-5 sm:p-6 rounded-[20px] bg-surface border border-line flex flex-col justify-start">
-      <dd className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-text tracking-tight mb-2">
-        {displayValue}
-      </dd>
-      <dt className="text-xs uppercase tracking-[0.14em] text-muted font-medium">
+    <div className="p-5 sm:p-6 rounded-[20px] bg-surface border border-line flex flex-col-reverse justify-start">
+      <dt className="text-xs uppercase tracking-[0.14em] text-muted font-medium mt-2">
         {item.label}
       </dt>
+      <dd className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-text tracking-tight">
+        {displayValue}
+      </dd>
     </div>
   );
 }

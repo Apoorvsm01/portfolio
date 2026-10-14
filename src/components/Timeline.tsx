@@ -31,7 +31,7 @@ export function Timeline() {
         </h2>
       </div>
 
-      <ol className="relative pl-7 sm:pl-9 divide-y divide-line/60 list-none p-0">
+      <div className="relative">
         {/* Static vertical track line */}
         <div
           className="absolute left-[11px] sm:left-[15px] top-3 bottom-3 w-[2px] bg-line pointer-events-none"
@@ -43,35 +43,37 @@ export function Timeline() {
           aria-hidden="true"
         />
 
-        {site.timeline.map((item) => (
-          <li
-            key={`${item.years}-${item.role}`}
-            className="relative py-6 first:pt-0 last:pb-0 grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-8 items-baseline"
-          >
-            {/* Scroll-driven dot indicator */}
-            <span
-              className="timeline-dot absolute left-[7px] sm:left-[11px] top-2 sm:top-1.5 w-2.5 h-2.5 rounded-full border-2 border-accent pointer-events-none"
-              aria-hidden="true"
-            />
-            <div className="md:col-span-4 text-sm font-mono text-muted">
-              {renderYears(item.years)}
-            </div>
-            <div className="md:col-span-8">
-              <div className="text-base sm:text-lg font-display font-semibold text-text">
-                {item.role}
-                {item.org && (
-                  <span className="font-normal text-muted"> · {item.org}</span>
+        <ol className="relative pl-7 sm:pl-9 divide-y divide-line/60 list-none p-0 m-0">
+          {site.timeline.map((item) => (
+            <li
+              key={`${item.years}-${item.role}`}
+              className="relative py-6 first:pt-0 last:pb-0 grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-8 items-baseline"
+            >
+              {/* Scroll-driven dot indicator */}
+              <span
+                className="timeline-dot absolute left-[7px] sm:left-[11px] top-2 sm:top-1.5 w-2.5 h-2.5 rounded-full border-2 border-accent pointer-events-none"
+                aria-hidden="true"
+              />
+              <div className="md:col-span-4 text-sm font-mono text-muted">
+                {renderYears(item.years)}
+              </div>
+              <div className="md:col-span-8">
+                <div className="text-base sm:text-lg font-display font-semibold text-text">
+                  {item.role}
+                  {item.org && (
+                    <span className="font-normal text-muted"> · {item.org}</span>
+                  )}
+                </div>
+                {item.note && (
+                  <p className="mt-1.5 text-sm sm:text-base text-muted leading-relaxed max-w-[42rem]">
+                    {item.note}
+                  </p>
                 )}
               </div>
-              {item.note && (
-                <p className="mt-1.5 text-sm sm:text-base text-muted leading-relaxed max-w-[42rem]">
-                  {item.note}
-                </p>
-              )}
-            </div>
-          </li>
-        ))}
-      </ol>
+            </li>
+          ))}
+        </ol>
+      </div>
     </Reveal>
   );
 }

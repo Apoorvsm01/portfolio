@@ -9,9 +9,9 @@ export function Hero() {
   return (
     <section
       aria-labelledby="hero-headline"
-      className="border-b border-line min-h-[calc(100svh-var(--nav-h))] py-12 md:py-16 lg:py-0 flex flex-col justify-center"
+      className="border-b border-line lg:min-h-[calc(100svh-var(--nav-h))] py-12 md:py-16 lg:py-0 flex flex-col justify-center"
     >
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-x-8 md:gap-y-10 lg:gap-x-12 items-center">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-x-8 md:gap-y-10 lg:gap-x-12 lg:items-start">
         {/* Full-width headline across all 12 columns */}
         <div className="md:col-span-12">
           <h1
@@ -39,15 +39,15 @@ export function Hero() {
           </h1>
         </div>
 
-        {/* Intro paragraph: columns 1–7 at md, columns 1–6 at lg; aligned to bottom of portrait (self-end) at lg+ */}
-        <div className="md:col-span-7 lg:col-span-6 lg:self-end">
+        {/* Intro paragraph: columns 1–7 at md, columns 1–6 at lg; self-start directly under headline */}
+        <div className="md:col-span-7 lg:col-span-6 lg:self-start">
           <p className="hero-intro max-w-[42rem] text-base sm:text-lg md:text-xl text-muted leading-relaxed">
             {site.hero.intro}
           </p>
         </div>
 
-        {/* Portrait: below md left-aligned (max-w 22rem), 5-col on md, columns 8–12 on lg (max-height 70svh) */}
-        <div className="md:col-span-5 lg:col-span-5 lg:col-start-8 flex justify-start md:justify-end">
+        {/* Portrait: below md left-aligned (max-w 22rem), 5-col on md, columns 8–12 on lg (max-height 62svh), self-start */}
+        <div className="md:col-span-5 lg:col-span-5 lg:col-start-8 flex justify-start md:justify-end lg:self-start">
           <HeroPortrait
             src={site.hero.image.src}
             alt={site.hero.image.alt}

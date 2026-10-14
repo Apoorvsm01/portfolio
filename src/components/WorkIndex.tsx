@@ -1,30 +1,30 @@
 "use client";
 
-import { useState, useRef, useEffect, useLayoutEffect, useMemo } from "react";
-import { site, type WorkRef } from "../../content/site";
+import { useState, useRef, useLayoutEffect, useMemo } from "react";
 import { WorkCard } from "./WorkCard";
+import type { NavIndexItem } from "../lib/nav-index";
 
 const DOMAINS = ["All", "Automotive", "Spatial", "Health"] as const;
 type DomainFilter = (typeof DOMAINS)[number];
 
-export function WorkIndex() {
-  // Construct the 9 projects with woven first using site.featuredDomain
-  const allProjects: WorkRef[] = useMemo(() => {
-    const featuredAsWork: WorkRef = {
-      slug: site.featured.slug,
-      org: site.featured.org,
-      blurb: site.featured.summary,
-      domain: site.featuredDomain,
-    };
-    return [featuredAsWork, ...site.work];
-  }, []);
+interface ExitingCard {
+  item: NavIndexItem;
+  top: number;
+  left: number;
+  width: number;
+  height: number;
+}
 
+export function WorkIndex({ items = [] }: { items?: NavIndexItem[] }) {
   const [filter, setFilter] = useState<DomainFilter>("All");
+  const [exitingItems, setExitingItems] = useState<ExitingCard[]>([]);
+  const containerRef = useRef<HTMLUListElement | null>(null);
   const cardRefs = useRef<Map<string, HTMLElement>>(new Map());
+  const exitingRefs = useRef<Map<string, HTMLElement>>(new Map());
   const prevRects = useRef<Map<string, DOMRect>>(new Map());
 
-  // Respect initial URL hash on mount and listen to hashchange
-  useEffect(() => {
+  // Initialize filter state synchronously using useLayoutEffect before paint
+  useLayoutEffect(() => {
     const syncFromHash = () => {
       const hash = window.location.hash.slice(1).toLowerCase();
       if (hash === "automotive") {
@@ -43,15 +43,19 @@ export function WorkIndex() {
     return () => window.removeEventListener("hashchange", syncFromHash);
   }, []);
 
-  // Filter projects
+  // Filtered projects
   const filteredProjects = useMemo(() => {
-    if (filter === "All") return allProjects;
-    return allProjects.filter((p) => p.domain === filter);
-  }, [allProjects, filter]);
+    if (filter === "All") return items;
+    return items.filter((p) => p.domain === filter);
+  }, [items, filter]);
 
   // Handle filter selection and URL hash sync
   const handleFilterChange = (domain: DomainFilter) => {
     if (domain === filter) return;
+
+    const prefersReduced =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     // Record 'First' rects for FLIP
     cardRefs.current.forEach((el, slug) => {
@@ -59,6 +63,34 @@ export function WorkIndex() {
         prevRects.current.set(slug, el.getBoundingClientRect());
       }
     });
+
+    const nextProjects =
+      domain === "All" ? items : items.filter((p) => p.domain === domain);
+
+    if (!prefersReduced && containerRef.current) {
+      const containerRect = containerRef.current.getBoundingClientRect();
+      const exiting = filteredProjects.filter(
+        (curr) => !nextProjects.some((next) => next.slug === curr.slug)
+      );
+
+      const exitingCards: ExitingCard[] = exiting
+        .map((item) => {
+          const rect = prevRects.current.get(item.slug);
+          if (!rect) return null;
+          return {
+            item,
+            top: rect.top - containerRect.top,
+            left: rect.left - containerRect.left,
+            width: rect.width,
+            height: rect.height,
+          };
+        })
+        .filter((c): c is ExitingCard => c !== null);
+
+      setExitingItems(exitingCards);
+    } else {
+      setExitingItems([]);
+    }
 
     setFilter(domain);
 
@@ -72,13 +104,15 @@ export function WorkIndex() {
 
   // FLIP animation (First, Last, Invert, Play) on filter change
   useLayoutEffect(() => {
-    if (
+    const prefersReduced =
       typeof window !== "undefined" &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    ) {
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (prefersReduced) {
       return;
     }
 
+    // 1. Animate remaining/moving cards
     filteredProjects.forEach((p) => {
       const el = cardRefs.current.get(p.slug);
       const first = prevRects.current.get(p.slug);
@@ -96,15 +130,43 @@ export function WorkIndex() {
         // Play
         requestAnimationFrame(() => {
           el.style.transition =
-            "transform 300ms cubic-bezier(0.16, 1, 0.3, 1), opacity 300ms ease";
+            "transform 300ms cubic-bezier(0.16, 1, 0.3, 1)";
           el.style.transform = "none";
+
+          // Clean up inline styles on transitionend so hover styles and rect measurements are restored
+          const handleTransitionEnd = (e: TransitionEvent) => {
+            if (e.propertyName === "transform") {
+              el.style.transform = "";
+              el.style.transition = "";
+              el.removeEventListener("transitionend", handleTransitionEnd);
+            }
+          };
+          el.addEventListener("transitionend", handleTransitionEnd);
         });
       }
     });
 
+    // 2. Animate exiting cards (opacity & scale out before unmounting)
+    if (exitingItems.length > 0) {
+      requestAnimationFrame(() => {
+        exitingRefs.current.forEach((el) => {
+          el.style.transition =
+            "opacity 300ms ease, transform 300ms cubic-bezier(0.16, 1, 0.3, 1)";
+          el.style.opacity = "0";
+          el.style.transform = "scale(0.95)";
+        });
+      });
+
+      const timer = setTimeout(() => {
+        setExitingItems([]);
+      }, 300);
+
+      return () => clearTimeout(timer);
+    }
+
     // Clear saved rects
     prevRects.current.clear();
-  }, [filteredProjects]);
+  }, [filteredProjects, exitingItems.length]);
 
   return (
     <main id="main" className="container-page flex-1 py-16 sm:py-24">
@@ -146,13 +208,17 @@ export function WorkIndex() {
             aria-live="polite"
             className="text-xs sm:text-sm text-muted font-medium"
           >
-            Showing {filteredProjects.length} {filteredProjects.length === 1 ? "project" : "projects"}
+            Showing {filteredProjects.length}{" "}
+            {filteredProjects.length === 1 ? "project" : "projects"}
           </div>
         </div>
       </header>
 
       {/* Grid of WorkCards */}
-      <ul className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 list-none p-0">
+      <ul
+        ref={containerRef}
+        className="relative grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 list-none p-0"
+      >
         {filteredProjects.map((work, index) => (
           <li
             key={work.slug}
@@ -170,6 +236,36 @@ export function WorkIndex() {
             }
           >
             <WorkCard work={work} isLead={index === 0 && filter === "All"} />
+          </li>
+        ))}
+
+        {/* Retained exiting cards animating out before unmounting */}
+        {exitingItems.map(({ item, top, left, width, height }) => (
+          <li
+            key={`exit-${item.slug}`}
+            ref={(el) => {
+              if (el) {
+                exitingRefs.current.set(item.slug, el);
+              } else {
+                exitingRefs.current.delete(item.slug);
+              }
+            }}
+            aria-hidden="true"
+            style={{
+              position: "absolute",
+              top: `${top}px`,
+              left: `${left}px`,
+              width: `${width}px`,
+              height: `${height}px`,
+              pointerEvents: "none",
+              zIndex: 0,
+              opacity: 1,
+              transform: "scale(1)",
+              transformOrigin: "center center",
+            }}
+            className="list-none"
+          >
+            <WorkCard work={item} isLead={false} />
           </li>
         ))}
       </ul>

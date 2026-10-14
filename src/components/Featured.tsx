@@ -11,7 +11,7 @@ export function Featured() {
   const logoDims = imageDims("/me/woven-logo.png");
 
   return (
-    <Reveal as="section" aria-labelledby="featured-heading" className="py-24 md:py-32 border-b border-line">
+    <Reveal as="section" aria-labelledby="featured-heading" className="py-16 md:py-24 border-b border-line">
       {/* Label and Logo */}
       <div className="flex items-center gap-3">
         <span className="text-xs uppercase tracking-[0.14em] text-muted font-medium">
@@ -37,7 +37,7 @@ export function Featured() {
         </p>
       </div>
 
-      {/* Large Featured Image with subtle scroll-driven parallax */}
+      {/* Large Featured Image with aspect 21/9 at lg+ */}
       {largeImage && (
         <figure className="mt-8 overflow-hidden rounded-[16px] border border-line/60 bg-surface">
           <Link
@@ -50,7 +50,7 @@ export function Featured() {
               width={imageDims(largeImage.src).width}
               height={imageDims(largeImage.src).height}
               loading="lazy"
-              className="featured-parallax-img w-full aspect-[16/10] object-cover group-hover:scale-[1.01] transition-transform duration-500"
+              className="featured-parallax-img w-full aspect-[16/10] lg:aspect-[21/9] object-cover group-hover:scale-[1.01] transition-transform duration-500"
             />
           </Link>
         </figure>
@@ -70,10 +70,10 @@ export function Featured() {
         </Link>
       </div>
 
-      {/* Row of 3 mini cards for related slugs */}
+      {/* Row of 3 mini cards for related slugs in one compact row */}
       {site.featured.related && site.featured.related.length > 0 && (
-        <div className="mt-12 sm:mt-16">
-          <ul className="grid grid-cols-1 md:grid-cols-3 gap-6 list-none p-0" aria-label="Related case studies">
+        <div className="mt-8 sm:mt-10">
+          <ul className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 list-none p-0" aria-label="Related case studies">
             {site.featured.related.map((slug) => {
               const study = getStudy(slug);
               const workItem = site.work.find((w) => w.slug === slug);
@@ -87,10 +87,10 @@ export function Featured() {
                 <li key={slug}>
                   <Link
                     href={studyHref(slug)}
-                    className="group flex flex-col h-full rounded-[20px] bg-surface border border-line p-5 hover:border-muted/60 transition-colors"
+                    className="group flex flex-col h-full rounded-[16px] bg-surface border border-line p-4 sm:p-5 hover:border-muted/60 transition-colors"
                   >
                     {image && cardDims && (
-                      <figure className="aspect-[16/10] w-full overflow-hidden rounded-[16px] bg-bg/50 border border-line/40 mb-4">
+                      <figure className="aspect-[16/9] w-full overflow-hidden rounded-[12px] bg-bg/50 border border-line/40 mb-3">
                         <FadeImage
                           src={image.src}
                           alt=""
@@ -101,15 +101,15 @@ export function Featured() {
                         />
                       </figure>
                     )}
-                    <h3 className="font-display font-semibold text-h3 text-text group-hover:text-accent transition-colors">
+                    <h3 className="font-display font-semibold text-base sm:text-lg text-text group-hover:text-accent transition-colors">
                       {title}
                     </h3>
                     {blurb && (
-                      <p className="mt-2 text-xs sm:text-sm text-muted leading-relaxed flex-1">
+                      <p className="mt-1.5 text-xs sm:text-sm text-muted leading-relaxed line-clamp-2 flex-1">
                         {blurb}
                       </p>
                     )}
-                    <div className="mt-4 pt-3 border-t border-line/40 flex items-center text-xs text-muted group-hover:text-accent transition-colors">
+                    <div className="mt-3 pt-2.5 border-t border-line/40 flex items-center text-xs text-muted group-hover:text-accent transition-colors">
                       <span>View study</span>
                       <span aria-hidden="true" className="arrow-nudge-right ml-1">
                         →

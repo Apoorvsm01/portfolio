@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { site } from "../../../content/site";
 import { WorkIndex } from "../../components/WorkIndex";
+import { getNavIndex } from "../../lib/nav-index";
 
 export const metadata: Metadata = {
   title: "Work",
@@ -19,5 +20,6 @@ export const metadata: Metadata = {
 };
 
 export default function WorkPage() {
-  return <WorkIndex />;
+  const items = getNavIndex();
+  return <WorkIndex items={items} />;
 }

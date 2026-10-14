@@ -60,7 +60,7 @@ export function HeroPortrait({
   return (
     <div
       ref={containerRef}
-      className="portrait-container hero-portrait-reveal w-full max-w-[22rem] md:max-w-none aspect-[4/5] max-h-[70svh] rounded-[16px] overflow-hidden border border-line/60"
+      className="portrait-container hero-portrait-reveal w-full max-w-[22rem] md:max-w-none aspect-[4/5] max-h-[62svh] rounded-[16px] overflow-hidden border border-line/60"
     >
       <FadeImage
         src={src}

@@ -131,7 +131,6 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
       ref={buttonRef}
       type="button"
       onClick={toggleTheme}
-      aria-pressed={mounted ? isDark : false}
       aria-label={ariaLabel}
       className={`min-w-[44px] min-h-[44px] inline-flex items-center justify-center p-2 rounded-lg text-muted hover:text-text hover:bg-surface border border-line/60 transition-colors cursor-pointer ${className}`}
     >

@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect, useSyncExternalStore } from "react";
 import type { Widget } from "../../../content/types";
-import { imageDims } from "../../lib/content";
+import { imageDims } from "../../lib/image-dims";
 import { FadeImage } from "../FadeImage";
 
 type Language = "swiftui" | "flutter" | "tailwind";
@@ -100,9 +100,9 @@ function SingleWidget({
       {/* Left Column: Title, Subtitle, Preview Stage */}
       <div className="flex flex-col justify-between">
         <div>
-          <h4 className="font-display text-lg sm:text-xl font-bold text-text">
+          <h3 className="font-display text-lg sm:text-xl font-bold text-text">
             {widget.title}
-          </h4>
+          </h3>
           <p className="text-xs sm:text-sm text-muted mt-1 leading-relaxed">
             {widget.subtitle}
           </p>
@@ -203,17 +203,27 @@ function SingleWidget({
           </div>
         </div>
 
-        <div
-          role="tabpanel"
-          id={`panel-${widgetId}-${selectedLang}`}
-          aria-labelledby={`tab-${widgetId}-${selectedLang}`}
-          tabIndex={0}
-          className="relative flex-1 rounded-xl border border-line/60 bg-bg/90 overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-        >
-          <pre className="overflow-x-auto whitespace-pre font-mono text-xs sm:text-sm p-4 sm:p-5 text-text/90 leading-relaxed h-full">
-            <code>{codeText}</code>
-          </pre>
-        </div>
+        {TABS.map((tab) => {
+          const isSelected = selectedLang === tab.id;
+          const code = widget.code[tab.id] || "";
+          return (
+            <div
+              key={tab.id}
+              role="tabpanel"
+              id={`panel-${widgetId}-${tab.id}`}
+              aria-labelledby={`tab-${widgetId}-${tab.id}`}
+              hidden={!isSelected}
+              tabIndex={isSelected ? 0 : -1}
+              className={`relative flex-1 rounded-xl border border-line/60 bg-bg/90 overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
+                isSelected ? "" : "hidden"
+              }`}
+            >
+              <pre className="overflow-x-auto whitespace-pre font-mono text-xs sm:text-sm p-4 sm:p-5 text-text/90 leading-relaxed h-full">
+                <code>{code}</code>
+              </pre>
+            </div>
+          );
+        })}
       </div>
     </article>
   );
