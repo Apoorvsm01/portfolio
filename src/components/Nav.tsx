@@ -5,14 +5,17 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { site } from "../../content/site";
 import { ThemeToggle } from "./ThemeToggle";
+import { openCommandPalette } from "./CommandPalette";
 
 export function Nav() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const toggleButtonRef = useRef<HTMLButtonElement | null>(null);
+  const sheetRef = useRef<HTMLElement | null>(null);
   const pathname = usePathname();
 
+  // Scroll detection
   useEffect(() => {
     let lastY = window.scrollY;
     let rafId: number | null = null;
@@ -42,23 +45,73 @@ export function Nav() {
     };
   }, []);
 
+  // Close mobile sheet on route change
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
+    setIsOpen(false);
+  }
+
+  // Focus trap and Escape listener for mobile sheet
   useEffect(() => {
-    if (!isOpen) return;
+    if (!isOpen) {
+      document.body.style.overflow = "";
+      return;
+    }
+
+    document.body.style.overflow = "hidden";
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setIsOpen(false);
         toggleButtonRef.current?.focus();
+        return;
+      }
+
+      if (e.key === "Tab") {
+        const sheet = sheetRef.current;
+        if (!sheet) return;
+
+        const focusables = sheet.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), input:not([disabled]), [tabindex="0"]'
+        );
+        if (focusables.length === 0) return;
+
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
       }
     };
 
+    // Auto-focus the first element in the sheet
+    const timer = setTimeout(() => {
+      const sheet = sheetRef.current;
+      if (sheet) {
+        const firstFocusable = sheet.querySelector<HTMLElement>(
+          'a[href], button:not([disabled])'
+        );
+        firstFocusable?.focus();
+      }
+    }, 50);
+
     window.addEventListener("keydown", handleKeyDown);
+
     return () => {
+      clearTimeout(timer);
+      document.body.style.overflow = "";
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [isOpen]);
 
   const isHome = pathname === "/";
+  const isWork = pathname === "/work" || pathname.startsWith("/work/");
   const isAbout = pathname === "/about" || pathname === "/about/";
 
   return (
@@ -86,14 +139,23 @@ export function Nav() {
         {/* Desktop Navigation */}
         <nav
           aria-label="Primary"
-          className="hidden md:flex items-center gap-2 text-sm text-muted"
+          className="hidden md:flex items-center gap-1.5 text-sm text-muted"
         >
           <Link
-            href="/#work"
-            className="min-h-[44px] px-3 inline-flex items-center hover:text-text transition-colors link-underline"
+            href="/work/"
+            aria-current={isWork ? "page" : undefined}
+            className="min-h-[44px] px-3 inline-flex items-center gap-1.5 hover:text-text transition-colors data-[current=true]:text-text link-underline"
+            data-current={isWork ? "true" : undefined}
           >
-            Work
+            <span>Work</span>
+            {isWork && (
+              <span
+                className="w-1.5 h-1.5 rounded-full bg-accent inline-block shrink-0"
+                aria-hidden="true"
+              />
+            )}
           </Link>
+
           <Link
             href="/about/"
             aria-current={isAbout ? "page" : undefined}
@@ -108,12 +170,14 @@ export function Nav() {
               />
             )}
           </Link>
+
           <a
             href={`mailto:${site.email}`}
             className="min-h-[44px] px-3 inline-flex items-center hover:text-text transition-colors link-underline"
           >
             Contact
           </a>
+
           <a
             href={site.linkedin}
             target="_blank"
@@ -121,23 +185,73 @@ export function Nav() {
             className="group min-h-[44px] px-3 inline-flex items-center gap-1 hover:text-text transition-colors link-underline"
           >
             <span>LinkedIn</span>
-            <span aria-hidden="true" className="arrow-nudge-diag">↗</span>
+            <span aria-hidden="true" className="arrow-nudge-diag">
+              ↗
+            </span>
             <span className="sr-only"> (opens in new tab)</span>
           </a>
-          <div className="ml-2">
+
+          {/* ⌘K command palette trigger */}
+          <button
+            type="button"
+            onClick={openCommandPalette}
+            aria-label="Open command palette"
+            className="min-h-[44px] px-2.5 py-1.5 rounded-lg border border-line/60 bg-surface/50 text-muted hover:text-text hover:border-line transition-colors inline-flex items-center gap-2 text-xs ml-1 cursor-pointer"
+          >
+            <svg
+              className="w-3.5 h-3.5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.3-4.3" />
+            </svg>
+            <kbd className="font-mono text-[10px] px-1 py-0.5 rounded bg-bg border border-line text-muted">
+              ⌘K
+            </kbd>
+          </button>
+
+          <div className="ml-1">
             <ThemeToggle />
           </div>
         </nav>
 
         {/* Mobile controls */}
         <div className="flex md:hidden items-center gap-2">
+          <button
+            type="button"
+            onClick={openCommandPalette}
+            aria-label="Open command palette"
+            className="min-w-[44px] min-h-[44px] inline-flex items-center justify-center p-2.5 rounded-lg text-muted hover:text-text hover:bg-surface border border-line/60 transition-colors cursor-pointer"
+          >
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.3-4.3" />
+            </svg>
+          </button>
+
           <ThemeToggle />
+
           <button
             ref={toggleButtonRef}
             type="button"
             onClick={() => setIsOpen((prev) => !prev)}
             aria-expanded={isOpen}
-            aria-controls="mobile-nav"
+            aria-controls="mobile-nav-sheet"
             aria-label="Toggle navigation menu"
             className="min-w-[44px] min-h-[44px] inline-flex items-center justify-center p-2.5 rounded-lg text-muted hover:text-text hover:bg-surface border border-line/60 transition-colors cursor-pointer"
           >
@@ -161,54 +275,100 @@ export function Nav() {
         </div>
       </div>
 
-      {/* Mobile disclosure menu */}
-      <nav
-        id="mobile-nav"
-        aria-label="Mobile Navigation"
-        hidden={!isOpen}
-        className={`${!isOpen ? "hidden" : "flex"} md:hidden border-t border-line bg-bg/95 backdrop-blur-md px-4 py-4 flex-col gap-2 text-sm text-muted`}
-      >
-        <Link
-          href="/#work"
-          onClick={() => setIsOpen(false)}
-          className="min-h-[44px] px-3 py-2 flex items-center hover:text-text transition-colors link-underline"
+      {/* Mobile full-height sheet menu with focus trap */}
+      {isOpen && (
+        <nav
+          ref={sheetRef}
+          id="mobile-nav-sheet"
+          aria-label="Mobile Navigation"
+          className="fixed inset-0 top-16 z-50 bg-bg/98 backdrop-blur-xl flex flex-col justify-between p-6 sm:p-8 border-t border-line overflow-y-auto md:hidden"
         >
-          Work
-        </Link>
-        <Link
-          href="/about/"
-          aria-current={isAbout ? "page" : undefined}
-          onClick={() => setIsOpen(false)}
-          className="min-h-[44px] px-3 py-2 flex items-center justify-between hover:text-text transition-colors data-[current=true]:text-text link-underline"
-          data-current={isAbout ? "true" : undefined}
-        >
-          <span>About</span>
-          {isAbout && (
-            <span
-              className="w-1.5 h-1.5 rounded-full bg-accent inline-block shrink-0"
-              aria-hidden="true"
-            />
-          )}
-        </Link>
-        <a
-          href={`mailto:${site.email}`}
-          onClick={() => setIsOpen(false)}
-          className="min-h-[44px] px-3 py-2 flex items-center hover:text-text transition-colors link-underline"
-        >
-          Contact
-        </a>
-        <a
-          href={site.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() => setIsOpen(false)}
-          className="group min-h-[44px] px-3 py-2 flex items-center gap-1 hover:text-text transition-colors link-underline"
-        >
-          <span>LinkedIn</span>
-          <span aria-hidden="true" className="arrow-nudge-diag">↗</span>
-          <span className="sr-only"> (opens in new tab)</span>
-        </a>
-      </nav>
+          <div className="flex flex-col gap-6 pt-4">
+            <Link
+              href="/work/"
+              aria-current={isWork ? "page" : undefined}
+              onClick={() => setIsOpen(false)}
+              className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-text hover:text-accent flex items-center justify-between min-h-[44px]"
+            >
+              <span>Work</span>
+              {isWork && (
+                <span
+                  className="w-2 h-2 rounded-full bg-accent inline-block"
+                  aria-hidden="true"
+                />
+              )}
+            </Link>
+
+            <Link
+              href="/about/"
+              aria-current={isAbout ? "page" : undefined}
+              onClick={() => setIsOpen(false)}
+              className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-text hover:text-accent flex items-center justify-between min-h-[44px]"
+            >
+              <span>About</span>
+              {isAbout && (
+                <span
+                  className="w-2 h-2 rounded-full bg-accent inline-block"
+                  aria-hidden="true"
+                />
+              )}
+            </Link>
+
+            <a
+              href={`mailto:${site.email}`}
+              onClick={() => setIsOpen(false)}
+              className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-text hover:text-accent min-h-[44px] flex items-center"
+            >
+              Contact
+            </a>
+
+            <a
+              href={site.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsOpen(false)}
+              className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-text hover:text-accent flex items-center gap-2 min-h-[44px]"
+            >
+              <span>LinkedIn</span>
+              <span aria-hidden="true" className="arrow-nudge-diag text-lg">
+                ↗
+              </span>
+              <span className="sr-only"> (opens in new tab)</span>
+            </a>
+          </div>
+
+          <div className="pt-8 border-t border-line flex flex-col gap-4">
+            <button
+              type="button"
+              onClick={() => {
+                setIsOpen(false);
+                openCommandPalette();
+              }}
+              className="w-full min-h-[44px] px-4 py-3 rounded-xl bg-surface border border-line text-sm text-muted hover:text-text flex items-center justify-between cursor-pointer"
+            >
+              <span className="inline-flex items-center gap-2">
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="11" cy="11" r="8" />
+                  <path d="m21 21-4.3-4.3" />
+                </svg>
+                <span>Search</span>
+              </span>
+              <kbd className="font-mono text-xs px-2 py-0.5 rounded bg-bg border border-line">
+                ⌘K
+              </kbd>
+            </button>
+          </div>
+        </nav>
+      )}
     </header>
   );
 }

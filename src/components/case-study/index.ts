@@ -5,3 +5,6 @@ export { HeroImages } from "./HeroImages";
 export { Toc } from "./Toc";
 export { SectionBlock, BlockRenderer } from "./SectionBlock";
 export { StudyNav } from "./StudyNav";
+export { Figure } from "./Figure";
+export { Metrics } from "./Metrics";
+export { Widgets } from "./Widgets";

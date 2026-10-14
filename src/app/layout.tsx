@@ -3,6 +3,8 @@ import { Bricolage_Grotesque, Mona_Sans, Newsreader } from "next/font/google";
 import { site } from "../../content/site";
 import { Nav } from "../components/Nav";
 import { Footer } from "../components/Footer";
+import { CommandPalette } from "../components/CommandPalette";
+import { BackToTop } from "../components/BackToTop";
 import "./globals.css";
 
 const fontDisplay = Bricolage_Grotesque({
@@ -94,6 +96,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Nav />
         <div className="flex-1 flex flex-col">{children}</div>
         <Footer />
+        <BackToTop />
+        <CommandPalette />
       </body>
     </html>
   );

@@ -10,21 +10,28 @@ export function Hero({ study }: { study: CaseStudy }) {
 
   return (
     <Reveal as="header" className="pt-12 sm:pt-16 pb-12 sm:pb-16 border-b border-line">
-      {/* Back link */}
-      <div>
-        <Link
-          href="/#work"
-          className="link-underline min-h-[44px] inline-flex items-center gap-1.5 text-sm font-medium text-muted hover:text-text transition-colors group mb-8"
-        >
-          <span
-            aria-hidden="true"
-            className="arrow-nudge-left"
+      {/* Breadcrumb */}
+      <nav aria-label="Breadcrumb" className="mb-8">
+        <ol className="flex items-center gap-2 text-sm text-muted list-none p-0">
+          <li>
+            <Link
+              href="/work/"
+              className="link-underline min-h-[44px] inline-flex items-center hover:text-text transition-colors"
+            >
+              Work
+            </Link>
+          </li>
+          <li aria-hidden="true" className="text-muted/60">
+            ›
+          </li>
+          <li
+            aria-current="page"
+            className="text-text font-medium truncate"
           >
-            ←
-          </span>
-          <span>All work</span>
-        </Link>
-      </div>
+            {study.title}
+          </li>
+        </ol>
+      </nav>
 
       {/* Tags as small pills */}
       {study.tags && study.tags.length > 0 && (

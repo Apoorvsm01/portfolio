@@ -1,10 +1,8 @@
 import { Hero } from "../components/Hero";
 import { IntentPicker } from "../components/IntentPicker";
 import { Featured } from "../components/Featured";
-import { WorkSection } from "../components/WorkCard";
-import { HowIWork } from "../components/HowIWork";
-import { Timeline } from "../components/Timeline";
-import { PlatformStrip } from "../components/PlatformStrip";
+import { SelectedWork } from "../components/SelectedWork";
+import { AboutTeaser } from "../components/AboutTeaser";
 
 export default function Home() {
   return (
@@ -12,10 +10,8 @@ export default function Home() {
       <Hero />
       <IntentPicker />
       <Featured />
-      <WorkSection />
-      <HowIWork />
-      <Timeline />
-      <PlatformStrip />
+      <SelectedWork />
+      <AboutTeaser />
     </main>
   );
 }

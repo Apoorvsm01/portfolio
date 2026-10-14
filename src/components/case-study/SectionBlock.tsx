@@ -5,6 +5,9 @@ import type { Block, Section } from "../../../content/types";
 import { imageDims } from "../../lib/content";
 import { Reveal } from "../Reveal";
 import { FadeImage } from "../FadeImage";
+import { Figure } from "./Figure";
+import { Metrics } from "./Metrics";
+import { Widgets } from "./Widgets";
 
 function renderListItem(item: string) {
   const match = item.match(/^([^:\n]+):\s*(.*)$/);
@@ -218,6 +221,22 @@ export function BlockRenderer({
         />
       );
     }
+
+    case "figure":
+      return (
+        <Figure
+          image={block.image}
+          caption={block.caption}
+          wide={block.wide}
+          studyTitle={studyTitle}
+        />
+      );
+
+    case "metrics":
+      return <Metrics items={block.items} />;
+
+    case "widgets":
+      return <Widgets items={block.items} />;
 
     default:
       return null;
