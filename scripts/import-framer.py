@@ -177,3 +177,6 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+    # Visual sections (design systems, stat tiles, HMI widgets) are rebuilt from Framer captures.
+    import runpy
+    runpy.run_path(str(Path(__file__).with_name("visual-blocks.py")), run_name="__main__")

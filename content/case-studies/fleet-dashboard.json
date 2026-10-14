@@ -67,68 +67,12 @@
           "text": "Every card on this dashboard reuses the same five colors and one severity taxonomy — validated once, reused everywhere, never reinvented per panel."
         },
         {
-          "type": "paragraph",
-          "text": "Severity"
-        },
-        {
-          "type": "paragraph",
-          "text": "SEV1 · Critical Takeover"
-        },
-        {
-          "type": "paragraph",
-          "text": "Damage Status"
-        },
-        {
-          "type": "paragraph",
-          "text": "Resolved"
-        },
-        {
-          "type": "paragraph",
-          "text": "Hotspot Rank"
-        },
-        {
-          "type": "paragraph",
-          "text": "#1"
-        },
-        {
-          "type": "paragraph",
-          "text": "ODD Coverage"
-        },
-        {
-          "type": "paragraph",
-          "text": "Ingestion"
-        },
-        {
-          "type": "paragraph",
-          "text": "Team Wins"
-        },
-        {
-          "type": "paragraph",
-          "text": "9 Resolved"
-        },
-        {
-          "type": "paragraph",
-          "text": "Status & Accent Colors"
-        },
-        {
-          "type": "paragraph",
-          "text": "Critical — #D03B3B"
-        },
-        {
-          "type": "paragraph",
-          "text": "Serious — #EC835A"
-        },
-        {
-          "type": "paragraph",
-          "text": "Warning — #FAB219"
-        },
-        {
-          "type": "paragraph",
-          "text": "Good — #0CA30C"
-        },
-        {
-          "type": "paragraph",
-          "text": "Accent — #3987E5"
+          "type": "figure",
+          "image": {
+            "src": "/work/fleet-dashboard/design-system.png",
+            "alt": "Fleet Dashboard design system: components and colors"
+          },
+          "wide": true
         }
       ]
     },
@@ -275,76 +219,12 @@
       "label": "Team Wins",
       "blocks": [
         {
-          "type": "heading",
-          "text": "Morale gets a number too"
-        },
-        {
           "type": "paragraph",
           "text": "Issues resolved, days since the last SEV1, safe miles logged, driver shoutouts — four counters that exist purely to celebrate the team, sitting right next to the safety data instead of buried in a separate tool.\nPositive framing, same underlying incident data."
         },
         {
-          "type": "heading",
-          "text": "9"
-        },
-        {
-          "type": "paragraph",
-          "text": "Issues Resolved"
-        },
-        {
-          "type": "heading",
-          "text": "6"
-        },
-        {
-          "type": "paragraph",
-          "text": "Days Since Last SEV1"
-        },
-        {
-          "type": "heading",
-          "text": "2,140 mi"
-        },
-        {
-          "type": "paragraph",
-          "text": "Safe Miles Logged"
-        },
-        {
-          "type": "heading",
-          "text": "4"
-        },
-        {
-          "type": "paragraph",
-          "text": "Driver Shoutouts"
-        },
-        {
-          "type": "heading",
-          "text": "-40%"
-        },
-        {
-          "type": "paragraph",
-          "text": "SEV1 vs Last Month"
-        },
-        {
-          "type": "heading",
-          "text": "500 mi"
-        },
-        {
-          "type": "paragraph",
-          "text": "AV-11 Clean Streak"
-        },
-        {
-          "type": "heading",
-          "text": "On Target"
-        },
-        {
-          "type": "paragraph",
-          "text": "Night ODD Coverage"
-        },
-        {
-          "type": "heading",
-          "text": "0"
-        },
-        {
-          "type": "paragraph",
-          "text": "SEV1 This Week"
+          "type": "metrics",
+          "items": []
         }
       ]
     },

@@ -10,7 +10,20 @@ export type Block =
   | { type: "images"; images: Img[] }
   | { type: "cards"; cards: Card[] }
   | { type: "video"; vimeoId: string }
-  | { type: "embed"; src: string };
+  | { type: "embed"; src: string }
+  // Visual blocks rebuilt from Framer captures (scripts/visual-blocks.py)
+  | { type: "figure"; image: Img; caption?: string; wide?: boolean }
+  | { type: "metrics"; items: Metric[] }
+  | { type: "widgets"; items: Widget[] };
+
+export type Metric = { value: string; label: string };
+
+export type Widget = {
+  title: string;
+  subtitle: string;
+  preview: Img;
+  code: { swiftui: string; flutter: string; tailwind: string };
+};
 
 export type Section = { label: string; blocks: Block[] };
 

@@ -135,68 +135,12 @@
           "text": "Every screen reuses the same ScoreBand/ConfidenceBand color-and-label system, so a ring, a badge, and a bar all mean the same thing at a glance."
         },
         {
-          "type": "paragraph",
-          "text": "Score Band"
-        },
-        {
-          "type": "paragraph",
-          "text": "83 - Driving Well"
-        },
-        {
-          "type": "paragraph",
-          "text": "Trend Badge"
-        },
-        {
-          "type": "paragraph",
-          "text": "+5"
-        },
-        {
-          "type": "paragraph",
-          "text": "Streak"
-        },
-        {
-          "type": "paragraph",
-          "text": "2-drive streak"
-        },
-        {
-          "type": "paragraph",
-          "text": "Skill Bar"
-        },
-        {
-          "type": "paragraph",
-          "text": "Confidence Band"
-        },
-        {
-          "type": "paragraph",
-          "text": "Road Ready"
-        },
-        {
-          "type": "paragraph",
-          "text": "For You Card"
-        },
-        {
-          "type": "paragraph",
-          "text": "Trending Up"
-        },
-        {
-          "type": "paragraph",
-          "text": "App Colors"
-        },
-        {
-          "type": "paragraph",
-          "text": "Great - #00E676"
-        },
-        {
-          "type": "paragraph",
-          "text": "Good - #FFC107"
-        },
-        {
-          "type": "paragraph",
-          "text": "Needs Work - #FF5252"
-        },
-        {
-          "type": "paragraph",
-          "text": "Accent - #00A3FF"
+          "type": "figure",
+          "image": {
+            "src": "/work/drive-coach-ios/design-system.png",
+            "alt": "Drive Coach iOS design system: components and colors"
+          },
+          "wide": true
         }
       ]
     },

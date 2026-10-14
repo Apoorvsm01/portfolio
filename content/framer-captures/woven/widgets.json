@@ -1,0 +1,190 @@
+{
+  "Parking Assist": {
+    "component": "l6XVZoPQn",
+    "variants": [
+      {
+        "name": "Parking Assist",
+        "texts": [
+          "Parking Assist",
+          "Concentric proximity rings under the top-down render",
+          "Click to cycle variants",
+          "SwiftUI",
+          "Flutter",
+          "Tailwind",
+          "ZStack {\n    ForEach(rings) { r in\n        Circle()\n            .stroke(r.color.opacity(0.35), lineWidth: 2)\n            .frame(width: r.radius * 2)\n    }\n    CarTopDownImage()\n}",
+          "for (final ring in rings) {\n  canvas.drawCircle(\n    center,\n    minDimension * ring.radiusFactor,\n    Paint()\n      ..color = ring.color.withValues(alpha: 0.35)\n      ..style = PaintingStyle.stroke\n      ..strokeWidth = 2,\n  );\n}",
+          "<div class=\"relative w-40 h-40\">\n  <span class=\"absolute inset-0 rounded-full\n    border-2 border-emerald-400/40\"></span>\n  <span class=\"absolute inset-8 rounded-full\n    border-2 border-amber-400/40\"></span>\n  <img src=\"/car-top-down.png\"\n    class=\"absolute inset-14 object-contain\" />\n</div>"
+        ]
+      },
+      {
+        "name": "Small",
+        "texts": [
+          "Parking Assist",
+          "Concentric proximity rings under the top-down render",
+          "Click to cycle variants",
+          "SwiftUI",
+          "Flutter",
+          "Tailwind",
+          "ZStack {\n    ForEach(rings) { r in\n        Circle()\n            .stroke(r.color.opacity(0.35), lineWidth: 2)\n            .frame(width: r.radius * 2)\n    }\n    CarTopDownImage()\n}",
+          "for (final ring in rings) {\n  canvas.drawCircle(\n    center,\n    minDimension * ring.radiusFactor,\n    Paint()\n      ..color = ring.color.withValues(alpha: 0.35)\n      ..style = PaintingStyle.stroke\n      ..strokeWidth = 2,\n  );\n}",
+          "<div class=\"relative w-40 h-40\">\n  <span class=\"absolute inset-0 rounded-full\n    border-2 border-emerald-400/40\"></span>\n  <span class=\"absolute inset-8 rounded-full\n    border-2 border-amber-400/40\"></span>\n  <img src=\"/car-top-down.png\"\n    class=\"absolute inset-14 object-contain\" />\n</div>"
+        ]
+      }
+    ]
+  },
+  "Drive Mode Selector": {
+    "component": "VgxU37xQY",
+    "variants": [
+      {
+        "name": "Drive Mode Selector",
+        "texts": [
+          "Drive Mode Selector",
+          "Segmented Park / Drive toggle",
+          "SwiftUI",
+          "Flutter",
+          "Tailwind",
+          "Picker(\"Mode\", selection: $mode) {\n    Text(\"Park\").tag(DriveMode.park)\n    Text(\"Drive\").tag(DriveMode.drive)\n}\n.pickerStyle(.segmented)\n.tint(.blue)",
+          "CupertinoSlidingSegmentedControl<DriveMode>(\n  groupValue: mode,\n  children: const {\n    DriveMode.park: Text('Park'),\n    DriveMode.drive: Text('Drive'),\n  },\n  onValueChanged: (v) => setState(() => mode = v!),\n)",
+          "<div class=\"inline-flex rounded-lg bg-gray-100 p-1\">\n  <button class=\"px-4 py-1.5 rounded-md bg-white\n    shadow text-sm font-medium\">Park</button>\n  <button class=\"px-4 py-1.5 rounded-md\n    text-sm text-gray-500\">Drive</button>\n</div>"
+        ]
+      },
+      {
+        "name": "Variant 2",
+        "texts": [
+          "Drive Mode Selector",
+          "Segmented Park / Drive toggle",
+          "SwiftUI",
+          "Flutter",
+          "Tailwind",
+          "Picker(\"Mode\", selection: $mode) {\n    Text(\"Park\").tag(DriveMode.park)\n    Text(\"Drive\").tag(DriveMode.drive)\n}\n.pickerStyle(.segmented)\n.tint(.blue)",
+          "CupertinoSlidingSegmentedControl<DriveMode>(\n  groupValue: mode,\n  children: const {\n    DriveMode.park: Text('Park'),\n    DriveMode.drive: Text('Drive'),\n  },\n  onValueChanged: (v) => setState(() => mode = v!),\n)",
+          "<div class=\"inline-flex rounded-lg bg-gray-100 p-1\">\n  <button class=\"px-4 py-1.5 rounded-md bg-white\n    shadow text-sm font-medium\">Park</button>\n  <button class=\"px-4 py-1.5 rounded-md\n    text-sm text-gray-500\">Drive</button>\n</div>"
+        ]
+      }
+    ]
+  },
+  "Speed & Gear HUD": {
+    "component": "UgQ9WAZOU",
+    "variants": [
+      {
+        "name": "Speed & Gear HUD",
+        "texts": [
+          "Speed & Gear HUD",
+          "Tabular-figure speed readout",
+          "SwiftUI",
+          "Flutter",
+          "Tailwind",
+          "Text(speed, format: .number)\n    .font(.system(size: 48, weight: .bold))\n    .monospacedDigit()\n    .foregroundStyle(.white)\n \nText(gear)\n    .font(.system(size: 14, weight: .semibold))\n    .foregroundStyle(.secondary)",
+          "Text(\n  '$speed',\n  style: const TextStyle(\n    fontSize: 48,\n    fontWeight: FontWeight.bold,\n    fontFeatures: [FontFeature.tabularFigures()],\n    color: Colors.white,\n  ),\n)",
+          "<div class=\"text-white\">\n  <span class=\"text-5xl font-bold\n    tabular-nums\">72</span>\n  <span class=\"ml-2 text-sm font-semibold\n    text-gray-400\">D</span>\n</div>"
+        ]
+      },
+      {
+        "name": "Variant 2",
+        "texts": [
+          "Speed & Gear HUD",
+          "Tabular-figure speed readout",
+          "SwiftUI",
+          "Flutter",
+          "Tailwind",
+          "Text(speed, format: .number)\n    .font(.system(size: 48, weight: .bold))\n    .monospacedDigit()\n    .foregroundStyle(.white)\n \nText(gear)\n    .font(.system(size: 14, weight: .semibold))\n    .foregroundStyle(.secondary)",
+          "Text(\n  '$speed',\n  style: const TextStyle(\n    fontSize: 48,\n    fontWeight: FontWeight.bold,\n    fontFeatures: [FontFeature.tabularFigures()],\n    color: Colors.white,\n  ),\n)",
+          "<div class=\"text-white\">\n  <span class=\"text-5xl font-bold\n    tabular-nums\">72</span>\n  <span class=\"ml-2 text-sm font-semibold\n    text-gray-400\">D</span>\n</div>"
+        ]
+      }
+    ]
+  },
+  "Coaching Alert": {
+    "component": "lwCGI4cxr",
+    "variants": [
+      {
+        "name": "Coaching Alert",
+        "texts": [
+          "Coaching Alert",
+          "Dismissible driver-behavior banner",
+          "SwiftUI",
+          "Flutter",
+          "Tailwind",
+          "HStack(spacing: 12) {\n    Image(systemName: \"exclamationmark.triangle.fill\")\n        .foregroundStyle(.orange)\n    Text(\"Hard braking detected\")\n    Spacer()\n    Button(\"Dismiss\") { alert = nil }\n}\n.padding(16)\n.background(.orange.opacity(0.12), in: .rect(cornerRadius: 12))",
+          "Container(\n  padding: const EdgeInsets.all(16),\n  decoration: BoxDecoration(\n    color: Colors.orange.withValues(alpha: 0.12),\n    borderRadius: BorderRadius.circular(12),\n  ),\n  child: Row(children: [\n    const Icon(Icons.warning_rounded, color: Colors.orange),\n    const SizedBox(width: 12),\n    const Expanded(child: Text('Hard braking detected')),\n    TextButton(onPressed: onDismiss, child: const Text('Dismiss')),\n  ]),\n)",
+          "<div class=\"flex items-center gap-3 p-4\n  rounded-xl bg-orange-500/10\">\n  <svg class=\"w-5 h-5 text-orange-500\">...</svg>\n  <p class=\"flex-1 text-sm\">Hard braking detected</p>\n  <button class=\"text-sm font-medium\">Dismiss</button>\n</div>"
+        ]
+      },
+      {
+        "name": "Variant 2",
+        "texts": [
+          "Coaching Alert",
+          "Dismissible driver-behavior banner",
+          "SwiftUI",
+          "Flutter",
+          "Tailwind",
+          "HStack(spacing: 12) {\n    Image(systemName: \"exclamationmark.triangle.fill\")\n        .foregroundStyle(.orange)\n    Text(\"Hard braking detected\")\n    Spacer()\n    Button(\"Dismiss\") { alert = nil }\n}\n.padding(16)\n.background(.orange.opacity(0.12), in: .rect(cornerRadius: 12))",
+          "Container(\n  padding: const EdgeInsets.all(16),\n  decoration: BoxDecoration(\n    color: Colors.orange.withValues(alpha: 0.12),\n    borderRadius: BorderRadius.circular(12),\n  ),\n  child: Row(children: [\n    const Icon(Icons.warning_rounded, color: Colors.orange),\n    const SizedBox(width: 12),\n    const Expanded(child: Text('Hard braking detected')),\n    TextButton(onPressed: onDismiss, child: const Text('Dismiss')),\n  ]),\n)",
+          "<div class=\"flex items-center gap-3 p-4\n  rounded-xl bg-orange-500/10\">\n  <svg class=\"w-5 h-5 text-orange-500\">...</svg>\n  <p class=\"flex-1 text-sm\">Hard braking detected</p>\n  <button class=\"text-sm font-medium\">Dismiss</button>\n</div>"
+        ]
+      }
+    ]
+  },
+  "Climate Dial": {
+    "component": "aZ4vHqVzG",
+    "variants": [
+      {
+        "name": "Climate Dial",
+        "texts": [
+          "Climate Dial",
+          "Rotary temperature control",
+          "SwiftUI",
+          "Flutter",
+          "Tailwind",
+          "Circle()\n    .trim(from: 0, to: progress)\n    .stroke(.blue, style: StrokeStyle(lineWidth: 6, lineCap: .round))\n    .rotationEffect(.degrees(-90))\n    .overlay(Text(\"\\(temp)°\").font(.title2.bold()))\n    .gesture(RotationGesture().onChanged { angle in\n        progress = angle.degrees / 360\n    })",
+          "CustomPaint(\n  painter: DialPainter(progress: progress, color: Colors.blue),\n  child: Center(\n    child: Text('$temp°', style: const TextStyle(\n      fontSize: 22, fontWeight: FontWeight.bold)),\n  ),\n)",
+          "<div class=\"relative w-24 h-24\">\n  <svg class=\"rotate-[-90deg]\" viewBox=\"0 0 36 36\">\n    <circle class=\"text-blue-500\" cx=\"18\" cy=\"18\" r=\"15.9\"\n      fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\"\n      stroke-dasharray=\"70 100\" stroke-linecap=\"round\" />\n  </svg>\n  <span class=\"absolute inset-0 flex items-center\n    justify-center font-bold\">72°</span>\n</div>"
+        ]
+      },
+      {
+        "name": "Variant 2",
+        "texts": [
+          "Climate Dial",
+          "Rotary temperature control",
+          "SwiftUI",
+          "Flutter",
+          "Tailwind",
+          "Circle()\n    .trim(from: 0, to: progress)\n    .stroke(.blue, style: StrokeStyle(lineWidth: 6, lineCap: .round))\n    .rotationEffect(.degrees(-90))\n    .overlay(Text(\"\\(temp)°\").font(.title2.bold()))\n    .gesture(RotationGesture().onChanged { angle in\n        progress = angle.degrees / 360\n    })",
+          "CustomPaint(\n  painter: DialPainter(progress: progress, color: Colors.blue),\n  child: Center(\n    child: Text('$temp°', style: const TextStyle(\n      fontSize: 22, fontWeight: FontWeight.bold)),\n  ),\n)",
+          "<div class=\"relative w-24 h-24\">\n  <svg class=\"rotate-[-90deg]\" viewBox=\"0 0 36 36\">\n    <circle class=\"text-blue-500\" cx=\"18\" cy=\"18\" r=\"15.9\"\n      fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\"\n      stroke-dasharray=\"70 100\" stroke-linecap=\"round\" />\n  </svg>\n  <span class=\"absolute inset-0 flex items-center\n    justify-center font-bold\">72°</span>\n</div>"
+        ]
+      }
+    ]
+  },
+  "Now Playing": {
+    "component": "hJtr9b77j",
+    "variants": [
+      {
+        "name": "Now Playing",
+        "texts": [
+          "Now Playing",
+          "Media playback row",
+          "SwiftUI",
+          "Flutter",
+          "Tailwind",
+          "HStack(spacing: 12) {\n    Image(track.artwork)\n        .resizable().frame(width: 40, height: 40)\n        .clipShape(RoundedRectangle(cornerRadius: 8))\n    VStack(alignment: .leading) {\n        Text(track.title).font(.subheadline.bold())\n        Text(track.artist).font(.caption).foregroundStyle(.secondary)\n    }\n    Spacer()\n    Button(action: togglePlay) {\n        Image(systemName: isPlaying ? \"pause.fill\" : \"play.fill\")\n    }\n}",
+          "Row(children: [\n  ClipRRect(\n    borderRadius: BorderRadius.circular(8),\n    child: Image.asset(track.artwork, width: 40, height: 40),\n  ),\n  const SizedBox(width: 12),\n  Expanded(child: Column(\n    crossAxisAlignment: CrossAxisAlignment.start,\n    children: [\n      Text(track.title, style: const TextStyle(fontWeight: FontWeight.w600)),\n      Text(track.artist, style: const TextStyle(color: Colors.grey)),\n    ],\n  )),\n  IconButton(\n    icon: Icon(isPlaying ? Icons.pause : Icons.play_arrow),\n    onPressed: togglePlay,\n  ),\n])",
+          "<div class=\"flex items-center gap-3\">\n  <img src=\"/artwork.jpg\"\n    class=\"w-10 h-10 rounded-lg object-cover\" />\n  <div class=\"flex-1 min-w-0\">\n    <p class=\"text-sm font-semibold truncate\">Night Drive</p>\n    <p class=\"text-xs text-gray-400 truncate\">Veltron Sounds</p>\n  </div>\n  <button class=\"p-2 rounded-full hover:bg-gray-100\">\n    <svg class=\"w-4 h-4\">...</svg>\n  </button>\n</div>"
+        ]
+      },
+      {
+        "name": "Variant 2",
+        "texts": [
+          "Now Playing",
+          "Media playback row",
+          "SwiftUI",
+          "Flutter",
+          "Tailwind",
+          "HStack(spacing: 12) {\n    Image(track.artwork)\n        .resizable().frame(width: 40, height: 40)\n        .clipShape(RoundedRectangle(cornerRadius: 8))\n    VStack(alignment: .leading) {\n        Text(track.title).font(.subheadline.bold())\n        Text(track.artist).font(.caption).foregroundStyle(.secondary)\n    }\n    Spacer()\n    Button(action: togglePlay) {\n        Image(systemName: isPlaying ? \"pause.fill\" : \"play.fill\")\n    }\n}",
+          "Row(children: [\n  ClipRRect(\n    borderRadius: BorderRadius.circular(8),\n    child: Image.asset(track.artwork, width: 40, height: 40),\n  ),\n  const SizedBox(width: 12),\n  Expanded(child: Column(\n    crossAxisAlignment: CrossAxisAlignment.start,\n    children: [\n      Text(track.title, style: const TextStyle(fontWeight: FontWeight.w600)),\n      Text(track.artist, style: const TextStyle(color: Colors.grey)),\n    ],\n  )),\n  IconButton(\n    icon: Icon(isPlaying ? Icons.pause : Icons.play_arrow),\n    onPressed: togglePlay,\n  ),\n])",
+          "<div class=\"flex items-center gap-3\">\n  <img src=\"/artwork.jpg\"\n    class=\"w-10 h-10 rounded-lg object-cover\" />\n  <div class=\"flex-1 min-w-0\">\n    <p class=\"text-sm font-semibold truncate\">Night Drive</p>\n    <p class=\"text-xs text-gray-400 truncate\">Veltron Sounds</p>\n  </div>\n  <button class=\"p-2 rounded-full hover:bg-gray-100\">\n    <svg class=\"w-4 h-4\">...</svg>\n  </button>\n</div>"
+        ]
+      }
+    ]
+  }
+}

@@ -176,280 +176,136 @@
       "label": "Design System",
       "blocks": [
         {
-          "type": "heading",
-          "text": "Design System"
-        },
-        {
           "type": "paragraph",
           "text": "A small token system — colors, type, spacing, and radii — kept the coaching HMI visually consistent from early dashboard mockups through CARLA test builds and the physical rig."
         },
         {
-          "type": "paragraph",
-          "text": "06 · Implementation"
+          "type": "heading",
+          "text": "Implementation"
+        },
+        {
+          "type": "widgets",
+          "items": [
+            {
+              "title": "Parking Assist",
+              "subtitle": "Concentric proximity rings under the top-down render",
+              "preview": {
+                "src": "/work/woven/widget-parking-assist.png",
+                "alt": "Parking Assist widget: Concentric proximity rings under the top-down render"
+              },
+              "code": {
+                "swiftui": "ZStack {\n    ForEach(rings) { r in\n        Circle()\n            .stroke(r.color.opacity(0.35), lineWidth: 2)\n            .frame(width: r.radius * 2)\n    }\n    CarTopDownImage()\n}",
+                "flutter": "for (final ring in rings) {\n  canvas.drawCircle(\n    center,\n    minDimension * ring.radiusFactor,\n    Paint()\n      ..color = ring.color.withValues(alpha: 0.35)\n      ..style = PaintingStyle.stroke\n      ..strokeWidth = 2,\n  );\n}",
+                "tailwind": "<div class=\"relative w-40 h-40\">\n  <span class=\"absolute inset-0 rounded-full\n    border-2 border-emerald-400/40\"></span>\n  <span class=\"absolute inset-8 rounded-full\n    border-2 border-amber-400/40\"></span>\n  <img src=\"/car-top-down.png\"\n    class=\"absolute inset-14 object-contain\" />\n</div>"
+              }
+            },
+            {
+              "title": "Drive Mode Selector",
+              "subtitle": "Segmented Park / Drive toggle",
+              "preview": {
+                "src": "/work/woven/widget-drive-mode-selector.png",
+                "alt": "Drive Mode Selector widget: Segmented Park / Drive toggle"
+              },
+              "code": {
+                "swiftui": "Picker(\"Mode\", selection: $mode) {\n    Text(\"Park\").tag(DriveMode.park)\n    Text(\"Drive\").tag(DriveMode.drive)\n}\n.pickerStyle(.segmented)\n.tint(.blue)",
+                "flutter": "CupertinoSlidingSegmentedControl<DriveMode>(\n  groupValue: mode,\n  children: const {\n    DriveMode.park: Text('Park'),\n    DriveMode.drive: Text('Drive'),\n  },\n  onValueChanged: (v) => setState(() => mode = v!),\n)",
+                "tailwind": "<div class=\"inline-flex rounded-lg bg-gray-100 p-1\">\n  <button class=\"px-4 py-1.5 rounded-md bg-white\n    shadow text-sm font-medium\">Park</button>\n  <button class=\"px-4 py-1.5 rounded-md\n    text-sm text-gray-500\">Drive</button>\n</div>"
+              }
+            },
+            {
+              "title": "Speed & Gear HUD",
+              "subtitle": "Tabular-figure speed readout",
+              "preview": {
+                "src": "/work/woven/widget-speed-gear-hud.png",
+                "alt": "Speed & Gear HUD widget: Tabular-figure speed readout"
+              },
+              "code": {
+                "swiftui": "Text(speed, format: .number)\n    .font(.system(size: 48, weight: .bold))\n    .monospacedDigit()\n    .foregroundStyle(.white)\n \nText(gear)\n    .font(.system(size: 14, weight: .semibold))\n    .foregroundStyle(.secondary)",
+                "flutter": "Text(\n  '$speed',\n  style: const TextStyle(\n    fontSize: 48,\n    fontWeight: FontWeight.bold,\n    fontFeatures: [FontFeature.tabularFigures()],\n    color: Colors.white,\n  ),\n)",
+                "tailwind": "<div class=\"text-white\">\n  <span class=\"text-5xl font-bold\n    tabular-nums\">72</span>\n  <span class=\"ml-2 text-sm font-semibold\n    text-gray-400\">D</span>\n</div>"
+              }
+            },
+            {
+              "title": "Coaching Alert",
+              "subtitle": "Dismissible driver-behavior banner",
+              "preview": {
+                "src": "/work/woven/widget-coaching-alert.png",
+                "alt": "Coaching Alert widget: Dismissible driver-behavior banner"
+              },
+              "code": {
+                "swiftui": "HStack(spacing: 12) {\n    Image(systemName: \"exclamationmark.triangle.fill\")\n        .foregroundStyle(.orange)\n    Text(\"Hard braking detected\")\n    Spacer()\n    Button(\"Dismiss\") { alert = nil }\n}\n.padding(16)\n.background(.orange.opacity(0.12), in: .rect(cornerRadius: 12))",
+                "flutter": "Container(\n  padding: const EdgeInsets.all(16),\n  decoration: BoxDecoration(\n    color: Colors.orange.withValues(alpha: 0.12),\n    borderRadius: BorderRadius.circular(12),\n  ),\n  child: Row(children: [\n    const Icon(Icons.warning_rounded, color: Colors.orange),\n    const SizedBox(width: 12),\n    const Expanded(child: Text('Hard braking detected')),\n    TextButton(onPressed: onDismiss, child: const Text('Dismiss')),\n  ]),\n)",
+                "tailwind": "<div class=\"flex items-center gap-3 p-4\n  rounded-xl bg-orange-500/10\">\n  <svg class=\"w-5 h-5 text-orange-500\">...</svg>\n  <p class=\"flex-1 text-sm\">Hard braking detected</p>\n  <button class=\"text-sm font-medium\">Dismiss</button>\n</div>"
+              }
+            },
+            {
+              "title": "Climate Dial",
+              "subtitle": "Rotary temperature control",
+              "preview": {
+                "src": "/work/woven/widget-climate-dial.png",
+                "alt": "Climate Dial widget: Rotary temperature control"
+              },
+              "code": {
+                "swiftui": "Circle()\n    .trim(from: 0, to: progress)\n    .stroke(.blue, style: StrokeStyle(lineWidth: 6, lineCap: .round))\n    .rotationEffect(.degrees(-90))\n    .overlay(Text(\"\\(temp)°\").font(.title2.bold()))\n    .gesture(RotationGesture().onChanged { angle in\n        progress = angle.degrees / 360\n    })",
+                "flutter": "CustomPaint(\n  painter: DialPainter(progress: progress, color: Colors.blue),\n  child: Center(\n    child: Text('$temp°', style: const TextStyle(\n      fontSize: 22, fontWeight: FontWeight.bold)),\n  ),\n)",
+                "tailwind": "<div class=\"relative w-24 h-24\">\n  <svg class=\"rotate-[-90deg]\" viewBox=\"0 0 36 36\">\n    <circle class=\"text-blue-500\" cx=\"18\" cy=\"18\" r=\"15.9\"\n      fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\"\n      stroke-dasharray=\"70 100\" stroke-linecap=\"round\" />\n  </svg>\n  <span class=\"absolute inset-0 flex items-center\n    justify-center font-bold\">72°</span>\n</div>"
+              }
+            },
+            {
+              "title": "Now Playing",
+              "subtitle": "Media playback row",
+              "preview": {
+                "src": "/work/woven/widget-now-playing.png",
+                "alt": "Now Playing widget: Media playback row"
+              },
+              "code": {
+                "swiftui": "HStack(spacing: 12) {\n    Image(track.artwork)\n        .resizable().frame(width: 40, height: 40)\n        .clipShape(RoundedRectangle(cornerRadius: 8))\n    VStack(alignment: .leading) {\n        Text(track.title).font(.subheadline.bold())\n        Text(track.artist).font(.caption).foregroundStyle(.secondary)\n    }\n    Spacer()\n    Button(action: togglePlay) {\n        Image(systemName: isPlaying ? \"pause.fill\" : \"play.fill\")\n    }\n}",
+                "flutter": "Row(children: [\n  ClipRRect(\n    borderRadius: BorderRadius.circular(8),\n    child: Image.asset(track.artwork, width: 40, height: 40),\n  ),\n  const SizedBox(width: 12),\n  Expanded(child: Column(\n    crossAxisAlignment: CrossAxisAlignment.start,\n    children: [\n      Text(track.title, style: const TextStyle(fontWeight: FontWeight.w600)),\n      Text(track.artist, style: const TextStyle(color: Colors.grey)),\n    ],\n  )),\n  IconButton(\n    icon: Icon(isPlaying ? Icons.pause : Icons.play_arrow),\n    onPressed: togglePlay,\n  ),\n])",
+                "tailwind": "<div class=\"flex items-center gap-3\">\n  <img src=\"/artwork.jpg\"\n    class=\"w-10 h-10 rounded-lg object-cover\" />\n  <div class=\"flex-1 min-w-0\">\n    <p class=\"text-sm font-semibold truncate\">Night Drive</p>\n    <p class=\"text-xs text-gray-400 truncate\">Veltron Sounds</p>\n  </div>\n  <button class=\"p-2 rounded-full hover:bg-gray-100\">\n    <svg class=\"w-4 h-4\">...</svg>\n  </button>\n</div>"
+              }
+            }
+          ]
         },
         {
           "type": "paragraph",
           "text": "Each live component above is a real widget from the Flutter build. Toggle between SwiftUI, Flutter, and Tailwind to see the same pattern implemented natively across platforms."
         },
         {
-          "type": "paragraph",
-          "text": "01 · Colors"
-        },
-        {
           "type": "heading",
           "text": "A restrained palette tuned for daylight glare, night driving, and quick at-a-glance recognition."
         },
         {
-          "type": "paragraph",
-          "text": "System Grays"
-        },
-        {
-          "type": "paragraph",
-          "text": "Gray 100"
-        },
-        {
-          "type": "paragraph",
-          "text": "#F2F2F7"
-        },
-        {
-          "type": "paragraph",
-          "text": "Gray 200"
-        },
-        {
-          "type": "paragraph",
-          "text": "#E5E5EA"
-        },
-        {
-          "type": "paragraph",
-          "text": "Gray 300"
-        },
-        {
-          "type": "paragraph",
-          "text": "#D1D1D6"
-        },
-        {
-          "type": "paragraph",
-          "text": "Gray 400"
-        },
-        {
-          "type": "paragraph",
-          "text": "#8E8E93"
-        },
-        {
-          "type": "paragraph",
-          "text": "Gray 500"
-        },
-        {
-          "type": "paragraph",
-          "text": "#1C1C1E"
-        },
-        {
-          "type": "paragraph",
-          "text": "Semantic States"
-        },
-        {
-          "type": "paragraph",
-          "text": "Success"
-        },
-        {
-          "type": "paragraph",
-          "text": "#34C759"
-        },
-        {
-          "type": "paragraph",
-          "text": "Warning"
-        },
-        {
-          "type": "paragraph",
-          "text": "#FF9500"
-        },
-        {
-          "type": "paragraph",
-          "text": "Info"
-        },
-        {
-          "type": "paragraph",
-          "text": "#007AFF"
-        },
-        {
-          "type": "paragraph",
-          "text": "Error"
-        },
-        {
-          "type": "paragraph",
-          "text": "#FF3B30"
-        },
-        {
-          "type": "paragraph",
-          "text": "Critical / Destructive"
-        },
-        {
-          "type": "paragraph",
-          "text": "Reserved for takeover alerts and destructive actions — used sparingly so it keeps its urgency."
-        },
-        {
-          "type": "paragraph",
-          "text": "02 · Typography"
+          "type": "figure",
+          "image": {
+            "src": "/work/woven/ds-colors.png",
+            "alt": "Coaching HMI color tokens: system grays, brand blue, status colors"
+          },
+          "wide": true
         },
         {
           "type": "heading",
           "text": "A screen-legible type scale, sized and weighted for a quick glance at speed."
         },
         {
-          "type": "paragraph",
-          "text": "Token & Size"
-        },
-        {
-          "type": "paragraph",
-          "text": "Example Render"
-        },
-        {
-          "type": "paragraph",
-          "text": "Large Title"
-        },
-        {
-          "type": "paragraph",
-          "text": "34px · Semibold"
-        },
-        {
-          "type": "heading",
-          "text": "Simplify everything."
-        },
-        {
-          "type": "paragraph",
-          "text": "Title"
-        },
-        {
-          "type": "paragraph",
-          "text": "28px · Medium"
-        },
-        {
-          "type": "heading",
-          "text": "Inspired by clarity."
-        },
-        {
-          "type": "paragraph",
-          "text": "Headline"
-        },
-        {
-          "type": "paragraph",
-          "text": "22px · Medium"
-        },
-        {
-          "type": "heading",
-          "text": "Designed for quick readability."
-        },
-        {
-          "type": "paragraph",
-          "text": "Body"
-        },
-        {
-          "type": "paragraph",
-          "text": "17px · Regular"
-        },
-        {
-          "type": "paragraph",
-          "text": "This is the standard body text used across paragraphs, general content blocks, and descriptive labels."
-        },
-        {
-          "type": "paragraph",
-          "text": "Caption"
-        },
-        {
-          "type": "paragraph",
-          "text": "13px · Medium"
-        },
-        {
-          "type": "paragraph",
-          "text": "METADATA AND AUXILIARY OVERLINES"
-        },
-        {
-          "type": "paragraph",
-          "text": "03 · Spacing"
-        },
-        {
-          "type": "heading",
-          "text": "Consistent spatial rhythm across dashboard, HUD, and mobile companion surfaces."
-        },
-        {
-          "type": "paragraph",
-          "text": "XS"
-        },
-        {
-          "type": "paragraph",
-          "text": "4px"
-        },
-        {
-          "type": "paragraph",
-          "text": "SM"
-        },
-        {
-          "type": "paragraph",
-          "text": "8px"
-        },
-        {
-          "type": "paragraph",
-          "text": "MD"
-        },
-        {
-          "type": "paragraph",
-          "text": "16px"
-        },
-        {
-          "type": "paragraph",
-          "text": "LG"
-        },
-        {
-          "type": "paragraph",
-          "text": "24px"
-        },
-        {
-          "type": "paragraph",
-          "text": "XL"
-        },
-        {
-          "type": "paragraph",
-          "text": "32px"
-        },
-        {
-          "type": "paragraph",
-          "text": "04 · Corner Radii"
+          "type": "figure",
+          "image": {
+            "src": "/work/woven/ds-text-spacing.png",
+            "alt": "Coaching HMI type scale and spacing scale"
+          },
+          "wide": true,
+          "caption": "Consistent spatial rhythm across dashboard, HUD, and mobile companion surfaces."
         },
         {
           "type": "heading",
           "text": "Rounded surfaces calibrated to feel tactile on a touchscreen, not decorative."
         },
         {
-          "type": "paragraph",
-          "text": "None"
-        },
-        {
-          "type": "paragraph",
-          "text": "0px"
-        },
-        {
-          "type": "paragraph",
-          "text": "Small"
-        },
-        {
-          "type": "paragraph",
-          "text": "8px"
-        },
-        {
-          "type": "paragraph",
-          "text": "Medium"
-        },
-        {
-          "type": "paragraph",
-          "text": "13px"
-        },
-        {
-          "type": "paragraph",
-          "text": "Large"
-        },
-        {
-          "type": "paragraph",
-          "text": "22px"
+          "type": "figure",
+          "image": {
+            "src": "/work/woven/ds-corner-radii.png",
+            "alt": "Coaching HMI corner radius tokens"
+          },
+          "wide": true
         }
       ]
     },
