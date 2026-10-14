@@ -23,7 +23,10 @@ TITLE_OVERRIDES = {
     "syncare-ai-health": "SynCare", "sitelens": "SiteLens",
 }
 # Corrections to Framer content. Drive Coach iOS was built at Woven by Toyota.
+WOVEN = (0, {"label": "Company", "value": "Woven by Toyota"})
 EXTRA_FACTS = {
+    "fleet-co-pilot": [WOVEN],
+    "fleet-dashboard": [WOVEN],
     "drive-coach-ios": [
         (0, {"label": "Company", "value": "Woven by Toyota"}),
         (None, {"label": "Audience", "value": "Technicians and new drivers (B2B + B2C)"}),

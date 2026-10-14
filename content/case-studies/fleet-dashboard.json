@@ -11,6 +11,10 @@
   "hmw": "help engineers see a whole fleet’s health at a glance, without digging through raw incident logs one drive at a time?",
   "facts": [
     {
+      "label": "Company",
+      "value": "Woven by Toyota"
+    },
+    {
       "label": "Platforms",
       "value": "React + TypeScript + Vite, deployed to GitHub Pages"
     },
