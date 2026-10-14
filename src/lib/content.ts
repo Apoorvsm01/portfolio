@@ -1,5 +1,6 @@
 import type { CaseStudy, Img } from "../../content/types";
 import { site } from "../../content/site";
+import imageDimsData from "../../content/image-dims.json";
 import wovenData from "../../content/case-studies/woven.json";
 import fleetCoPilotData from "../../content/case-studies/fleet-co-pilot.json";
 import fleetDashboardData from "../../content/case-studies/fleet-dashboard.json";
