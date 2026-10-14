@@ -110,12 +110,12 @@ def woven(study: dict) -> None:
         {"type": "heading", "text": "Implementation"},
         {"type": "widgets", "items": items},
         find("Each live component"),
-        find("A restrained palette"),
-        fig("ds-colors.png", "Coaching HMI color tokens: system grays, brand blue, status colors"),
-        find("A screen-legible type scale"),
-        fig("ds-text-spacing.png", "Coaching HMI type scale and spacing scale", find("Consistent spatial rhythm")["text"]),
-        find("Rounded surfaces"),
-        fig("ds-corner-radii.png", "Coaching HMI corner radius tokens"),
+        # The captures include their own label and heading, so the heading text becomes alt text, not a
+        # separate HTML heading (which rendered the same sentence twice).
+        fig("ds-colors.png", "Color tokens. " + find("A restrained palette")["text"]),
+        fig("ds-text-spacing.png", "Type and spacing scales. " + find("A screen-legible type scale")["text"] + " "
+            + find("Consistent spatial rhythm")["text"]),
+        fig("ds-corner-radii.png", "Corner radius tokens. " + find("Rounded surfaces")["text"]),
     ]
 
 

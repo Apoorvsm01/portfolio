@@ -225,7 +225,7 @@ header[data-nav] {
 }
 
 header[data-nav][data-scrolled="true"] {
-  background-color: color-mix(in srgb, var(--bg) 80%, transparent);
+  background-color: color-mix(in srgb, var(--bg) 94%, transparent);
   border-bottom-color: var(--line);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -243,7 +243,7 @@ header[data-nav][data-hidden="true"]:not(:focus-within) {
 }
 
 html:not([data-js]) header[data-nav] {
-  background-color: color-mix(in srgb, var(--bg) 80%, transparent);
+  background-color: color-mix(in srgb, var(--bg) 94%, transparent);
   border-bottom-color: var(--line);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);

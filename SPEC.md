@@ -284,8 +284,9 @@ How I work, the full Timeline and Platforms move to `/about/`. The home page mus
 - The sticky TOC rail stays on desktop, with the chip row below `lg`.
 - At the end of the article, a large "Next project" card (cover image, title, blurb) linking to the next study,
   plus a smaller "Previous" link and "All work".
-- The `j`/`k` keys jump to the next/previous section when focus isn't in a text field. Mention this in the TOC
-  footer as a small hint.
+- The ↓/↑ arrow keys (no modifiers) jump to the next/previous section. They do nothing when focus is in a
+  text field, a tablist, a listbox, an open dialog, or a code block. With no section to jump to, the arrows scroll
+  normally. Mention this in the TOC footer as a small hint.
 
 **Back to top**: a small floating button appears after scrolling 1.5 screens. It is keyboard-accessible and
 labelled.

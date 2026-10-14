@@ -271,39 +271,26 @@
           "text": "Each live component above is a real widget from the Flutter build. Toggle between SwiftUI, Flutter, and Tailwind to see the same pattern implemented natively across platforms."
         },
         {
-          "type": "heading",
-          "text": "A restrained palette tuned for daylight glare, night driving, and quick at-a-glance recognition."
-        },
-        {
           "type": "figure",
           "image": {
             "src": "/work/woven/ds-colors.png",
-            "alt": "Coaching HMI color tokens: system grays, brand blue, status colors"
+            "alt": "Color tokens. A restrained palette tuned for daylight glare, night driving, and quick at-a-glance recognition."
           },
           "wide": true
-        },
-        {
-          "type": "heading",
-          "text": "A screen-legible type scale, sized and weighted for a quick glance at speed."
         },
         {
           "type": "figure",
           "image": {
             "src": "/work/woven/ds-text-spacing.png",
-            "alt": "Coaching HMI type scale and spacing scale"
+            "alt": "Type and spacing scales. A screen-legible type scale, sized and weighted for a quick glance at speed. Consistent spatial rhythm across dashboard, HUD, and mobile companion surfaces."
           },
-          "wide": true,
-          "caption": "Consistent spatial rhythm across dashboard, HUD, and mobile companion surfaces."
-        },
-        {
-          "type": "heading",
-          "text": "Rounded surfaces calibrated to feel tactile on a touchscreen, not decorative."
+          "wide": true
         },
         {
           "type": "figure",
           "image": {
             "src": "/work/woven/ds-corner-radii.png",
-            "alt": "Coaching HMI corner radius tokens"
+            "alt": "Corner radius tokens. Rounded surfaces calibrated to feel tactile on a touchscreen, not decorative."
           },
           "wide": true
         }

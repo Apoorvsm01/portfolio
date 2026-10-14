@@ -22,7 +22,7 @@ export function Figure({
     <figure
       className={`my-8 first:mt-0 last:mb-0 ${
         wide
-          ? "w-full lg:-ml-[calc((100%+3rem)/3)] lg:w-[calc((400%+3rem)/3)] lg:max-w-none"
+          ? "w-full" // full width of the content column; never breaks out under the sticky TOC rail
           : "w-full max-w-[42rem]"
       }`}
     >

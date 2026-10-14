@@ -64,7 +64,7 @@ export function Toc({
     };
   }, [labelledSections]);
 
-  // Keyboard navigation (j/k) guarded so only the currently visible variant handles the event
+  // Keyboard navigation (↑/↓ arrows) guarded so only the currently visible variant handles the event
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.metaKey || e.ctrlKey || e.altKey) return;
@@ -77,12 +77,15 @@ export function Toc({
         (target.tagName === "INPUT" ||
           target.tagName === "TEXTAREA" ||
           target.tagName === "SELECT" ||
-          target.isContentEditable)
+          target.isContentEditable ||
+          // Arrow keys already mean something inside these widgets and open dialogs.
+          target.closest('[role="tablist"], [role="listbox"], [role="menu"], dialog[open], pre'))
       ) {
         return;
       }
 
-      if (e.key === "j" || e.key === "k") {
+      if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+        if (e.shiftKey) return;
         const elements = labelledSections
           .map(({ index }) => document.getElementById(`section-${index}`))
           .filter((el): el is HTMLElement => el !== null);
@@ -93,7 +96,7 @@ export function Toc({
           "(prefers-reduced-motion: reduce)"
         ).matches;
 
-        if (e.key === "j") {
+        if (e.key === "ArrowDown") {
           const next = elements.find((el) => {
             const rect = el.getBoundingClientRect();
             return rect.top > 80;
@@ -103,9 +106,9 @@ export function Toc({
             next.scrollIntoView({
               behavior: prefersReduced ? "auto" : "smooth",
             });
-            window.history.pushState(null, "", `#${next.id}`);
+            window.history.replaceState(null, "", `#${next.id}`);
           }
-        } else if (e.key === "k") {
+        } else if (e.key === "ArrowUp") {
           const prev = [...elements].reverse().find((el) => {
             const rect = el.getBoundingClientRect();
             return rect.top < -80;
@@ -115,7 +118,7 @@ export function Toc({
             prev.scrollIntoView({
               behavior: prefersReduced ? "auto" : "smooth",
             });
-            window.history.pushState(null, "", `#${prev.id}`);
+            window.history.replaceState(null, "", `#${prev.id}`);
           }
         }
       }
@@ -139,9 +142,9 @@ export function Toc({
           </div>
           <div className="text-[11px] text-muted flex items-center gap-1">
             <span>Press</span>
-            <kbd className="px-1.5 py-0.5 rounded bg-surface border border-line font-mono text-[10px] text-text">j</kbd>
+            <kbd className="px-1.5 py-0.5 rounded bg-surface border border-line font-mono text-[10px] text-text"><span aria-hidden="true">↑</span><span className="sr-only">Up arrow</span></kbd>
             <span>/</span>
-            <kbd className="px-1.5 py-0.5 rounded bg-surface border border-line font-mono text-[10px] text-text">k</kbd>
+            <kbd className="px-1.5 py-0.5 rounded bg-surface border border-line font-mono text-[10px] text-text"><span aria-hidden="true">↓</span><span className="sr-only">Down arrow</span></kbd>
             <span>to jump</span>
           </div>
         </div>
@@ -204,11 +207,13 @@ export function Toc({
         <div className="mt-6 pt-4 border-t border-line/60 text-xs text-muted flex items-center gap-1.5">
           <span>Press</span>
           <kbd className="px-1.5 py-0.5 rounded bg-surface border border-line font-mono text-[11px] text-text">
-            j
+            <span aria-hidden="true">↑</span>
+            <span className="sr-only">Up arrow</span>
           </kbd>
           <span>/</span>
           <kbd className="px-1.5 py-0.5 rounded bg-surface border border-line font-mono text-[11px] text-text">
-            k
+            <span aria-hidden="true">↓</span>
+            <span className="sr-only">Down arrow</span>
           </kbd>
           <span>to jump between sections</span>
         </div>
