@@ -48,7 +48,7 @@ export function WorkCard({
       {cover && cover.src && (
         <figure
           className={`${
-            compact ? "aspect-[16/9] mb-4" : "aspect-[16/10] mb-5"
+            compact ? "aspect-[4/3] mb-3.5" : "aspect-[16/10] mb-5"
           } w-full overflow-hidden rounded-[16px] bg-bg/50 border border-line/40 ${
             isLead ? "xl:col-span-7 xl:mb-0" : ""
           }`}
@@ -68,11 +68,11 @@ export function WorkCard({
 
       <div className={`flex flex-col flex-1 relative z-10 ${isLead ? "xl:col-span-5" : ""}`}>
         {org && (
-          <span className="text-xs uppercase tracking-[0.14em] text-muted font-medium mb-2">
+          <span className="text-xs uppercase tracking-[0.14em] text-muted font-medium mb-1.5">
             {org}
           </span>
         )}
-        <h3 className="font-display text-h3 font-bold text-text group-hover:text-accent transition-colors">
+        <h3 className={`font-display ${compact ? "text-base sm:text-lg" : "text-h3"} font-bold text-text group-hover:text-accent transition-colors leading-snug`}>
           <Link
             href={href}
             className="after:absolute after:inset-0 after:content-[''] focus:outline-none"
@@ -80,7 +80,7 @@ export function WorkCard({
             {title}
           </Link>
         </h3>
-        <p className="mt-2.5 text-sm sm:text-base text-muted leading-relaxed flex-1 max-w-[42rem]">
+        <p className={`mt-2 text-sm text-muted leading-relaxed ${compact ? "line-clamp-2" : "flex-1 max-w-[42rem]"}`}>
           {blurb}
         </p>
         {!compact && tags.length > 0 && (
