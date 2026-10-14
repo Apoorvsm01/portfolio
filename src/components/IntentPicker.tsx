@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { site } from "../../content/site";
 import { getStudy, studyHref } from "../lib/content";
@@ -9,9 +9,38 @@ import { Reveal } from "./Reveal";
 export function IntentPicker() {
   const [selectedId, setSelectedId] = useState(site.intents[0]?.id ?? "");
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const [highlight, setHighlight] = useState<{
+    left: number;
+    top: number;
+    width: number;
+    height: number;
+    ready: boolean;
+  }>({ left: 0, top: 0, width: 0, height: 0, ready: false });
 
   const activeIndex = site.intents.findIndex((intent) => intent.id === selectedId);
-  const activeIntent = site.intents[activeIndex >= 0 ? activeIndex : 0];
+  const safeIndex = activeIndex >= 0 ? activeIndex : 0;
+  const activeIntent = site.intents[safeIndex];
+
+  useEffect(() => {
+    const updateHighlight = () => {
+      const el = tabRefs.current[safeIndex];
+      if (el) {
+        setHighlight({
+          left: el.offsetLeft,
+          top: el.offsetTop,
+          width: el.offsetWidth,
+          height: el.offsetHeight,
+          ready: true,
+        });
+      }
+    };
+
+    updateHighlight();
+    window.addEventListener("resize", updateHighlight, { passive: true });
+    return () => {
+      window.removeEventListener("resize", updateHighlight);
+    };
+  }, [safeIndex]);
 
   const handleKeyDown = (e: React.KeyboardEvent, index: number) => {
     if (e.key === "ArrowRight") {
@@ -45,8 +74,22 @@ export function IntentPicker() {
       <div
         role="tablist"
         aria-label="What brings you here"
-        className="flex flex-wrap gap-3"
+        className="relative flex flex-wrap gap-3"
       >
+        {highlight.ready && (
+          <span
+            aria-hidden="true"
+            className="absolute rounded-full bg-text pointer-events-none transition-all"
+            style={{
+              transform: `translate3d(${highlight.left}px, ${highlight.top}px, 0)`,
+              width: `${highlight.width}px`,
+              height: `${highlight.height}px`,
+              transitionProperty: "transform, width, height",
+              transitionDuration: "var(--dur-2)",
+              transitionTimingFunction: "var(--ease-out)",
+            }}
+          />
+        )}
         {site.intents.map((intent, index) => {
           const isSelected = intent.id === activeIntent.id;
           return (
@@ -63,9 +106,11 @@ export function IntentPicker() {
               tabIndex={isSelected ? 0 : -1}
               onClick={() => setSelectedId(intent.id)}
               onKeyDown={(e) => handleKeyDown(e, index)}
-              className={`min-h-[44px] px-4 sm:px-5 py-2.5 rounded-full text-xs sm:text-sm font-medium transition-colors cursor-pointer border inline-flex items-center justify-center ${
+              className={`relative z-10 min-h-[44px] px-4 sm:px-5 py-2.5 rounded-full text-xs sm:text-sm font-medium transition-colors cursor-pointer border inline-flex items-center justify-center ${
                 isSelected
-                  ? "bg-text text-bg border-text shadow-sm"
+                  ? highlight.ready
+                    ? "text-bg border-transparent"
+                    : "bg-text text-bg border-text shadow-sm"
                   : "bg-surface/60 text-muted border-line hover:text-text hover:border-muted/60"
               }`}
             >
@@ -77,15 +122,15 @@ export function IntentPicker() {
 
       {site.intents.map((intent) => {
         const isSelected = intent.id === activeIntent.id;
+        if (!isSelected) return null;
         return (
           <div
             key={intent.id}
             role="tabpanel"
             id={`panel-${intent.id}`}
             aria-labelledby={`tab-${intent.id}`}
-            hidden={!isSelected}
             tabIndex={0}
-            className="mt-8 max-w-[42rem]"
+            className="intent-panel-animate mt-8 max-w-[42rem]"
           >
             <p className="text-base sm:text-lg text-muted leading-relaxed">
               {intent.answer}
@@ -105,7 +150,7 @@ export function IntentPicker() {
                         <span>{title}</span>
                         <span
                           aria-hidden="true"
-                          className="text-muted group-hover:text-accent transition-colors"
+                          className="arrow-nudge-right text-muted group-hover:text-accent transition-colors"
                         >
                           →
                         </span>

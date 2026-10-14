@@ -15,6 +15,14 @@
   --step-h2: clamp(1.75rem, 1.3rem + 1.8vw, 2.75rem);
   --step-h3: clamp(1.2rem, 1.05rem + 0.6vw, 1.5rem);
 
+  /* Motion tokens (SPEC M) */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-1: 150ms;
+  --dur-2: 250ms;
+  --dur-3: 450ms;
+  --dur-4: 700ms;
+
   color-scheme: dark;
 }
 
@@ -131,7 +139,457 @@ p {
   transform: translateY(0);
 }
 
-/* Reduced motion handling */
+/* ==========================================================================
+   SPEC M: Micro-interactions and motion
+   ========================================================================== */
+
+/* 1. Links: underline grows from the left on hover/focus */
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: 0% 1px;
+  transition: background-size var(--dur-2) var(--ease-out);
+}
+
+.link-underline:hover,
+.link-underline:focus-visible,
+.group:hover .link-underline,
+.group:focus-visible .link-underline {
+  background-size: 100% 1px;
+}
+
+/* 1. Links: Arrow nudging */
+.arrow-nudge-right {
+  display: inline-block;
+  transition: transform var(--dur-1) var(--ease-out);
+}
+:hover > .arrow-nudge-right,
+:focus-visible > .arrow-nudge-right,
+.group:hover .arrow-nudge-right,
+.group:focus-visible .arrow-nudge-right {
+  transform: translateX(3px);
+}
+
+.arrow-nudge-diag {
+  display: inline-block;
+  transition: transform var(--dur-1) var(--ease-out);
+}
+:hover > .arrow-nudge-diag,
+:focus-visible > .arrow-nudge-diag,
+.group:hover .arrow-nudge-diag,
+.group:focus-visible .arrow-nudge-diag {
+  transform: translate(2.12px, -2.12px);
+}
+
+.arrow-nudge-left {
+  display: inline-block;
+  transition: transform var(--dur-1) var(--ease-out);
+}
+:hover > .arrow-nudge-left,
+:focus-visible > .arrow-nudge-left,
+.group:hover .arrow-nudge-left,
+.group:focus-visible .arrow-nudge-left {
+  transform: translateX(-3px);
+}
+
+/* 2. Buttons/pills/chips: hover tints bg, :active scales to .97, transition --dur-1 */
+button,
+[role="tab"],
+.btn-pill,
+.chip {
+  transition: transform var(--dur-1) var(--ease-out),
+              background-color var(--dur-1) var(--ease-out),
+              border-color var(--dur-1) var(--ease-out),
+              color var(--dur-1) var(--ease-out);
+}
+
+button:active,
+[role="tab"]:active,
+.btn-pill:active,
+.chip:active {
+  transform: scale(0.97);
+}
+
+/* 3. Nav */
+header[data-nav] {
+  transition: transform var(--dur-3) var(--ease-out),
+              background-color var(--dur-2) var(--ease-out),
+              border-color var(--dur-2) var(--ease-out),
+              backdrop-filter var(--dur-2) var(--ease-out),
+              -webkit-backdrop-filter var(--dur-2) var(--ease-out);
+  background-color: transparent;
+  border-bottom: 1px solid transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+header[data-nav][data-scrolled="true"] {
+  background-color: color-mix(in srgb, var(--bg) 80%, transparent);
+  border-bottom-color: var(--line);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+header[data-nav][data-scrolled="false"] {
+  background-color: transparent;
+  border-bottom-color: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+header[data-nav][data-hidden="true"]:not(:focus-within) {
+  transform: translateY(-100%);
+}
+
+html:not([data-js]) header[data-nav] {
+  background-color: color-mix(in srgb, var(--bg) 80%, transparent);
+  border-bottom-color: var(--line);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* 4. Hero entrance */
+@keyframes heroWordSlide {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroIntroFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroPortraitReveal {
+  from {
+    clip-path: inset(100% 0 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+[data-js] .hero-word {
+  animation: heroWordSlide var(--dur-3) var(--ease-out) both;
+}
+
+[data-js] .hero-intro {
+  animation: heroIntroFade var(--dur-4) var(--ease-out) both;
+  animation-delay: 500ms;
+}
+
+[data-js] .hero-portrait-reveal {
+  animation: heroPortraitReveal var(--dur-4) var(--ease-out) both;
+  animation-delay: 350ms;
+}
+
+/* 5. Portrait */
+.portrait-container {
+  perspective: 1000px;
+}
+
+.portrait-img {
+  filter: grayscale(15%);
+  transform: rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) scale(var(--portrait-scale, 1));
+  transition: filter var(--dur-3) var(--ease-out), transform var(--dur-1) var(--ease-out);
+  will-change: transform, filter;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .portrait-container:hover .portrait-img {
+    filter: grayscale(0%);
+    --portrait-scale: 1.02;
+  }
+}
+
+/* 6. Intent picker answer panel */
+@keyframes panelCrossfade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.intent-panel-animate {
+  animation: panelCrossfade var(--dur-2) var(--ease-out) both;
+}
+
+/* 7. Work cards */
+.work-card {
+  position: relative;
+  transition: transform var(--dur-2) var(--ease-out),
+              border-color var(--dur-2) var(--ease-out);
+}
+
+.work-card:hover,
+.work-card:focus-within {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--line));
+}
+
+.work-card img {
+  transition: transform var(--dur-3) var(--ease-out);
+}
+
+.work-card:hover img,
+.work-card:focus-within img {
+  transform: scale(1.04);
+}
+
+.work-card-spotlight {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    600px circle at var(--mx, -1000px) var(--my, -1000px),
+    color-mix(in srgb, var(--accent) 15%, transparent),
+    transparent 60%
+  );
+  transition: opacity var(--dur-2) var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .work-card:hover .work-card-spotlight {
+    opacity: 1;
+  }
+}
+
+.work-card-arrow {
+  opacity: 0;
+  transform: translate(-4px, 4px);
+  transition: transform var(--dur-2) var(--ease-out), opacity var(--dur-2) var(--ease-out);
+  pointer-events: none;
+}
+
+.work-card:hover .work-card-arrow,
+.work-card:focus-within .work-card-arrow {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* 8. Scroll-driven effects */
+@keyframes featuredParallax {
+  from {
+    transform: translateY(-6%) scale(1.08);
+  }
+  to {
+    transform: translateY(6%) scale(1.08);
+  }
+}
+
+@keyframes timelineProgress {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes dotFill {
+  0% {
+    background-color: var(--bg);
+    transform: scale(0.85);
+  }
+  100% {
+    background-color: var(--accent);
+    transform: scale(1);
+  }
+}
+
+@keyframes caseStudyImgFadeScale {
+  from {
+    opacity: 0.4;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.timeline-progress-bar {
+  transform: scaleY(1);
+}
+
+.timeline-dot {
+  background-color: var(--accent);
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .featured-parallax-img {
+      animation: featuredParallax linear both;
+      animation-timeline: view();
+      animation-range: cover 0% cover 100%;
+    }
+
+    .timeline-progress-bar {
+      transform-origin: top;
+      animation: timelineProgress linear both;
+      animation-timeline: view();
+      animation-range: entry 10% exit 90%;
+    }
+
+    .timeline-dot {
+      background-color: var(--bg);
+      animation: dotFill linear both;
+      animation-timeline: view();
+      animation-range: cover 30% cover 55%;
+    }
+
+    .case-study-scroll-img {
+      animation: caseStudyImgFadeScale linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+    }
+  }
+}
+
+/* 9. Platforms infinite marquee */
+@keyframes marqueeScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - 0.75rem));
+  }
+}
+
+.marquee-wrapper {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: 0.75rem;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 4%,
+    black 96%,
+    transparent 100%
+  );
+}
+
+.marquee-content {
+  display: flex;
+  flex-shrink: 0;
+  gap: 0.75rem;
+  animation: marqueeScroll 28s linear infinite;
+  will-change: transform;
+}
+
+.marquee-wrapper:hover .marquee-content,
+.marquee-wrapper:focus-within .marquee-content {
+  animation-play-state: paused;
+}
+
+/* 10. Case study reading progress & shimmer skeleton */
+.reading-progress-bar {
+  position: fixed;
+  top: var(--nav-h);
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--accent);
+  transform-origin: left;
+  transform: scaleX(0);
+  z-index: 49;
+  pointer-events: none;
+}
+
+@keyframes readingProgress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reading-progress-bar {
+      animation: readingProgress linear both;
+      animation-timeline: scroll(root);
+    }
+  }
+}
+
+@keyframes shimmerWave {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.shimmer-skeleton {
+  position: absolute;
+  inset: 0;
+  background-color: var(--surface);
+  overflow: hidden;
+  z-index: 10;
+  transition: opacity var(--dur-2) var(--ease-out);
+}
+
+.shimmer-skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in srgb, var(--line) 70%, transparent) 50%,
+    transparent 100%
+  );
+  animation: shimmerWave 1.8s infinite;
+}
+
+/* 11. Theme toggle view transition */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) {
+  z-index: 1;
+}
+::view-transition-new(root) {
+  z-index: 9999;
+}
+
+/* 13. Images fade in from opacity: 0 on load */
+[data-js] .fade-image {
+  opacity: 0;
+  transition: opacity var(--dur-3) var(--ease-out);
+}
+
+[data-js] .fade-image[data-loaded="true"] {
+  opacity: 1;
+}
+
+html:not([data-js]) .fade-image {
+  opacity: 1;
+}
+
+/* Reduced motion handling: disable all effects and show final state */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -150,6 +608,67 @@ p {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
   }
+
+  .hero-word,
+  .hero-intro,
+  .hero-portrait-reveal,
+  .fade-image,
+  .work-card,
+  .portrait-img,
+  .marquee-content,
+  .reading-progress-bar,
+  .shimmer-skeleton,
+  .timeline-progress-bar,
+  .timeline-dot,
+  .intent-panel-animate,
+  .arrow-nudge-right,
+  .arrow-nudge-diag,
+  .arrow-nudge-left {
+    animation: none !important;
+    transform: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    clip-path: none !important;
+  }
+
+  .work-card-spotlight {
+    display: none !important;
+  }
+
+  .marquee-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: visible;
+    mask-image: none;
+  }
+
+  .marquee-content {
+    flex-wrap: wrap;
+    flex-shrink: 1;
+  }
+
+  .marquee-content[aria-hidden="true"] {
+    display: none !important;
+  }
+
+  .timeline-progress-bar {
+    transform: scaleY(1) !important;
+  }
+
+  .timeline-dot {
+    background-color: var(--accent) !important;
+  }
+
+  .reading-progress-bar {
+    display: none !important;
+  }
+
+  button:active,
+  [role="tab"]:active,
+  .btn-pill:active,
+  .chip:active {
+    transform: none !important;
+  }
 }
 
 /* Text selection */
@@ -166,4 +685,5 @@ p {
 [data-theme="light"] .woven-logo {
   filter: none;
 }
+
 

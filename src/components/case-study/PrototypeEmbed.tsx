@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import type { CaseStudy } from "../../../content/types";
 import { Reveal } from "../Reveal";
 
@@ -8,6 +11,8 @@ export function PrototypeEmbed({
   prototype: CaseStudy["prototype"];
   title: string;
 }) {
+  const [loaded, setLoaded] = useState(false);
+
   if (!prototype || !prototype.embed) return null;
 
   const targetLink = prototype.link ?? prototype.embed;
@@ -18,13 +23,15 @@ export function PrototypeEmbed({
       aria-label="Interactive prototype"
       className="py-12 sm:py-16 border-b border-line"
     >
-      <div className="aspect-[16/10] w-full rounded-[20px] overflow-hidden border border-line bg-surface">
+      <div className="relative aspect-[16/10] w-full rounded-[20px] overflow-hidden border border-line bg-surface">
+        {!loaded && <div className="shimmer-skeleton" aria-hidden="true" />}
         <iframe
           src={prototype.embed}
           title={`${title} interactive prototype`}
           loading="lazy"
           allow="autoplay; fullscreen"
-          className="w-full h-full border-0"
+          onLoad={() => setLoaded(true)}
+          className="w-full h-full border-0 relative z-10"
         />
       </div>
       <div className="mt-4">
@@ -33,10 +40,10 @@ export function PrototypeEmbed({
           target="_blank"
           rel="noopener noreferrer"
           aria-label={`Open the interactive prototype for ${title}`}
-          className="min-h-[44px] inline-flex items-center gap-1.5 text-sm font-medium text-text hover:text-accent transition-colors"
+          className="link-underline group min-h-[44px] inline-flex items-center gap-1.5 text-sm font-medium text-text hover:text-accent transition-colors"
         >
           <span>Open the interactive prototype</span>
-          <span aria-hidden="true">↗</span>
+          <span aria-hidden="true" className="arrow-nudge-diag">↗</span>
           <span className="sr-only"> (opens in new tab)</span>
         </a>
       </div>

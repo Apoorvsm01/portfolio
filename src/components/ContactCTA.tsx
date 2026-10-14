@@ -13,10 +13,10 @@ export function ContactCTA({ className = "" }: { className?: string }) {
         <div className="mt-8">
           <a
             href={`mailto:${site.email}`}
-            className="min-h-[44px] inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-text text-bg font-medium text-sm hover:opacity-90 transition-opacity"
+            className="group min-h-[44px] inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-text text-bg font-medium text-sm hover:opacity-90 active:scale-[0.97] transition-all"
           >
             <span>{site.email}</span>
-            <span aria-hidden="true">→</span>
+            <span aria-hidden="true" className="arrow-nudge-right">→</span>
           </a>
         </div>
       </div>

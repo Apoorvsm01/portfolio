@@ -23,7 +23,7 @@ export function StudyNav({ currentSlug }: { currentSlug: string }) {
             <span className="text-xs uppercase tracking-[0.14em] text-muted font-medium mb-2 flex items-center gap-1.5 group-hover:text-accent transition-colors">
               <span
                 aria-hidden="true"
-                className="group-hover:-translate-x-1 transition-transform"
+                className="arrow-nudge-left"
               >
                 ←
               </span>
@@ -49,7 +49,7 @@ export function StudyNav({ currentSlug }: { currentSlug: string }) {
               <span>Next</span>
               <span
                 aria-hidden="true"
-                className="group-hover:translate-x-1 transition-transform"
+                className="arrow-nudge-right"
               >
                 →
               </span>

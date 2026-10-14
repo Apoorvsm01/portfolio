@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import type { Section } from "../../../content/types";
 
 export function Toc({
@@ -9,9 +12,42 @@ export function Toc({
   variant?: "all" | "chip-row" | "rail";
   className?: string;
 }) {
+  const [activeId, setActiveId] = useState<string>("");
+
   const labelledSections = sections
     .map((section, index) => ({ section, index }))
     .filter(({ section }) => Boolean(section.label && section.label.trim() !== ""));
+
+  useEffect(() => {
+    if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const intersecting = entries.filter((e) => e.isIntersecting);
+        if (intersecting.length > 0) {
+          const top = intersecting.reduce((prev, curr) =>
+            prev.boundingClientRect.top < curr.boundingClientRect.top ? prev : curr
+          );
+          setActiveId(top.target.id);
+        }
+      },
+      {
+        rootMargin: "-10% 0px -65% 0px",
+        threshold: 0,
+      }
+    );
+
+    labelledSections.forEach(({ index }) => {
+      const el = document.getElementById(`section-${index}`);
+      if (el) observer.observe(el);
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [labelledSections]);
 
   if (labelledSections.length < 3) return null;
 
@@ -22,19 +58,27 @@ export function Toc({
           Contents
         </div>
         <ol className="flex gap-2.5 overflow-x-auto pb-2 list-none p-0 scrollbar-none">
-          {labelledSections.map(({ section, index }, i) => (
-            <li key={index} className="shrink-0">
-              <a
-                href={`#section-${index}`}
-                className="min-h-[44px] px-4 py-2 rounded-full border border-line bg-surface text-xs font-medium text-muted hover:text-text hover:border-accent transition-colors inline-flex items-center gap-1.5 whitespace-nowrap"
-              >
-                <span className="font-mono text-xs text-muted/60">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span>{section.label}</span>
-              </a>
-            </li>
-          ))}
+          {labelledSections.map(({ section, index }, i) => {
+            const isActive = activeId === `section-${index}`;
+            return (
+              <li key={index} className="shrink-0">
+                <a
+                  href={`#section-${index}`}
+                  aria-current={isActive ? "true" : undefined}
+                  className={`min-h-[44px] px-4 py-2 rounded-full border text-xs font-medium inline-flex items-center gap-1.5 whitespace-nowrap transition-colors ${
+                    isActive
+                      ? "border-accent text-accent bg-surface font-semibold shadow-xs"
+                      : "border-line bg-surface text-muted hover:text-text hover:border-accent"
+                  }`}
+                >
+                  <span className={`font-mono text-xs ${isActive ? "text-accent/80" : "text-muted/60"}`}>
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span>{section.label}</span>
+                </a>
+              </li>
+            );
+          })}
         </ol>
       </nav>
     );
@@ -47,19 +91,27 @@ export function Toc({
           Contents
         </div>
         <ol className="flex flex-col gap-1 list-none p-0">
-          {labelledSections.map(({ section, index }, i) => (
-            <li key={index}>
-              <a
-                href={`#section-${index}`}
-                className="min-h-[44px] px-3 py-2 rounded-lg text-sm font-medium text-muted hover:text-text hover:bg-surface/50 transition-colors flex items-center gap-2.5"
-              >
-                <span className="font-mono text-xs text-muted/60">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span>{section.label}</span>
-              </a>
-            </li>
-          ))}
+          {labelledSections.map(({ section, index }, i) => {
+            const isActive = activeId === `section-${index}`;
+            return (
+              <li key={index}>
+                <a
+                  href={`#section-${index}`}
+                  aria-current={isActive ? "true" : undefined}
+                  className={`min-h-[44px] px-3 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2.5 ${
+                    isActive
+                      ? "text-accent font-semibold bg-surface border-l-2 border-accent"
+                      : "text-muted hover:text-text hover:bg-surface/50"
+                  }`}
+                >
+                  <span className={`font-mono text-xs ${isActive ? "text-accent/80" : "text-muted/60"}`}>
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span>{section.label}</span>
+                </a>
+              </li>
+            );
+          })}
         </ol>
       </nav>
     );

@@ -1,7 +1,10 @@
-/* eslint-disable @next/next/no-img-element */
+"use client";
+
+import { useState } from "react";
 import type { Block, Section } from "../../../content/types";
 import { imageDims } from "../../lib/content";
 import { Reveal } from "../Reveal";
+import { FadeImage } from "../FadeImage";
 
 function renderListItem(item: string) {
   const match = item.match(/^([^:\n]+):\s*(.*)$/);
@@ -17,6 +20,34 @@ function renderListItem(item: string) {
     }
   }
   return item;
+}
+
+function IframeWithSkeleton({
+  src,
+  title,
+  aspect = "aspect-[16/10]",
+}: {
+  src: string;
+  title: string;
+  aspect?: string;
+}) {
+  const [loaded, setLoaded] = useState(false);
+
+  return (
+    <div
+      className={`relative ${aspect} w-full rounded-[20px] overflow-hidden border border-line bg-surface my-8 first:mt-0 last:mb-0`}
+    >
+      {!loaded && <div className="shimmer-skeleton" aria-hidden="true" />}
+      <iframe
+        src={src}
+        title={title}
+        loading="lazy"
+        allow="autoplay; fullscreen"
+        onLoad={() => setLoaded(true)}
+        className="w-full h-full border-0 relative z-10"
+      />
+    </div>
+  );
 }
 
 export function BlockRenderer({
@@ -78,12 +109,12 @@ export function BlockRenderer({
         const dims = imageDims(img.src);
         return (
           <figure className="w-full rounded-[16px] overflow-hidden border border-line bg-surface my-8 first:mt-0 last:mb-0">
-            <img
+            <FadeImage
               src={img.src}
               alt={alt}
               width={dims.width}
               height={dims.height}
-              className="w-full h-auto object-cover rounded-[16px]"
+              className="case-study-scroll-img w-full h-auto object-cover rounded-[16px]"
               loading="lazy"
             />
           </figure>
@@ -101,12 +132,12 @@ export function BlockRenderer({
                   key={i}
                   className="rounded-[16px] overflow-hidden border border-line bg-surface"
                 >
-                  <img
+                  <FadeImage
                     src={img.src}
                     alt={alt}
                     width={dims.width}
                     height={dims.height}
-                    className="w-full h-auto object-cover rounded-[16px]"
+                    className="case-study-scroll-img w-full h-auto object-cover rounded-[16px]"
                     loading="lazy"
                   />
                 </figure>
@@ -126,12 +157,12 @@ export function BlockRenderer({
                 key={i}
                 className="rounded-[16px] overflow-hidden border border-line bg-surface"
               >
-                <img
+                <FadeImage
                   src={img.src}
                   alt={alt}
                   width={dims.width}
                   height={dims.height}
-                  className="w-full h-auto object-cover rounded-[16px]"
+                  className="case-study-scroll-img w-full h-auto object-cover rounded-[16px]"
                   loading="lazy"
                 />
               </figure>
@@ -167,15 +198,11 @@ export function BlockRenderer({
         ? (studyTitle ? `${studyTitle} — ${cleanLabel} video` : `${cleanLabel} video`)
         : (studyTitle || "Video");
       return (
-        <div className="aspect-[16/9] w-full rounded-[20px] overflow-hidden border border-line bg-surface my-8 first:mt-0 last:mb-0">
-          <iframe
-            src={`https://player.vimeo.com/video/${block.vimeoId}?autoplay=1&muted=1&loop=1&background=1`}
-            title={vimeoTitle}
-            loading="lazy"
-            allow="autoplay; fullscreen"
-            className="w-full h-full border-0"
-          />
-        </div>
+        <IframeWithSkeleton
+          src={`https://player.vimeo.com/video/${block.vimeoId}?autoplay=1&muted=1&loop=1&background=1`}
+          title={vimeoTitle}
+          aspect="aspect-[16/9]"
+        />
       );
     }
 
@@ -184,15 +211,11 @@ export function BlockRenderer({
         ? (studyTitle ? `${studyTitle} — ${cleanLabel} — interactive prototype` : `${cleanLabel} — interactive prototype`)
         : (studyTitle ? `${studyTitle} — interactive prototype` : "Interactive prototype");
       return (
-        <div className="aspect-[16/10] w-full rounded-[20px] overflow-hidden border border-line bg-surface my-8 first:mt-0 last:mb-0">
-          <iframe
-            src={block.src}
-            title={embedTitle}
-            loading="lazy"
-            allow="autoplay; fullscreen"
-            className="w-full h-full border-0"
-          />
-        </div>
+        <IframeWithSkeleton
+          src={block.src}
+          title={embedTitle}
+          aspect="aspect-[16/10]"
+        />
       );
     }
 

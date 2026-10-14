@@ -71,6 +71,7 @@ export default async function CaseStudyPage({
 
   return (
     <main id="main" className="container-page flex-1">
+      <div className="reading-progress-bar" aria-hidden="true" />
       <article>
         <Hero study={study} />
         <Facts facts={study.facts} />

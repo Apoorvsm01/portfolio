@@ -3,6 +3,7 @@ import Link from "next/link";
 import { site } from "../../content/site";
 import { coverFor, getStudy, imageDims, studyHref } from "../lib/content";
 import { Reveal } from "./Reveal";
+import { FadeImage } from "./FadeImage";
 
 export function Featured() {
   const featuredStudy = getStudy(site.featured.slug);
@@ -36,20 +37,20 @@ export function Featured() {
         </p>
       </div>
 
-      {/* Large Featured Image */}
+      {/* Large Featured Image with subtle scroll-driven parallax */}
       {largeImage && (
         <figure className="mt-8 overflow-hidden rounded-[16px] border border-line/60 bg-surface">
           <Link
             href={studyHref(site.featured.slug)}
             className="block group overflow-hidden"
           >
-            <img
+            <FadeImage
               src={largeImage.src}
               alt={largeImage.alt || featuredStudy?.title || site.featured.headline}
               width={imageDims(largeImage.src).width}
               height={imageDims(largeImage.src).height}
               loading="lazy"
-              className="w-full aspect-[16/10] object-cover group-hover:scale-[1.01] transition-transform duration-500"
+              className="featured-parallax-img w-full aspect-[16/10] object-cover group-hover:scale-[1.01] transition-transform duration-500"
             />
           </Link>
         </figure>
@@ -60,10 +61,10 @@ export function Featured() {
         <Link
           href={studyHref(site.featured.slug)}
           aria-label={`Read the case study: ${featuredStudy?.title ?? site.featured.headline}`}
-          className="min-h-[44px] inline-flex items-center gap-2 font-medium text-text hover:text-accent transition-colors group"
+          className="link-underline min-h-[44px] inline-flex items-center gap-2 font-medium text-text hover:text-accent transition-colors group"
         >
           <span>Read the case study</span>
-          <span aria-hidden="true" className="group-hover:translate-x-1 transition-transform">
+          <span aria-hidden="true" className="arrow-nudge-right">
             →
           </span>
         </Link>
@@ -90,7 +91,7 @@ export function Featured() {
                   >
                     {image && cardDims && (
                       <figure className="aspect-[16/10] w-full overflow-hidden rounded-[16px] bg-bg/50 border border-line/40 mb-4">
-                        <img
+                        <FadeImage
                           src={image.src}
                           alt=""
                           width={cardDims.width}
@@ -110,7 +111,7 @@ export function Featured() {
                     )}
                     <div className="mt-4 pt-3 border-t border-line/40 flex items-center text-xs text-muted group-hover:text-accent transition-colors">
                       <span>View study</span>
-                      <span aria-hidden="true" className="ml-1 group-hover:translate-x-1 transition-transform">
+                      <span aria-hidden="true" className="arrow-nudge-right ml-1">
                         →
                       </span>
                     </div>

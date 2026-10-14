@@ -1,8 +1,11 @@
-/* eslint-disable @next/next/no-img-element */
+"use client";
+
+import { useRef, useEffect } from "react";
 import Link from "next/link";
 import { site, type WorkRef } from "../../content/site";
 import { coverFor, getStudy, imageDims, studyHref } from "../lib/content";
 import { Reveal } from "./Reveal";
+import { FadeImage } from "./FadeImage";
 
 export function WorkCard({
   work,
@@ -17,20 +20,59 @@ export function WorkCard({
   const tags = study?.tags?.slice(0, 3) ?? [];
   const title = study?.title ?? work.slug;
   const dims = cover ? imageDims(cover.src) : undefined;
+  const cardRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    const el = cardRef.current;
+    if (!el) return;
+
+    let rafId: number | null = null;
+
+    const handlePointerMove = (e: PointerEvent) => {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+
+      const rect = el.getBoundingClientRect();
+      const mx = e.clientX - rect.left;
+      const my = e.clientY - rect.top;
+
+      if (rafId !== null) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        el.style.setProperty("--mx", `${mx.toFixed(1)}px`);
+        el.style.setProperty("--my", `${my.toFixed(1)}px`);
+      });
+    };
+
+    el.addEventListener("pointermove", handlePointerMove, { passive: true });
+
+    return () => {
+      if (rafId !== null) cancelAnimationFrame(rafId);
+      el.removeEventListener("pointermove", handlePointerMove);
+    };
+  }, []);
 
   return (
     <article
-      className={`group relative flex flex-col h-full rounded-[20px] bg-surface border border-line p-5 sm:p-6 hover:border-muted/60 transition-colors focus-within:outline focus-within:outline-2 focus-within:outline-accent focus-within:outline-offset-2 ${
+      ref={cardRef}
+      className={`work-card group relative flex flex-col h-full rounded-[20px] bg-surface border border-line p-5 sm:p-6 focus-within:outline focus-within:outline-2 focus-within:outline-accent focus-within:outline-offset-2 ${
         isLead ? "xl:grid xl:grid-cols-12 xl:gap-8 xl:items-center" : ""
       }`}
     >
+      <div className="work-card-spotlight" aria-hidden="true" />
+      <span
+        aria-hidden="true"
+        className="work-card-arrow absolute top-5 right-5 sm:top-6 sm:right-6 text-accent text-lg font-bold z-10"
+      >
+        ↗
+      </span>
+
       {cover && dims && (
         <figure
           className={`aspect-[16/10] w-full overflow-hidden rounded-[16px] bg-bg/50 border border-line/40 mb-5 ${
             isLead ? "xl:col-span-7 xl:mb-0" : ""
           }`}
         >
-          <img
+          <FadeImage
             src={cover.src}
             alt=""
             width={dims.width}
@@ -38,11 +80,11 @@ export function WorkCard({
             loading="lazy"
             className={`w-full h-full ${
               coverInfo?.fit === "contain" ? "object-contain" : "object-cover"
-            } group-hover:scale-[1.02] transition-transform duration-500`}
+            }`}
           />
         </figure>
       )}
-      <div className={`flex flex-col flex-1 ${isLead ? "xl:col-span-5" : ""}`}>
+      <div className={`flex flex-col flex-1 relative z-10 ${isLead ? "xl:col-span-5" : ""}`}>
         {work.org && (
           <span className="text-xs uppercase tracking-[0.14em] text-muted font-medium mb-2">
             {work.org}

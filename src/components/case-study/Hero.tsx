@@ -14,11 +14,11 @@ export function Hero({ study }: { study: CaseStudy }) {
       <div>
         <Link
           href="/#work"
-          className="min-h-[44px] inline-flex items-center gap-1.5 text-sm font-medium text-muted hover:text-text transition-colors group mb-8"
+          className="link-underline min-h-[44px] inline-flex items-center gap-1.5 text-sm font-medium text-muted hover:text-text transition-colors group mb-8"
         >
           <span
             aria-hidden="true"
-            className="group-hover:-translate-x-1 transition-transform"
+            className="arrow-nudge-left"
           >
             ←
           </span>

@@ -31,12 +31,28 @@ export function Timeline() {
         </h2>
       </div>
 
-      <ol className="divide-y divide-line/60 list-none p-0">
+      <ol className="relative pl-7 sm:pl-9 divide-y divide-line/60 list-none p-0">
+        {/* Static vertical track line */}
+        <div
+          className="absolute left-[11px] sm:left-[15px] top-3 bottom-3 w-[2px] bg-line pointer-events-none"
+          aria-hidden="true"
+        />
+        {/* Scroll-driven vertical progress bar */}
+        <div
+          className="timeline-progress-bar absolute left-[11px] sm:left-[15px] top-3 bottom-3 w-[2px] bg-accent origin-top pointer-events-none"
+          aria-hidden="true"
+        />
+
         {site.timeline.map((item) => (
           <li
             key={`${item.years}-${item.role}`}
-            className="py-6 first:pt-0 last:pb-0 grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-8 items-baseline"
+            className="relative py-6 first:pt-0 last:pb-0 grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-8 items-baseline"
           >
+            {/* Scroll-driven dot indicator */}
+            <span
+              className="timeline-dot absolute left-[7px] sm:left-[11px] top-2 sm:top-1.5 w-2.5 h-2.5 rounded-full border-2 border-accent pointer-events-none"
+              aria-hidden="true"
+            />
             <div className="md:col-span-4 text-sm font-mono text-muted">
               {renderYears(item.years)}
             </div>
