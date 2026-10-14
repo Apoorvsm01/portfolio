@@ -23,8 +23,7 @@ export function HeroImages({
           <img
             src={img.src}
             alt={img.alt || title}
-            className="w-full h-auto object-cover rounded-[16px]"
-            loading="lazy"
+            className="w-full h-auto max-h-[75vh] object-cover rounded-[16px]"
           />
         </div>
       </Reveal>
@@ -41,13 +40,13 @@ export function HeroImages({
         {images.map((img, index) => (
           <div
             key={index}
-            className="snap-start shrink-0 w-[70vw] md:w-[32rem] rounded-[16px] overflow-hidden border border-line bg-surface"
+            className="snap-start shrink-0 h-[min(60vh,560px)] max-w-[85vw] rounded-[16px] overflow-hidden border border-line bg-surface"
           >
             <img
               src={img.src}
               alt={img.alt || `${title} hero image ${index + 1}`}
-              className="w-full h-auto object-cover rounded-[16px]"
-              loading="lazy"
+              className="h-full w-auto max-w-full object-cover rounded-[16px]"
+              loading={index < 2 ? "eager" : "lazy"}
             />
           </div>
         ))}
