@@ -116,3 +116,117 @@ src/components/                 Nav, Footer, ThemeToggle, Reveal, IntentPicker, 
 ## About (`/about/`)
 - h1 "About". A paragraph built from `site.hero.intro`, then the full `Timeline`, `HowIWork` and `PlatformStrip`.
   No new copy.
+
+---
+
+# v2 refinements (supersedes anything above that conflicts)
+
+## R. Responsive layout
+Check every page at 360, 390, 768, 834, 1024, 1280, 1440 and 1920px wide. None of them may show awkward empty bands,
+images taller than the viewport, or headlines longer than 3 lines.
+
+- **Container**: `max-width: 80rem`, side gutters `clamp(1rem, 4vw, 3rem)`. Define it once as a `.container-page`
+  utility in globals.css and use it everywhere. No per-component `max-w-*` page wrappers.
+- **Prose** width `42rem`. Long paragraphs never span the full container.
+- **Fluid type** (CSS custom properties in globals.css, used by every heading):
+  - `--step-hero: clamp(2.5rem, 1.6rem + 3.6vw, 5rem)`
+  - `--step-h1: clamp(2.25rem, 1.5rem + 3vw, 4.25rem)`
+  - `--step-h2: clamp(1.75rem, 1.3rem + 1.8vw, 2.75rem)`
+  - `--step-h3: clamp(1.2rem, 1.05rem + 0.6vw, 1.5rem)`
+  - Body is `clamp(1rem, 0.95rem + 0.25vw, 1.125rem)`.
+  - Headings use `text-wrap: balance`. Paragraphs use `text-wrap: pretty`.
+- **Viewport units**: use `svh`/`dvh`, never `vh`, for anything sized to the screen (mobile browser bars).
+- **Home hero**:
+  - Below `lg` (1024px): single column, text first, then the portrait at `max-width: 22rem` and aspect 4:5, left-aligned.
+    At `md` (768–1023px) the portrait sits beside the intro paragraph in a 7/5 grid *under* the full-width headline.
+  - At `lg`+: a 12-column grid with the headline spanning all 12 columns at the top (2–3 lines max), the intro in
+    columns 1–6 and the portrait in columns 8–12 (aspect 4:5, max height `70svh`).
+  - The hero section is `min-height: calc(100svh - var(--nav-h))`, with content vertically centered from `lg`.
+- **Case study at `lg`+**: a 12-column grid. The TOC is a sticky left rail (columns 1–3, `top: calc(var(--nav-h) + 2rem)`)
+  and the article content takes columns 4–12. Below `lg` the TOC is a horizontal scrollable chip row under the facts.
+- **Facts** use `grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr))`.
+- **Work grid**: 1 column, then 2 from 768px. The first card spans 2 columns from 1280px (the editorial lead card).
+- **Tap targets**: every link and button is at least 44×44px (use padding, not just font size), with at least 8px
+  between targets.
+- **Images**: always pass `width`/`height` from `imageDims(src)` (src/lib/content.ts) so the browser reserves space
+  before load. Use `sizes` where the width is known.
+
+## S. Semantic HTML (required)
+- Pages: `header > nav`, `main#main`, `footer`. Each case-study page's `main` contains one `<article>` with its own
+  `<header>` (tags, h1, lede, how-might-we).
+- Every `<section>` has `aria-labelledby` pointing to its visible heading's `id`. Use `aria-label` only when there's
+  no visible heading. Untitled case-study sections should be `<div>`s, not sections.
+- Lists are lists:
+  - The work grid is `ul > li > article` (the card heading is an `h3`, and the whole card is one link wrapping the
+    heading text, using the "stretched link" pattern so there's no nested interactive content).
+  - How I work is `ol`.
+  - The timeline is `ol > li` with `<time datetime="YYYY">`.
+  - Platforms and tags are `ul`.
+  - Intent links are `ul`.
+  - The TOC is `nav > ol`.
+  - Prev/next is `nav` with `rel="prev"`/`rel="next"`.
+- Facts are `<dl>` with `<div><dt><dd>` groups.
+- Content images are `<figure><img></figure>`. Add a `<figcaption>` only when real caption text exists.
+  Decorative images get `alt=""`.
+- Headings never skip a level, and a heading block whose text equals its section label isn't rendered twice.
+- Navigation uses `<a>`. Actions (theme toggle, copy email, menu, tabs) use `<button type="button">`.
+- External links: `target="_blank" rel="noopener noreferrer"` plus a visually hidden "(opens in new tab)".
+- The footer contact block is wrapped in `<address>`.
+- Metadata: per-page `title`/`description`, Open Graph title/description/url, `<link rel="canonical">`,
+  `theme-color` for both color schemes, and `color-scheme` set.
+- No `div` with click handlers. No `role` attributes that duplicate a native element's role.
+
+## M. Micro-interactions and motion
+Motion should feel crafted, quick and physical. It must never block reading, and every effect turns off under
+`prefers-reduced-motion: reduce`, falling back to the final state.
+
+Tokens in globals.css:
+- `--ease-out: cubic-bezier(.16,1,.3,1)`
+- `--ease-in-out: cubic-bezier(.65,0,.35,1)`
+- `--dur-1: 150ms`, `--dur-2: 250ms`, `--dur-3: 450ms`, `--dur-4: 700ms`
+- Animate only `transform`, `opacity`, `clip-path` and `filter` (never layout properties).
+
+1. **Links**: an underline grows from the left on hover/focus (`background-size` transition on a
+   `linear-gradient(currentColor)` 1px underline). Arrows (→ ↗) nudge 3px in their direction on hover.
+2. **Buttons/pills/chips**: hover tints the background, `:active` scales to .97, and the transition uses `--dur-1`.
+3. **Nav**:
+   - The header is transparent at the top of the page. After 8px of scroll it gets a blur, a background and a hairline
+     border (toggled with a `data-scrolled` attribute).
+   - It hides when scrolling down past 400px and reappears on any upward scroll (translateY, `--dur-3`). It is never
+     hidden while focus is inside it.
+   - The current page's link has `aria-current="page"` and an accent dot.
+4. **Hero entrance** (on load only):
+   - The headline animates word by word: each word slides up from a clipped line box (`translateY(100%)` → 0) with
+     a 60ms stagger.
+   - The real text stays in the DOM: wrap the visible words in `aria-hidden` spans and keep the full sentence in a
+     visually hidden span inside the h1.
+   - The intro fades in after the headline, and the portrait reveals with `clip-path: inset(100% 0 0 0)` → `inset(0)`.
+5. **Portrait**: starts at 15% grayscale. On hover it goes to full color with a slight 1.02 scale. The pointer
+   position adds a ±4° 3D tilt (rAF-throttled, desktop and fine pointers only).
+6. **Intent picker**: the active pill is a single sliding highlight that moves between tabs (measure the active tab's
+   offset, then animate `transform` and `width`). The answer panel crossfades and rises 6px when it changes.
+7. **Work cards**:
+   - On hover/focus-visible: the card lifts `translateY(-4px)`, the image scales to 1.04, the border warms to accent
+     at 40% alpha, and a soft radial "spotlight" follows the pointer inside the card (CSS vars `--mx`/`--my` set in
+     `pointermove`).
+   - The ↗ arrow in the corner slides in.
+8. **Scroll-driven effects** (CSS `animation-timeline: view()` inside `@supports (animation-timeline: view())`; with
+   no support, show the static final state):
+   - The featured image gets a subtle parallax (−6% → 6%).
+   - The timeline gets a vertical progress line that draws as it scrolls past, and each item's dot fills when its row
+     is centered.
+   - Case-study images fade and scale in from .98.
+9. **Platforms**: an infinite horizontal marquee of the pills that pauses on hover/focus. Under reduced motion it's a
+   static wrapped list. The duplicated set for looping is `aria-hidden`.
+10. **Case study**:
+    - A 2px accent reading-progress bar sits under the nav (`animation-timeline: scroll(root)`).
+    - The TOC highlights the section in view (an IntersectionObserver scrollspy, plus `aria-current="true"` on the
+      active link).
+    - Video and iframe frames show a shimmer skeleton until they load.
+11. **Theme toggle**: the sun/moon icon morphs (rotate plus scale crossfade). The theme change uses
+    `document.startViewTransition` with a circular `clip-path` reveal from the button's center when supported, and
+    an instant change otherwise.
+12. **Copy email**: next to the email in the footer, a button copies it to the clipboard. The icon swaps to a check
+    and a "Copied" label appears for 2s (announced via an `aria-live="polite"` region).
+13. **Images**: fade in from `opacity:0` on load (via an `onLoad` class swap in a small client component). They're
+    visible by default when JavaScript is off.
