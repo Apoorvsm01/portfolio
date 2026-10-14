@@ -1,24 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import { site } from "../../content/site";
-import { getStudy, studyHref } from "../lib/content";
-import type { CaseStudy, Img } from "../../content/types";
+import { coverFor, getStudy, studyHref } from "../lib/content";
 import { Reveal } from "./Reveal";
-
-function getFirstStudyImage(study?: CaseStudy): Img | undefined {
-  if (!study) return undefined;
-  if (study.heroImages && study.heroImages.length > 0) {
-    return study.heroImages[0];
-  }
-  for (const section of study.sections) {
-    for (const block of section.blocks) {
-      if (block.type === "images" && block.images.length > 0) {
-        return block.images[0];
-      }
-    }
-  }
-  return undefined;
-}
 
 export function Featured() {
   const featuredStudy = getStudy(site.featured.slug);
@@ -92,7 +76,8 @@ export function Featured() {
             {site.featured.related.map((slug) => {
               const study = getStudy(slug);
               const workItem = site.work.find((w) => w.slug === slug);
-              const image = getFirstStudyImage(study);
+              const coverInfo = coverFor(slug);
+              const image = coverInfo?.img;
               const title = study?.title ?? slug;
               const blurb = workItem?.blurb;
 
@@ -110,7 +95,7 @@ export function Featured() {
                         width={600}
                         height={375}
                         loading="lazy"
-                        className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                        className={`w-full h-full ${coverInfo?.fit === "contain" ? "object-contain" : "object-cover"} group-hover:scale-[1.02] transition-transform duration-500`}
                       />
                     </div>
                   )}

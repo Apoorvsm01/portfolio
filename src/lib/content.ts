@@ -1,4 +1,5 @@
-import type { CaseStudy } from "../../content/types";
+import type { CaseStudy, Img } from "../../content/types";
+import { site } from "../../content/site";
 import wovenData from "../../content/case-studies/woven.json";
 import fleetCoPilotData from "../../content/case-studies/fleet-co-pilot.json";
 import fleetDashboardData from "../../content/case-studies/fleet-dashboard.json";
@@ -69,4 +70,20 @@ export function getStudyNeighbors(slug: string): {
     prev: index > 0 ? studies[index - 1] : null,
     next: index < studies.length - 1 ? studies[index + 1] : null,
   };
+}
+
+/**
+ * Card cover for a study: the site.work override if set, else the first hero image,
+ * else the first image anywhere in the study.
+ */
+export function coverFor(slug: string): { img: Img; fit: "cover" | "contain" } | undefined {
+  const study = studyMap.get(slug);
+  const ref = site.work.find((w) => w.slug === slug);
+  const fit = ref?.coverFit ?? "cover";
+  if (ref?.cover) return { img: { src: ref.cover, alt: study?.title ?? slug }, fit };
+  if (!study) return undefined;
+  const first =
+    study.heroImages[0] ??
+    study.sections.flatMap((s) => s.blocks).find((b) => b.type === "images")?.images[0];
+  return first ? { img: first, fit } : undefined;
 }

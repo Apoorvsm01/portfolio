@@ -1,28 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import { site, type WorkRef } from "../../content/site";
-import { getStudy, studyHref } from "../lib/content";
-import type { CaseStudy, Img } from "../../content/types";
+import { coverFor, getStudy, studyHref } from "../lib/content";
 import { Reveal } from "./Reveal";
-
-function getStudyCoverImage(study?: CaseStudy): Img | undefined {
-  if (!study) return undefined;
-  if (study.heroImages && study.heroImages.length > 0) {
-    return study.heroImages[0];
-  }
-  for (const section of study.sections) {
-    for (const block of section.blocks) {
-      if (block.type === "images" && block.images.length > 0) {
-        return block.images[0];
-      }
-    }
-  }
-  return undefined;
-}
 
 export function WorkCard({ work }: { work: WorkRef }) {
   const study = getStudy(work.slug);
-  const cover = getStudyCoverImage(study);
+  const coverInfo = coverFor(work.slug);
+  const cover = coverInfo?.img;
   const tags = study?.tags?.slice(0, 3) ?? [];
   const title = study?.title ?? work.slug;
 
@@ -39,7 +24,7 @@ export function WorkCard({ work }: { work: WorkRef }) {
             width={800}
             height={500}
             loading="lazy"
-            className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+            className={`w-full h-full ${coverInfo?.fit === "contain" ? "object-contain" : "object-cover"} group-hover:scale-[1.02] transition-transform duration-500`}
           />
         </div>
       )}

@@ -5,6 +5,8 @@ export type WorkRef = {
   slug: string;
   org?: string; // only set where the employer is confirmed
   blurb: string;
+  cover?: string; // card image override (public path)
+  coverFit?: "contain"; // for tall/logo images that shouldn't be cropped
 };
 
 export const site = {
@@ -57,14 +59,14 @@ export const site = {
   },
 
   work: [
-    { slug: "fleet-co-pilot", org: "Woven by Toyota", blurb: "Cockpit HUD for safety drivers in an autonomous test fleet." },
-    { slug: "fleet-dashboard", org: "Woven by Toyota", blurb: "Incident, damage, and telemetry views for fleet-ops engineers." },
-    { slug: "drive-coach-ios", org: "Woven by Toyota", blurb: "A SwiftUI confidence-building app for technicians and new drivers." },
-    { slug: "how2to", org: "Omnia", blurb: "AI-powered, step-by-step spatial tutorials on visionOS." },
-    { slug: "omniabrowser", org: "Omnia", blurb: "A spatial browser for Apple Vision Pro." },
-    { slug: "spatialshowroom", blurb: "A spatial showroom experience for Vision Pro." },
-    { slug: "syncare-ai-health", org: "Patched Reality", blurb: "Reducing cognitive load in AI-integrated health records." },
-    { slug: "sitelens", blurb: "AR glasses for on-site construction inspections." },
+    { slug: "fleet-co-pilot", cover: "/work/fleet-co-pilot/03.jpg", org: "Woven by Toyota", blurb: "Cockpit HUD for safety drivers in an autonomous test fleet." },
+    { slug: "fleet-dashboard", cover: "/work/fleet-dashboard/01.jpg", org: "Woven by Toyota", blurb: "Incident, damage, and telemetry views for fleet-ops engineers." },
+    { slug: "drive-coach-ios", coverFit: "contain", org: "Woven by Toyota", blurb: "A SwiftUI confidence-building app for technicians and new drivers." },
+    { slug: "how2to", cover: "/work/how2to/03.png", org: "Omnia", blurb: "AI-powered, step-by-step spatial tutorials on visionOS." },
+    { slug: "omniabrowser", cover: "/work/omniabrowser/02.png", org: "Omnia", blurb: "A spatial browser for Apple Vision Pro." },
+    { slug: "spatialshowroom", cover: "/work/spatialshowroom/01.png", blurb: "A spatial showroom experience for Vision Pro." },
+    { slug: "syncare-ai-health", cover: "/work/syncare-ai-health/01.png", org: "Patched Reality", blurb: "Reducing cognitive load in AI-integrated health records." },
+    { slug: "sitelens", cover: "/work/sitelens/02.png", blurb: "AR glasses for on-site construction inspections." },
   ] satisfies WorkRef[],
 
   howIWork: [
