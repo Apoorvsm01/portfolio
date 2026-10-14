@@ -96,8 +96,9 @@ src/components/                 Nav, Footer, ThemeToggle, Reveal, IntentPicker, 
 2. **Facts**: a definition-list row (`facts`, 3–5 columns desktop, stacked mobile). Values split on `\n` into lines.
 3. **Prototype** (if `prototype`): a lazy-loaded iframe of `prototype.embed` in a 16:10 rounded frame with a border,
    plus an "Open the interactive prototype ↗" link to `prototype.link ?? prototype.embed`.
-4. **Hero images**: if 1, show it full-bleed in the content width; if more than 1, use a horizontal scroll-snap
-   strip (each image 70vw mobile / 32rem desktop).
+4. **Hero images**: if 1, show it full-bleed in the content width (max 75vh tall); if more than 1, use a horizontal
+   scroll-snap strip of fixed height `min(60vh, 560px)`, each image at its natural aspect ratio (max 85vw wide), so
+   portrait phone screenshots and landscape shots both fit the viewport.
 5. **Table of contents**: links to each labelled section (`#section-<index>`). Hide it when there are fewer than 3
    labelled sections.
 6. **Sections**: each one has a label (small caps-style label, `id="section-<index>"`) and renders `blocks` in order:
