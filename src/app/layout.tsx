@@ -46,7 +46,9 @@ export const metadata: Metadata = {
   },
 };
 
+// Also marks <html> with data-js so reveal animations only hide content when JS is running.
 const themeBootstrapScript = `(function() {
+  document.documentElement.setAttribute('data-js', '');
   try {
     var stored = localStorage.getItem('theme');
     var theme = stored === 'light' || stored === 'dark' ? stored : 'dark';
