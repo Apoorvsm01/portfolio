@@ -230,3 +230,81 @@ Tokens in globals.css:
     and a "Copied" label appears for 2s (announced via an `aria-live="polite"` region).
 13. **Images**: fade in from `opacity:0` on load (via an `onLoad` class swap in a small client component). They're
     visible by default when JavaScript is off.
+
+---
+
+# v3: navigation and visual blocks (supersedes anything above that conflicts)
+
+## N. Information architecture and navigation
+The site should be easy to move around, like voigt.work. Short pages with clear jumps, not one endless scroll.
+
+**Routes**
+- `/`: home, a short overview.
+- `/work/`: index of all projects.
+- `/work/<slug>/`: case studies.
+- `/about/`: the story.
+- `/404`.
+
+**Home** (`/`), only these sections, in order:
+1. Hero.
+2. "What brings you here?" (IntentPicker).
+3. Featured (Woven).
+4. "Selected work": the first 4 entries of `site.work` as cards, plus a prominent "All projects (9) →" link to `/work/`.
+5. "About" teaser: 2 lines from `site.hero.intro`, the 3 most recent timeline rows, and a "The long way here →" link to `/about/`.
+6. Footer CTA.
+
+How I work, the full Timeline and Platforms move to `/about/`. The home page must be at most about 4 screen heights at 1440×900.
+
+**Work index** (`/work/`):
+- h1 "Work".
+- A filter bar of domain chips: All · Automotive · Spatial · Health. These are real `<button aria-pressed>` elements.
+  The URL hash updates (`#automotive`) so a filtered view is linkable, and the initial hash is respected.
+- The grid of all 9 `WorkCard`s, filtered client-side. Filtered-out cards animate out using the FLIP technique
+  (opacity/transform only).
+- An `aria-live="polite"` line announces "Showing N projects".
+- Domains come from `site.work[].domain`.
+
+**Global nav**:
+- Name/logo on the left.
+- Work, About, Contact (mailto) and LinkedIn on the right, plus a ⌘K button and the theme toggle.
+- The current section is marked with `aria-current="page"` (`/work/*` counts as Work).
+- Mobile: a full-height sheet menu with large links, opened by a button with `aria-expanded`. It closes on Escape
+  and on route change, and focus is trapped inside while it's open.
+
+**Command palette (⌘K / Ctrl+K, and `/`)**:
+- A modal `<dialog>` with a search input and a listbox of every page: Home, Work, About, each case study (with its
+  domain), each case-study section (`Study › Section` → `/work/slug/#section-n`), Email (copies the address) and
+  LinkedIn.
+- Fuzzy-ish matching: case-insensitive substring match on title and keywords.
+- Full keyboard support: ↑/↓, Enter, Esc. Uses `aria-activedescendant`. Focus returns to the trigger on close.
+- The nav shows a visible ⌘K hint button.
+
+**Case-study navigation**:
+- A breadcrumb (`nav aria-label="Breadcrumb"` > `ol`): Work › Study title.
+- The sticky TOC rail stays on desktop, with the chip row below `lg`.
+- At the end of the article, a large "Next project" card (cover image, title, blurb) linking to the next study,
+  plus a smaller "Previous" link and "All work".
+- The `j`/`k` keys jump to the next/previous section when focus isn't in a text field. Mention this in the TOC
+  footer as a small hint.
+
+**Back to top**: a small floating button appears after scrolling 1.5 screens. It is keyboard-accessible and
+labelled.
+
+## V. Visual case-study blocks
+Case-study JSON can contain these block types in addition to the existing ones (see content/types.ts):
+- `figure`: `{ type: "figure", image: Img, caption?: string, wide?: boolean }`. A single large image, such as a
+  design-system spec card captured from Framer. `wide: true` lets it break out to the full container width on
+  `lg`+. It renders in a `<figure>`, with a `<figcaption>` when there's a caption. On white-background captures in
+  dark mode, give it a rounded frame and a 1px border so it doesn't glare.
+- `metrics`: `{ type: "metrics", items: { value: string; label: string }[] }`. Render as a `<dl>` grid of stat tiles
+  (big display-font value, small muted label): 2 columns on mobile, 4 from `md`. Values count up when scrolled into
+  view, but only when the value is a plain number (strip it to digits for the animation and keep the original
+  string as the final text). Reduced motion: no count-up.
+- `widgets`: `{ type: "widgets", items: { title; subtitle; preview: Img; code: { swiftui; flutter; tailwind } }[] }`.
+  Each item is an `<article>`:
+  - The left column has the title, subtitle and the preview image on a dark stage.
+  - The right column is a tablist (SwiftUI / Flutter / Tailwind) whose panel is a `<pre><code>` block with the code.
+    It has a "Copy" button with "Copied" feedback, uses a monospace font, scrolls horizontally on overflow, and never
+    wraps.
+  - The last-chosen language syncs across all widgets on the page.
+  - Two columns on `lg`+, stacked below.
