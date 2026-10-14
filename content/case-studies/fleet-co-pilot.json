@@ -1,0 +1,408 @@
+{
+  "slug": "fleet-co-pilot",
+  "title": "Fleet Co-Pilot",
+  "description": "Cockpit incident tagging, live telemetry, and ODD coverage for an autonomous test fleet — plus the office dashboard engineers review it in.",
+  "tags": [
+    "Fleet Ops & Safety",
+    "Incident Logging",
+    "L4 Cockpit HUD",
+    "ODD Coverage"
+  ],
+  "hmw": "trust an autonomous test fleet enough to scale it, without losing the edge cases only a safety driver ever sees?",
+  "facts": [
+    {
+      "label": "Platforms",
+      "value": "Flutter cockpit HUD (iOS/Android) + React fleet dashboard (web)"
+    },
+    {
+      "label": "Category",
+      "value": "Autonomous Fleet Operations"
+    },
+    {
+      "label": "Role",
+      "value": "End-to-end: cockpit UI, data taxonomy, office dashboard"
+    }
+  ],
+  "prototype": {
+    "embed": "https://apoorvsm01.github.io/hmi_ui/fleet",
+    "link": "https://apoorvsm01.github.io/hmi_ui/fleet"
+  },
+  "heroImages": [
+    {
+      "src": "/work/fleet-co-pilot/01.jpg",
+      "alt": "Instrument cluster of an autonomous test vehicle"
+    },
+    {
+      "src": "/work/fleet-co-pilot/02.jpg",
+      "alt": "Autonomous test vehicle driving through a city street"
+    }
+  ],
+  "sections": [
+    {
+      "label": "Design System",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "One taxonomy, six primitives"
+        },
+        {
+          "type": "paragraph",
+          "text": "Every surface — cockpit, hazard map, office dashboard — reads from the same six primitives, styled consistently wherever they appear."
+        },
+        {
+          "type": "paragraph",
+          "text": "Severity"
+        },
+        {
+          "type": "paragraph",
+          "text": "SEV1 · Critical Takeover"
+        },
+        {
+          "type": "paragraph",
+          "text": "Subsystem"
+        },
+        {
+          "type": "paragraph",
+          "text": "Motion Planner"
+        },
+        {
+          "type": "paragraph",
+          "text": "Autonomy State"
+        },
+        {
+          "type": "paragraph",
+          "text": "L4 AUTONOMOUS"
+        },
+        {
+          "type": "paragraph",
+          "text": "ODD Coverage"
+        },
+        {
+          "type": "paragraph",
+          "text": "Ingestion"
+        },
+        {
+          "type": "paragraph",
+          "text": "Driver Monitoring"
+        },
+        {
+          "type": "paragraph",
+          "text": "Gaze On Road"
+        },
+        {
+          "type": "paragraph",
+          "text": "Severity & Status Colors"
+        },
+        {
+          "type": "paragraph",
+          "text": "Critical (SEV1)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Hesitation (SEV2)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Comfort (SEV3)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Synced / OK"
+        },
+        {
+          "type": "paragraph",
+          "text": "Neutral / Surface"
+        }
+      ]
+    },
+    {
+      "label": "Why It Works",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Fewer blind spots."
+        },
+        {
+          "type": "paragraph",
+          "text": "One taxonomy from cockpit to office means no translation loss between what a driver saw and what an engineer reviews — the pattern autofleet’s safety-driver app and disengagement metrics point at."
+        },
+        {
+          "type": "heading",
+          "text": "Faster triage."
+        },
+        {
+          "type": "paragraph",
+          "text": "Severity and subsystem are tagged at the moment of the event, not reconstructed later — the edge-case and video-snippet tagging digitaldividedata builds for AV footage retrieval."
+        },
+        {
+          "type": "heading",
+          "text": "Provable ODD coverage."
+        },
+        {
+          "type": "paragraph",
+          "text": "Day/night/rain/traffic pass tracking against campaign targets makes exposure auditable, not anecdotal — operational exposure analysis and compliance/audit automation, both flagged across the research."
+        }
+      ]
+    },
+    {
+      "label": "Approach & Process",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "End-to-End Ownership"
+        },
+        {
+          "type": "paragraph",
+          "text": "Owned end-to-end design for Fleet Co-Pilot, spanning the cockpit HUD, the incident taxonomy, and the office review dashboard that shares it."
+        },
+        {
+          "type": "heading",
+          "text": "Reusable Incident Taxonomy"
+        },
+        {
+          "type": "paragraph",
+          "text": "One classification drives three surfaces."
+        },
+        {
+          "type": "paragraph",
+          "text": "Subsystem × severity (perception, motion planner, localization, hardware/sensor, ODD boundary × SEV1–3) powers the driver’s 1-tap tags, the hazard map, and the office incident log — no re-mapping between tools."
+        },
+        {
+          "type": "heading",
+          "text": "Cross-Functional Partnership"
+        },
+        {
+          "type": "paragraph",
+          "text": "Grounded every decision in how autonomy and fleet-ops teams actually work:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Safety drivers need sub-second quick-tags, not forms",
+            "Ops and AV engineers need exposure and disengagement analytics after the fact",
+            "Compliance needs an audit trail, not tribal knowledge"
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Multi-Fidelity Prototyping"
+        },
+        {
+          "type": "paragraph",
+          "text": "Proved the taxonomy before building a backend for it:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Cockpit fixture data first, labeled simulated until a real ingestion pipeline exists",
+            "The office dashboard built as a second, independent consumer of the same schema",
+            "Validated the taxonomy held up outside the vehicle, not just inside it"
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Independent Research & Validation"
+        },
+        {
+          "type": "paragraph",
+          "text": "Surveyed how autonomous-fleet operators actually run this today:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Route/dispatch optimization and predictive maintenance",
+            "Multi-vendor AV monitoring and safety-driver incident apps",
+            "Operational exposure analysis and edge-case/video tagging"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "1-Tap Incident Tagging",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Sub-second logging, zero forms"
+        },
+        {
+          "type": "paragraph",
+          "text": "Phantom Brake, Planner Freeze, Sensor Drop: three quick-tag buttons that log a subsystem and severity the instant something feels off, without pulling a driver’s eyes off the road.\nThe same pattern autofleet’s research flags as essential for safety-driver apps: incident reporting has to be faster than the incident."
+        },
+        {
+          "type": "heading",
+          "text": "Phantom Brake"
+        },
+        {
+          "type": "paragraph",
+          "text": "SEV3 · Comfort"
+        },
+        {
+          "type": "heading",
+          "text": "Planner Freeze"
+        },
+        {
+          "type": "paragraph",
+          "text": "SEV2 · Hesitation"
+        },
+        {
+          "type": "heading",
+          "text": "Sensor Drop"
+        },
+        {
+          "type": "paragraph",
+          "text": "SEV2 · Hesitation"
+        }
+      ]
+    },
+    {
+      "label": "Live Telemetry",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Everything a safety driver sees, structured"
+        },
+        {
+          "type": "paragraph",
+          "text": "Autonomy state, jerk, lateral g, time-to-collision, and headway gap sit next to the driver-monitoring read: gaze, drowsiness score, hands-on-wheel, and takeover reaction latency.\nNothing here is inferred after the fact — it’s the same read the safety driver had, timestamped."
+        },
+        {
+          "type": "heading",
+          "text": "L4 AUTONOMOUS"
+        },
+        {
+          "type": "paragraph",
+          "text": "Autonomy State"
+        },
+        {
+          "type": "heading",
+          "text": "6.4s"
+        },
+        {
+          "type": "paragraph",
+          "text": "Time to Collision"
+        },
+        {
+          "type": "heading",
+          "text": "32 m"
+        },
+        {
+          "type": "paragraph",
+          "text": "Headway Gap"
+        },
+        {
+          "type": "heading",
+          "text": "0.12 g"
+        },
+        {
+          "type": "paragraph",
+          "text": "Lateral Acceleration"
+        },
+        {
+          "type": "heading",
+          "text": "Gaze On Road"
+        },
+        {
+          "type": "paragraph",
+          "text": "Driver Monitoring"
+        },
+        {
+          "type": "heading",
+          "text": "0.08"
+        },
+        {
+          "type": "paragraph",
+          "text": "Drowsiness Score"
+        },
+        {
+          "type": "heading",
+          "text": "Yes"
+        },
+        {
+          "type": "paragraph",
+          "text": "Hands on Wheel"
+        },
+        {
+          "type": "heading",
+          "text": "850 ms"
+        },
+        {
+          "type": "paragraph",
+          "text": "Takeover Latency"
+        }
+      ]
+    },
+    {
+      "label": "Hazard Route Intelligence",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Every disengagement becomes a place on the map"
+        },
+        {
+          "type": "paragraph",
+          "text": "Fault and disengagement hotspots are geotagged with road segment, heading, and prior-disengagement count, then surfaced as an upcoming-hazard countdown as the vehicle approaches them again.\nA tunnel that lost GPS once is a place the whole fleet gets warned about next time."
+        }
+      ]
+    },
+    {
+      "label": "ODD Coverage & Ingestion",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Provable exposure, not anecdotal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Day, night, rain/wet, and dense-traffic passes track against a per-route campaign target, so ODD coverage is a number, not a feeling.\nWrite rate, storage used, and sensor-stream sync status ride alongside it, so nothing gets logged in the cockpit and lost before it reaches the office."
+        },
+        {
+          "type": "heading",
+          "text": "Downtown ODD Loop — 6 / 10 passes"
+        },
+        {
+          "type": "paragraph",
+          "text": "Day — 4 passes"
+        },
+        {
+          "type": "paragraph",
+          "text": "Night — 1 pass"
+        },
+        {
+          "type": "paragraph",
+          "text": "Rain/Wet — 1 pass"
+        },
+        {
+          "type": "paragraph",
+          "text": "Dense Traffic — 2 passes"
+        },
+        {
+          "type": "heading",
+          "text": "Payload Ingestion"
+        },
+        {
+          "type": "paragraph",
+          "text": "148.4 MB/s write rate"
+        },
+        {
+          "type": "paragraph",
+          "text": "842.5 / 1024 GB storage used"
+        },
+        {
+          "type": "paragraph",
+          "text": "Sensor streams synced"
+        },
+        {
+          "type": "images",
+          "images": [
+            {
+              "src": "/work/fleet-co-pilot/03.jpg",
+              "alt": "Wet city intersection where a hazard hotspot is logged"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "unportedComponents": [],
+  "imageCount": 3
+}

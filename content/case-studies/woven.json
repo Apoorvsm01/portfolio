@@ -1,0 +1,536 @@
+{
+  "slug": "woven",
+  "title": "Generative Drive Coach",
+  "description": "UX case study: leading end-to-end design of Generative Drive Coach, a voice-first AI driving coach built at Woven by Toyota, from research through HMI and validation.",
+  "tags": [
+    "In-Vehicle HMI",
+    "Voice Interaction",
+    "Automotive HMI",
+    "Rapid Prototyping"
+  ],
+  "hmw": "help new drivers build real confidence behind the wheel, with voice-first coaching that adapts in real time to parking, intersections, and lane changes?",
+  "facts": [
+    {
+      "label": "Platforms",
+      "value": "CARLA Simulator\nVehicle SDK\nIn-Vehicle HUD"
+    },
+    {
+      "label": "Category",
+      "value": "HMI Design\nVoice Interaction\nUX Research"
+    },
+    {
+      "label": "Role",
+      "value": "UX Engineer"
+    }
+  ],
+  "prototype": {
+    "embed": "https://apoorvsm01.github.io/hmi_ui/drive_coach",
+    "link": "https://apoorvsm01.github.io/hmi_ui/fleet"
+  },
+  "heroImages": [
+    {
+      "src": "/work/woven/01.jpg",
+      "alt": ""
+    },
+    {
+      "src": "/work/woven/02.jpg",
+      "alt": ""
+    },
+    {
+      "src": "/work/woven/03.jpg",
+      "alt": ""
+    }
+  ],
+  "sections": [
+    {
+      "label": "Approach & Process",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "End-to-End Ownership"
+        },
+        {
+          "type": "paragraph",
+          "text": "Owned end-to-end UX for Generative Drive Coach, spanning research, HMI and voice interaction design, prototyping, and validation."
+        },
+        {
+          "type": "heading",
+          "text": "Reusable Coaching Patterns"
+        },
+        {
+          "type": "paragraph",
+          "text": "Scaled a single teen-driving concept into a reusable coaching pattern system."
+        },
+        {
+          "type": "paragraph",
+          "text": "Patterns now cover parking, intersections, stop signs, turns, lane changes, and speed management, all built on the same voice-first coaching logic."
+        },
+        {
+          "type": "heading",
+          "text": "Cross-Functional Partnership"
+        },
+        {
+          "type": "paragraph",
+          "text": "Grounded every design decision in Woven’s engineering stack:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "CARLA: a proprietary driving simulator used to test coaching logic before real-world validation.",
+            "Vehicle SDK: real steering, speed, and sensor signals piped into working prototypes.",
+            "CAN signals: live vehicle bus data that grounded HMI behavior in actual driving state."
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Multi-Fidelity Prototyping"
+        },
+        {
+          "type": "paragraph",
+          "text": "Rapidly translated feedback into working prototypes across Figma, simulator, and physical hardware:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Voice-enabled Figma flows: fast, low-fidelity concept testing.",
+            "CARLA simulator scenarios: realistic, repeatable driving conditions.",
+            "Physical steering & pedal rig: paired with updated HUD concepts for hands-on validation."
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Independent Research & Validation"
+        },
+        {
+          "type": "paragraph",
+          "text": "Owned research and validation end to end:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Study plans designed and run independently, start to finish.",
+            "Voice-frequency studies to tune how often and how loudly the coach should speak.",
+            "Simulated driving studies in CARLA to validate coaching behavior before road testing.",
+            "Iterative refinement of coaching behavior based on participant feedback."
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Voice-first UI",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Adaptive Voice Coaching"
+        },
+        {
+          "type": "paragraph",
+          "text": "I designed a voice-first coaching layer that delivers real-time, context-aware guidance without adding cognitive load, timed to the exact moment it’s needed: a stop sign, an intersection, a lane change. Voice-frequency studies shaped the interaction model, balancing how often the coach speaks against how much a new driver can actually absorb behind the wheel."
+        },
+        {
+          "type": "images",
+          "images": [
+            {
+              "src": "/work/woven/04.png",
+              "alt": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Scenario Coverage",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "From Teen Driving to a Coaching System"
+        },
+        {
+          "type": "paragraph",
+          "text": "What began as a single concept for coaching teen drivers became a reusable pattern system I built across parking, intersections, stop signs, turns, lane changes, and speed management.\nEach pattern shares the same voice-first coaching logic, so adding a new driving scenario means composing existing building blocks, not starting from scratch. It’s a system, not a one-off feature."
+        },
+        {
+          "type": "images",
+          "images": [
+            {
+              "src": "/work/woven/05.png",
+              "alt": ""
+            },
+            {
+              "src": "/work/woven/06.jpeg",
+              "alt": ""
+            },
+            {
+              "src": "/work/woven/07.jpeg",
+              "alt": ""
+            },
+            {
+              "src": "/work/woven/08.jpeg",
+              "alt": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Design System",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Design System"
+        },
+        {
+          "type": "paragraph",
+          "text": "A small token system — colors, type, spacing, and radii — kept the coaching HMI visually consistent from early dashboard mockups through CARLA test builds and the physical rig."
+        },
+        {
+          "type": "paragraph",
+          "text": "06 · Implementation"
+        },
+        {
+          "type": "paragraph",
+          "text": "Each live component above is a real widget from the Flutter build. Toggle between SwiftUI, Flutter, and Tailwind to see the same pattern implemented natively across platforms."
+        },
+        {
+          "type": "paragraph",
+          "text": "01 · Colors"
+        },
+        {
+          "type": "heading",
+          "text": "A restrained palette tuned for daylight glare, night driving, and quick at-a-glance recognition."
+        },
+        {
+          "type": "paragraph",
+          "text": "System Grays"
+        },
+        {
+          "type": "paragraph",
+          "text": "Gray 100"
+        },
+        {
+          "type": "paragraph",
+          "text": "#F2F2F7"
+        },
+        {
+          "type": "paragraph",
+          "text": "Gray 200"
+        },
+        {
+          "type": "paragraph",
+          "text": "#E5E5EA"
+        },
+        {
+          "type": "paragraph",
+          "text": "Gray 300"
+        },
+        {
+          "type": "paragraph",
+          "text": "#D1D1D6"
+        },
+        {
+          "type": "paragraph",
+          "text": "Gray 400"
+        },
+        {
+          "type": "paragraph",
+          "text": "#8E8E93"
+        },
+        {
+          "type": "paragraph",
+          "text": "Gray 500"
+        },
+        {
+          "type": "paragraph",
+          "text": "#1C1C1E"
+        },
+        {
+          "type": "paragraph",
+          "text": "Semantic States"
+        },
+        {
+          "type": "paragraph",
+          "text": "Success"
+        },
+        {
+          "type": "paragraph",
+          "text": "#34C759"
+        },
+        {
+          "type": "paragraph",
+          "text": "Warning"
+        },
+        {
+          "type": "paragraph",
+          "text": "#FF9500"
+        },
+        {
+          "type": "paragraph",
+          "text": "Info"
+        },
+        {
+          "type": "paragraph",
+          "text": "#007AFF"
+        },
+        {
+          "type": "paragraph",
+          "text": "Error"
+        },
+        {
+          "type": "paragraph",
+          "text": "#FF3B30"
+        },
+        {
+          "type": "paragraph",
+          "text": "Critical / Destructive"
+        },
+        {
+          "type": "paragraph",
+          "text": "Reserved for takeover alerts and destructive actions — used sparingly so it keeps its urgency."
+        },
+        {
+          "type": "paragraph",
+          "text": "02 · Typography"
+        },
+        {
+          "type": "heading",
+          "text": "A screen-legible type scale, sized and weighted for a quick glance at speed."
+        },
+        {
+          "type": "paragraph",
+          "text": "Token & Size"
+        },
+        {
+          "type": "paragraph",
+          "text": "Example Render"
+        },
+        {
+          "type": "paragraph",
+          "text": "Large Title"
+        },
+        {
+          "type": "paragraph",
+          "text": "34px · Semibold"
+        },
+        {
+          "type": "heading",
+          "text": "Simplify everything."
+        },
+        {
+          "type": "paragraph",
+          "text": "Title"
+        },
+        {
+          "type": "paragraph",
+          "text": "28px · Medium"
+        },
+        {
+          "type": "heading",
+          "text": "Inspired by clarity."
+        },
+        {
+          "type": "paragraph",
+          "text": "Headline"
+        },
+        {
+          "type": "paragraph",
+          "text": "22px · Medium"
+        },
+        {
+          "type": "heading",
+          "text": "Designed for quick readability."
+        },
+        {
+          "type": "paragraph",
+          "text": "Body"
+        },
+        {
+          "type": "paragraph",
+          "text": "17px · Regular"
+        },
+        {
+          "type": "paragraph",
+          "text": "This is the standard body text used across paragraphs, general content blocks, and descriptive labels."
+        },
+        {
+          "type": "paragraph",
+          "text": "Caption"
+        },
+        {
+          "type": "paragraph",
+          "text": "13px · Medium"
+        },
+        {
+          "type": "paragraph",
+          "text": "METADATA AND AUXILIARY OVERLINES"
+        },
+        {
+          "type": "paragraph",
+          "text": "03 · Spacing"
+        },
+        {
+          "type": "heading",
+          "text": "Consistent spatial rhythm across dashboard, HUD, and mobile companion surfaces."
+        },
+        {
+          "type": "paragraph",
+          "text": "XS"
+        },
+        {
+          "type": "paragraph",
+          "text": "4px"
+        },
+        {
+          "type": "paragraph",
+          "text": "SM"
+        },
+        {
+          "type": "paragraph",
+          "text": "8px"
+        },
+        {
+          "type": "paragraph",
+          "text": "MD"
+        },
+        {
+          "type": "paragraph",
+          "text": "16px"
+        },
+        {
+          "type": "paragraph",
+          "text": "LG"
+        },
+        {
+          "type": "paragraph",
+          "text": "24px"
+        },
+        {
+          "type": "paragraph",
+          "text": "XL"
+        },
+        {
+          "type": "paragraph",
+          "text": "32px"
+        },
+        {
+          "type": "paragraph",
+          "text": "04 · Corner Radii"
+        },
+        {
+          "type": "heading",
+          "text": "Rounded surfaces calibrated to feel tactile on a touchscreen, not decorative."
+        },
+        {
+          "type": "paragraph",
+          "text": "None"
+        },
+        {
+          "type": "paragraph",
+          "text": "0px"
+        },
+        {
+          "type": "paragraph",
+          "text": "Small"
+        },
+        {
+          "type": "paragraph",
+          "text": "8px"
+        },
+        {
+          "type": "paragraph",
+          "text": "Medium"
+        },
+        {
+          "type": "paragraph",
+          "text": "13px"
+        },
+        {
+          "type": "paragraph",
+          "text": "Large"
+        },
+        {
+          "type": "paragraph",
+          "text": "22px"
+        }
+      ]
+    },
+    {
+      "label": "Vehicle Integration",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "HUD & In-Vehicle Signals"
+        },
+        {
+          "type": "paragraph",
+          "text": "To make coaching feel native to the car, I partnered with the software-integration and ML teams to ground the HMI in real vehicle state: pulling live signals from the Vehicle SDK and CAN bus into updated HUD concepts, so guidance stays synced to actual speed, position, and steering input, not a simulated approximation."
+        },
+        {
+          "type": "images",
+          "images": [
+            {
+              "src": "/work/woven/09.png",
+              "alt": ""
+            },
+            {
+              "src": "/work/woven/10.png",
+              "alt": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Simulation & Testing",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Validating in CARLA"
+        },
+        {
+          "type": "paragraph",
+          "text": "Working with the ML and research teams, I connected coaching designs to CARLA, Woven’s proprietary simulation platform, to run realistic driving scenarios and pressure-test coaching behavior before it ever touched a real vehicle."
+        },
+        {
+          "type": "images",
+          "images": [
+            {
+              "src": "/work/woven/11.jpg",
+              "alt": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Physical Prototyping",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "From Figma to the Driver’s Seat"
+        },
+        {
+          "type": "paragraph",
+          "text": "Feedback moved fast, so I kept prototypes moving just as fast: voice-enabled Figma flows for early concept testing, full simulator scenarios, and a physical rig with a real steering wheel and pedal controls.\n\nTesting on physical controls surfaced timing and tone issues a screen-only prototype never would catch. Coaching that feels right in Figma can feel intrusive the moment your hands are actually on the wheel."
+        },
+        {
+          "type": "images",
+          "images": [
+            {
+              "src": "/work/woven/12.jpg",
+              "alt": ""
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "unportedComponents": [
+    "Climate Dial",
+    "Coaching Alert",
+    "Drive Mode Selector",
+    "Now Playing",
+    "Parking Assist",
+    "Speed & Gear HUD"
+  ],
+  "imageCount": 12
+}

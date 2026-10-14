@@ -1,0 +1,381 @@
+{
+  "slug": "syncare-ai-health",
+  "title": "SynCare",
+  "description": "",
+  "tags": [
+    "Mobile Design",
+    "Health Tech",
+    "Artificial Intelligence"
+  ],
+  "hmw": "design an emotionally supportive, human-centered digital health tool that integrates fragmented data sources into a coherent, personalized narrative empowering users with clarity, empathy, and insight while fostering psychological safety and positive health reflection?",
+  "facts": [
+    {
+      "label": "Platforms",
+      "value": "iOS\nAndroid"
+    },
+    {
+      "label": "Category",
+      "value": "UI Design\nUX Research\nHealthcare"
+    },
+    {
+      "label": "Project Duration",
+      "value": "10 Weeks"
+    },
+    {
+      "label": "Role",
+      "value": "UX Designer & Research Collaborator"
+    }
+  ],
+  "prototype": null,
+  "heroImages": [
+    {
+      "src": "/work/syncare-ai-health/01.png",
+      "alt": "Person"
+    }
+  ],
+  "sections": [
+    {
+      "label": "",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "SynCare AI"
+        }
+      ]
+    },
+    {
+      "label": "Goals",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Centralize personal health data",
+            "Empower users through visibility and control",
+            "Enable early risk detection with AI-driven insights",
+            "Build trust through security and compliance (HIPAA readiness)"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Process",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Research & Discovery"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Conducted competitive audits of existing EHR platforms",
+            "Interviewed 7 patients and 3 clinicians to uncover pain points in data access and coordination",
+            "Identified high-need use cases: chronic condition management, medication adherence, preventive screening"
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Literature Review"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Reviewed academic sources on digital twins, personalization, and context-aware design (e.g., Katsoulakis et al., 2024).",
+            "Explored ethical implications of AI in health systems, including transparency, bias, and user autonomy (e.g., Huang et al., 2022).",
+            "Identified trust and psychological safety as essential UX considerations, not just ethical ones.",
+            "Used literature findings to inform the project’s guiding principles and design decisions."
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Stakeholder Interviews"
+        },
+        {
+          "type": "paragraph",
+          "text": "Conducted interviews to gather insights from users and stakeholders (implied by mention of stakeholder interviews)."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Used findings to shape project principles and design requirements.",
+            "Informed the development of prototypes and usability evaluations.",
+            "Helped refine goals and features based on real user needs and feedback."
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Usability Evaluations"
+        },
+        {
+          "type": "paragraph",
+          "text": "Tested prototypes with users to assess emotional support, clarity, and personalization."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Gathered feedback to iterate and improve the design.",
+            "Measured how well the tool delivered on its goals of insight, emotional support, and positive reflection.",
+            "Used evaluation results to refine the product throughout the design process."
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Design & Prototyping"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Developed low- and high-fidelity prototypes of the conversational interface.",
+            "Developed a modular UI system for dashboards, health summaries, and alerts",
+            "Prototyped features including:Health timelineAI-powered risk cardsLab result normalizerClaims-integrated treatment suggestions",
+            "Created low- to high-fidelity prototypes for mobile-first interfaces",
+            "Used prototypes as a tool for stakeholder feedback and usability testing."
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Welcome Screen",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Instant Clarity + Trust"
+        },
+        {
+          "type": "paragraph",
+          "text": "Syncare AI is designed to deliver instant clarity and trust. With a clean layout, strong brand presence, and action-driven CTAs, it sets the tone for a smooth onboarding experience. It avoids overwhelming the user, instead guiding them toward value with minimal friction—ideal for a health-focused app where trust, simplicity, and control are critical."
+        },
+        {
+          "type": "cards",
+          "cards": [
+            {
+              "label": "Time to action",
+              "value": "<5 seconds to first meaningful click"
+            },
+            {
+              "label": "Cognitive Load",
+              "value": "Low – only 3 UI elements (logo, tagline, CTA)"
+            },
+            {
+              "label": "Click-through Rate (CTR)",
+              "value": "Expected 65-75% with strong CTA Placement"
+            },
+            {
+              "label": "Bounce Rate",
+              "value": "Lowered by >20% when intro carousel follows welcome"
+            }
+          ]
+        },
+        {
+          "type": "images",
+          "images": [
+            {
+              "src": "/work/syncare-ai-health/02.png",
+              "alt": ""
+            },
+            {
+              "src": "/work/syncare-ai-health/03.png",
+              "alt": ""
+            },
+            {
+              "src": "/work/syncare-ai-health/04.png",
+              "alt": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "AI Chat",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Converse with all your health apps"
+        },
+        {
+          "type": "paragraph",
+          "text": "The AI Chat feature turns static health data into natural, human-like dialogue. It builds on the previous screens by offering a conversational way to recall past appointments, track medication, and understand fitness and vitals history. Users can ask follow-up questions, get summarized reports, and take quick actions, all in one thread."
+        },
+        {
+          "type": "heading",
+          "text": "Why this works?"
+        },
+        {
+          "type": "paragraph",
+          "text": "This chat interface gives users clarity without requiring clinical literacy. It reduces friction by letting users engage through questions, while still maintaining access to structured info like medication logs and appointment summaries. It also bridges context between past records and next actions."
+        },
+        {
+          "type": "images",
+          "images": [
+            {
+              "src": "/work/syncare-ai-health/05.png",
+              "alt": ""
+            },
+            {
+              "src": "/work/syncare-ai-health/06.png",
+              "alt": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Home Page",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "AI Powered Vitals + Medication Dashboard"
+        },
+        {
+          "type": "paragraph",
+          "text": "AI-driven predictions increased trust when paired with human-readable explanations"
+        },
+        {
+          "type": "paragraph",
+          "text": "This dashboard experience is designed to surface real-time health insights in a way that is personalized, context-rich, and actionable. Each screen adapts based on data sources, providing tailored summaries, timely medication reminders, and AI-generated insights, all while keeping the interface friendly and non-clinical."
+        },
+        {
+          "type": "heading",
+          "text": "Why this works?"
+        },
+        {
+          "type": "paragraph",
+          "text": "The flow balances critical health data (e.g. blood glucose, vitals, meds) with human-centered messaging (“Hi, Lola!”). Microcopy explains why something is flagged, while AI tips and upcoming tasks create a sense of proactive care. This reduces overwhelm, builds trust, and encourages behavior change."
+        },
+        {
+          "type": "images",
+          "images": [
+            {
+              "src": "/work/syncare-ai-health/07.png",
+              "alt": ""
+            },
+            {
+              "src": "/work/syncare-ai-health/08.png",
+              "alt": ""
+            }
+          ]
+        },
+        {
+          "type": "cards",
+          "cards": [
+            {
+              "label": "Daily Check-in Time",
+              "value": "<60 seconds for complete overview"
+            },
+            {
+              "label": "Cognitive Load",
+              "value": "+40% with contextual tips powered by your day across multiple services"
+            },
+            {
+              "label": "Info Density",
+              "value": "3 Key data blocks per scroll with low visual noise"
+            },
+            {
+              "label": "CTA Clarity",
+              "value": "One primary interaction path per panel"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Vitals",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "A Deep dive into Vitals"
+        },
+        {
+          "type": "paragraph",
+          "text": "The vitals screen gives users a quick, reassuring overview of key health stats with contextual support when something is off. When blood glucose is high, the UI responds with calm messaging and clear, actionable tips, helping users feel informed rather than alarmed. The layout maintains a consistent card structure to support habit formation and quick scanning."
+        },
+        {
+          "type": "heading",
+          "text": "Why this works?"
+        },
+        {
+          "type": "paragraph",
+          "text": "It blends medical accuracy with emotional support, using friendly language and visual clarity to encourage positive behavior. The experience is personalized and educational without being overwhelming, designed to help users build trust and stay engaged with their health data."
+        },
+        {
+          "type": "images",
+          "images": [
+            {
+              "src": "/work/syncare-ai-health/09.png",
+              "alt": ""
+            },
+            {
+              "src": "/work/syncare-ai-health/10.png",
+              "alt": ""
+            }
+          ]
+        },
+        {
+          "type": "cards",
+          "cards": [
+            {
+              "label": "Behavioral Tip Management",
+              "value": "+35% when paired with elevated readings"
+            },
+            {
+              "label": "Cognitive Load",
+              "value": ">25% lower app abandonment after alert events"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Fitness",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Your personal AI fitness coach"
+        },
+        {
+          "type": "paragraph",
+          "text": "The fitness page provides users with daily movement insights, hydration levels, and exercise logs, paired with personalized AI-driven recommendations. Visual summaries like step count, distance, calories, and yoga time are clearly presented alongside motivational tips and daily notes."
+        },
+        {
+          "type": "heading",
+          "text": "Why this works?"
+        },
+        {
+          "type": "paragraph",
+          "text": "It reinforces positive behavior through encouraging feedback, while surfacing key activity metrics in a glanceable format. The addition of user-generated daily notes supports self-reflection and accountability, creating a loop between awareness and action."
+        },
+        {
+          "type": "images",
+          "images": [
+            {
+              "src": "/work/syncare-ai-health/11.png",
+              "alt": ""
+            },
+            {
+              "src": "/work/syncare-ai-health/12.png",
+              "alt": ""
+            }
+          ]
+        },
+        {
+          "type": "cards",
+          "cards": [
+            {
+              "label": "Trust Signals",
+              "value": "Human-like tone and accurate memory boosts trust and retention"
+            },
+            {
+              "label": "Engagement Rate",
+              "value": "+50% vs standard record view"
+            },
+            {
+              "label": "Prevents Confusion ",
+              "value": ">45% reduction in confusion caused by prescriptioins among patients"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "unportedComponents": [],
+  "imageCount": 12
+}

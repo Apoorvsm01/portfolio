@@ -1,0 +1,251 @@
+{
+  "slug": "sitelens",
+  "title": "SiteLens",
+  "description": "",
+  "tags": [
+    "Mobile Design",
+    "Health Tech",
+    "Artificial Intelligence"
+  ],
+  "hmw": "empower inspectors and project managers to streamline on-site construction inspections by overlaying dynamic checklists, contextual data, and real-time collaboration tools through AR glasses, while reducing costs and ensuring compliance?",
+  "facts": [
+    {
+      "label": "Platforms",
+      "value": "iOS\nAndroid\nMentraOS"
+    },
+    {
+      "label": "Category",
+      "value": "UI Design\nUX Research\nConstruction"
+    },
+    {
+      "label": "Project Duration",
+      "value": "5 Weeks"
+    },
+    {
+      "label": "Role",
+      "value": "UX Designer & Research"
+    }
+  ],
+  "prototype": null,
+  "heroImages": [
+    {
+      "src": "/work/sitelens/01.png",
+      "alt": "two people in yellow jackets sitting on steps"
+    },
+    {
+      "src": "/work/sitelens/02.png",
+      "alt": ""
+    },
+    {
+      "src": "/work/sitelens/03.png",
+      "alt": ""
+    },
+    {
+      "src": "/work/sitelens/04.jpg",
+      "alt": "man in yellow shirt and black pants standing on gray concrete floor"
+    }
+  ],
+  "sections": [
+    {
+      "label": "",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "SiteLens AR"
+        }
+      ]
+    },
+    {
+      "label": "Goals",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Streamline inspection flows",
+            "Improve data and accuracy",
+            "Reduce costs and increase efficiency",
+            "Enhance collaboration and compliance",
+            "Future-proof AI + AR"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Process",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Research & Discovery"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Conducted competitive audits of existing construction inspection apps and AR-enabled field tools.",
+            "Interviewed inspectors, project managers, and engineers across trades to uncover pain points in workflows, checklists, and reporting.",
+            "Identified high-need use cases: role-specific inspection checklists, before/after comparisons, and cost verification workflows."
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Literature Review"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Reviewed academic and industry sources on AR in construction, wearable-assisted inspections, and spatial computing.",
+            "Explored challenges in data compliance, law/recall notifications, and construction order finalization.",
+            "Identified trust, accuracy, and real-time collaboration as essential UX considerations, beyond hardware specs.",
+            "Used findings to inform principles for checklist design, visual layering, and mobile–AR integration."
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Stakeholder Interviews"
+        },
+        {
+          "type": "paragraph",
+          "text": "Conducted interviews to gather insights from users and stakeholders (implied by mention of stakeholder interviews)."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Used insights to shape inspection templates, room-based checklists, and tailored dashboards.",
+            "Captured requirements for role-specific “ingredient lists” (e.g., scanner, notes, tape measure).",
+            "Helped refine the goals of cost reduction, accuracy, and real-time updates across multiple contractors."
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Usability Evaluations"
+        },
+        {
+          "type": "paragraph",
+          "text": "Tested prototypes with users to assess emotional support, clarity, and personalization."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Gathered feedback on AR checklist readability, voice/gesture commands, and navigation triggers.",
+            "Measured efficiency: time saved compared to manual inspections and paper-based workflows.",
+            "Used findings to refine visual hierarchy, session summaries, and integration with maps + reminders."
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Design & Prototyping"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Developed low- and high-fidelity prototypes for mobile and AR glasses.",
+            "Designed a modular UI system for uploading inspection checklists, attaching before/after photos, and role-based task lists.",
+            "Prototyped AR overlays including:Room-wise task listsVideo-assisted inspection referencesLaw/recall notificationsCost/order verification prompts",
+            "Created interactive flows simulating site inspections with Even Realities G1 glasses.",
+            "Iterated prototypes with stakeholders for validation and alignment with real-world workflows."
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Home Screen",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Features"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Dashboard Banner: Displays AR-driven task information (to-do list, floor plan, live inspection data).",
+            "AI Status Module (Omni-AI, Excellent): Real-time system feedback on inspection/AI status.",
+            "Active Apps Section: Toggle control for apps in use (To-Do List, Map).",
+            "Inactive Apps Section: Secondary options (Translate, Camera) to activate as needed.",
+            "Suggested Apps: Personalized extension discovery with one-tap install (App Store style).",
+            "Top Navigation: User/account access via profile + notifications."
+          ]
+        },
+        {
+          "type": "images",
+          "images": [
+            {
+              "src": "/work/sitelens/05.png",
+              "alt": ""
+            }
+          ]
+        },
+        {
+          "type": "cards",
+          "cards": [
+            {
+              "label": "Productivity First",
+              "value": "Prioritizes utility and tools, not just media."
+            },
+            {
+              "label": "Modular + Flexible",
+              "value": "Clear segmentation between active, inactive, and suggested apps makes system extensible."
+            },
+            {
+              "label": "Mobile–AR Bridge:",
+              "value": "Designed to mirror AR glasses UI (simple toggles, spatial task context)."
+            },
+            {
+              "label": "Trust-building",
+              "value": "Omni-AI status builds confidence by surfacing clarity (“Excellent”) upfront."
+            }
+          ]
+        },
+        {
+          "type": "images",
+          "images": [
+            {
+              "src": "/work/sitelens/06.png",
+              "alt": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Home Screen",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Instant Clarity + Ease of Use"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Content-centric: Prioritizes large thumbnails so users can browse visually, reducing cognitive load.",
+            "Simplicity + Familiarity: Mirrors social apps (Instagram Explore, YouTube library), making it intuitive.",
+            "Scalable: Grid layout supports expansion to more media types (photos, 360 images, AR models).",
+            "Contribution-first: The purple upload CTA signals active participation, not just passive browsing."
+          ]
+        },
+        {
+          "type": "images",
+          "images": [
+            {
+              "src": "/work/sitelens/07.png",
+              "alt": ""
+            }
+          ]
+        },
+        {
+          "type": "cards",
+          "cards": [
+            {
+              "label": "Upload Media Button",
+              "value": "Prominent call-to-action in the center, encouraging contribution."
+            },
+            {
+              "label": "Popular Content Grid",
+              "value": "Visual-first layout with thumbnails, titles, and quick delete (X) actions."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "unportedComponents": [],
+  "imageCount": 7
+}

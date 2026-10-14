@@ -1,0 +1,565 @@
+{
+  "path": "/syncare-ai-health",
+  "blocks": [
+    {
+      "kind": "component",
+      "name": "Loader",
+      "controls": {}
+    },
+    {
+      "kind": "image",
+      "src": "https://framerusercontent.com/images/SkpNe0wDhn2mh0sv5vW4GirTCo.png",
+      "alt": "Person",
+      "name": ""
+    },
+    {
+      "kind": "component",
+      "name": "Header Tag",
+      "controls": {
+        "title": "Mobile Design",
+        "background": "var(--token-dd06214b-8b75-4dc4-a16e-5f59e222aa99, rgba(255, 70, 46, 0.2)) /* {\"name\":\"Orange 20%\"} */"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h3",
+      "text": "SynCare AI"
+    },
+    {
+      "kind": "component",
+      "name": "Primary Button",
+      "controls": {
+        "background": "var(--token-7b28de09-a7f8-48f3-a20f-cfebe9dbdaa3)"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Primary Tag",
+      "controls": {
+        "title": "Mobile Design",
+        "background": "var(--token-24a45aa1-a792-4609-9d1e-3d6753d0d85c)"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Primary Tag",
+      "controls": {
+        "title": "Health Tech",
+        "background": "var(--token-24a45aa1-a792-4609-9d1e-3d6753d0d85c)"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Primary Tag",
+      "controls": {
+        "title": "Artificial Intelligence",
+        "background": "var(--token-24a45aa1-a792-4609-9d1e-3d6753d0d85c)"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Scroll Down Arrow",
+      "controls": {}
+    },
+    {
+      "kind": "component",
+      "name": "Highlighter Tag",
+      "controls": {
+        "title": "How might we?"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h5",
+      "text": "design an emotionally supportive, human-centered digital health tool that integrates fragmented data sources into a coherent, personalized narrative empowering users with clarity, empathy, and insight while fostering psychological safety and positive health reflection?"
+    },
+    {
+      "kind": "component",
+      "name": "Highlighter Tag",
+      "controls": {
+        "title": "Goals"
+      }
+    },
+    {
+      "kind": "list",
+      "items": [
+        "Centralize personal health data",
+        "Empower users through visibility and control",
+        "Enable early risk detection with AI-driven insights",
+        "Build trust through security and compliance (HIPAA readiness)"
+      ]
+    },
+    {
+      "kind": "component",
+      "name": "Text Card",
+      "controls": {
+        "heading": "Platforms",
+        "bodyText": "iOS\nAndroid"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Text Card",
+      "controls": {
+        "heading": "Category",
+        "bodyText": "UI Design\nUX Research\nHealthcare"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Text Card",
+      "controls": {
+        "heading": "Project Duration",
+        "bodyText": "10 Weeks"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Text Card",
+      "controls": {
+        "heading": "Role",
+        "bodyText": "UX Designer & Research Collaborator"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Highlighter Tag",
+      "controls": {
+        "title": "Process"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "Research & Discovery"
+    },
+    {
+      "kind": "list",
+      "items": [
+        "Conducted competitive audits of existing EHR platforms",
+        "Interviewed 7 patients and 3 clinicians to uncover pain points in data access and coordination",
+        "Identified high-need use cases: chronic condition management, medication adherence, preventive screening"
+      ]
+    },
+    {
+      "kind": "component",
+      "name": "Dot Slider",
+      "controls": {
+        "dot1": "true",
+        "dot2": "true",
+        "dot3": "true",
+        "dot4": "true",
+        "dot5": "false"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "Literature Review"
+    },
+    {
+      "kind": "list",
+      "items": [
+        "Reviewed academic sources on digital twins, personalization, and context-aware design (e.g., Katsoulakis et al., 2024).",
+        "Explored ethical implications of AI in health systems, including transparency, bias, and user autonomy (e.g., Huang et al., 2022).",
+        "Identified trust and psychological safety as essential UX considerations, not just ethical ones.",
+        "Used literature findings to inform the project’s guiding principles and design decisions."
+      ]
+    },
+    {
+      "kind": "component",
+      "name": "Dot Slider",
+      "controls": {
+        "dot1": "true",
+        "dot2": "true",
+        "dot3": "true",
+        "dot4": "true",
+        "dot5": "false"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "Stakeholder Interviews"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "Conducted interviews to gather insights from users and stakeholders (implied by mention of stakeholder interviews)."
+    },
+    {
+      "kind": "list",
+      "items": [
+        "Used findings to shape project principles and design requirements.",
+        "Informed the development of prototypes and usability evaluations.",
+        "Helped refine goals and features based on real user needs and feedback."
+      ]
+    },
+    {
+      "kind": "component",
+      "name": "Dot Slider",
+      "controls": {
+        "dot1": "true",
+        "dot2": "true",
+        "dot3": "true",
+        "dot4": "true",
+        "dot5": "false"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "Usability Evaluations"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "Tested prototypes with users to assess emotional support, clarity, and personalization."
+    },
+    {
+      "kind": "list",
+      "items": [
+        "Gathered feedback to iterate and improve the design.",
+        "Measured how well the tool delivered on its goals of insight, emotional support, and positive reflection.",
+        "Used evaluation results to refine the product throughout the design process."
+      ]
+    },
+    {
+      "kind": "component",
+      "name": "Dot Slider",
+      "controls": {
+        "dot1": "true",
+        "dot2": "true",
+        "dot3": "true",
+        "dot4": "true",
+        "dot5": "false"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "Design & Prototyping"
+    },
+    {
+      "kind": "list",
+      "items": [
+        "Developed low- and high-fidelity prototypes of the conversational interface.",
+        "Developed a modular UI system for dashboards, health summaries, and alerts",
+        "Prototyped features including:Health timelineAI-powered risk cardsLab result normalizerClaims-integrated treatment suggestions",
+        "Created low- to high-fidelity prototypes for mobile-first interfaces",
+        "Used prototypes as a tool for stakeholder feedback and usability testing."
+      ]
+    },
+    {
+      "kind": "component",
+      "name": "Dot Slider",
+      "controls": {
+        "dot1": "true",
+        "dot2": "true",
+        "dot3": "true",
+        "dot4": "true",
+        "dot5": "false"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Highlighter Tag",
+      "controls": {
+        "title": "Welcome Screen"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "Instant Clarity + Trust"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "Syncare AI is designed to deliver instant clarity and trust. With a clean layout, strong brand presence, and action-driven CTAs, it sets the tone for a smooth onboarding experience. It avoids overwhelming the user, instead guiding them toward value with minimal friction—ideal for a health-focused app where trust, simplicity, and control are critical."
+    },
+    {
+      "kind": "component",
+      "name": "Text Card",
+      "controls": {
+        "heading": "Time to action",
+        "bodyText": "<5 seconds to first meaningful click"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Text Card",
+      "controls": {
+        "heading": "Cognitive Load",
+        "bodyText": "Low – only 3 UI elements (logo, tagline, CTA)"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Text Card",
+      "controls": {
+        "heading": "Click-through Rate (CTR)",
+        "bodyText": "Expected 65-75% with strong CTA Placement"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Text Card",
+      "controls": {
+        "heading": "Bounce Rate",
+        "bodyText": "Lowered by >20% when intro carousel follows welcome"
+      }
+    },
+    {
+      "kind": "image",
+      "src": "https://framerusercontent.com/images/ork1FRtbjkjtoo9H7UEOoK2htU.png",
+      "alt": "",
+      "name": "Image 5"
+    },
+    {
+      "kind": "image",
+      "src": "https://framerusercontent.com/images/b2YNfWeMVaWhYCaGmh4Sy1l9Y.png",
+      "alt": "",
+      "name": "Image 5"
+    },
+    {
+      "kind": "image",
+      "src": "https://framerusercontent.com/images/XSRK7agISIInKIW6t09gOcFvDo.png",
+      "alt": "",
+      "name": "Image 5"
+    },
+    {
+      "kind": "component",
+      "name": "Highlighter Tag",
+      "controls": {
+        "title": "AI Chat"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "Converse with all your health apps"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "The AI Chat feature turns static health data into natural, human-like dialogue. It builds on the previous screens by offering a conversational way to recall past appointments, track medication, and understand fitness and vitals history. Users can ask follow-up questions, get summarized reports, and take quick actions, all in one thread."
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "Why this works?"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "This chat interface gives users clarity without requiring clinical literacy. It reduces friction by letting users engage through questions, while still maintaining access to structured info like medication logs and appointment summaries. It also bridges context between past records and next actions."
+    },
+    {
+      "kind": "image",
+      "src": "https://framerusercontent.com/images/xxPrOQrEI6iECe9yypMgX63GnJ8.png",
+      "alt": "",
+      "name": "Fill Your Image Here"
+    },
+    {
+      "kind": "image",
+      "src": "https://framerusercontent.com/images/1xdipzOlAsB8j1whX0Qcnaqcxo.png",
+      "alt": "",
+      "name": "Fill Your Image Here"
+    },
+    {
+      "kind": "component",
+      "name": "Highlighter Tag",
+      "controls": {
+        "title": "Home Page"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "AI Powered Vitals + Medication Dashboard"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "AI-driven predictions increased trust when paired with human-readable explanations"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "This dashboard experience is designed to surface real-time health insights in a way that is personalized, context-rich, and actionable. Each screen adapts based on data sources, providing tailored summaries, timely medication reminders, and AI-generated insights, all while keeping the interface friendly and non-clinical."
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "Why this works?"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "The flow balances critical health data (e.g. blood glucose, vitals, meds) with human-centered messaging (“Hi, Lola!”). Microcopy explains why something is flagged, while AI tips and upcoming tasks create a sense of proactive care. This reduces overwhelm, builds trust, and encourages behavior change."
+    },
+    {
+      "kind": "image",
+      "src": "https://framerusercontent.com/images/xHmJjlhNF2sJSB0kJnEfbHnmTs.png",
+      "alt": "",
+      "name": "Fill Your Image Here"
+    },
+    {
+      "kind": "image",
+      "src": "https://framerusercontent.com/images/kGZnIiMAuQbR9SGS3qet7QO0e8.png",
+      "alt": "",
+      "name": "Fill Your Image Here"
+    },
+    {
+      "kind": "component",
+      "name": "Text Card",
+      "controls": {
+        "heading": "Daily Check-in Time",
+        "bodyText": "<60 seconds for complete overview"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Text Card",
+      "controls": {
+        "heading": "Cognitive Load",
+        "bodyText": "+40% with contextual tips powered by your day across multiple services"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Text Card",
+      "controls": {
+        "heading": "Info Density",
+        "bodyText": "3 Key data blocks per scroll with low visual noise"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Text Card",
+      "controls": {
+        "heading": "CTA Clarity",
+        "bodyText": "One primary interaction path per panel"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Highlighter Tag",
+      "controls": {
+        "title": "Vitals"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "A Deep dive into Vitals"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "The vitals screen gives users a quick, reassuring overview of key health stats with contextual support when something is off. When blood glucose is high, the UI responds with calm messaging and clear, actionable tips, helping users feel informed rather than alarmed. The layout maintains a consistent card structure to support habit formation and quick scanning."
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "Why this works?"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "It blends medical accuracy with emotional support, using friendly language and visual clarity to encourage positive behavior. The experience is personalized and educational without being overwhelming, designed to help users build trust and stay engaged with their health data."
+    },
+    {
+      "kind": "image",
+      "src": "https://framerusercontent.com/images/wuHMyVa1koRVQE28aG4DHlgkVGE.png",
+      "alt": "",
+      "name": "Fill Your Image Here"
+    },
+    {
+      "kind": "image",
+      "src": "https://framerusercontent.com/images/9TPTHVS21FzyIXjCcOFhjfJaM.png",
+      "alt": "",
+      "name": "Fill Your Image Here"
+    },
+    {
+      "kind": "component",
+      "name": "Text Card",
+      "controls": {
+        "heading": "Behavioral Tip Management",
+        "bodyText": "+35% when paired with elevated readings"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Text Card",
+      "controls": {
+        "heading": "Cognitive Load",
+        "bodyText": ">25% lower app abandonment after alert events"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Highlighter Tag",
+      "controls": {
+        "title": "Fitness"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "Your personal AI fitness coach"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "The fitness page provides users with daily movement insights, hydration levels, and exercise logs, paired with personalized AI-driven recommendations. Visual summaries like step count, distance, calories, and yoga time are clearly presented alongside motivational tips and daily notes."
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "Why this works?"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "It reinforces positive behavior through encouraging feedback, while surfacing key activity metrics in a glanceable format. The addition of user-generated daily notes supports self-reflection and accountability, creating a loop between awareness and action."
+    },
+    {
+      "kind": "image",
+      "src": "https://framerusercontent.com/images/sBHNNlgWhU3DZIOmacw7cmwmxXc.png",
+      "alt": "",
+      "name": "Fill Your Image Here"
+    },
+    {
+      "kind": "image",
+      "src": "https://framerusercontent.com/images/Hmsve5KmF3VCer56f2Gc6iCLIc.png",
+      "alt": "",
+      "name": "Fill Your Image Here"
+    },
+    {
+      "kind": "component",
+      "name": "Text Card",
+      "controls": {
+        "heading": "Trust Signals",
+        "bodyText": "Human-like tone and accurate memory boosts trust and retention"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Text Card",
+      "controls": {
+        "heading": "Engagement Rate",
+        "bodyText": "+50% vs standard record view"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Text Card",
+      "controls": {
+        "heading": "Prevents Confusion ",
+        "bodyText": ">45% reduction in confusion caused by prescriptioins among patients"
+      }
+    }
+  ]
+}

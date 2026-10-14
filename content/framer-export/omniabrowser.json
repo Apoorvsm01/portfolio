@@ -1,0 +1,407 @@
+{
+  "path": "/omniabrowser",
+  "blocks": [
+    {
+      "kind": "component",
+      "name": "Loader",
+      "controls": {}
+    },
+    {
+      "kind": "component",
+      "name": "Vimeo",
+      "controls": {
+        "uRL": "https://vimeo.com/1096030532?share=copy",
+        "radius": "0px",
+        "controls": "false",
+        "autoplay": "true",
+        "loop": "true",
+        "mute": "true",
+        "background": "rgba(0, 0, 0, 0)"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Header Tag",
+      "controls": {
+        "title": "VisionOS",
+        "background": "var(--token-dd06214b-8b75-4dc4-a16e-5f59e222aa99, rgba(255, 70, 46, 0.2)) /* {\"name\":\"Orange 20%\"} */"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h3",
+      "text": "Spatial Browser"
+    },
+    {
+      "kind": "component",
+      "name": "Primary Tag",
+      "controls": {
+        "title": "Spatial Design",
+        "background": "var(--token-24a45aa1-a792-4609-9d1e-3d6753d0d85c)"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Primary Tag",
+      "controls": {
+        "title": "Emerging Technology",
+        "background": "var(--token-24a45aa1-a792-4609-9d1e-3d6753d0d85c)"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Primary Tag",
+      "controls": {
+        "title": "Immersive Tutorials",
+        "background": "var(--token-24a45aa1-a792-4609-9d1e-3d6753d0d85c)"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Primary Button",
+      "controls": {
+        "background": "var(--token-7b28de09-a7f8-48f3-a20f-cfebe9dbdaa3)"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Scroll Down Arrow",
+      "controls": {}
+    },
+    {
+      "kind": "component",
+      "name": "Highlighter Tag",
+      "controls": {
+        "title": "How might we?"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h5",
+      "text": "optimize spatial content discovery and distribution on emerging smart‑glasses platforms to empower AR creators to increase engagement, monetization, and growth?"
+    },
+    {
+      "kind": "component",
+      "name": "Text Card",
+      "controls": {
+        "heading": "Platforms",
+        "bodyText": "VisionOS\nMeta Quest\niOS"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Text Card",
+      "controls": {
+        "heading": "Category",
+        "bodyText": "UI Design\nUX Research"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Text Card",
+      "controls": {
+        "heading": "Project Duration",
+        "bodyText": "7 Months"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Carousel",
+      "controls": {
+        "direction": "true",
+        "align": "center",
+        "gap": "10",
+        "padding": "0px",
+        "sizing": "{\"widthType\":{\"type\":\"enum\",\"value\":\"stretch\"},\"widthInset\":{\"type\":\"number\",\"value\":0},\"widthColumns\":{\"type\":\"number\",\"value\":2},\"heightType\":{\"type\":\"enum\",\"value\":\"auto\"},\"heightInset\":{\"type\":\"number\",\"value\":0},\"heightRows\":{\"type\":\"number\",\"value\":2}}",
+        "snapping": "{\"snap\":{\"type\":\"boolean\",\"value\":true},\"snapEdge\":{\"type\":\"enum\",\"value\":\"center\"},\"fluid\":{\"type\":\"boolean\",\"value\":true}}",
+        "fading": "{\"fadeContent\":{\"type\":\"boolean\",\"value\":true},\"fadeWidth\":{\"type\":\"number\",\"value\":25},\"fadeInset\":{\"type\":\"number\",\"value\":0},\"fadeAlpha\":{\"type\":\"number\",\"value\":0.8},\"fadeTransition\":{\"type\":\"transition\",\"value\":{\"type\":\"spring\",\"ease\":[0.44,0,0.56,1],\"duration\":0.3,\"delay\":0,\"stiffness\":500,\"damping\":60,\"mass\":1,\"stagger\":0}}}",
+        "progress": "{\"showScrollbar\":{\"type\":\"boolean\",\"value\":false},\"showProgressDots\":{\"type\":\"boolean\",\"value\":false},\"dotSize\":{\"type\":\"number\",\"value\":10},\"dotsInset\":{\"type\":\"number\",\"value\":10},\"dotsGap\":{\"type\":\"number\",\"value\":10},\"dotsPadding\":{\"type\":\"number\",\"value\":10},\"dotsFill\":{\"type\":\"color\",\"value\":\"#fff\"},\"dotsBackground\":{\"type\":\"color\",\"value\":\"rgba(0,0,0,0.2)\"},\"dotsRadius\":{\"type\":\"number\",\"value\":50},\"dotsOpacity\":{\"type\":\"number\",\"value\":0.5},\"dotsActiveOpacity\":{\"type\":\"number\",\"value\":1},\"dotsBlur\":{\"type\":\"number\",\"value\":4}}",
+        "arrows": "{\"showMouseControls\":{\"type\":\"boolean\",\"value\":true},\"arrowFill\":{\"type\":\"color\",\"value\":\"rgba(0,0,0,0.2)\"},\"leftArrow\":{\"type\":\"image\"},\"rightArrow\":{\"type\":\"image\"},\"arrowSize\":{\"type\":\"number\",\"value\":40},\"arrowRadius\":{\"type\":\"number\",\"value\":40},\"arrowPadding\":{\"type\":\"number\",\"value\":20}}",
+        "ariaLabel": "",
+        "radius": "32"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Highlighter Tag",
+      "controls": {
+        "title": "Research Methods"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "Brainstorming Sessions"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "Identified multiple media sharing applications on Apple Vision Pro and Meta Quest platforms. Some were native apps while most were third-party. Each competitor tackled and faced a unique problem."
+    },
+    {
+      "kind": "component",
+      "name": "Dot Slider",
+      "controls": {
+        "dot1": "true",
+        "dot2": "true",
+        "dot3": "true",
+        "dot4": "true",
+        "dot5": "false"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "Competitor Analysis"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "Conducted 15+ interviews with users of traditional media outlets, creators looking to publish spatial content, headset owners and even company founders to evaluate business use cases."
+    },
+    {
+      "kind": "component",
+      "name": "Dot Slider",
+      "controls": {
+        "dot1": "true",
+        "dot2": "true",
+        "dot3": "true",
+        "dot4": "true",
+        "dot5": "false"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "User Interviews"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "We developed user personas representing spatial content viewers and creators, ensuring our platform addressed their real-world needs. These profiles provided insights into motivations, constraints, and expectations, guiding feature prioritization and user-centric design."
+    },
+    {
+      "kind": "component",
+      "name": "Dot Slider",
+      "controls": {
+        "dot1": "true",
+        "dot2": "true",
+        "dot3": "true",
+        "dot4": "true",
+        "dot5": "false"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "Persona Building"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "We synthesized insights from user interviews, competitor analysis, and team brainstorming sessions through affinity mapping. This process enabled structured categorization of user pain points, core needs, and prioritized features. As a result, all design decisions were grounded in validated, user-centered insights."
+    },
+    {
+      "kind": "component",
+      "name": "Dot Slider",
+      "controls": {
+        "dot1": "true",
+        "dot2": "true",
+        "dot3": "true",
+        "dot4": "true",
+        "dot5": "false"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "Affinity Mapping"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "Organized a full-stack team to go over all aspects of developing such an app. Addressed development issues, backend, and AI implementation to manage content uploads, delivery, recommendations, and more. Prototyped in Figma and further in development"
+    },
+    {
+      "kind": "component",
+      "name": "Dot Slider",
+      "controls": {
+        "dot1": "true",
+        "dot2": "true",
+        "dot3": "true",
+        "dot4": "true",
+        "dot5": "false"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Highlighter Tag",
+      "controls": {
+        "title": "Spatial Content Everywhere"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "New ways to view content"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "Omnia pioneers the future of immersive media by enabling the upload and exploration of Spatial Photos, Panoramas, Videos, and Gaussian Splats formats traditionally locked within proprietary ecosystems. I designed a community-powered gallery experience, purpose-built for VR/AR headsets, that transforms spatial content into a collective, explorable dimension."
+    },
+    {
+      "kind": "component",
+      "name": "Vimeo",
+      "controls": {
+        "uRL": "https://vimeo.com/1096030532?share=copy",
+        "radius": "32px",
+        "controls": "false",
+        "autoplay": "true",
+        "loop": "true",
+        "mute": "true",
+        "background": "rgba(0, 0, 0, 0)"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Highlighter Tag",
+      "controls": {
+        "title": "Spatial Web"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "Articles, WebPages, Media ... and more!"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "Designed new interfaces to view AI summaries and full web pages with spatial media."
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "Flipping through summary cards is efficient, spatial, and works well alongside other apps. User research proved that people read more content generated by AI Summaries, and now they can do so in Augmented Reality."
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "Spatial web-browsing is the next step in Augmented Reality interfaces. All images on a page appear in a top carousel for immediate access, followed by the text. Only the text in view is bright, the rest is dimmed to avoid visual distraction. Scrolling brings it in view. The Ai summaries can be accessed in a side panel if desired. Easy access to an AI assistant was key for the future of browisng as well, and lives in the Safari-inspired bottom tab bar."
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "These design elements predate Apple's spatial web browsing update with VisionOS 26."
+    },
+    {
+      "kind": "image",
+      "src": "https://framerusercontent.com/images/SO2G3kOkjAQNCcpZsuvainC0y1E.png",
+      "alt": "",
+      "name": "Fill Your Image Here"
+    },
+    {
+      "kind": "image",
+      "src": "https://framerusercontent.com/images/0tDBpYJFUS1iEF1Rm9MlwHE1ch0.png",
+      "alt": "",
+      "name": "Fill Your Image Here"
+    },
+    {
+      "kind": "component",
+      "name": "Highlighter Tag",
+      "controls": {
+        "title": "Adaptive Game UI"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "Same web-based games… with spatial controls"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "WebXR games promise immersive play but fragmentation across VR/AR devices has limited their reach."
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "Omnia revolutionizes this by making spatial games instantly cross-compatible, no developer intervention required. I designed the Adaptable Game UI to elevate this breakthrough—interfaces now morph to match the hardware in real time."
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "Imagine gripping a virtual steering wheel rendered precisely to your device, without a single line of extra code. That’s the power of Omnia’s adaptive runtime."
+    },
+    {
+      "kind": "image",
+      "src": "https://framerusercontent.com/images/MyNzsMX3Sn6stxEu66zHnqydKtE.png",
+      "alt": "",
+      "name": "Fill Your Image Here"
+    },
+    {
+      "kind": "image",
+      "src": "https://framerusercontent.com/images/0xZZfg7nMnrrEeeTRtvvVVh5Bg.png",
+      "alt": "",
+      "name": "Fill Your Image Here"
+    },
+    {
+      "kind": "component",
+      "name": "Highlighter Tag",
+      "controls": {
+        "title": "3D Model Viewer"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "Intuitive Zoom & Rotation Controls"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "Designed brand new zoom sliders and rotation controls for 3D models. Allowing users to interact with and view the model with a single hand instead of having to rely on two-handed gestures that are native to the OS. This was a highly requested feature by factory workers due to the nature of their work."
+    },
+    {
+      "kind": "image",
+      "src": "https://framerusercontent.com/images/NzfSs1GSyNsHghMsSnsvP0zKF8.png",
+      "alt": "",
+      "name": "Fill Your Image Here"
+    },
+    {
+      "kind": "component",
+      "name": "Highlighter Tag",
+      "controls": {
+        "title": "E-Commerce"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "Buy what you see"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "I modified the designs of the 3D model viewer to accommodate e-commerce requirements. Users can view product listings, see all related content like videos, models, and photos, along with the description, price, and more!"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "Using \"Apple Pay\", users will authenticate using the built-in Face ID without any added steps."
+    },
+    {
+      "kind": "image",
+      "src": "https://framerusercontent.com/images/QzQM21feQgJ2abrSzvu7y3DK20.png",
+      "alt": "",
+      "name": "Fill Your Image Here"
+    },
+    {
+      "kind": "image",
+      "src": "https://framerusercontent.com/images/zHmgu1sHugWHimnDJJGofYYu8.png",
+      "alt": "",
+      "name": "Fill Your Image Here"
+    }
+  ]
+}

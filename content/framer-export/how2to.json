@@ -1,0 +1,415 @@
+{
+  "path": "/how2to",
+  "blocks": [
+    {
+      "kind": "component",
+      "name": "Loader",
+      "controls": {}
+    },
+    {
+      "kind": "component",
+      "name": "Vimeo",
+      "controls": {
+        "uRL": "https://vimeo.com/1095788946?share=copy",
+        "radius": "0px",
+        "controls": "false",
+        "autoplay": "true",
+        "loop": "true",
+        "mute": "true",
+        "background": "rgba(0, 0, 0, 0)"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Header Tag",
+      "controls": {
+        "title": "VisionOS",
+        "background": "var(--token-dd06214b-8b75-4dc4-a16e-5f59e222aa99, rgba(255, 70, 46, 0.2)) /* {\"name\":\"Orange 20%\"} */"
+      }
+    },
+    {
+      "kind": "image",
+      "src": "https://framerusercontent.com/images/o7CJnBSMdQElxVYwiKp4cVg8m8.svg",
+      "alt": "",
+      "name": "Image"
+    },
+    {
+      "kind": "component",
+      "name": "Primary Button",
+      "controls": {
+        "background": "var(--token-7b28de09-a7f8-48f3-a20f-cfebe9dbdaa3)"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Primary Tag",
+      "controls": {
+        "title": "Spatial Design",
+        "background": "var(--token-24a45aa1-a792-4609-9d1e-3d6753d0d85c)"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Primary Tag",
+      "controls": {
+        "title": "Emerging Technology",
+        "background": "var(--token-24a45aa1-a792-4609-9d1e-3d6753d0d85c)"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Primary Tag",
+      "controls": {
+        "title": "Immersive Tutorials",
+        "background": "var(--token-24a45aa1-a792-4609-9d1e-3d6753d0d85c)"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Scroll Down Arrow",
+      "controls": {}
+    },
+    {
+      "kind": "component",
+      "name": "Highlighter Tag",
+      "controls": {
+        "title": "How might we?"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h5",
+      "text": "transform static digital tutorials into interactive, spatial experiences that are easier to follow, retain, and apply, especially for complex tasks like tech repairs or cooking?"
+    },
+    {
+      "kind": "component",
+      "name": "Text Card",
+      "controls": {
+        "heading": "Platforms",
+        "bodyText": "VisionOS\nMeta Quest\niOS"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Text Card",
+      "controls": {
+        "heading": "Category",
+        "bodyText": "UI Design\nUX Research"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Text Card",
+      "controls": {
+        "heading": "Project Duration",
+        "bodyText": "4 Months"
+      }
+    },
+    {
+      "kind": "image",
+      "src": "https://framerusercontent.com/images/ml0p8PlSHAKrXv9vJKjMKiRCyA.png",
+      "alt": "",
+      "name": "Image 5"
+    },
+    {
+      "kind": "image",
+      "src": "https://framerusercontent.com/images/NHKkA8FT7j6CtSzPMCr5KTto.png",
+      "alt": "",
+      "name": "Image 4"
+    },
+    {
+      "kind": "image",
+      "src": "https://framerusercontent.com/images/Gfuh5u5bvIZclL7a0MIWh5skd3I.png",
+      "alt": "",
+      "name": "Image 4"
+    },
+    {
+      "kind": "image",
+      "src": "https://framerusercontent.com/images/HUnD0Ludl9lVBGbpid2AgdBmY.png",
+      "alt": "",
+      "name": "Image 4"
+    },
+    {
+      "kind": "image",
+      "src": "https://framerusercontent.com/images/XzGezzyv8hqh7ximr0oVYFSbDN0.png",
+      "alt": "",
+      "name": "Image 4"
+    },
+    {
+      "kind": "component",
+      "name": "Highlighter Tag",
+      "controls": {
+        "title": "Research Methods"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "Brainstorming Sessions"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "Held 5 internal sessions to ideate onboarding flows, spatial interactions, and modular templates (e.g., stove/oven marker for cooking, screw guide for repair)."
+    },
+    {
+      "kind": "component",
+      "name": "Dot Slider",
+      "controls": {
+        "dot1": "true",
+        "dot2": "true",
+        "dot3": "true",
+        "dot4": "true",
+        "dot5": "false"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "Competitor Analysis"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "Analyzed spatial learning and tutorial platforms (e.g., JigSpace, WikiHow VR, YouTube with AR extensions)."
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "Identified gaps in interactive guidance, spatial UX fidelity, and lack of cross-context template systems for different task types (DIY, cooking, tech repair)."
+    },
+    {
+      "kind": "component",
+      "name": "Dot Slider",
+      "controls": {
+        "dot1": "true",
+        "dot2": "true",
+        "dot3": "true",
+        "dot4": "true",
+        "dot5": "false"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "User Interviews"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "Interviewed 9 participants (ages 20–45) who regularly engage with instructional content online (YouTube, blogs, mobile apps)."
+    },
+    {
+      "kind": "list",
+      "items": [
+        "7/9 struggle to pause / switch between content and task",
+        "6/9 expressed interest in hands-free visual instruction",
+        "5/9 found current AR tools either non-intuitive or overly complex"
+      ]
+    },
+    {
+      "kind": "component",
+      "name": "Dot Slider",
+      "controls": {
+        "dot1": "true",
+        "dot2": "true",
+        "dot3": "true",
+        "dot4": "true",
+        "dot5": "false"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "Persona Building"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "Constructed 3 personas from interview data:"
+    },
+    {
+      "kind": "list",
+      "items": [
+        "DIY Dan: 32, uses YouTube for repairs, needs visual clarity",
+        "Chef Lila: 28, uses Instagram Reels for recipes, wants step control",
+        "Tinker Tim: 24, builds PCs, frustrated with switching apps during work"
+      ]
+    },
+    {
+      "kind": "component",
+      "name": "Dot Slider",
+      "controls": {
+        "dot1": "true",
+        "dot2": "true",
+        "dot3": "true",
+        "dot4": "true",
+        "dot5": "false"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "Affinity Mapping"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "Clustered responses into core themes:"
+    },
+    {
+      "kind": "list",
+      "items": [
+        "Cognitive load during multitasking",
+        "Friction in switching between instruction and action",
+        "Demand for real-time, spatial, context-aware tutorials",
+        "Excitement around using headsets for hands-free guidance"
+      ]
+    },
+    {
+      "kind": "component",
+      "name": "Dot Slider",
+      "controls": {
+        "dot1": "true",
+        "dot2": "true",
+        "dot3": "true",
+        "dot4": "true",
+        "dot5": "false"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Vimeo",
+      "controls": {
+        "uRL": "https://vimeo.com/1095788946?share=copy",
+        "radius": "32px",
+        "controls": "false",
+        "autoplay": "true",
+        "loop": "true",
+        "mute": "true",
+        "background": "rgba(0, 0, 0, 0)"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Highlighter Tag",
+      "controls": {
+        "title": "Voice-first UI"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "Unobtrusive Design"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "I designed a voice-first interaction model that eliminates cognitive overload by streamlining commands to only the most contextually relevant actions. On Vision Pro, this voice layer acts as a spatial tutorial generation assistant, intelligently creating steps enriched with videos and images that are task-specific, enabling users to focus entirely on hands-on activity. The design follows Minimalism principles and prioritizes flow continuity in 3D space."
+    },
+    {
+      "kind": "image",
+      "src": "https://framerusercontent.com/images/ml0p8PlSHAKrXv9vJKjMKiRCyA.png",
+      "alt": "",
+      "name": "Fill Your Image Here"
+    },
+    {
+      "kind": "component",
+      "name": "Highlighter Tag",
+      "controls": {
+        "title": "Empathetic Design"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "Tutorial Preview Page"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "Once the AI generates a tutorial, this page allows the user to go over the results, sources, and ingredients. Once everything is in order, they can proceed to the immersive viewer.\nThis page enables options and a means of knowing if they have all the right tools/ingredients to perform the task they asked for. If they don't approve of the tutorial, they can head to the 'Browse' page for others, 'See More', or the Voice search to regenerate with a prompt, or 'Continue' to proceed to completing the task."
+    },
+    {
+      "kind": "image",
+      "src": "https://framerusercontent.com/images/Gfuh5u5bvIZclL7a0MIWh5skd3I.png",
+      "alt": "",
+      "name": "Fill Your Image Here"
+    },
+    {
+      "kind": "component",
+      "name": "Highlighter Tag",
+      "controls": {
+        "title": "Tutorial Views"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "Immersive + Condensed Views"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "Designed two tutorial viewer sizes to suit all user needs. They can choose to be fully immersed to stay focused on a single task or take a better look at the step. The condensed view would allow more information and multi-app usage. From user testing, we found that users who are accustomed to spatial interfaces tend to have 3-4 applications running in their view, and the condensed view is best catered to them. Similarly, it is highly demanded in B2B settings where worker efficiency is preferred over content immersion."
+    },
+    {
+      "kind": "image",
+      "src": "https://framerusercontent.com/images/NHKkA8FT7j6CtSzPMCr5KTto.png",
+      "alt": "",
+      "name": "Fill Your Image Here"
+    },
+    {
+      "kind": "image",
+      "src": "https://framerusercontent.com/images/HUnD0Ludl9lVBGbpid2AgdBmY.png",
+      "alt": "",
+      "name": "Fill Your Image Here"
+    },
+    {
+      "kind": "component",
+      "name": "Highlighter Tag",
+      "controls": {
+        "title": "Tutorial Gallery"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "Expansive Gallery view"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "My work focused on creating an intuitive and aesthetically pleasing user experience. I prioritized clarity and accessibility by organizing content into easily navigable sections, such as “Food”, \"DIY\", \"Technology\", etc., using distinct, colorful cards to highlight generated tutorials. This design not only enhances user engagement but also ensures that information is both discoverable and enjoyable to browse."
+    },
+    {
+      "kind": "image",
+      "src": "https://framerusercontent.com/images/XzGezzyv8hqh7ximr0oVYFSbDN0.png",
+      "alt": "",
+      "name": "Fill Your Image Here"
+    },
+    {
+      "kind": "component",
+      "name": "Highlighter Tag",
+      "controls": {
+        "title": "Video Controls"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "Reimagined Media Control"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "Due to the extensive functionalities of How2, I redesigned the native media controls. Now we have Steps, access to tutorials, a toggle to change the viewer mode, show or hide ingredients, and even information sources (described from left to right).\n\nThis design maintains a small footprint and ensures spatial efficiency without sacrificing functionality."
+    },
+    {
+      "kind": "image",
+      "src": "https://framerusercontent.com/images/IISBQBYafAUHrfXzGDLQn7uhztw.png",
+      "alt": "",
+      "name": "Fill Your Image Here"
+    }
+  ]
+}

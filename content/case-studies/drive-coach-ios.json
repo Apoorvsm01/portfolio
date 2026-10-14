@@ -1,0 +1,311 @@
+{
+  "slug": "drive-coach-ios",
+  "title": "Drive Coach iOS",
+  "description": "A SwiftUI driving-confidence app for new drivers, borrowing Apple Health's September 2026 redesign patterns — rolling confidence score, For You coaching cards, and a six-category skill overview.",
+  "tags": [
+    "SwiftUI",
+    "Confidence Scoring",
+    "Apple Health-Inspired"
+  ],
+  "hmw": "help new drivers see their own growth clearly enough to actually build confidence behind the wheel?",
+  "facts": [
+    {
+      "label": "Company",
+      "value": "Woven by Toyota"
+    },
+    {
+      "label": "Platforms",
+      "value": "iOS 17+ - SwiftUI - Swift Charts"
+    },
+    {
+      "label": "Category",
+      "value": "Driver Coaching, Consumer Health-Adjacent"
+    },
+    {
+      "label": "Role",
+      "value": "End-to-end: product design, SwiftUI build, data model"
+    },
+    {
+      "label": "Audience",
+      "value": "Technicians and new drivers (B2B + B2C)"
+    }
+  ],
+  "prototype": null,
+  "heroImages": [
+    {
+      "src": "/work/drive-coach-ios/01.png",
+      "alt": "Drive Coach Summary tab showing the latest drive score ring and AI Drive Review card"
+    },
+    {
+      "src": "/work/drive-coach-ios/02.png",
+      "alt": "Drive Coach History tab listing past drives with score badges"
+    },
+    {
+      "src": "/work/drive-coach-ios/03.png",
+      "alt": "Drive Coach Trends tab showing the Skill Overview bars and a category trend line"
+    },
+    {
+      "src": "/work/drive-coach-ios/04.png",
+      "alt": "Drive Coach Insights tab showing the Confidence Score ring and band"
+    }
+  ],
+  "sections": [
+    {
+      "label": "Approach & Process",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "End-to-End Ownership"
+        },
+        {
+          "type": "paragraph",
+          "text": "Designed and built the whole SwiftUI app solo: the data model, the scoring engine, and all four tabs."
+        },
+        {
+          "type": "heading",
+          "text": "Reusable Score Language"
+        },
+        {
+          "type": "paragraph",
+          "text": "One color-and-label system, everywhere."
+        },
+        {
+          "type": "paragraph",
+          "text": "The same ScoreBand/ConfidenceBand vocabulary drives the ring, the trend badges, the skill bars, and the streak banner — so the whole app reads as one coherent language, not four separately-designed screens."
+        },
+        {
+          "type": "heading",
+          "text": "Borrowed the Shape, Not the Skin"
+        },
+        {
+          "type": "paragraph",
+          "text": "Read Apple’s September 2026 Health redesign closely, then re-derived the pattern for driving:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Readiness’s 0-10 score + four-tier language became a rolling Confidence Score",
+            "The Insights tab’s “For You” mix of a win and a focus area became two coaching cards, not just a list of problems",
+            "The Longevity tab’s all-dimensions-at-once view became the Skill Overview bars"
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Fluid by Default"
+        },
+        {
+          "type": "paragraph",
+          "text": "Reached for iOS 17’s native motion APIs instead of hand-rolled animation plumbing:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "contentTransition(.numericText()) on every score and delta",
+            "scrollTransition fade/scale on cards as they enter the viewport",
+            "viewAligned scroll snapping on the Recent Drives strip, spring-scale press states on every card"
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Independent Research & Validation"
+        },
+        {
+          "type": "paragraph",
+          "text": "Extracted concrete patterns from Apple’s own announcement rather than guessing at “Health-style design”:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Baseline-relative language (“Trending Up,” not just a raw number)",
+            "A card mix of celebration and focus, never only problems",
+            "A one-line “why this number” explanation under every score"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Design System",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "One scoring vocabulary, six primitives"
+        },
+        {
+          "type": "paragraph",
+          "text": "Every screen reuses the same ScoreBand/ConfidenceBand color-and-label system, so a ring, a badge, and a bar all mean the same thing at a glance."
+        },
+        {
+          "type": "paragraph",
+          "text": "Score Band"
+        },
+        {
+          "type": "paragraph",
+          "text": "83 - Driving Well"
+        },
+        {
+          "type": "paragraph",
+          "text": "Trend Badge"
+        },
+        {
+          "type": "paragraph",
+          "text": "+5"
+        },
+        {
+          "type": "paragraph",
+          "text": "Streak"
+        },
+        {
+          "type": "paragraph",
+          "text": "2-drive streak"
+        },
+        {
+          "type": "paragraph",
+          "text": "Skill Bar"
+        },
+        {
+          "type": "paragraph",
+          "text": "Confidence Band"
+        },
+        {
+          "type": "paragraph",
+          "text": "Road Ready"
+        },
+        {
+          "type": "paragraph",
+          "text": "For You Card"
+        },
+        {
+          "type": "paragraph",
+          "text": "Trending Up"
+        },
+        {
+          "type": "paragraph",
+          "text": "App Colors"
+        },
+        {
+          "type": "paragraph",
+          "text": "Great - #00E676"
+        },
+        {
+          "type": "paragraph",
+          "text": "Good - #FFC107"
+        },
+        {
+          "type": "paragraph",
+          "text": "Needs Work - #FF5252"
+        },
+        {
+          "type": "paragraph",
+          "text": "Accent - #00A3FF"
+        }
+      ]
+    },
+    {
+      "label": "Confidence Score",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "A number that means something"
+        },
+        {
+          "type": "paragraph",
+          "text": "A recency-weighted rolling average across the last five drives, mapped to a four-tier band: Keep Practicing, Building Confidence, Driving Well, Road Ready.\nOne rough drive doesn’t crash the number, and one great one doesn’t inflate it — the same shape as Apple’s own Readiness score."
+        }
+      ]
+    },
+    {
+      "label": "For You",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "One win, one focus, every time"
+        },
+        {
+          "type": "paragraph",
+          "text": "The engine compares each scenario’s last three drives against the three before that, then surfaces the biggest improvement and the biggest dip — never just a list of what went wrong."
+        },
+        {
+          "type": "paragraph",
+          "text": "Trending Up"
+        },
+        {
+          "type": "heading",
+          "text": "Speed Management  +5"
+        },
+        {
+          "type": "paragraph",
+          "text": "Up 5 points over your last few drives. Keep it up."
+        },
+        {
+          "type": "paragraph",
+          "text": "Focus Area"
+        },
+        {
+          "type": "heading",
+          "text": "Following Distance  -4"
+        },
+        {
+          "type": "paragraph",
+          "text": "Add one more car length of following distance on faster roads."
+        }
+      ]
+    },
+    {
+      "label": "Skill Overview",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Every scenario, one glance"
+        },
+        {
+          "type": "paragraph",
+          "text": "All six scenarios — Speed, Braking, Signal, Following Distance, Turns, Night Driving — compared at once before drilling into any single one’s trend line.\nSame idea as Health’s Longevity tab showing every dimension side by side instead of one metric at a time."
+        }
+      ]
+    },
+    {
+      "label": "Fluid by Default",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Small motion, big trust"
+        },
+        {
+          "type": "paragraph",
+          "text": "Score digits count up instead of jump-cutting, cards fade and settle in as they scroll into view, and the Recent Drives strip snaps card-to-card instead of drifting to a stop mid-card.\nNone of it is custom animation code — all native iOS 17 SwiftUI: contentTransition, scrollTransition, and viewAligned scroll targets."
+        }
+      ]
+    },
+    {
+      "label": "Why It Works",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Confidence you can see."
+        },
+        {
+          "type": "paragraph",
+          "text": "The rolling Confidence Score turns “am I getting better?” into a number and a plain-language band, the same trick Apple’s Readiness score plays for workout recovery."
+        },
+        {
+          "type": "heading",
+          "text": "Coaching that celebrates, not just corrects."
+        },
+        {
+          "type": "paragraph",
+          "text": "For You always pairs a win with a focus area — matching Apple Health’s own encouraging tone instead of a list of what a new driver did wrong."
+        },
+        {
+          "type": "heading",
+          "text": "Feels alive, not static."
+        },
+        {
+          "type": "paragraph",
+          "text": "Numeric count-ups, scroll-linked fades, and view-aligned snapping run on native iOS 17 SwiftUI APIs — no custom animation plumbing to maintain."
+        }
+      ]
+    }
+  ],
+  "unportedComponents": [],
+  "imageCount": 4
+}

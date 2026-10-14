@@ -1,0 +1,365 @@
+{
+  "path": "/spatialshowroom",
+  "blocks": [
+    {
+      "kind": "component",
+      "name": "Loader",
+      "controls": {}
+    },
+    {
+      "kind": "component",
+      "name": "Vimeo",
+      "controls": {
+        "uRL": "https://vimeo.com/1095399525?share=copy&fl=sv&fe=ci",
+        "radius": "0px",
+        "controls": "false",
+        "autoplay": "true",
+        "loop": "true",
+        "mute": "true",
+        "background": "rgba(0, 0, 0, 0)"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Header Tag",
+      "controls": {
+        "title": "VisionOS",
+        "background": "var(--token-dd06214b-8b75-4dc4-a16e-5f59e222aa99, rgba(255, 70, 46, 0.2)) /* {\"name\":\"Orange 20%\"} */"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h3",
+      "text": "Spatial Showroom"
+    },
+    {
+      "kind": "component",
+      "name": "Primary Tag",
+      "controls": {
+        "title": "Spatial Design",
+        "background": "var(--token-24a45aa1-a792-4609-9d1e-3d6753d0d85c)"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Primary Tag",
+      "controls": {
+        "title": "Emerging Technology",
+        "background": "var(--token-24a45aa1-a792-4609-9d1e-3d6753d0d85c)"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Primary Button",
+      "controls": {
+        "background": "var(--token-7b28de09-a7f8-48f3-a20f-cfebe9dbdaa3)"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Scroll Down Arrow",
+      "controls": {}
+    },
+    {
+      "kind": "component",
+      "name": "Highlighter Tag",
+      "controls": {
+        "title": "How might we?"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h5",
+      "text": "showcase a virtual car showroom and allow for full, realistic customization to potential business and consumer customers?"
+    },
+    {
+      "kind": "component",
+      "name": "Text Card",
+      "controls": {
+        "heading": "Platforms",
+        "bodyText": "VisionOS\nMeta Quest\niOS"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Text Card",
+      "controls": {
+        "heading": "Category",
+        "bodyText": "UI Design\nUX Research"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Text Card",
+      "controls": {
+        "heading": "Project Duration",
+        "bodyText": "4 Months"
+      }
+    },
+    {
+      "kind": "image",
+      "src": "https://framerusercontent.com/images/HjuI2CvuYpEagx3Q5ayjTOfsQ.png",
+      "alt": "",
+      "name": "Image 5"
+    },
+    {
+      "kind": "image",
+      "src": "https://framerusercontent.com/images/FAOAsI5hudhZnTtB4gxwoRTQ0YE.png",
+      "alt": "",
+      "name": "Image 4"
+    },
+    {
+      "kind": "component",
+      "name": "Highlighter Tag",
+      "controls": {
+        "title": "Live on the AppStore"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "Proud to announce that the Omnia Virtual Showroom is live on the VisionOS App Store!"
+    },
+    {
+      "kind": "component",
+      "name": "Star Rating",
+      "controls": {
+        "star1": "true",
+        "star2": "true",
+        "star3": "true",
+        "star4": "true",
+        "star5": "true"
+      }
+    },
+    {
+      "kind": "image",
+      "src": "https://framerusercontent.com/images/snTVh7vDb3FsyL9Wa4zEhLk3U.png",
+      "alt": "",
+      "name": "Fill Your Image Here"
+    },
+    {
+      "kind": "component",
+      "name": "Highlighter Tag",
+      "controls": {
+        "title": "Research Methods"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "Brainstorming Sessions"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "Organized a full-stack team to go over all aspects of developing such an app. Addressed development issues, backend, and 3D model implementation to manage content uploads, delivery, recommendations, and more. Prototyped in Figma and further in development"
+    },
+    {
+      "kind": "component",
+      "name": "Dot Slider",
+      "controls": {
+        "dot1": "true",
+        "dot2": "true",
+        "dot3": "true",
+        "dot4": "true",
+        "dot5": "false"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "Competitor Analysis"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "Identified web-based car configurators from name brands that prioritize functionality and configuration options over augmented reality features. Took functional inspiration and applied it to a Vision Pro application with more features."
+    },
+    {
+      "kind": "component",
+      "name": "Dot Slider",
+      "controls": {
+        "dot1": "true",
+        "dot2": "true",
+        "dot3": "true",
+        "dot4": "true",
+        "dot5": "false"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "User Interviews"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "Conducted 25+ interviews with users of traditional media outlets, creators looking to publish spatial content, headset owners, and even company founders to evaluate business use cases."
+    },
+    {
+      "kind": "component",
+      "name": "Dot Slider",
+      "controls": {
+        "dot1": "true",
+        "dot2": "true",
+        "dot3": "true",
+        "dot4": "true",
+        "dot5": "false"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "Persona Building"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "We developed user personas representing car buyers, including those who are tech-savvy and those who need to view their car in real life, ensuring our platform addressed their needs. These profiles provided insights into motivations, constraints, and expectations, guiding feature prioritization and user-centric design."
+    },
+    {
+      "kind": "component",
+      "name": "Dot Slider",
+      "controls": {
+        "dot1": "true",
+        "dot2": "true",
+        "dot3": "true",
+        "dot4": "true",
+        "dot5": "false"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "Affinity Mapping"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "We synthesized insights from user interviews, competitor analysis, and team brainstorming sessions through affinity mapping. This process enabled structured categorization of user pain points, core needs, and prioritized features. As a result, all design decisions were grounded in validated, user-centered insights."
+    },
+    {
+      "kind": "component",
+      "name": "Dot Slider",
+      "controls": {
+        "dot1": "true",
+        "dot2": "true",
+        "dot3": "true",
+        "dot4": "true",
+        "dot5": "false"
+      }
+    },
+    {
+      "kind": "image",
+      "src": "https://framerusercontent.com/images/0rgswDmLWkyMksEIWe6A8HNQU0.png",
+      "alt": "",
+      "name": "Fill Your Image Here"
+    },
+    {
+      "kind": "image",
+      "src": "https://framerusercontent.com/images/ybyBa9KCXDIAKiy7ji0vJOFbvw.png",
+      "alt": "",
+      "name": "Image 2"
+    },
+    {
+      "kind": "component",
+      "name": "Highlighter Tag",
+      "controls": {
+        "title": "How it Started?"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "UX Process"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "Tesla of River North approached our company intending to create and showcase an XR-based app at their showroom event on November 21st, 2024. After a few discussions, we set our minds on a virtual car showroom with customization options and fun, quirky features to get people interested.  Using our specialties in VisionOS and MobileXR development, we got to work. Sketches on paper turned to FigJam mockups. These focused on the landing page and the UI for viewing the car. It was important for users to go through a step to place their car, which also allowed the program to load the heavy 3D model in the background."
+    },
+    {
+      "kind": "image",
+      "src": "https://framerusercontent.com/images/D5K7BPWzXWjRSmLqoYRxWdPRzrY.png",
+      "alt": "",
+      "name": "Fill Your Image Here"
+    },
+    {
+      "kind": "component",
+      "name": "Highlighter Tag",
+      "controls": {
+        "title": "Feature #1"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "Realistic Car Viewer"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "A Tesla showroom in the comfort of your home. You have the ability to view all their products life-size and interact with them as if you own them! Customize the colors, wheel designs, and interior features to your liking before placing your order for your very own car."
+    },
+    {
+      "kind": "component",
+      "name": "Vimeo",
+      "controls": {
+        "uRL": "https://vimeo.com/1095399525?share=copy",
+        "radius": "0px",
+        "controls": "false",
+        "autoplay": "true",
+        "loop": "true",
+        "mute": "true",
+        "background": "rgba(0, 0, 0, 0)"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Highlighter Tag",
+      "controls": {
+        "title": "Feature #2"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "Immersive Viewer"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "A Tesla showroom in the comfort of your home. You have the ability to view all their products life-size and interact with them as if you own them! Customize the colors, wheel designs, and interior features to your liking before placing your order for your very own car."
+    },
+    {
+      "kind": "component",
+      "name": "Highlighter Tag",
+      "controls": {
+        "title": "Tesla - Emerging Tech Event"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Vimeo",
+      "controls": {
+        "uRL": "https://vimeo.com/1048746267?share=copy",
+        "radius": "16px",
+        "controls": "true",
+        "autoplay": "true",
+        "loop": "true",
+        "mute": "true",
+        "background": "rgba(0, 0, 0, 0)"
+      }
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "Showcasing and Testing"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "The Tesla showroom event aimed to lure potential buyers and people interested in futuristic technology. This meant people needed to be exposed to Tesla's car and their appeal, along with new tech that would leave them in awe. The app had to be easy enough to demo to about 100 people in a matter of minutes per person. A quick plug-and-play solution where the setup time had to be minimal."
+    }
+  ]
+}

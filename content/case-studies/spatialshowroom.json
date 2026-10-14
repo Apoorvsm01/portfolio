@@ -1,0 +1,194 @@
+{
+  "slug": "spatialshowroom",
+  "title": "Spatial Showroom",
+  "description": "",
+  "tags": [
+    "VisionOS",
+    "Spatial Design",
+    "Emerging Technology"
+  ],
+  "hmw": "showcase a virtual car showroom and allow for full, realistic customization to potential business and consumer customers?",
+  "facts": [
+    {
+      "label": "Platforms",
+      "value": "VisionOS\nMeta Quest\niOS"
+    },
+    {
+      "label": "Category",
+      "value": "UI Design\nUX Research"
+    },
+    {
+      "label": "Project Duration",
+      "value": "4 Months"
+    }
+  ],
+  "prototype": null,
+  "heroImages": [],
+  "sections": [
+    {
+      "label": "",
+      "blocks": [
+        {
+          "type": "video",
+          "vimeoId": "1095399525"
+        },
+        {
+          "type": "images",
+          "images": [
+            {
+              "src": "/work/spatialshowroom/01.png",
+              "alt": ""
+            },
+            {
+              "src": "/work/spatialshowroom/02.png",
+              "alt": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Live on the AppStore",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Proud to announce that the Omnia Virtual Showroom is live on the VisionOS App Store!"
+        },
+        {
+          "type": "images",
+          "images": [
+            {
+              "src": "/work/spatialshowroom/03.png",
+              "alt": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Research Methods",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Brainstorming Sessions"
+        },
+        {
+          "type": "paragraph",
+          "text": "Organized a full-stack team to go over all aspects of developing such an app. Addressed development issues, backend, and 3D model implementation to manage content uploads, delivery, recommendations, and more. Prototyped in Figma and further in development"
+        },
+        {
+          "type": "heading",
+          "text": "Competitor Analysis"
+        },
+        {
+          "type": "paragraph",
+          "text": "Identified web-based car configurators from name brands that prioritize functionality and configuration options over augmented reality features. Took functional inspiration and applied it to a Vision Pro application with more features."
+        },
+        {
+          "type": "heading",
+          "text": "User Interviews"
+        },
+        {
+          "type": "paragraph",
+          "text": "Conducted 25+ interviews with users of traditional media outlets, creators looking to publish spatial content, headset owners, and even company founders to evaluate business use cases."
+        },
+        {
+          "type": "heading",
+          "text": "Persona Building"
+        },
+        {
+          "type": "paragraph",
+          "text": "We developed user personas representing car buyers, including those who are tech-savvy and those who need to view their car in real life, ensuring our platform addressed their needs. These profiles provided insights into motivations, constraints, and expectations, guiding feature prioritization and user-centric design."
+        },
+        {
+          "type": "heading",
+          "text": "Affinity Mapping"
+        },
+        {
+          "type": "paragraph",
+          "text": "We synthesized insights from user interviews, competitor analysis, and team brainstorming sessions through affinity mapping. This process enabled structured categorization of user pain points, core needs, and prioritized features. As a result, all design decisions were grounded in validated, user-centered insights."
+        },
+        {
+          "type": "images",
+          "images": [
+            {
+              "src": "/work/spatialshowroom/04.png",
+              "alt": ""
+            },
+            {
+              "src": "/work/spatialshowroom/05.png",
+              "alt": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "How it Started?",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "UX Process"
+        },
+        {
+          "type": "paragraph",
+          "text": "Tesla of River North approached our company intending to create and showcase an XR-based app at their showroom event on November 21st, 2024. After a few discussions, we set our minds on a virtual car showroom with customization options and fun, quirky features to get people interested.  Using our specialties in VisionOS and MobileXR development, we got to work. Sketches on paper turned to FigJam mockups. These focused on the landing page and the UI for viewing the car. It was important for users to go through a step to place their car, which also allowed the program to load the heavy 3D model in the background."
+        },
+        {
+          "type": "images",
+          "images": [
+            {
+              "src": "/work/spatialshowroom/06.png",
+              "alt": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Feature #1",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Realistic Car Viewer"
+        },
+        {
+          "type": "paragraph",
+          "text": "A Tesla showroom in the comfort of your home. You have the ability to view all their products life-size and interact with them as if you own them! Customize the colors, wheel designs, and interior features to your liking before placing your order for your very own car."
+        }
+      ]
+    },
+    {
+      "label": "Feature #2",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Immersive Viewer"
+        },
+        {
+          "type": "paragraph",
+          "text": "A Tesla showroom in the comfort of your home. You have the ability to view all their products life-size and interact with them as if you own them! Customize the colors, wheel designs, and interior features to your liking before placing your order for your very own car."
+        }
+      ]
+    },
+    {
+      "label": "Tesla - Emerging Tech Event",
+      "blocks": [
+        {
+          "type": "video",
+          "vimeoId": "1048746267"
+        },
+        {
+          "type": "heading",
+          "text": "Showcasing and Testing"
+        },
+        {
+          "type": "paragraph",
+          "text": "The Tesla showroom event aimed to lure potential buyers and people interested in futuristic technology. This meant people needed to be exposed to Tesla's car and their appeal, along with new tech that would leave them in awe. The app had to be easy enough to demo to about 100 people in a matter of minutes per person. A quick plug-and-play solution where the setup time had to be minimal."
+        }
+      ]
+    }
+  ],
+  "unportedComponents": [],
+  "imageCount": 6
+}

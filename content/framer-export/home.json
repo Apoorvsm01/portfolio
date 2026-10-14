@@ -1,0 +1,125 @@
+{
+  "path": "/",
+  "metadata": {
+    "title": "Apoorv Mahajan Portfolio",
+    "noIndexSite": false
+  },
+  "blocks": [
+    {
+      "kind": "text",
+      "tag": "h1",
+      "text": "Hey, I'm"
+    },
+    {
+      "kind": "image",
+      "src": "https://framerusercontent.com/images/sPPHSwPm8PcznT4iR4cTsWGIKug.png",
+      "alt": "profile",
+      "name": "Img"
+    },
+    {
+      "kind": "image",
+      "src": "https://framerusercontent.com/images/JPrsv3LBQBunnZqyETgn35W5FYM.jpeg",
+      "alt": "",
+      "name": "IMG 4355"
+    },
+    {
+      "kind": "text",
+      "tag": "h1",
+      "text": "Apoorv"
+    },
+    {
+      "kind": "text",
+      "tag": "h1",
+      "text": "a UX Engineer at Toyota"
+    },
+    {
+      "kind": "text",
+      "tag": "p",
+      "text": "I design human-centered interactions for spatial, mobile, and emerging platforms, crafting impactful products with startups and forward-thinking brands."
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "Employed By:"
+    },
+    {
+      "kind": "image",
+      "src": "https://framerusercontent.com/images/mlpMquznKHUTY4kpxAOwZC3RGg.png",
+      "alt": "",
+      "name": "WbyT Branding_Blog_1_-01__1_"
+    },
+    {
+      "kind": "text",
+      "tag": "h6",
+      "text": "Worked On:"
+    },
+    {
+      "kind": "component",
+      "name": "project",
+      "controls": {
+        "link": "/fleet-co-pilot"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "project",
+      "controls": {
+        "link": "/woven"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "project",
+      "controls": {
+        "link": "/drive-coach-ios"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "project",
+      "controls": {
+        "link": "/fleet-dashboard"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "project",
+      "controls": {
+        "link": "/syncare-ai-health"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "project",
+      "controls": {
+        "link": "/spatialshowroom"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "project",
+      "controls": {
+        "link": "/sitelens"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "project",
+      "controls": {
+        "link": "/omniabrowser"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "project",
+      "controls": {
+        "link": "/how2to"
+      }
+    },
+    {
+      "kind": "component",
+      "name": "Center Text",
+      "controls": {}
+    }
+  ]
+}
