@@ -4,7 +4,7 @@ import { Reveal } from "./Reveal";
 
 export function Hero() {
   return (
-    <Reveal as="section" aria-label="Introduction" className="py-20 md:py-28 border-b border-line">
+    <Reveal as="section" aria-label="Introduction" className="py-24 md:py-32 border-b border-line">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
         <div className="lg:col-span-7">
           <h1 className="font-display text-[clamp(2.5rem,6vw,4.75rem)] font-bold tracking-tight text-text leading-[1.08]">

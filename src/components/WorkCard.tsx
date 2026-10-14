@@ -20,7 +20,7 @@ export function WorkCard({ work }: { work: WorkRef }) {
         <div className="aspect-[16/10] w-full overflow-hidden rounded-[16px] bg-bg/50 border border-line/40 mb-5">
           <img
             src={cover.src}
-            alt={cover.alt || title}
+            alt=""
             width={800}
             height={500}
             loading="lazy"
@@ -59,10 +59,10 @@ export function WorkCard({ work }: { work: WorkRef }) {
 
 export function WorkSection() {
   return (
-    <Reveal as="section" id="work" aria-label="Selected work" className="py-24 md:py-32 border-b border-line">
+    <Reveal as="section" id="work" aria-label="Work" className="scroll-mt-24 py-24 md:py-32 border-b border-line">
       <div className="mb-10 sm:mb-12">
         <h2 className="text-xs uppercase tracking-[0.14em] text-muted font-medium">
-          Selected Work
+          Work
         </h2>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">

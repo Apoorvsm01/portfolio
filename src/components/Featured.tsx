@@ -17,7 +17,7 @@ export function Featured() {
         </span>
         <img
           src="/me/woven-logo.png"
-          alt="Woven by Toyota"
+          alt=""
           width={120}
           height={24}
           loading="lazy"
@@ -41,12 +41,10 @@ export function Featured() {
           <Link
             href={studyHref(site.featured.slug)}
             className="block group overflow-hidden"
-            tabIndex={-1}
-            aria-hidden="true"
           >
             <img
               src={largeImage.src}
-              alt={largeImage.alt || site.featured.headline}
+              alt={largeImage.alt || featuredStudy?.title || site.featured.headline}
               width={1200}
               height={750}
               loading="lazy"
@@ -60,6 +58,7 @@ export function Featured() {
       <div className="mt-6">
         <Link
           href={studyHref(site.featured.slug)}
+          aria-label={`Read the case study: ${featuredStudy?.title ?? site.featured.headline}`}
           className="inline-flex items-center gap-2 font-medium text-text hover:text-accent transition-colors group"
         >
           <span>Read the case study</span>
@@ -91,7 +90,7 @@ export function Featured() {
                     <div className="aspect-[16/10] w-full overflow-hidden rounded-[16px] bg-bg/50 border border-line/40 mb-4">
                       <img
                         src={image.src}
-                        alt={image.alt || title}
+                        alt=""
                         width={600}
                         height={375}
                         loading="lazy"

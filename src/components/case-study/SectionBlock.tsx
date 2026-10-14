@@ -9,7 +9,7 @@ function renderListItem(item: string) {
     if (!/^(https?|ftp)$/i.test(term)) {
       return (
         <>
-          <strong className="font-semibold text-text">{term}:</strong>{" "}
+          <strong className="font-semibold text-text">{term}</strong>:{" "}
           <span>{rest}</span>
         </>
       );
@@ -18,7 +18,21 @@ function renderListItem(item: string) {
   return item;
 }
 
-export function BlockRenderer({ block }: { block: Block }) {
+export function BlockRenderer({
+  block,
+  studyTitle = "",
+  sectionLabel = "",
+}: {
+  block: Block;
+  studyTitle?: string;
+  sectionLabel?: string;
+}) {
+  const cleanLabel = sectionLabel?.trim() || "";
+  const hasLabel = Boolean(cleanLabel);
+  const imageFallbackAlt = hasLabel
+    ? (studyTitle ? `${studyTitle} — ${cleanLabel}` : cleanLabel)
+    : (studyTitle ? `${studyTitle} screenshot` : "Screenshot");
+
   switch (block.type) {
     case "heading":
       return (
@@ -51,11 +65,12 @@ export function BlockRenderer({ block }: { block: Block }) {
 
       if (images.length === 1) {
         const img = images[0];
+        const alt = img.alt?.trim() ? img.alt : imageFallbackAlt;
         return (
           <div className="w-full rounded-[16px] overflow-hidden border border-line bg-surface my-8 first:mt-0 last:mb-0">
             <img
               src={img.src}
-              alt={img.alt || ""}
+              alt={alt}
               className="w-full h-auto object-cover rounded-[16px]"
               loading="lazy"
             />
@@ -66,38 +81,44 @@ export function BlockRenderer({ block }: { block: Block }) {
       if (images.length === 2) {
         return (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 my-8 first:mt-0 last:mb-0">
-            {images.map((img, i) => (
-              <div
-                key={i}
-                className="rounded-[16px] overflow-hidden border border-line bg-surface"
-              >
-                <img
-                  src={img.src}
-                  alt={img.alt || ""}
-                  className="w-full h-auto object-cover rounded-[16px]"
-                  loading="lazy"
-                />
-              </div>
-            ))}
+            {images.map((img, i) => {
+              const alt = img.alt?.trim() ? img.alt : imageFallbackAlt;
+              return (
+                <div
+                  key={i}
+                  className="rounded-[16px] overflow-hidden border border-line bg-surface"
+                >
+                  <img
+                    src={img.src}
+                    alt={alt}
+                    className="w-full h-auto object-cover rounded-[16px]"
+                    loading="lazy"
+                  />
+                </div>
+              );
+            })}
           </div>
         );
       }
 
       return (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 my-8 first:mt-0 last:mb-0">
-          {images.map((img, i) => (
-            <div
-              key={i}
-              className="rounded-[16px] overflow-hidden border border-line bg-surface"
-            >
-              <img
-                src={img.src}
-                alt={img.alt || ""}
-                className="w-full h-auto object-cover rounded-[16px]"
-                loading="lazy"
-              />
-            </div>
-          ))}
+          {images.map((img, i) => {
+            const alt = img.alt?.trim() ? img.alt : imageFallbackAlt;
+            return (
+              <div
+                key={i}
+                className="rounded-[16px] overflow-hidden border border-line bg-surface"
+              >
+                <img
+                  src={img.src}
+                  alt={alt}
+                  className="w-full h-auto object-cover rounded-[16px]"
+                  loading="lazy"
+                />
+              </div>
+            );
+          })}
         </div>
       );
     }
@@ -123,31 +144,39 @@ export function BlockRenderer({ block }: { block: Block }) {
         </div>
       );
 
-    case "video":
+    case "video": {
+      const vimeoTitle = hasLabel
+        ? (studyTitle ? `${studyTitle} — ${cleanLabel} video` : `${cleanLabel} video`)
+        : (studyTitle || "Video");
       return (
         <div className="aspect-[16/9] w-full rounded-[20px] overflow-hidden border border-line bg-surface my-8 first:mt-0 last:mb-0">
           <iframe
             src={`https://player.vimeo.com/video/${block.vimeoId}?autoplay=1&muted=1&loop=1&background=1`}
-            title={`Video ${block.vimeoId}`}
+            title={vimeoTitle}
             loading="lazy"
             allow="autoplay; fullscreen"
             className="w-full h-full border-0"
           />
         </div>
       );
+    }
 
-    case "embed":
+    case "embed": {
+      const embedTitle = hasLabel
+        ? (studyTitle ? `${studyTitle} — ${cleanLabel} — interactive prototype` : `${cleanLabel} — interactive prototype`)
+        : (studyTitle ? `${studyTitle} — interactive prototype` : "Interactive prototype");
       return (
         <div className="aspect-[16/10] w-full rounded-[20px] overflow-hidden border border-line bg-surface my-8 first:mt-0 last:mb-0">
           <iframe
             src={block.src}
-            title="Interactive embed"
+            title={embedTitle}
             loading="lazy"
             allow="autoplay; fullscreen"
             className="w-full h-full border-0"
           />
         </div>
       );
+    }
 
     default:
       return null;
@@ -158,13 +187,15 @@ export function SectionBlock({
   section,
   index = 0,
   block,
+  studyTitle = "",
 }: {
   section?: Section;
   index?: number;
   block?: Block;
+  studyTitle?: string;
 }) {
   if (block) {
-    return <BlockRenderer block={block} />;
+    return <BlockRenderer block={block} studyTitle={studyTitle} sectionLabel="" />;
   }
 
   if (!section) return null;
@@ -177,14 +208,23 @@ export function SectionBlock({
       id={`section-${index}`}
       className="py-16 sm:py-24 border-b border-line scroll-mt-24"
     >
-      {hasLabel && (
+      {hasLabel ? (
         <h2 className="text-xs uppercase tracking-[0.14em] text-muted font-medium mb-8 sm:mb-12">
           {section.label}
+        </h2>
+      ) : (
+        <h2 className="sr-only">
+          {studyTitle ? `${studyTitle} overview` : "Overview"}
         </h2>
       )}
       <div>
         {section.blocks.map((b, bIdx) => (
-          <BlockRenderer key={bIdx} block={b} />
+          <BlockRenderer
+            key={bIdx}
+            block={b}
+            studyTitle={studyTitle}
+            sectionLabel={section.label}
+          />
         ))}
       </div>
     </Reveal>

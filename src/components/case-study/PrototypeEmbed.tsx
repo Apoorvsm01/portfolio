@@ -32,6 +32,7 @@ export function PrototypeEmbed({
           href={targetLink}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label={`Open the interactive prototype for ${title}`}
           className="inline-flex items-center gap-1.5 text-sm font-medium text-text hover:text-accent transition-colors"
         >
           <span>Open the interactive prototype</span>

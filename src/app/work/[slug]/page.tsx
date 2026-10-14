@@ -62,7 +62,12 @@ export default async function CaseStudyPage({
       <HeroImages images={study.heroImages} title={study.title} />
       <Toc sections={study.sections} />
       {study.sections.map((section, index) => (
-        <SectionBlock key={index} section={section} index={index} />
+        <SectionBlock
+          key={index}
+          section={section}
+          index={index}
+          studyTitle={study.title}
+        />
       ))}
       <StudyNav currentSlug={study.slug} />
     </main>

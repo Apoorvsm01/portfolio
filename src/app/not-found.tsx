@@ -22,7 +22,7 @@ export default function NotFound() {
         className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-text text-bg font-medium text-sm hover:opacity-90 transition-opacity"
       >
         <span aria-hidden="true">←</span>
-        <span>All work</span>
+        <span>Return home</span>
       </Link>
     </main>
   );

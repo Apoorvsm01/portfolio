@@ -37,7 +37,7 @@ export function IntentPicker() {
   };
 
   return (
-    <Reveal as="section" aria-label="What brings you here" className="py-20 md:py-28 border-b border-line">
+    <Reveal as="section" aria-label="What brings you here" className="py-24 md:py-32 border-b border-line">
       <h2 className="text-xs uppercase tracking-[0.14em] text-muted font-medium mb-5">
         What brings you here?
       </h2>
@@ -55,6 +55,7 @@ export function IntentPicker() {
               ref={(el) => {
                 tabRefs.current[index] = el;
               }}
+              type="button"
               role="tab"
               id={`tab-${intent.id}`}
               aria-selected={isSelected}
@@ -74,40 +75,48 @@ export function IntentPicker() {
         })}
       </div>
 
-      <div
-        role="tabpanel"
-        id={`panel-${activeIntent.id}`}
-        aria-labelledby={`tab-${activeIntent.id}`}
-        className="mt-8 max-w-[40rem]"
-      >
-        <p className="text-base sm:text-lg text-muted leading-relaxed">
-          {activeIntent.answer}
-        </p>
+      {site.intents.map((intent) => {
+        const isSelected = intent.id === activeIntent.id;
+        return (
+          <div
+            key={intent.id}
+            role="tabpanel"
+            id={`panel-${intent.id}`}
+            aria-labelledby={`tab-${intent.id}`}
+            hidden={!isSelected}
+            tabIndex={0}
+            className="mt-8 max-w-[40rem]"
+          >
+            <p className="text-base sm:text-lg text-muted leading-relaxed">
+              {intent.answer}
+            </p>
 
-        {activeIntent.links && activeIntent.links.length > 0 && (
-          <div className="mt-6 flex flex-wrap gap-2.5">
-            {activeIntent.links.map((slug) => {
-              const study = getStudy(slug);
-              const title = study?.title ?? slug;
-              return (
-                <Link
-                  key={slug}
-                  href={studyHref(slug)}
-                  className="group inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs sm:text-sm bg-surface border border-line text-text hover:border-accent hover:text-accent transition-colors"
-                >
-                  <span>{title}</span>
-                  <span
-                    aria-hidden="true"
-                    className="text-muted group-hover:text-accent transition-colors"
-                  >
-                    →
-                  </span>
-                </Link>
-              );
-            })}
+            {intent.links && intent.links.length > 0 && (
+              <div className="mt-6 flex flex-wrap gap-2.5">
+                {intent.links.map((slug) => {
+                  const study = getStudy(slug);
+                  const title = study?.title ?? slug;
+                  return (
+                    <Link
+                      key={slug}
+                      href={studyHref(slug)}
+                      className="group inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs sm:text-sm bg-surface border border-line text-text hover:border-accent hover:text-accent transition-colors"
+                    >
+                      <span>{title}</span>
+                      <span
+                        aria-hidden="true"
+                        className="text-muted group-hover:text-accent transition-colors"
+                      >
+                        →
+                      </span>
+                    </Link>
+                  );
+                })}
+              </div>
+            )}
           </div>
-        )}
-      </div>
+        );
+      })}
     </Reveal>
   );
 }
