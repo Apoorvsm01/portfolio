@@ -35,8 +35,13 @@ def publish(slug: str, capture: str) -> str:
     return f"/work/{slug}/{capture}"
 
 
-def section(study: dict, label: str) -> dict:
-    return next(s for s in study["sections"] if s["label"] == label)
+VISUAL = {"figure", "metrics", "widgets"}
+
+
+def section(study: dict, label: str) -> dict | None:
+    """The labelled section, or None if it was already converted (keeps the script idempotent)."""
+    s = next(s for s in study["sections"] if s["label"] == label)
+    return None if any(b["type"] in VISUAL for b in s["blocks"]) else s
 
 
 def sentences(blocks: list[dict], limit: int = 2) -> list[dict]:
@@ -52,6 +57,8 @@ def sentences(blocks: list[dict], limit: int = 2) -> list[dict]:
 
 def spec_card(study: dict, slug: str, title: str) -> None:
     s = section(study, "Design System")
+    if s is None:
+        return
     s["blocks"] = sentences(s["blocks"]) + [{
         "type": "figure",
         "image": {"src": publish(slug, "design-system.png"), "alt": f"{title} design system: components and colors"},
@@ -61,6 +68,8 @@ def spec_card(study: dict, slug: str, title: str) -> None:
 
 def metrics(study: dict, label: str) -> None:
     s = section(study, label)
+    if s is None:
+        return
     intro = sentences(s["blocks"])
     rest = [b for b in s["blocks"] if b not in intro]
     items = [{"value": rest[i]["text"], "label": rest[i + 1]["text"]}
@@ -71,6 +80,8 @@ def metrics(study: dict, label: str) -> None:
 
 def woven(study: dict) -> None:
     s = section(study, "Design System")
+    if s is None:
+        return
     by_text = {b.get("text", ""): b for b in s["blocks"]}
 
     def find(prefix: str) -> dict:

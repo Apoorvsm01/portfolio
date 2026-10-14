@@ -37,7 +37,9 @@ export function Nav() {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    rafId = requestAnimationFrame(handleScroll);
+    // Sync initial state (e.g. reload mid-page). Call directly: pre-setting rafId here would make
+    // handleScroll's guard return early and leave rafId set forever, ignoring every later scroll.
+    handleScroll();
 
     return () => {
       if (rafId !== null) cancelAnimationFrame(rafId);
