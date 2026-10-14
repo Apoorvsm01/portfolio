@@ -17,7 +17,7 @@ export function Hero() {
         <div className="md:col-span-12">
           <h1
             id="hero-headline"
-            className="font-display text-[var(--step-hero)] font-bold tracking-tight text-text leading-[1.08] text-balance max-w-[70rem]"
+            className="font-display text-hero font-bold tracking-tight text-text leading-[1.08] text-balance max-w-[70rem]"
           >
             {site.hero.headline}
           </h1>

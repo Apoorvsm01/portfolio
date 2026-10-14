@@ -44,7 +44,7 @@ export function BlockRenderer({
         return null;
       }
       return (
-        <h3 className="font-display text-[var(--step-h3)] sm:text-2xl font-bold tracking-tight text-text mt-8 first:mt-0 mb-4">
+        <h3 className="font-display text-h3 font-bold tracking-tight text-text mt-8 first:mt-0 mb-4">
           {block.text}
         </h3>
       );

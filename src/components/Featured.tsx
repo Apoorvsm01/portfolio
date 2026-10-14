@@ -28,7 +28,7 @@ export function Featured() {
 
       {/* Headline & Summary */}
       <div className="mt-4 max-w-[48rem]">
-        <h2 id="featured-heading" className="font-display text-[var(--step-h2)] font-bold tracking-tight text-text leading-[1.15]">
+        <h2 id="featured-heading" className="font-display text-h2 font-bold tracking-tight text-text leading-[1.15]">
           {site.featured.headline}
         </h2>
         <p className="mt-4 text-base sm:text-lg text-muted leading-relaxed max-w-[42rem]">
@@ -100,7 +100,7 @@ export function Featured() {
                         />
                       </figure>
                     )}
-                    <h3 className="font-display font-semibold text-[var(--step-h3)] text-text group-hover:text-accent transition-colors">
+                    <h3 className="font-display font-semibold text-h3 text-text group-hover:text-accent transition-colors">
                       {title}
                     </h3>
                     {blurb && (

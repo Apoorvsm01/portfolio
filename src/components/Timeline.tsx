@@ -26,7 +26,7 @@ export function Timeline() {
   return (
     <Reveal as="section" aria-labelledby="timeline-heading" className="py-24 md:py-32 border-b border-line">
       <div className="mb-12">
-        <h2 id="timeline-heading" className="font-display text-[var(--step-h2)] font-bold tracking-tight text-text">
+        <h2 id="timeline-heading" className="font-display text-h2 font-bold tracking-tight text-text">
           The long way here
         </h2>
       </div>

@@ -48,7 +48,7 @@ export function WorkCard({
             {work.org}
           </span>
         )}
-        <h3 className="font-display text-[var(--step-h3)] sm:text-2xl font-bold text-text group-hover:text-accent transition-colors">
+        <h3 className="font-display text-h3 font-bold text-text group-hover:text-accent transition-colors">
           <Link
             href={studyHref(work.slug)}
             className="after:absolute after:inset-0 after:content-[''] focus:outline-none"

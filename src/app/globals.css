@@ -10,7 +10,7 @@
   --nav-h: 4rem;
 
   /* Fluid typography steps (SPEC R) */
-  --step-hero: clamp(2.5rem, 1.6rem + 3.6vw, 5rem);
+  --step-hero: clamp(2.125rem, 1.4rem + 3.6vw, 5rem);
   --step-h1: clamp(2.25rem, 1.5rem + 3vw, 4.25rem);
   --step-h2: clamp(1.75rem, 1.3rem + 1.8vw, 2.75rem);
   --step-h3: clamp(1.2rem, 1.05rem + 0.6vw, 1.5rem);
@@ -45,6 +45,13 @@
   --color-muted: var(--muted);
   --color-line: var(--line);
   --color-accent: var(--accent);
+
+  /* Fluid heading sizes as Tailwind font-size tokens: text-hero, text-h1, text-h2, text-h3.
+     (An arbitrary text-[var(--x)] class is read as a color, so tokens are required.) */
+  --text-hero: var(--step-hero);
+  --text-h1: var(--step-h1);
+  --text-h2: var(--step-h2);
+  --text-h3: var(--step-h3);
 
   --font-display: var(--font-display);
   --font-sans: var(--font-sans);

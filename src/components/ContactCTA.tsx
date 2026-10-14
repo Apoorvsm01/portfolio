@@ -4,7 +4,7 @@ export function ContactCTA({ className = "" }: { className?: string }) {
   return (
     <div className={`py-24 md:py-32 border-b border-line ${className}`}>
       <div className="max-w-[42rem]">
-        <h2 className="font-display text-[var(--step-h2)] font-bold tracking-tight text-text">
+        <h2 className="font-display text-h2 font-bold tracking-tight text-text">
           {site.cta.headline}
         </h2>
         <p className="mt-4 text-base sm:text-lg text-muted leading-relaxed">

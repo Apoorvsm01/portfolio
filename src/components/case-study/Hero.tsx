@@ -41,7 +41,7 @@ export function Hero({ study }: { study: CaseStudy }) {
       )}
 
       {/* h1 Title */}
-      <h1 className="font-display text-[var(--step-h1)] font-bold tracking-tight text-text leading-[1.08] mb-6">
+      <h1 className="font-display text-h1 font-bold tracking-tight text-text leading-[1.08] mb-6">
         {study.title}
       </h1>
 
