@@ -129,7 +129,7 @@ images taller than the viewport, or headlines longer than 3 lines.
   utility in globals.css and use it everywhere. No per-component `max-w-*` page wrappers.
 - **Prose** width `42rem`. Long paragraphs never span the full container.
 - **Fluid type** (CSS custom properties in globals.css, used by every heading):
-  - `--step-hero: clamp(2.5rem, 1.6rem + 3.6vw, 5rem)`
+  - `--step-hero: clamp(2.125rem, 1.4rem + 3.6vw, 5rem)`
   - `--step-h1: clamp(2.25rem, 1.5rem + 3vw, 4.25rem)`
   - `--step-h2: clamp(1.75rem, 1.3rem + 1.8vw, 2.75rem)`
   - `--step-h3: clamp(1.2rem, 1.05rem + 0.6vw, 1.5rem)`
