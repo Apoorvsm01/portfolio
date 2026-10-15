@@ -25,7 +25,8 @@
   ],
   "prototype": {
     "embed": "https://apoorvsm01.github.io/hmi_ui/drive_coach",
-    "link": "https://apoorvsm01.github.io/hmi_ui/fleet"
+    "link": "https://apoorvsm01.github.io/hmi_ui/drive_coach",
+    "aspect": "7 / 3"
   },
   "heroImages": [
     {
@@ -46,72 +47,87 @@
       "label": "Approach & Process",
       "blocks": [
         {
-          "type": "heading",
-          "text": "End-to-End Ownership"
-        },
-        {
-          "type": "paragraph",
-          "text": "Owned end-to-end UX for Generative Drive Coach, spanning research, HMI and voice interaction design, prototyping, and validation."
-        },
-        {
-          "type": "heading",
-          "text": "Reusable Coaching Patterns"
-        },
-        {
-          "type": "paragraph",
-          "text": "Scaled a single teen-driving concept into a reusable coaching pattern system."
-        },
-        {
-          "type": "paragraph",
-          "text": "Patterns now cover parking, intersections, stop signs, turns, lane changes, and speed management, all built on the same voice-first coaching logic."
-        },
-        {
-          "type": "heading",
-          "text": "Cross-Functional Partnership"
-        },
-        {
-          "type": "paragraph",
-          "text": "Grounded every design decision in Woven’s engineering stack:"
-        },
-        {
-          "type": "list",
+          "type": "bento",
           "items": [
-            "CARLA: a proprietary driving simulator used to test coaching logic before real-world validation.",
-            "Vehicle SDK: real steering, speed, and sensor signals piped into working prototypes.",
-            "CAN signals: live vehicle bus data that grounded HMI behavior in actual driving state."
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "Multi-Fidelity Prototyping"
-        },
-        {
-          "type": "paragraph",
-          "text": "Rapidly translated feedback into working prototypes across Figma, simulator, and physical hardware:"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Voice-enabled Figma flows: fast, low-fidelity concept testing.",
-            "CARLA simulator scenarios: realistic, repeatable driving conditions.",
-            "Physical steering & pedal rig: paired with updated HUD concepts for hands-on validation."
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "Independent Research & Validation"
-        },
-        {
-          "type": "paragraph",
-          "text": "Owned research and validation end to end:"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Study plans designed and run independently, start to finish.",
-            "Voice-frequency studies to tune how often and how loudly the coach should speak.",
-            "Simulated driving studies in CARLA to validate coaching behavior before road testing.",
-            "Iterative refinement of coaching behavior based on participant feedback."
+            {
+              "title": "End-to-End Ownership",
+              "source": [
+                {
+                  "type": "paragraph",
+                  "text": "Owned end-to-end UX for Generative Drive Coach, spanning research, HMI and voice interaction design, prototyping, and validation."
+                }
+              ],
+              "condensed": "Owned end-to-end UX for Generative Drive Coach, spanning research, HMI and voice interaction design, prototyping, and validation."
+            },
+            {
+              "title": "Reusable Coaching Patterns",
+              "source": [
+                {
+                  "type": "paragraph",
+                  "text": "Scaled a single teen-driving concept into a reusable coaching pattern system."
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Patterns now cover parking, intersections, stop signs, turns, lane changes, and speed management, all built on the same voice-first coaching logic."
+                }
+              ],
+              "condensed": "Scaled a single teen-driving concept into a reusable coaching pattern system."
+            },
+            {
+              "title": "Cross-Functional Partnership",
+              "source": [
+                {
+                  "type": "paragraph",
+                  "text": "Grounded every design decision in Woven’s engineering stack:"
+                },
+                {
+                  "type": "list",
+                  "items": [
+                    "CARLA: a proprietary driving simulator used to test coaching logic before real-world validation.",
+                    "Vehicle SDK: real steering, speed, and sensor signals piped into working prototypes.",
+                    "CAN signals: live vehicle bus data that grounded HMI behavior in actual driving state."
+                  ]
+                }
+              ],
+              "condensed": "Grounded every design decision in Woven’s engineering stack:"
+            },
+            {
+              "title": "Multi-Fidelity Prototyping",
+              "source": [
+                {
+                  "type": "paragraph",
+                  "text": "Rapidly translated feedback into working prototypes across Figma, simulator, and physical hardware:"
+                },
+                {
+                  "type": "list",
+                  "items": [
+                    "Voice-enabled Figma flows: fast, low-fidelity concept testing.",
+                    "CARLA simulator scenarios: realistic, repeatable driving conditions.",
+                    "Physical steering & pedal rig: paired with updated HUD concepts for hands-on validation."
+                  ]
+                }
+              ],
+              "condensed": "Rapidly translated feedback into working prototypes across Figma, simulator, and physical hardware:"
+            },
+            {
+              "title": "Independent Research & Validation",
+              "source": [
+                {
+                  "type": "paragraph",
+                  "text": "Owned research and validation end to end:"
+                },
+                {
+                  "type": "list",
+                  "items": [
+                    "Study plans designed and run independently, start to finish.",
+                    "Voice-frequency studies to tune how often and how loudly the coach should speak.",
+                    "Simulated driving studies in CARLA to validate coaching behavior before road testing.",
+                    "Iterative refinement of coaching behavior based on participant feedback."
+                  ]
+                }
+              ],
+              "condensed": "Owned research and validation end to end:"
+            }
           ]
         }
       ]

@@ -14,7 +14,15 @@ export type Block =
   // Visual blocks rebuilt from Framer captures (scripts/visual-blocks.py)
   | { type: "figure"; image: Img; caption?: string; wide?: boolean }
   | { type: "metrics"; items: Metric[] }
-  | { type: "widgets"; items: Widget[] };
+  | { type: "widgets"; items: Widget[] }
+  // Process section as a bento grid: one tile per heading (scripts/visual-blocks.py).
+  | { type: "bento"; items: BentoTile[] };
+
+export type BentoTile = {
+  title: string; // the main point, shown on the closed note
+  condensed: string; // shown when the note flips open
+  source: Block[]; // the original paragraphs/lists, kept for screen readers and "Full notes"
+};
 
 export type Metric = { value: string; label: string };
 
@@ -34,7 +42,7 @@ export type CaseStudy = {
   tags: string[];
   hmw: string; // completes the sentence "How might we …"
   facts: Card[]; // values may contain "\n" line breaks
-  prototype: { embed: string; link: string | null } | null;
+  prototype: { embed: string; link: string | null; aspect?: string } | null; // aspect: CSS ratio the prototype letterboxes to
   heroImages: Img[];
   sections: Section[]; // a section's label may be "" (untitled intro section)
   unportedComponents: string[];

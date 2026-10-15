@@ -43,44 +43,59 @@
       "label": "Research Methods",
       "blocks": [
         {
-          "type": "heading",
-          "text": "Brainstorming Sessions"
-        },
-        {
-          "type": "paragraph",
-          "text": "Identified multiple media sharing applications on Apple Vision Pro and Meta Quest platforms. Some were native apps while most were third-party. Each competitor tackled and faced a unique problem."
-        },
-        {
-          "type": "heading",
-          "text": "Competitor Analysis"
-        },
-        {
-          "type": "paragraph",
-          "text": "Conducted 15+ interviews with users of traditional media outlets, creators looking to publish spatial content, headset owners and even company founders to evaluate business use cases."
-        },
-        {
-          "type": "heading",
-          "text": "User Interviews"
-        },
-        {
-          "type": "paragraph",
-          "text": "We developed user personas representing spatial content viewers and creators, ensuring our platform addressed their real-world needs. These profiles provided insights into motivations, constraints, and expectations, guiding feature prioritization and user-centric design."
-        },
-        {
-          "type": "heading",
-          "text": "Persona Building"
-        },
-        {
-          "type": "paragraph",
-          "text": "We synthesized insights from user interviews, competitor analysis, and team brainstorming sessions through affinity mapping. This process enabled structured categorization of user pain points, core needs, and prioritized features. As a result, all design decisions were grounded in validated, user-centered insights."
-        },
-        {
-          "type": "heading",
-          "text": "Affinity Mapping"
-        },
-        {
-          "type": "paragraph",
-          "text": "Organized a full-stack team to go over all aspects of developing such an app. Addressed development issues, backend, and AI implementation to manage content uploads, delivery, recommendations, and more. Prototyped in Figma and further in development"
+          "type": "bento",
+          "items": [
+            {
+              "title": "Brainstorming Sessions",
+              "source": [
+                {
+                  "type": "paragraph",
+                  "text": "Identified multiple media sharing applications on Apple Vision Pro and Meta Quest platforms. Some were native apps while most were third-party. Each competitor tackled and faced a unique problem."
+                }
+              ],
+              "condensed": "Identified multiple media sharing applications on Apple Vision Pro and Meta Quest platforms."
+            },
+            {
+              "title": "Competitor Analysis",
+              "source": [
+                {
+                  "type": "paragraph",
+                  "text": "Conducted 15+ interviews with users of traditional media outlets, creators looking to publish spatial content, headset owners and even company founders to evaluate business use cases."
+                }
+              ],
+              "condensed": "Conducted 15+ interviews with users of traditional media outlets, creators looking to publish spatial content, headset owners and even company founders to evaluate business use cases."
+            },
+            {
+              "title": "User Interviews",
+              "source": [
+                {
+                  "type": "paragraph",
+                  "text": "We developed user personas representing spatial content viewers and creators, ensuring our platform addressed their real-world needs. These profiles provided insights into motivations, constraints, and expectations, guiding feature prioritization and user-centric design."
+                }
+              ],
+              "condensed": "We developed user personas representing spatial content viewers and creators, ensuring our platform addressed their real-world needs."
+            },
+            {
+              "title": "Persona Building",
+              "source": [
+                {
+                  "type": "paragraph",
+                  "text": "We synthesized insights from user interviews, competitor analysis, and team brainstorming sessions through affinity mapping. This process enabled structured categorization of user pain points, core needs, and prioritized features. As a result, all design decisions were grounded in validated, user-centered insights."
+                }
+              ],
+              "condensed": "We synthesized insights from user interviews, competitor analysis, and team brainstorming sessions through affinity mapping."
+            },
+            {
+              "title": "Affinity Mapping",
+              "source": [
+                {
+                  "type": "paragraph",
+                  "text": "Organized a full-stack team to go over all aspects of developing such an app. Addressed development issues, backend, and AI implementation to manage content uploads, delivery, recommendations, and more. Prototyped in Figma and further in development"
+                }
+              ],
+              "condensed": "Organized a full-stack team to go over all aspects of developing such an app."
+            }
+          ]
         }
       ]
     },

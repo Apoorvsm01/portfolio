@@ -61,74 +61,89 @@
       "label": "Process",
       "blocks": [
         {
-          "type": "heading",
-          "text": "Research & Discovery"
-        },
-        {
-          "type": "list",
+          "type": "bento",
           "items": [
-            "Conducted competitive audits of existing EHR platforms",
-            "Interviewed 7 patients and 3 clinicians to uncover pain points in data access and coordination",
-            "Identified high-need use cases: chronic condition management, medication adherence, preventive screening"
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "Literature Review"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Reviewed academic sources on digital twins, personalization, and context-aware design (e.g., Katsoulakis et al., 2024).",
-            "Explored ethical implications of AI in health systems, including transparency, bias, and user autonomy (e.g., Huang et al., 2022).",
-            "Identified trust and psychological safety as essential UX considerations, not just ethical ones.",
-            "Used literature findings to inform the project’s guiding principles and design decisions."
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "Stakeholder Interviews"
-        },
-        {
-          "type": "paragraph",
-          "text": "Conducted interviews to gather insights from users and stakeholders (implied by mention of stakeholder interviews)."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Used findings to shape project principles and design requirements.",
-            "Informed the development of prototypes and usability evaluations.",
-            "Helped refine goals and features based on real user needs and feedback."
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "Usability Evaluations"
-        },
-        {
-          "type": "paragraph",
-          "text": "Tested prototypes with users to assess emotional support, clarity, and personalization."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Gathered feedback to iterate and improve the design.",
-            "Measured how well the tool delivered on its goals of insight, emotional support, and positive reflection.",
-            "Used evaluation results to refine the product throughout the design process."
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "Design & Prototyping"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Developed low- and high-fidelity prototypes of the conversational interface.",
-            "Developed a modular UI system for dashboards, health summaries, and alerts",
-            "Prototyped features including:Health timelineAI-powered risk cardsLab result normalizerClaims-integrated treatment suggestions",
-            "Created low- to high-fidelity prototypes for mobile-first interfaces",
-            "Used prototypes as a tool for stakeholder feedback and usability testing."
+            {
+              "title": "Research & Discovery",
+              "source": [
+                {
+                  "type": "list",
+                  "items": [
+                    "Conducted competitive audits of existing EHR platforms",
+                    "Interviewed 7 patients and 3 clinicians to uncover pain points in data access and coordination",
+                    "Identified high-need use cases: chronic condition management, medication adherence, preventive screening"
+                  ]
+                }
+              ],
+              "condensed": "Conducted competitive audits of existing EHR platforms"
+            },
+            {
+              "title": "Literature Review",
+              "source": [
+                {
+                  "type": "list",
+                  "items": [
+                    "Reviewed academic sources on digital twins, personalization, and context-aware design (e.g., Katsoulakis et al., 2024).",
+                    "Explored ethical implications of AI in health systems, including transparency, bias, and user autonomy (e.g., Huang et al., 2022).",
+                    "Identified trust and psychological safety as essential UX considerations, not just ethical ones.",
+                    "Used literature findings to inform the project’s guiding principles and design decisions."
+                  ]
+                }
+              ],
+              "condensed": "Reviewed academic sources on digital twins, personalization, and context-aware design (e.g., Katsoulakis et al., 2024)."
+            },
+            {
+              "title": "Stakeholder Interviews",
+              "source": [
+                {
+                  "type": "paragraph",
+                  "text": "Conducted interviews to gather insights from users and stakeholders (implied by mention of stakeholder interviews)."
+                },
+                {
+                  "type": "list",
+                  "items": [
+                    "Used findings to shape project principles and design requirements.",
+                    "Informed the development of prototypes and usability evaluations.",
+                    "Helped refine goals and features based on real user needs and feedback."
+                  ]
+                }
+              ],
+              "condensed": "Conducted interviews to gather insights from users and stakeholders (implied by mention of stakeholder interviews)."
+            },
+            {
+              "title": "Usability Evaluations",
+              "source": [
+                {
+                  "type": "paragraph",
+                  "text": "Tested prototypes with users to assess emotional support, clarity, and personalization."
+                },
+                {
+                  "type": "list",
+                  "items": [
+                    "Gathered feedback to iterate and improve the design.",
+                    "Measured how well the tool delivered on its goals of insight, emotional support, and positive reflection.",
+                    "Used evaluation results to refine the product throughout the design process."
+                  ]
+                }
+              ],
+              "condensed": "Tested prototypes with users to assess emotional support, clarity, and personalization."
+            },
+            {
+              "title": "Design & Prototyping",
+              "source": [
+                {
+                  "type": "list",
+                  "items": [
+                    "Developed low- and high-fidelity prototypes of the conversational interface.",
+                    "Developed a modular UI system for dashboards, health summaries, and alerts",
+                    "Prototyped features including:Health timelineAI-powered risk cardsLab result normalizerClaims-integrated treatment suggestions",
+                    "Created low- to high-fidelity prototypes for mobile-first interfaces",
+                    "Used prototypes as a tool for stakeholder feedback and usability testing."
+                  ]
+                }
+              ],
+              "condensed": "Developed low- and high-fidelity prototypes of the conversational interface."
+            }
           ]
         }
       ]

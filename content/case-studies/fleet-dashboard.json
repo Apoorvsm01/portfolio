@@ -29,7 +29,8 @@
   ],
   "prototype": {
     "embed": "https://apoorvsm01.github.io/fleet-dashboard/",
-    "link": "https://apoorvsm01.github.io/fleet-dashboard/"
+    "link": "https://apoorvsm01.github.io/fleet-dashboard/",
+    "aspect": "16 / 10"
   },
   "heroImages": [],
   "sections": [
@@ -109,71 +110,86 @@
       "label": "Approach & Process",
       "blocks": [
         {
-          "type": "heading",
-          "text": "End-to-End Ownership"
-        },
-        {
-          "type": "paragraph",
-          "text": "Owned end-to-end design for Fleet Dashboard, spanning the incident log, the hazard map, and the team-wins morale panel that engineers actually check every morning."
-        },
-        {
-          "type": "heading",
-          "text": "One Taxonomy, One Dashboard"
-        },
-        {
-          "type": "paragraph",
-          "text": "Nothing re-mapped for the office."
-        },
-        {
-          "type": "paragraph",
-          "text": "The same subsystem × severity classification the cockpit tags with renders directly here — no separate office-side schema to keep in sync."
-        },
-        {
-          "type": "heading",
-          "text": "Validated Palette, Not Guessed"
-        },
-        {
-          "type": "paragraph",
-          "text": "Ran every color through the dataviz skill’s validator before shipping it:"
-        },
-        {
-          "type": "list",
+          "type": "bento",
           "items": [
-            "Status colors (critical/serious/warning/good) distinct from any categorical series",
-            "Severity always paired with a label — color never carries meaning alone",
-            "Contrast checked against the actual dark panel surface, not assumed"
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "Built From Real Fixtures"
-        },
-        {
-          "type": "paragraph",
-          "text": "Every panel reads from the same shape of data the cockpit would eventually stream:"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Hazard hotspots plotted at real lat/lng on OpenStreetMap tiles, no API key needed",
-            "Vehicle damage modeled as its own typed fixture, not hardcoded JSX",
-            "Team-wins counters computed from the same incident list, not separate numbers"
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "Same Taxonomy, New Surface"
-        },
-        {
-          "type": "paragraph",
-          "text": "Extended the cockpit’s data model for the office context, not reinvented it:"
-        },
-        {
-          "type": "list",
-          "items": [
-            "A live map for spatial pattern-spotting across hotspots",
-            "A vehicle damage summary for maintenance planning",
-            "A team-wins panel, deliberately kept separate from the safety metrics"
+            {
+              "title": "End-to-End Ownership",
+              "source": [
+                {
+                  "type": "paragraph",
+                  "text": "Owned end-to-end design for Fleet Dashboard, spanning the incident log, the hazard map, and the team-wins morale panel that engineers actually check every morning."
+                }
+              ],
+              "condensed": "Owned end-to-end design for Fleet Dashboard, spanning the incident log, the hazard map, and the team-wins morale panel that engineers actually check every morning."
+            },
+            {
+              "title": "One Taxonomy, One Dashboard",
+              "source": [
+                {
+                  "type": "paragraph",
+                  "text": "Nothing re-mapped for the office."
+                },
+                {
+                  "type": "paragraph",
+                  "text": "The same subsystem × severity classification the cockpit tags with renders directly here — no separate office-side schema to keep in sync."
+                }
+              ],
+              "condensed": "Nothing re-mapped for the office."
+            },
+            {
+              "title": "Validated Palette, Not Guessed",
+              "source": [
+                {
+                  "type": "paragraph",
+                  "text": "Ran every color through the dataviz skill’s validator before shipping it:"
+                },
+                {
+                  "type": "list",
+                  "items": [
+                    "Status colors (critical/serious/warning/good) distinct from any categorical series",
+                    "Severity always paired with a label — color never carries meaning alone",
+                    "Contrast checked against the actual dark panel surface, not assumed"
+                  ]
+                }
+              ],
+              "condensed": "Ran every color through the dataviz skill’s validator before shipping it:"
+            },
+            {
+              "title": "Built From Real Fixtures",
+              "source": [
+                {
+                  "type": "paragraph",
+                  "text": "Every panel reads from the same shape of data the cockpit would eventually stream:"
+                },
+                {
+                  "type": "list",
+                  "items": [
+                    "Hazard hotspots plotted at real lat/lng on OpenStreetMap tiles, no API key needed",
+                    "Vehicle damage modeled as its own typed fixture, not hardcoded JSX",
+                    "Team-wins counters computed from the same incident list, not separate numbers"
+                  ]
+                }
+              ],
+              "condensed": "Every panel reads from the same shape of data the cockpit would eventually stream:"
+            },
+            {
+              "title": "Same Taxonomy, New Surface",
+              "source": [
+                {
+                  "type": "paragraph",
+                  "text": "Extended the cockpit’s data model for the office context, not reinvented it:"
+                },
+                {
+                  "type": "list",
+                  "items": [
+                    "A live map for spatial pattern-spotting across hotspots",
+                    "A vehicle damage summary for maintenance planning",
+                    "A team-wins panel, deliberately kept separate from the safety metrics"
+                  ]
+                }
+              ],
+              "condensed": "Extended the cockpit’s data model for the office context, not reinvented it:"
+            }
           ]
         }
       ]

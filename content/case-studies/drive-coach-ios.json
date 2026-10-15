@@ -54,71 +54,86 @@
       "label": "Approach & Process",
       "blocks": [
         {
-          "type": "heading",
-          "text": "End-to-End Ownership"
-        },
-        {
-          "type": "paragraph",
-          "text": "Designed and built the whole SwiftUI app solo: the data model, the scoring engine, and all four tabs."
-        },
-        {
-          "type": "heading",
-          "text": "Reusable Score Language"
-        },
-        {
-          "type": "paragraph",
-          "text": "One color-and-label system, everywhere."
-        },
-        {
-          "type": "paragraph",
-          "text": "The same ScoreBand/ConfidenceBand vocabulary drives the ring, the trend badges, the skill bars, and the streak banner — so the whole app reads as one coherent language, not four separately-designed screens."
-        },
-        {
-          "type": "heading",
-          "text": "Borrowed the Shape, Not the Skin"
-        },
-        {
-          "type": "paragraph",
-          "text": "Read Apple’s September 2026 Health redesign closely, then re-derived the pattern for driving:"
-        },
-        {
-          "type": "list",
+          "type": "bento",
           "items": [
-            "Readiness’s 0-10 score + four-tier language became a rolling Confidence Score",
-            "The Insights tab’s “For You” mix of a win and a focus area became two coaching cards, not just a list of problems",
-            "The Longevity tab’s all-dimensions-at-once view became the Skill Overview bars"
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "Fluid by Default"
-        },
-        {
-          "type": "paragraph",
-          "text": "Reached for iOS 17’s native motion APIs instead of hand-rolled animation plumbing:"
-        },
-        {
-          "type": "list",
-          "items": [
-            "contentTransition(.numericText()) on every score and delta",
-            "scrollTransition fade/scale on cards as they enter the viewport",
-            "viewAligned scroll snapping on the Recent Drives strip, spring-scale press states on every card"
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "Independent Research & Validation"
-        },
-        {
-          "type": "paragraph",
-          "text": "Extracted concrete patterns from Apple’s own announcement rather than guessing at “Health-style design”:"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Baseline-relative language (“Trending Up,” not just a raw number)",
-            "A card mix of celebration and focus, never only problems",
-            "A one-line “why this number” explanation under every score"
+            {
+              "title": "End-to-End Ownership",
+              "source": [
+                {
+                  "type": "paragraph",
+                  "text": "Designed and built the whole SwiftUI app solo: the data model, the scoring engine, and all four tabs."
+                }
+              ],
+              "condensed": "Designed and built the whole SwiftUI app solo: the data model, the scoring engine, and all four tabs."
+            },
+            {
+              "title": "Reusable Score Language",
+              "source": [
+                {
+                  "type": "paragraph",
+                  "text": "One color-and-label system, everywhere."
+                },
+                {
+                  "type": "paragraph",
+                  "text": "The same ScoreBand/ConfidenceBand vocabulary drives the ring, the trend badges, the skill bars, and the streak banner — so the whole app reads as one coherent language, not four separately-designed screens."
+                }
+              ],
+              "condensed": "One color-and-label system, everywhere."
+            },
+            {
+              "title": "Borrowed the Shape, Not the Skin",
+              "source": [
+                {
+                  "type": "paragraph",
+                  "text": "Read Apple’s September 2026 Health redesign closely, then re-derived the pattern for driving:"
+                },
+                {
+                  "type": "list",
+                  "items": [
+                    "Readiness’s 0-10 score + four-tier language became a rolling Confidence Score",
+                    "The Insights tab’s “For You” mix of a win and a focus area became two coaching cards, not just a list of problems",
+                    "The Longevity tab’s all-dimensions-at-once view became the Skill Overview bars"
+                  ]
+                }
+              ],
+              "condensed": "Read Apple’s September 2026 Health redesign closely, then re-derived the pattern for driving:"
+            },
+            {
+              "title": "Fluid by Default",
+              "source": [
+                {
+                  "type": "paragraph",
+                  "text": "Reached for iOS 17’s native motion APIs instead of hand-rolled animation plumbing:"
+                },
+                {
+                  "type": "list",
+                  "items": [
+                    "contentTransition(.numericText()) on every score and delta",
+                    "scrollTransition fade/scale on cards as they enter the viewport",
+                    "viewAligned scroll snapping on the Recent Drives strip, spring-scale press states on every card"
+                  ]
+                }
+              ],
+              "condensed": "Reached for iOS 17’s native motion APIs instead of hand-rolled animation plumbing:"
+            },
+            {
+              "title": "Independent Research & Validation",
+              "source": [
+                {
+                  "type": "paragraph",
+                  "text": "Extracted concrete patterns from Apple’s own announcement rather than guessing at “Health-style design”:"
+                },
+                {
+                  "type": "list",
+                  "items": [
+                    "Baseline-relative language (“Trending Up,” not just a raw number)",
+                    "A card mix of celebration and focus, never only problems",
+                    "A one-line “why this number” explanation under every score"
+                  ]
+                }
+              ],
+              "condensed": "Extracted concrete patterns from Apple’s own announcement rather than guessing at “Health-style design”:"
+            }
           ]
         }
       ]

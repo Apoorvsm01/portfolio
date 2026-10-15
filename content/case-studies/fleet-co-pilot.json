@@ -29,7 +29,8 @@
   ],
   "prototype": {
     "embed": "https://apoorvsm01.github.io/hmi_ui/fleet",
-    "link": "https://apoorvsm01.github.io/hmi_ui/fleet"
+    "link": "https://apoorvsm01.github.io/hmi_ui/fleet",
+    "aspect": "7 / 3"
   },
   "heroImages": [
     {
@@ -92,71 +93,86 @@
       "label": "Approach & Process",
       "blocks": [
         {
-          "type": "heading",
-          "text": "End-to-End Ownership"
-        },
-        {
-          "type": "paragraph",
-          "text": "Owned end-to-end design for Fleet Co-Pilot, spanning the cockpit HUD, the incident taxonomy, and the office review dashboard that shares it."
-        },
-        {
-          "type": "heading",
-          "text": "Reusable Incident Taxonomy"
-        },
-        {
-          "type": "paragraph",
-          "text": "One classification drives three surfaces."
-        },
-        {
-          "type": "paragraph",
-          "text": "Subsystem × severity (perception, motion planner, localization, hardware/sensor, ODD boundary × SEV1–3) powers the driver’s 1-tap tags, the hazard map, and the office incident log — no re-mapping between tools."
-        },
-        {
-          "type": "heading",
-          "text": "Cross-Functional Partnership"
-        },
-        {
-          "type": "paragraph",
-          "text": "Grounded every decision in how autonomy and fleet-ops teams actually work:"
-        },
-        {
-          "type": "list",
+          "type": "bento",
           "items": [
-            "Safety drivers need sub-second quick-tags, not forms",
-            "Ops and AV engineers need exposure and disengagement analytics after the fact",
-            "Compliance needs an audit trail, not tribal knowledge"
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "Multi-Fidelity Prototyping"
-        },
-        {
-          "type": "paragraph",
-          "text": "Proved the taxonomy before building a backend for it:"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Cockpit fixture data first, labeled simulated until a real ingestion pipeline exists",
-            "The office dashboard built as a second, independent consumer of the same schema",
-            "Validated the taxonomy held up outside the vehicle, not just inside it"
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "Independent Research & Validation"
-        },
-        {
-          "type": "paragraph",
-          "text": "Surveyed how autonomous-fleet operators actually run this today:"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Route/dispatch optimization and predictive maintenance",
-            "Multi-vendor AV monitoring and safety-driver incident apps",
-            "Operational exposure analysis and edge-case/video tagging"
+            {
+              "title": "End-to-End Ownership",
+              "source": [
+                {
+                  "type": "paragraph",
+                  "text": "Owned end-to-end design for Fleet Co-Pilot, spanning the cockpit HUD, the incident taxonomy, and the office review dashboard that shares it."
+                }
+              ],
+              "condensed": "Owned end-to-end design for Fleet Co-Pilot, spanning the cockpit HUD, the incident taxonomy, and the office review dashboard that shares it."
+            },
+            {
+              "title": "Reusable Incident Taxonomy",
+              "source": [
+                {
+                  "type": "paragraph",
+                  "text": "One classification drives three surfaces."
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Subsystem × severity (perception, motion planner, localization, hardware/sensor, ODD boundary × SEV1–3) powers the driver’s 1-tap tags, the hazard map, and the office incident log — no re-mapping between tools."
+                }
+              ],
+              "condensed": "One classification drives three surfaces."
+            },
+            {
+              "title": "Cross-Functional Partnership",
+              "source": [
+                {
+                  "type": "paragraph",
+                  "text": "Grounded every decision in how autonomy and fleet-ops teams actually work:"
+                },
+                {
+                  "type": "list",
+                  "items": [
+                    "Safety drivers need sub-second quick-tags, not forms",
+                    "Ops and AV engineers need exposure and disengagement analytics after the fact",
+                    "Compliance needs an audit trail, not tribal knowledge"
+                  ]
+                }
+              ],
+              "condensed": "Grounded every decision in how autonomy and fleet-ops teams actually work:"
+            },
+            {
+              "title": "Multi-Fidelity Prototyping",
+              "source": [
+                {
+                  "type": "paragraph",
+                  "text": "Proved the taxonomy before building a backend for it:"
+                },
+                {
+                  "type": "list",
+                  "items": [
+                    "Cockpit fixture data first, labeled simulated until a real ingestion pipeline exists",
+                    "The office dashboard built as a second, independent consumer of the same schema",
+                    "Validated the taxonomy held up outside the vehicle, not just inside it"
+                  ]
+                }
+              ],
+              "condensed": "Proved the taxonomy before building a backend for it:"
+            },
+            {
+              "title": "Independent Research & Validation",
+              "source": [
+                {
+                  "type": "paragraph",
+                  "text": "Surveyed how autonomous-fleet operators actually run this today:"
+                },
+                {
+                  "type": "list",
+                  "items": [
+                    "Route/dispatch optimization and predictive maintenance",
+                    "Multi-vendor AV monitoring and safety-driver incident apps",
+                    "Operational exposure analysis and edge-case/video tagging"
+                  ]
+                }
+              ],
+              "condensed": "Surveyed how autonomous-fleet operators actually run this today:"
+            }
           ]
         }
       ]

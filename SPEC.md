@@ -439,3 +439,64 @@ Keep and standardise:
 - Focus ring: `outline: 3px solid var(--focus); outline-offset: 3px; box-shadow: 0 0 0 6px var(--ground)` (use
   `--paper` for the shadow on paper bands).
 - Reduced motion: no settle, instant states.
+
+---
+
+# v5: process bento, prototype frame, logo (supersedes earlier sections where they conflict)
+
+## Motion vocabulary (borrowed from samsara.design's approach, not its code)
+- `--ease-out-expo: cubic-bezier(.22,1,.36,1)` for physical motion (flips, lifts, wipes). `--ease-settle` stays
+  for small UI changes.
+- **Buttons**: background transitions over 350ms `--ease-out-expo`. The arrow (→ ↗) inside slides 4px over 500ms,
+  so it trails the background slightly.
+- **Underline wipe** for primary text links: a 1px underline drawn with `clip-path: inset(0 100% 0 0)` →
+  `inset(0)` over 600ms on hover/focus. On leave it wipes out to the right.
+- **Lift**: interactive tiles go `translateY(-4px)` with a long soft shadow
+  `0 30px 50px -30px rgb(0 0 0 / .55)` over 600ms `--ease-out-expo`.
+- **Staggered entrance**: grid items rise 12px and fade in, with `--beat: 60ms` per item (index via `--i`).
+- Reduced motion: none of the above. States change instantly.
+
+## B. Process bento (`bento` block, see content/types.ts BentoTile)
+- **Grid**: 5 tiles. On lg+: a 6-column grid, where tile 1 spans 3 columns × 2 rows (the lead), tiles 2–3 span
+  3 columns × 1 row, and tiles 4–5 span 3 columns × 1 row on a second row (or, if it reads better, 2/2/2 for the last
+  three). On md: 2 columns, with the lead spanning 2. Mobile: 1 column. Gap 12px. Tiles are at least 180px tall
+  (the lead at least 372px).
+- **Each tile is a sticky note**: a `<li>` containing a `<button aria-expanded>` (so it works with touch and the
+  keyboard, not just hover).
+  - The **base** (underneath) is a paper-coloured card (`--paper`, `--paper-ink`) with the tile's `condensed`
+    text in serif, plus the number "01"–"05" in small mono.
+  - The **cover** (on top) is a note in the study's flag colour (with ink text from `site.flags[flag].ink`). It
+    shows the number, the `title` in Mona Sans 900, and a small "↻" or "Peek" hint at the bottom right.
+  - The cover sits on the base with a 1–2° rotation (alternating sign per tile) and a soft shadow, like a sticky note.
+- **Opening** on hover (fine pointers), focus-visible, or click/tap (toggles `aria-expanded`):
+  - The cover peels up from its **top edge**: `transform-origin: top center`,
+    `transform: perspective(1200px) rotateX(-180deg)` over 800ms `--ease-out-expo`, with `backface-visibility:
+    hidden`.
+  - The cover's back face is a slightly darker tint of the flag, so you see the back of the note mid-flip.
+  - The shadow deepens while it lifts.
+  - The base content does a small settle (opacity .6 → 1, 4px) after 200ms.
+  - Closing reverses the motion.
+  - Only one tile is open at a time when opened by click. Hover opens independently.
+- **Accessibility**:
+  - The `title` lives inside the button.
+  - The `condensed` text is in the DOM, linked with `aria-controls`/`id`, and read by screen readers whether or not
+    the note is open (`aria-hidden` is never set on it).
+  - Each full `source` text is available in a visually hidden element after the condensed text, so nothing is lost
+    to assistive tech.
+  - Below the grid, a "Show full notes" disclosure (`<details>`) lists every tile's title plus its full `source`
+    blocks for sighted readers who want the long version.
+- Reduced motion: no flip. Opening crossfades the cover's opacity to 0 over 150ms.
+
+## P. Prototype frame
+- The iframe wrapper uses `aspect-ratio: var(prototype.aspect, 16/10)`, with no padding and no letterbox bars. The
+  background is `#000` (the prototype's own). It has a radius of 6px and a 1px `--rule` border, at full container
+  width.
+- Above the frame, a header row has a small "Interactive prototype" label on the left. On the right is a **prominent
+  solid button**: accent background, flag ink, Bricolage 600 at 1rem, min height 48px, padding 0 20px, the label
+  "Open the interactive prototype" plus a ↗ arrow that slides on hover, and an sr-only "(opens in a new tab)". It
+  links to `prototype.link ?? prototype.embed`.
+- The shimmer skeleton stays until the iframe loads.
+
+## Logo
+The Woven logo PNG has a white background baked in. Never apply a CSS filter to it. Show it on a white plate:
+`background: #fff`, radius 4px, padding 4px 8px, height ~28px, in both themes.

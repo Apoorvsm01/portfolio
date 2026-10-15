@@ -35,7 +35,20 @@ def publish(slug: str, capture: str) -> str:
     return f"/work/{slug}/{capture}"
 
 
-VISUAL = {"figure", "metrics", "widgets"}
+VISUAL = {"figure", "metrics", "widgets", "bento"}
+
+# The process section of each study becomes a bento grid: one tile per heading. Tile text comes from
+# content/bento-summaries.json ({slug: {title: condensed}}); until a summary exists, the first sentence
+# of the tile's own source text is used.
+PROCESS_LABELS = ("Approach & Process", "Research Methods", "Process")
+SUMMARIES = ROOT / "content" / "bento-summaries.json"
+
+# Prototype frames hug the prototype: the hmi_ui Flutter app letterboxes itself to ~7:3.
+PROTOTYPES = {
+    "woven": {"aspect": "7 / 3", "link": "https://apoorvsm01.github.io/hmi_ui/drive_coach"},  # Framer linked /fleet by mistake
+    "fleet-co-pilot": {"aspect": "7 / 3"},
+    "fleet-dashboard": {"aspect": "16 / 10"},
+}
 
 
 def section(study: dict, label: str) -> dict | None:
@@ -119,6 +132,39 @@ def woven(study: dict) -> None:
     ]
 
 
+def first_sentence(blocks: list[dict]) -> str:
+    for b in blocks:
+        text = b.get("text") or (b.get("items") or [""])[0]
+        if text:
+            end = text.find(". ")
+            return text if end == -1 else text[: end + 1]
+    return ""
+
+
+def bento(study: dict) -> None:
+    s = next((x for x in study["sections"] if x["label"] in PROCESS_LABELS), None)
+    if s is None or any(b["type"] in VISUAL for b in s["blocks"]):
+        return
+    summaries = json.loads(SUMMARIES.read_text()).get(study["slug"], {}) if SUMMARIES.exists() else {}
+    tiles, trailing = [], []
+    for b in s["blocks"]:
+        if b["type"] == "heading":
+            tiles.append({"title": b["text"], "source": []})
+        elif tiles and b["type"] in ("paragraph", "list"):
+            tiles[-1]["source"].append(b)
+        else:
+            trailing.append(b)  # e.g. an image after the last tile stays below the grid
+    for t in tiles:
+        t["condensed"] = summaries.get(t["title"]) or first_sentence(t["source"])
+    s["blocks"] = [{"type": "bento", "items": tiles}] + trailing
+
+
+def prototype(study: dict) -> None:
+    extra = PROTOTYPES.get(study["slug"])
+    if extra and study.get("prototype"):
+        study["prototype"].update(extra)
+
+
 def main() -> None:
     def edit(slug: str, fn) -> None:
         path = STUDIES / f"{slug}.json"
@@ -131,6 +177,8 @@ def main() -> None:
     edit("fleet-co-pilot", lambda s: (spec_card(s, "fleet-co-pilot", "Fleet Co-Pilot"), metrics(s, "Live Telemetry")))
     edit("fleet-dashboard", lambda s: (spec_card(s, "fleet-dashboard", "Fleet Dashboard"), metrics(s, "Team Wins")))
     edit("woven", woven)
+    for path in sorted(STUDIES.glob("*.json")):
+        edit(path.stem, lambda s: (bento(s), prototype(s)))
 
 
 if __name__ == "__main__":

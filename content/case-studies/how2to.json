@@ -68,72 +68,87 @@
       "label": "Research Methods",
       "blocks": [
         {
-          "type": "heading",
-          "text": "Brainstorming Sessions"
-        },
-        {
-          "type": "paragraph",
-          "text": "Held 5 internal sessions to ideate onboarding flows, spatial interactions, and modular templates (e.g., stove/oven marker for cooking, screw guide for repair)."
-        },
-        {
-          "type": "heading",
-          "text": "Competitor Analysis"
-        },
-        {
-          "type": "paragraph",
-          "text": "Analyzed spatial learning and tutorial platforms (e.g., JigSpace, WikiHow VR, YouTube with AR extensions)."
-        },
-        {
-          "type": "paragraph",
-          "text": "Identified gaps in interactive guidance, spatial UX fidelity, and lack of cross-context template systems for different task types (DIY, cooking, tech repair)."
-        },
-        {
-          "type": "heading",
-          "text": "User Interviews"
-        },
-        {
-          "type": "paragraph",
-          "text": "Interviewed 9 participants (ages 20–45) who regularly engage with instructional content online (YouTube, blogs, mobile apps)."
-        },
-        {
-          "type": "list",
+          "type": "bento",
           "items": [
-            "7/9 struggle to pause / switch between content and task",
-            "6/9 expressed interest in hands-free visual instruction",
-            "5/9 found current AR tools either non-intuitive or overly complex"
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "Persona Building"
-        },
-        {
-          "type": "paragraph",
-          "text": "Constructed 3 personas from interview data:"
-        },
-        {
-          "type": "list",
-          "items": [
-            "DIY Dan: 32, uses YouTube for repairs, needs visual clarity",
-            "Chef Lila: 28, uses Instagram Reels for recipes, wants step control",
-            "Tinker Tim: 24, builds PCs, frustrated with switching apps during work"
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "Affinity Mapping"
-        },
-        {
-          "type": "paragraph",
-          "text": "Clustered responses into core themes:"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Cognitive load during multitasking",
-            "Friction in switching between instruction and action",
-            "Demand for real-time, spatial, context-aware tutorials",
-            "Excitement around using headsets for hands-free guidance"
+            {
+              "title": "Brainstorming Sessions",
+              "source": [
+                {
+                  "type": "paragraph",
+                  "text": "Held 5 internal sessions to ideate onboarding flows, spatial interactions, and modular templates (e.g., stove/oven marker for cooking, screw guide for repair)."
+                }
+              ],
+              "condensed": "Held 5 internal sessions to ideate onboarding flows, spatial interactions, and modular templates (e.g., stove/oven marker for cooking, screw guide for repair)."
+            },
+            {
+              "title": "Competitor Analysis",
+              "source": [
+                {
+                  "type": "paragraph",
+                  "text": "Analyzed spatial learning and tutorial platforms (e.g., JigSpace, WikiHow VR, YouTube with AR extensions)."
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Identified gaps in interactive guidance, spatial UX fidelity, and lack of cross-context template systems for different task types (DIY, cooking, tech repair)."
+                }
+              ],
+              "condensed": "Analyzed spatial learning and tutorial platforms (e.g., JigSpace, WikiHow VR, YouTube with AR extensions)."
+            },
+            {
+              "title": "User Interviews",
+              "source": [
+                {
+                  "type": "paragraph",
+                  "text": "Interviewed 9 participants (ages 20–45) who regularly engage with instructional content online (YouTube, blogs, mobile apps)."
+                },
+                {
+                  "type": "list",
+                  "items": [
+                    "7/9 struggle to pause / switch between content and task",
+                    "6/9 expressed interest in hands-free visual instruction",
+                    "5/9 found current AR tools either non-intuitive or overly complex"
+                  ]
+                }
+              ],
+              "condensed": "Interviewed 9 participants (ages 20–45) who regularly engage with instructional content online (YouTube, blogs, mobile apps)."
+            },
+            {
+              "title": "Persona Building",
+              "source": [
+                {
+                  "type": "paragraph",
+                  "text": "Constructed 3 personas from interview data:"
+                },
+                {
+                  "type": "list",
+                  "items": [
+                    "DIY Dan: 32, uses YouTube for repairs, needs visual clarity",
+                    "Chef Lila: 28, uses Instagram Reels for recipes, wants step control",
+                    "Tinker Tim: 24, builds PCs, frustrated with switching apps during work"
+                  ]
+                }
+              ],
+              "condensed": "Constructed 3 personas from interview data:"
+            },
+            {
+              "title": "Affinity Mapping",
+              "source": [
+                {
+                  "type": "paragraph",
+                  "text": "Clustered responses into core themes:"
+                },
+                {
+                  "type": "list",
+                  "items": [
+                    "Cognitive load during multitasking",
+                    "Friction in switching between instruction and action",
+                    "Demand for real-time, spatial, context-aware tutorials",
+                    "Excitement around using headsets for hands-free guidance"
+                  ]
+                }
+              ],
+              "condensed": "Clustered responses into core themes:"
+            }
           ]
         }
       ]

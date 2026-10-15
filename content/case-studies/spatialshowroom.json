@@ -69,44 +69,59 @@
       "label": "Research Methods",
       "blocks": [
         {
-          "type": "heading",
-          "text": "Brainstorming Sessions"
-        },
-        {
-          "type": "paragraph",
-          "text": "Organized a full-stack team to go over all aspects of developing such an app. Addressed development issues, backend, and 3D model implementation to manage content uploads, delivery, recommendations, and more. Prototyped in Figma and further in development"
-        },
-        {
-          "type": "heading",
-          "text": "Competitor Analysis"
-        },
-        {
-          "type": "paragraph",
-          "text": "Identified web-based car configurators from name brands that prioritize functionality and configuration options over augmented reality features. Took functional inspiration and applied it to a Vision Pro application with more features."
-        },
-        {
-          "type": "heading",
-          "text": "User Interviews"
-        },
-        {
-          "type": "paragraph",
-          "text": "Conducted 25+ interviews with users of traditional media outlets, creators looking to publish spatial content, headset owners, and even company founders to evaluate business use cases."
-        },
-        {
-          "type": "heading",
-          "text": "Persona Building"
-        },
-        {
-          "type": "paragraph",
-          "text": "We developed user personas representing car buyers, including those who are tech-savvy and those who need to view their car in real life, ensuring our platform addressed their needs. These profiles provided insights into motivations, constraints, and expectations, guiding feature prioritization and user-centric design."
-        },
-        {
-          "type": "heading",
-          "text": "Affinity Mapping"
-        },
-        {
-          "type": "paragraph",
-          "text": "We synthesized insights from user interviews, competitor analysis, and team brainstorming sessions through affinity mapping. This process enabled structured categorization of user pain points, core needs, and prioritized features. As a result, all design decisions were grounded in validated, user-centered insights."
+          "type": "bento",
+          "items": [
+            {
+              "title": "Brainstorming Sessions",
+              "source": [
+                {
+                  "type": "paragraph",
+                  "text": "Organized a full-stack team to go over all aspects of developing such an app. Addressed development issues, backend, and 3D model implementation to manage content uploads, delivery, recommendations, and more. Prototyped in Figma and further in development"
+                }
+              ],
+              "condensed": "Organized a full-stack team to go over all aspects of developing such an app."
+            },
+            {
+              "title": "Competitor Analysis",
+              "source": [
+                {
+                  "type": "paragraph",
+                  "text": "Identified web-based car configurators from name brands that prioritize functionality and configuration options over augmented reality features. Took functional inspiration and applied it to a Vision Pro application with more features."
+                }
+              ],
+              "condensed": "Identified web-based car configurators from name brands that prioritize functionality and configuration options over augmented reality features."
+            },
+            {
+              "title": "User Interviews",
+              "source": [
+                {
+                  "type": "paragraph",
+                  "text": "Conducted 25+ interviews with users of traditional media outlets, creators looking to publish spatial content, headset owners, and even company founders to evaluate business use cases."
+                }
+              ],
+              "condensed": "Conducted 25+ interviews with users of traditional media outlets, creators looking to publish spatial content, headset owners, and even company founders to evaluate business use cases."
+            },
+            {
+              "title": "Persona Building",
+              "source": [
+                {
+                  "type": "paragraph",
+                  "text": "We developed user personas representing car buyers, including those who are tech-savvy and those who need to view their car in real life, ensuring our platform addressed their needs. These profiles provided insights into motivations, constraints, and expectations, guiding feature prioritization and user-centric design."
+                }
+              ],
+              "condensed": "We developed user personas representing car buyers, including those who are tech-savvy and those who need to view their car in real life, ensuring our platform addressed their needs."
+            },
+            {
+              "title": "Affinity Mapping",
+              "source": [
+                {
+                  "type": "paragraph",
+                  "text": "We synthesized insights from user interviews, competitor analysis, and team brainstorming sessions through affinity mapping. This process enabled structured categorization of user pain points, core needs, and prioritized features. As a result, all design decisions were grounded in validated, user-centered insights."
+                }
+              ],
+              "condensed": "We synthesized insights from user interviews, competitor analysis, and team brainstorming sessions through affinity mapping."
+            }
+          ]
         },
         {
           "type": "images",
