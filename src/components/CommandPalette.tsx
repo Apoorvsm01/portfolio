@@ -64,19 +64,8 @@ function buildItemsFromNavIndex(items: NavIndexItem[]): PaletteItem[] {
     });
   });
 
-  // 3. Labelled Case Study Sections
-  items.forEach((study) => {
-    study.sections.forEach((sec) => {
-      result.push({
-        id: `sec-${study.slug}-${sec.index}`,
-        category: "Sections",
-        title: `${study.title} › ${sec.label}`,
-        subtitle: "Section",
-        keywords: `${study.title} ${sec.label} section jump`,
-        url: `/work/${study.slug}/#section-${sec.index}`,
-      });
-    });
-  });
+  // Sections inside a case study are not listed: search stays at the level of pages and projects
+  // (a project still matches on its tags and blurb).
 
   // 4. Actions
   result.push({
@@ -365,7 +354,7 @@ export function CommandPalette({ items = [] }: { items?: NavIndexItem[] }) {
               setSelectedIndex(0);
             }}
             onKeyDown={handleInputKeyDown}
-            placeholder="Search pages, projects, sections..."
+            placeholder="Search pages and projects..."
             className="w-full min-h-[56px] py-3.5 bg-transparent text-fg placeholder:text-muted focus:outline-none text-base"
           />
           {query && (

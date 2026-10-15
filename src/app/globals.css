@@ -808,3 +808,22 @@ html:not([data-js]) .fade-image {
 .sticky-chapter-bar {
   background-color: var(--ground);
 }
+
+/* Dark bands (a study's band colour on case-study heroes and the home Featured section) stay dark in
+   both themes, so their text must stay light too: pin the dark-theme ink tokens inside them. */
+.band-dark {
+  --surface: #1b1916;
+  --surface-2: #26231f;
+  --rule: rgb(241 236 227 / 0.14);
+  --fg: #f1ece3;
+  --fg-2: #c9c2b5;
+  --muted: #a39c8f;
+  --text: var(--fg);
+  --line: var(--rule);
+  color: var(--fg);
+  color-scheme: dark;
+}
+
+.band-dark p {
+  color: var(--fg-2);
+}

@@ -272,9 +272,9 @@ How I work, the full Timeline and Platforms move to `/about/`. The home page mus
   and on route change, and focus is trapped inside while it's open.
 
 **Command palette (⌘K / Ctrl+K, and `/`)**:
-- A modal `<dialog>` with a search input and a listbox of every page: Home, Work, About, each case study (with its
-  domain), each case-study section (`Study › Section` → `/work/slug/#section-n`), Email (copies the address) and
-  LinkedIn.
+- A modal `<dialog>` with a search input and a listbox of the top-level destinations only: Home, Work, About,
+  each case study (with its domain), Email (copies the address) and LinkedIn. Case-study sections are not listed
+  (the chapter bar and ↑/↓ cover in-page navigation).
 - Fuzzy-ish matching: case-insensitive substring match on title and keywords.
 - Full keyboard support: ↑/↓, Enter, Esc. Uses `aria-activedescendant`. Focus returns to the trigger on close.
 - The nav shows a visible ⌘K hint button.

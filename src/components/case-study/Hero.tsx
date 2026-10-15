@@ -27,7 +27,7 @@ export function Hero({
     <header
       id="case-study-hero"
       style={{ backgroundColor: meta.band }}
-      className="w-full border-b border-rule py-12 md:py-16 lg:py-20"
+      className="band-dark w-full border-b border-rule py-12 md:py-16 lg:py-20"
     >
       <div className="container-page">
         {/* Breadcrumb */}

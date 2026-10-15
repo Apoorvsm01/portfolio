@@ -15,7 +15,7 @@ export function Featured() {
     <section
       aria-labelledby="featured-heading"
       style={{ backgroundColor: bandColor }}
-      className="w-full border-b border-rule py-16 md:py-24"
+      className="band-dark w-full border-b border-rule py-16 md:py-24"
     >
       <div className="container-page">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
