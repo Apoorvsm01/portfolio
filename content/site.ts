@@ -110,7 +110,7 @@ export const site = {
     { slug: "how2to", domain: "Spatial", cover: "/work/how2to/03.png", org: "Omnia", blurb: "AI-powered, step-by-step spatial tutorials on visionOS." },
     { slug: "omniabrowser", domain: "Spatial", cover: "/work/omniabrowser/02.png", org: "Omnia", blurb: "A spatial browser for Apple Vision Pro." },
     { slug: "spatialshowroom", domain: "Spatial", cover: "/work/spatialshowroom/01.png", blurb: "A spatial showroom experience for Vision Pro." },
-    { slug: "syncare-ai-health", domain: "Health", cover: "/work/syncare-ai-health/01.png", org: "Patched Reality", blurb: "Reducing cognitive load in AI-integrated health records." },
+    { slug: "syncare-ai-health", domain: "Health", cover: "/work/syncare-ai-health/01.png", org: "Patched Reality", blurb: "Making AI-integrated health records easier to read." },
     { slug: "sitelens", domain: "Spatial", cover: "/work/sitelens/02.png", blurb: "AR glasses for on-site construction inspections." },
   ] satisfies WorkRef[],
 
