@@ -28,7 +28,7 @@ export const site = {
     display: "I’m Apoorv",
     headline: "I study how people drive, and then I build what they need.",
     intro:
-      "For the past year I’ve been the UX engineer behind an in-car AI driving coach at Woven by Toyota. I took it from a product brief and raw research on 100+ drivers to 22 driving scenarios, a CARLA simulator rig with real steering and pedals, and Wizard of Oz studies where coaching made drivers 33% more efficient. I’ve been designing for cars, headsets and health apps since 2019.",
+      "For the past year I’ve been the UX engineer behind an in-car AI driving coach at Woven by Toyota. I took it from a product brief and raw research on 100+ drivers to 22 driving scenarios, a CARLA simulator rig with real steering and pedals, and studies where 70% of drivers understood its re-timed voice instructions, a 50% improvement on the version before. I’ve been designing for cars, headsets and health apps since 2019.",
     image: { src: "/me/portrait.jpeg", alt: "Apoorv Mahajan" },
   },
 
@@ -58,8 +58,8 @@ export const site = {
         "Look at how the in-car coach was validated: agency research with 100+ participants distilled into 22 driving scenarios, Wizard of Oz studies, gaze detection, and real-car tests that changed how voice instructions are timed.",
       bullets: [
         "I turned raw agency research on 100+ drivers into 22 driving scenarios, the single source of truth for how the AI coach behaves.",
-        "Wizard of Oz studies showed coaching made drivers 33% more efficient and sped up skill-building by 20%.",
-        "Real-car tests showed fixed-distance voice prompts reached speeding drivers too late, so I timed them by speed instead. Most speeding drivers then stopped correctly.",
+        "In a 25-person CARLA simulator study, drivers acted on the AI\u2019s guidance 40% faster with the HMI active, and 80% of 35 participants preferred a quieter, less talkative AI.",
+        "Real-car tests showed fixed-distance voice prompts reached speeding drivers too late, so I timed them by speed instead. In the real-car retest, 70% of drivers understood them, a 50% improvement.",
       ],
       links: ["woven", "fleet-co-pilot"],
     },

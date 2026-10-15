@@ -32,11 +32,11 @@ export const studyMeta: Record<string, StudyMeta> = {
       title: "What the studies showed",
       items: [
         { from: "100+", value: "22", label: "drivers’ research, sorted into driving scenarios" },
-        { value: "+33%", label: "driving efficiency with AI coaching, in Wizard of Oz studies" },
-        { value: "+20%", label: "faster skill-building in the first sessions" },
-        { value: "< 2 s", label: "to read the HMI at a glance, under the automotive standard" },
+        { value: "70%", label: "of drivers understood the re-timed voice instructions, a 50% improvement" },
+        { value: "40%", label: "faster to act on the AI’s guidance, in a 25-person simulator study" },
+        { value: "80%", label: "of 35 participants preferred a quieter, less talkative AI" },
       ],
-      note: "Wizard of Oz and real-car studies at Woven by Toyota.",
+      note: "Real-car retest, a CARLA simulator study, and A/B tests with contextual interviews at Woven by Toyota. Every alert was designed to meet the industry’s 2-second glance-to-comprehension standard.",
     },
   },
   "fleet-co-pilot": {
@@ -111,14 +111,7 @@ export const studyMeta: Record<string, StudyMeta> = {
       { label: "When", value: "10 weeks, at Patched Reality" },
       { label: "Built on", value: "iOS and Android" },
     ],
-    outcomes: {
-      title: "What the studies showed",
-      items: [
-        { value: "−25%", label: "measured cognitive load in EHR, medical and pharmacy flows" },
-        { value: "+35%", label: "healthy habits when the app sent motivational messages about diet" },
-      ],
-      note: "Longitudinal user studies at Patched Reality.",
-    },
+    // No outcomes row: Patched Reality work carries no metric numbers (personalization.md).
   },
   sitelens: {
     claim: "Inspection checklists that float where the work is.",
