@@ -35,4 +35,6 @@ export const headsetWall = {
 };
 
 // Spatial-interface screenshots that trail the cursor across the home hero.
+// Switched off for now; set to true to bring the trail back (CursorTrail.tsx is kept).
+export const heroTrailEnabled = false;
 export const heroTrail = ["01", "02", "03", "04", "05", "06"].map((n) => `/me/trail/${n}.jpg`);

@@ -6,7 +6,7 @@ import { site } from "../../content/site";
 import { FadeImage } from "./FadeImage";
 import { asset } from "@/lib/asset";
 import { CursorTrail } from "./CursorTrail";
-import { heroTrail } from "../../content/headsets";
+import { heroTrail, heroTrailEnabled } from "../../content/headsets";
 
 export interface StudyHeroInfo {
   slug: string;
@@ -49,7 +49,7 @@ export function Hero({
       aria-labelledby="hero-display-heading"
       className="relative isolate w-full bg-ground border-b border-rule py-12 md:py-16 lg:py-24"
     >
-      <CursorTrail images={heroTrail} />
+      {heroTrailEnabled && <CursorTrail images={heroTrail} />}
       <div className="container-page relative z-10">
         {/* Top 2 columns: Text left, Portrait right */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
