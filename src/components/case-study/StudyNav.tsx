@@ -41,7 +41,7 @@ export function StudyNav({ currentSlug }: { currentSlug: string }) {
             href={studyHref(nextStudy.slug)}
             rel="next"
             style={{ borderTopColor: flagBg }}
-            className="group relative block rounded-[6px] bg-surface border border-rule border-t-[3px] p-6 sm:p-8 hover:border-t-fg transition-colors duration-140"
+            className="group relative block rounded-[6px] bg-surface border border-rule border-t-[3px] p-6 sm:p-8 card-lift"
           >
             <div className="flex flex-col md:grid md:grid-cols-12 md:gap-8 items-center">
               {cover && dims && (
@@ -65,7 +65,7 @@ export function StudyNav({ currentSlug }: { currentSlug: string }) {
                   <span>Next project</span>
                   <span
                     aria-hidden="true"
-                    className="arrow-nudge-right text-accent font-bold"
+                    className="arrow-slide-right text-accent font-bold"
                   >
                     →
                   </span>
@@ -91,9 +91,9 @@ export function StudyNav({ currentSlug }: { currentSlug: string }) {
             <Link
               href={studyHref(prev.slug)}
               rel="prev"
-              className="link-underline min-h-[44px] inline-flex items-center gap-1.5 font-sans text-sm font-medium text-muted hover:text-fg transition-colors group"
+              className="group link-wipe min-h-[44px] inline-flex items-center gap-1.5 font-sans text-sm font-medium text-muted hover:text-fg transition-colors"
             >
-              <span aria-hidden="true" className="arrow-nudge-left font-bold">
+              <span aria-hidden="true" className="arrow-slide-left font-bold">
                 ←
               </span>
               <span>Previous</span>
@@ -106,10 +106,10 @@ export function StudyNav({ currentSlug }: { currentSlug: string }) {
         <div>
           <Link
             href="/work/"
-            className="link-underline min-h-[44px] inline-flex items-center gap-1.5 font-sans text-sm font-medium text-muted hover:text-fg transition-colors group"
+            className="group link-wipe min-h-[44px] inline-flex items-center gap-1.5 font-sans text-sm font-medium text-muted hover:text-fg transition-colors"
           >
             <span>All work</span>
-            <span aria-hidden="true" className="arrow-nudge-right font-bold text-accent">
+            <span aria-hidden="true" className="arrow-slide-right font-bold text-accent">
               →
             </span>
           </Link>

@@ -26,14 +26,16 @@ export function Featured() {
               <span className="font-sans text-xs text-muted font-medium">
                 {site.featured.org}
               </span>
-              <img
-                src="/me/woven-logo.png"
-                alt=""
-                width={logoDims.width}
-                height={logoDims.height}
-                loading="lazy"
-                className="woven-logo h-4 w-auto object-contain"
-              />
+              <span className="woven-logo-plate" aria-hidden="true">
+                <img
+                  src="/me/woven-logo.png"
+                  alt=""
+                  width={logoDims.width}
+                  height={logoDims.height}
+                  loading="lazy"
+                  className="woven-logo"
+                />
+              </span>
             </div>
 
             {/* Headline */}
@@ -69,11 +71,12 @@ export function Featured() {
                   >
                     <Link
                       href={ch.href}
-                      className="font-sans font-bold text-fg underline decoration-accent hover:text-accent transition-colors shrink-0"
-                      style={{
-                        textUnderlineOffset: "0.18em",
-                        textDecorationThickness: "0.12em",
-                      }}
+                      className="group link-wipe font-sans font-bold text-fg hover:text-accent transition-colors shrink-0"
+                      style={
+                        {
+                          "--flag-color": "var(--accent)",
+                        } as React.CSSProperties
+                      }
                     >
                       {ch.term}
                     </Link>
@@ -89,18 +92,18 @@ export function Featured() {
             <div className="flex flex-wrap items-center gap-6">
               <Link
                 href={studyHref(site.featured.slug)}
-                className="min-h-[44px] px-6 py-3 rounded-[6px] bg-accent text-ground font-sans font-bold text-sm sm:text-base hover:brightness-105 active:translate-y-[1px] transition-all inline-flex items-center justify-center"
+                className="btn-primary min-h-[44px] px-6 py-3 rounded-[6px] bg-accent text-ground font-sans font-bold text-sm sm:text-base hover:brightness-105 active:translate-y-[1px] inline-flex items-center justify-center"
               >
                 Open the case study
               </Link>
               <Link
                 href="/work/"
-                className="link-underline font-sans font-medium text-sm sm:text-base text-fg-2 hover:text-fg transition-colors inline-flex items-center gap-1.5 min-h-[44px]"
+                className="group link-wipe font-sans font-medium text-sm sm:text-base text-fg-2 hover:text-fg transition-colors inline-flex items-center gap-1.5 min-h-[44px]"
               >
                 <span>All projects</span>
                 <span
                   aria-hidden="true"
-                  className="arrow-nudge-right font-bold text-accent"
+                  className="arrow-slide-right font-bold text-accent"
                 >
                   →
                 </span>

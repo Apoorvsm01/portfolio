@@ -75,7 +75,7 @@
                   ]
                 }
               ],
-              "condensed": "Conducted competitive audits of existing EHR platforms"
+              "condensed": "I audited EHR platforms and interviewed seven patients and three clinicians, identifying chronic condition management, medication adherence, and preventive screening."
             },
             {
               "title": "Literature Review",
@@ -90,7 +90,7 @@
                   ]
                 }
               ],
-              "condensed": "Reviewed academic sources on digital twins, personalization, and context-aware design (e.g., Katsoulakis et al., 2024)."
+              "condensed": "I reviewed academic research on digital twins, personalization, and AI ethics, establishing trust and psychological safety as core design requirements."
             },
             {
               "title": "Stakeholder Interviews",
@@ -108,7 +108,7 @@
                   ]
                 }
               ],
-              "condensed": "Conducted interviews to gather insights from users and stakeholders (implied by mention of stakeholder interviews)."
+              "condensed": "I interviewed stakeholders to gather requirements, shaping project principles and refining prototype features to match real patient needs."
             },
             {
               "title": "Usability Evaluations",
@@ -126,7 +126,7 @@
                   ]
                 }
               ],
-              "condensed": "Tested prototypes with users to assess emotional support, clarity, and personalization."
+              "condensed": "I tested prototypes with users, measuring clarity, emotional support, and personalization to iterate and refine the design."
             },
             {
               "title": "Design & Prototyping",
@@ -142,7 +142,7 @@
                   ]
                 }
               ],
-              "condensed": "Developed low- and high-fidelity prototypes of the conversational interface."
+              "condensed": "I developed modular mobile prototypes for conversational interfaces, health timelines, risk cards, and lab result normalizers for usability testing."
             }
           ]
         }

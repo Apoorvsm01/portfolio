@@ -144,11 +144,10 @@ export function Hero({
                 <li key={index}>
                   <a
                     href={`#section-${index}`}
-                    className="link-prose font-sans font-medium text-sm sm:text-base text-fg hover:text-accent transition-colors"
+                    className="group link-wipe font-sans font-medium text-sm sm:text-base text-fg hover:text-accent transition-colors"
                     style={
                       {
                         "--flag-color": flagBg,
-                        textDecorationColor: flagBg,
                       } as React.CSSProperties
                     }
                   >

@@ -50,50 +50,50 @@
               "source": [
                 {
                   "type": "paragraph",
-                  "text": "Identified multiple media sharing applications on Apple Vision Pro and Meta Quest platforms. Some were native apps while most were third-party. Each competitor tackled and faced a unique problem."
+                  "text": "Organized a full-stack team to go over all aspects of developing such an app. Addressed development issues, backend, and AI implementation to manage content uploads, delivery, recommendations, and more. Prototyped in Figma and further in development"
                 }
               ],
-              "condensed": "Identified multiple media sharing applications on Apple Vision Pro and Meta Quest platforms."
+              "condensed": "I coordinated with a full-stack team on development, backend systems, AI recommendations, and interactive Figma and code prototypes."
             },
             {
               "title": "Competitor Analysis",
               "source": [
                 {
                   "type": "paragraph",
-                  "text": "Conducted 15+ interviews with users of traditional media outlets, creators looking to publish spatial content, headset owners and even company founders to evaluate business use cases."
+                  "text": "Identified multiple media sharing applications on Apple Vision Pro and Meta Quest platforms. Some were native apps while most were third-party. Each competitor tackled and faced a unique problem."
                 }
               ],
-              "condensed": "Conducted 15+ interviews with users of traditional media outlets, creators looking to publish spatial content, headset owners and even company founders to evaluate business use cases."
+              "condensed": "I reviewed media sharing applications across Apple Vision Pro and Meta Quest, comparing native and third-party solutions to evaluate gaps."
             },
             {
               "title": "User Interviews",
               "source": [
                 {
                   "type": "paragraph",
-                  "text": "We developed user personas representing spatial content viewers and creators, ensuring our platform addressed their real-world needs. These profiles provided insights into motivations, constraints, and expectations, guiding feature prioritization and user-centric design."
+                  "text": "Conducted 15+ interviews with users of traditional media outlets, creators looking to publish spatial content, headset owners and even company founders to evaluate business use cases."
                 }
               ],
-              "condensed": "We developed user personas representing spatial content viewers and creators, ensuring our platform addressed their real-world needs."
+              "condensed": "I conducted over fifteen interviews with traditional media users, spatial content creators, headset owners, and company founders on use cases."
             },
             {
               "title": "Persona Building",
               "source": [
                 {
                   "type": "paragraph",
-                  "text": "We synthesized insights from user interviews, competitor analysis, and team brainstorming sessions through affinity mapping. This process enabled structured categorization of user pain points, core needs, and prioritized features. As a result, all design decisions were grounded in validated, user-centered insights."
+                  "text": "We developed user personas representing spatial content viewers and creators, ensuring our platform addressed their real-world needs. These profiles provided insights into motivations, constraints, and expectations, guiding feature prioritization and user-centric design."
                 }
               ],
-              "condensed": "We synthesized insights from user interviews, competitor analysis, and team brainstorming sessions through affinity mapping."
+              "condensed": "We developed user personas for spatial content viewers and creators to capture their motivations, constraints, expectations, and feature priorities."
             },
             {
               "title": "Affinity Mapping",
               "source": [
                 {
                   "type": "paragraph",
-                  "text": "Organized a full-stack team to go over all aspects of developing such an app. Addressed development issues, backend, and AI implementation to manage content uploads, delivery, recommendations, and more. Prototyped in Figma and further in development"
+                  "text": "We synthesized insights from user interviews, competitor analysis, and team brainstorming sessions through affinity mapping. This process enabled structured categorization of user pain points, core needs, and prioritized features. As a result, all design decisions were grounded in validated, user-centered insights."
                 }
               ],
-              "condensed": "Organized a full-stack team to go over all aspects of developing such an app."
+              "condensed": "We synthesized interview, competitor, and brainstorming data through affinity mapping to categorize user pain points, core needs, and prioritized features."
             }
           ]
         }

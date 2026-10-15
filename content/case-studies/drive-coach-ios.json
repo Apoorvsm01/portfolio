@@ -64,7 +64,7 @@
                   "text": "Designed and built the whole SwiftUI app solo: the data model, the scoring engine, and all four tabs."
                 }
               ],
-              "condensed": "Designed and built the whole SwiftUI app solo: the data model, the scoring engine, and all four tabs."
+              "condensed": "I designed and built the SwiftUI app solo, creating the data model, scoring engine, and all four navigation tabs."
             },
             {
               "title": "Reusable Score Language",
@@ -78,7 +78,7 @@
                   "text": "The same ScoreBand/ConfidenceBand vocabulary drives the ring, the trend badges, the skill bars, and the streak banner — so the whole app reads as one coherent language, not four separately-designed screens."
                 }
               ],
-              "condensed": "One color-and-label system, everywhere."
+              "condensed": "I used one ScoreBand and ConfidenceBand vocabulary across the score ring, trend badges, skill bars, and streak banner."
             },
             {
               "title": "Borrowed the Shape, Not the Skin",
@@ -96,7 +96,7 @@
                   ]
                 }
               ],
-              "condensed": "Read Apple’s September 2026 Health redesign closely, then re-derived the pattern for driving:"
+              "condensed": "I adapted Apple Health patterns to create a rolling Confidence Score, paired win-and-focus coaching cards, and Skill Overview bars."
             },
             {
               "title": "Fluid by Default",
@@ -114,7 +114,7 @@
                   ]
                 }
               ],
-              "condensed": "Reached for iOS 17’s native motion APIs instead of hand-rolled animation plumbing:"
+              "condensed": "I implemented iOS 17 numeric content transitions, viewport scroll transitions, view-aligned snapping, and spring press states across cards."
             },
             {
               "title": "Independent Research & Validation",
@@ -132,7 +132,7 @@
                   ]
                 }
               ],
-              "condensed": "Extracted concrete patterns from Apple’s own announcement rather than guessing at “Health-style design”:"
+              "condensed": "I drew patterns from Apple announcements, using baseline-relative trend language, celebration-and-focus card pairings, and explanatory lines under scores."
             }
           ]
         }

@@ -35,7 +35,7 @@ export function WorkCard({
   return (
     <article
       style={{ borderTopColor: flagBg }}
-      className={`group relative flex flex-col h-full rounded-[6px] bg-surface border border-rule border-t-[3px] hover:border-t-fg transition-colors duration-140 ${
+      className={`group relative flex flex-col h-full rounded-[6px] bg-surface border border-rule border-t-[3px] card-lift ${
         compact ? "p-5 sm:p-6" : "p-6 sm:p-8"
       } ${
         isLead ? "xl:grid xl:grid-cols-12 xl:gap-8 xl:items-center" : ""
@@ -108,11 +108,12 @@ export function WorkSection() {
         {items.map((work, index) => (
           <li
             key={work.slug}
-            className={
+            style={{ "--i": index } as React.CSSProperties}
+            className={`grid-item-enter ${
               index === 0
                 ? "col-span-1 md:col-span-1 xl:col-span-2"
                 : "col-span-1"
-            }
+            }`}
           >
             <WorkCard work={work} isLead={index === 0} />
           </li>

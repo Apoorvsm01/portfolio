@@ -103,7 +103,7 @@
                   "text": "Owned end-to-end design for Fleet Co-Pilot, spanning the cockpit HUD, the incident taxonomy, and the office review dashboard that shares it."
                 }
               ],
-              "condensed": "Owned end-to-end design for Fleet Co-Pilot, spanning the cockpit HUD, the incident taxonomy, and the office review dashboard that shares it."
+              "condensed": "I designed Fleet Co-Pilot end to end, covering the cockpit HUD, the incident taxonomy, and the office review dashboard."
             },
             {
               "title": "Reusable Incident Taxonomy",
@@ -117,7 +117,7 @@
                   "text": "Subsystem × severity (perception, motion planner, localization, hardware/sensor, ODD boundary × SEV1–3) powers the driver’s 1-tap tags, the hazard map, and the office incident log — no re-mapping between tools."
                 }
               ],
-              "condensed": "One classification drives three surfaces."
+              "condensed": "I built a subsystem and severity taxonomy that powered one-tap driver tags, the hazard map, and the office incident log."
             },
             {
               "title": "Cross-Functional Partnership",
@@ -135,7 +135,7 @@
                   ]
                 }
               ],
-              "condensed": "Grounded every decision in how autonomy and fleet-ops teams actually work:"
+              "condensed": "I designed for fleet teams by pairing sub-second quick-tags for drivers with exposure analytics and audit trails for ops and compliance."
             },
             {
               "title": "Multi-Fidelity Prototyping",
@@ -153,7 +153,7 @@
                   ]
                 }
               ],
-              "condensed": "Proved the taxonomy before building a backend for it:"
+              "condensed": "I validated the taxonomy with simulated cockpit fixture data and built the office dashboard as a second consumer of that schema."
             },
             {
               "title": "Independent Research & Validation",
@@ -171,7 +171,7 @@
                   ]
                 }
               ],
-              "condensed": "Surveyed how autonomous-fleet operators actually run this today:"
+              "condensed": "I surveyed fleet operators on dispatch optimization, predictive maintenance, multi-vendor AV monitoring, safety-driver incident reporting, and video tagging."
             }
           ]
         }

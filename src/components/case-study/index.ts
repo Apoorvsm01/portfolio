@@ -9,3 +9,4 @@ export { StudyNav } from "./StudyNav";
 export { Figure } from "./Figure";
 export { Metrics } from "./Metrics";
 export { Widgets } from "./Widgets";
+export { Bento } from "./Bento";

@@ -199,7 +199,7 @@ export function Hero({
                         <li key={slug}>
                           <Link
                             href={`/work/${slug}/`}
-                            className="group font-sans font-semibold text-sm sm:text-base text-fg hover:text-fg min-h-[44px] inline-flex items-center gap-1.5 link-prose"
+                            className="group font-sans font-semibold text-sm sm:text-base text-fg hover:text-fg min-h-[44px] inline-flex items-center gap-1.5 link-wipe"
                             style={
                               {
                                 "--flag-color": activeFlag.bg,
@@ -209,7 +209,7 @@ export function Hero({
                             <span>{title}</span>
                             <span
                               aria-hidden="true"
-                              className="arrow-nudge-right font-bold"
+                              className="arrow-slide-right font-bold"
                             >
                               →
                             </span>

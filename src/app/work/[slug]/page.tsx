@@ -101,7 +101,11 @@ export default async function CaseStudyPage({
         {/* Article content in readable single column on ink */}
         <div className="container-page py-12 md:py-16">
           <div className="w-full">
-            <PrototypeEmbed prototype={study.prototype} title={study.title} />
+            <PrototypeEmbed
+              prototype={study.prototype}
+              title={study.title}
+              flag={meta.flag}
+            />
             {remainingHeroImages.length > 0 && (
               <HeroImages images={remainingHeroImages} title={study.title} />
             )}
@@ -111,6 +115,7 @@ export default async function CaseStudyPage({
                 section={section}
                 index={index}
                 studyTitle={study.title}
+                flag={meta.flag}
               />
             ))}
           </div>

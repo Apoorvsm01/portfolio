@@ -51,8 +51,10 @@
   /* Section rhythm (v4 L: clamp(4.5rem, 9vw, 8.5rem)) */
   --step-rhythm: clamp(4.5rem, 9vw, 8.5rem);
 
-  /* Motion tokens (v4 M2) */
+  /* Motion tokens (v4 M2 & v5) */
   --ease-settle: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+  --beat: 60ms;
   --dur-hover: 140ms;
 
   color-scheme: dark;
@@ -284,6 +286,43 @@
   text-decoration-thickness: 0.22em;
 }
 
+/* Underline wipe on primary text links (v5: 1px underline drawn with clip-path: inset(0 100% 0 0) -> inset(0) over 600ms on hover/focus. On leave wipes out to the right) */
+@keyframes underlineWipeIn {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.link-wipe {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.link-wipe::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0.12em;
+  width: 100%;
+  height: 1px;
+  background-color: var(--flag-color, var(--accent));
+  clip-path: inset(0 0 0 100%);
+  transition: clip-path 600ms var(--ease-out-expo);
+  pointer-events: none;
+}
+
+.link-wipe:hover::after,
+.link-wipe:focus-visible::after,
+.group:hover .link-wipe::after,
+.group:focus-visible .link-wipe::after {
+  animation: underlineWipeIn 600ms var(--ease-out-expo) forwards;
+}
+
 /* Nav link underline */
 .link-underline {
   background-image: linear-gradient(currentColor, currentColor);
@@ -300,56 +339,106 @@
   background-size: 100% 1px;
 }
 
-/* Arrow nudges */
-.arrow-nudge-right {
+/* Arrow slides (v5: slides 4px over 500ms trailing background) */
+.arrow-nudge-right,
+.arrow-slide-right {
   display: inline-block;
-  transition: transform var(--dur-hover) var(--ease-settle);
+  transition: transform 500ms var(--ease-out-expo);
 }
 :hover > .arrow-nudge-right,
 :focus-visible > .arrow-nudge-right,
 .group:hover .arrow-nudge-right,
-.group:focus-visible .arrow-nudge-right {
-  transform: translateX(3px);
+.group:focus-visible .arrow-nudge-right,
+:hover > .arrow-slide-right,
+:focus-visible > .arrow-slide-right,
+.group:hover .arrow-slide-right,
+.group:focus-visible .arrow-slide-right {
+  transform: translateX(4px);
 }
 
-.arrow-nudge-diag {
+.arrow-nudge-diag,
+.arrow-slide-diag {
   display: inline-block;
-  transition: transform var(--dur-hover) var(--ease-settle);
+  transition: transform 500ms var(--ease-out-expo);
 }
 :hover > .arrow-nudge-diag,
 :focus-visible > .arrow-nudge-diag,
 .group:hover .arrow-nudge-diag,
-.group:focus-visible .arrow-nudge-diag {
-  transform: translate(2.12px, -2.12px);
+.group:focus-visible .arrow-nudge-diag,
+:hover > .arrow-slide-diag,
+:focus-visible > .arrow-slide-diag,
+.group:hover .arrow-slide-diag,
+.group:focus-visible .arrow-slide-diag {
+  transform: translate(2.83px, -2.83px);
 }
 
-.arrow-nudge-left {
+.arrow-nudge-left,
+.arrow-slide-left {
   display: inline-block;
-  transition: transform var(--dur-hover) var(--ease-settle);
+  transition: transform 500ms var(--ease-out-expo);
 }
 :hover > .arrow-nudge-left,
 :focus-visible > .arrow-nudge-left,
 .group:hover .arrow-nudge-left,
-.group:focus-visible .arrow-nudge-left {
-  transform: translateX(-3px);
+.group:focus-visible .arrow-nudge-left,
+:hover > .arrow-slide-left,
+:focus-visible > .arrow-slide-left,
+.group:hover .arrow-slide-left,
+.group:focus-visible .arrow-slide-left {
+  transform: translateX(-4px);
 }
 
-/* Buttons active translate (v4 M2): active translateY(1px). No scale. */
+/* Buttons (v5: background transitions over 350ms --ease-out-expo; active translateY(1px)) */
 button,
 [role="tab"],
 .btn-pill,
-.chip {
+.chip,
+.btn-primary,
+.btn-prototype {
   transition: transform var(--dur-hover) var(--ease-settle),
-              background-color var(--dur-hover) var(--ease-settle),
+              background-color 350ms var(--ease-out-expo),
               border-color var(--dur-hover) var(--ease-settle),
-              color var(--dur-hover) var(--ease-settle);
+              color var(--dur-hover) var(--ease-settle),
+              filter 350ms var(--ease-out-expo);
 }
 
 button:active,
 [role="tab"]:active,
 .btn-pill:active,
-.chip:active {
+.chip:active,
+.btn-primary:active,
+.btn-prototype:active {
   transform: translateY(1px);
+}
+
+/* Lift on interactive tiles/cards (v5: translateY(-4px) with long soft shadow over 600ms --ease-out-expo) */
+.card-lift {
+  transition: transform 600ms var(--ease-out-expo),
+              box-shadow 600ms var(--ease-out-expo);
+  will-change: transform, box-shadow;
+}
+
+.card-lift:hover,
+.card-lift:focus-within {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 50px -30px rgb(0 0 0 / 0.55);
+}
+
+/* Staggered grid item entrance (v5: rise 12px and fade in with --beat: 60ms) */
+@keyframes gridItemEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.grid-item-enter {
+  animation: gridItemEntrance 600ms var(--ease-out-expo) both;
+  animation-delay: calc(var(--i, 0) * var(--beat, 60ms));
 }
 
 /* Nav header */
@@ -517,16 +606,111 @@ html:not([data-js]) .fade-image {
   color: var(--ground);
 }
 
-/* Woven by Toyota logo inversion in dark mode */
+/* Woven by Toyota logo plate per SPEC v5 Logo (no CSS filters) */
+.woven-logo-plate {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border-radius: 4px;
+  padding: 4px 8px;
+  height: 28px;
+}
+
 .woven-logo {
-  filter: invert(1);
+  height: 100%;
+  width: auto;
+  object-fit: contain;
 }
 
-[data-theme="light"] .woven-logo {
-  filter: none;
+/* Bento Grid & Sticky Note Peel (v5 B) */
+.bento-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
 }
 
-/* Reduced motion (v4 M2) */
+@media (min-width: 768px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .bento-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.bento-tile {
+  perspective: 1200px;
+}
+
+.bento-base {
+  background-color: var(--paper);
+  color: var(--paper-ink);
+  border: 1px solid var(--paper-rule);
+}
+
+.bento-base-content {
+  opacity: 0.6;
+  transform: translateY(4px);
+  transition: opacity 260ms var(--ease-settle), transform 260ms var(--ease-settle);
+}
+
+.bento-tile[data-open="true"] .bento-base-content {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 200ms;
+}
+
+.bento-cover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  transform-origin: top center;
+  transform-style: preserve-3d;
+  transition: transform 800ms var(--ease-out-expo), box-shadow 800ms var(--ease-out-expo);
+  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.25), 0 2px 6px -1px rgba(0, 0, 0, 0.15);
+  transform: rotate(var(--rot, 0deg));
+  cursor: pointer;
+  z-index: 10;
+  background: transparent;
+}
+
+.bento-tile[data-open="true"] .bento-cover {
+  transform: perspective(1200px) rotateX(-180deg);
+  box-shadow: 0 24px 38px -12px rgba(0, 0, 0, 0.45), 0 12px 18px -6px rgba(0, 0, 0, 0.3);
+  z-index: 20;
+}
+
+.bento-cover-front {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  background-color: var(--bento-flag-bg);
+  color: var(--bento-flag-ink);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.bento-cover-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  background-color: color-mix(in srgb, var(--bento-flag-bg) 82%, #000);
+  transform: rotateX(180deg);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Reduced motion (v4 M2 & v5) */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -552,12 +736,50 @@ html:not([data-js]) .fade-image {
   .shimmer-skeleton,
   .arrow-nudge-right,
   .arrow-nudge-diag,
-  .arrow-nudge-left {
+  .arrow-nudge-left,
+  .arrow-slide-right,
+  .arrow-slide-diag,
+  .arrow-slide-left {
     animation: none !important;
     transform: none !important;
     transition: none !important;
     opacity: 1 !important;
     clip-path: none !important;
+  }
+
+  .link-wipe::after {
+    animation: none !important;
+    transition: none !important;
+    clip-path: none !important;
+  }
+
+  .card-lift {
+    transform: none !important;
+    box-shadow: none !important;
+    transition: none !important;
+  }
+
+  .grid-item-enter {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Reduced motion for Bento (SPEC v5 B: no flip, opening crossfades cover's opacity to 0 over 150ms) */
+  .bento-cover {
+    transform: none !important;
+    transition: opacity 150ms ease !important;
+  }
+
+  .bento-tile[data-open="true"] .bento-cover {
+    opacity: 0 !important;
+    pointer-events: none;
+  }
+
+  .bento-base-content {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 
   .reading-progress-bar {
@@ -567,7 +789,9 @@ html:not([data-js]) .fade-image {
   button:active,
   [role="tab"]:active,
   .btn-pill:active,
-  .chip:active {
+  .chip:active,
+  .btn-primary:active,
+  .btn-prototype:active {
     transform: none !important;
   }
 }

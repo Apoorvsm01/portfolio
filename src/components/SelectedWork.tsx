@@ -22,12 +22,12 @@ export function SelectedWork() {
           </h2>
           <Link
             href="/work/"
-            className="link-underline min-h-[44px] inline-flex items-center gap-1.5 font-sans font-medium text-sm sm:text-base text-fg hover:text-accent transition-colors group"
+            className="group link-wipe min-h-[44px] inline-flex items-center gap-1.5 font-sans font-medium text-sm sm:text-base text-fg hover:text-accent transition-colors"
           >
             <span>All projects ({site.work.length + 1})</span>
             <span
               aria-hidden="true"
-              className="arrow-nudge-right font-bold text-accent"
+              className="arrow-slide-right font-bold text-accent"
             >
               →
             </span>
@@ -36,8 +36,12 @@ export function SelectedWork() {
 
         {/* 2x2 Grid of Cards */}
         <ul className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 list-none p-0">
-          {selected.map((work) => (
-            <li key={work.slug} className="col-span-1">
+          {selected.map((work, index) => (
+            <li
+              key={work.slug}
+              style={{ "--i": index } as React.CSSProperties}
+              className="col-span-1 grid-item-enter"
+            >
               <WorkCard work={work} compact={true} />
             </li>
           ))}

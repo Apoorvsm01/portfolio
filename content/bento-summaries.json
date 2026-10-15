@@ -1,0 +1,65 @@
+{
+  "woven": {
+    "End-to-End Ownership": "I led the UX for Generative Drive Coach across research, HMI, voice interaction design, prototyping, and validation.",
+    "Reusable Coaching Patterns": "I scaled a teen driving concept into coaching patterns covering parking, intersections, stop signs, turns, lane changes, and speed management.",
+    "Cross-Functional Partnership": "I grounded designs in CARLA simulation, Vehicle SDK signals, and CAN bus data to test coaching against live vehicle states.",
+    "Multi-Fidelity Prototyping": "I built prototypes across voice-enabled Figma flows, CARLA simulator scenarios, and a physical steering and pedal rig.",
+    "Independent Research & Validation": "I ran study plans, voice-frequency tests, and CARLA driving simulations to validate and refine coaching behavior from participant feedback."
+  },
+  "fleet-co-pilot": {
+    "End-to-End Ownership": "I designed Fleet Co-Pilot end to end, covering the cockpit HUD, the incident taxonomy, and the office review dashboard.",
+    "Reusable Incident Taxonomy": "I built a subsystem and severity taxonomy that powered one-tap driver tags, the hazard map, and the office incident log.",
+    "Cross-Functional Partnership": "I designed for fleet teams by pairing sub-second quick-tags for drivers with exposure analytics and audit trails for ops and compliance.",
+    "Multi-Fidelity Prototyping": "I validated the taxonomy with simulated cockpit fixture data and built the office dashboard as a second consumer of that schema.",
+    "Independent Research & Validation": "I surveyed fleet operators on dispatch optimization, predictive maintenance, multi-vendor AV monitoring, safety-driver incident reporting, and video tagging."
+  },
+  "fleet-dashboard": {
+    "End-to-End Ownership": "I led the design for Fleet Dashboard across the incident log, the hazard map, and the team-wins panel for engineers.",
+    "One Taxonomy, One Dashboard": "I rendered the cockpit subsystem and severity classification directly in the dashboard without re-mapping data or creating a separate schema.",
+    "Validated Palette, Not Guessed": "I tested every color through a validator, paired severity hues with text labels, and checked contrast on the dark surface.",
+    "Built From Real Fixtures": "I built panels using typed damage fixtures, computed team-wins metrics from incidents, and plotted hotspots on OpenStreetMap tiles.",
+    "Same Taxonomy, New Surface": "I extended the cockpit data model to provide a live map for hotspot patterns, vehicle damage summaries, and team-wins panels."
+  },
+  "drive-coach-ios": {
+    "End-to-End Ownership": "I designed and built the SwiftUI app solo, creating the data model, scoring engine, and all four navigation tabs.",
+    "Reusable Score Language": "I used one ScoreBand and ConfidenceBand vocabulary across the score ring, trend badges, skill bars, and streak banner.",
+    "Borrowed the Shape, Not the Skin": "I adapted Apple Health patterns to create a rolling Confidence Score, paired win-and-focus coaching cards, and Skill Overview bars.",
+    "Fluid by Default": "I implemented iOS 17 numeric content transitions, viewport scroll transitions, view-aligned snapping, and spring press states across cards.",
+    "Independent Research & Validation": "I drew patterns from Apple announcements, using baseline-relative trend language, celebration-and-focus card pairings, and explanatory lines under scores."
+  },
+  "how2to": {
+    "Brainstorming Sessions": "I held five internal sessions to ideate onboarding flows, spatial interactions, and modular templates like stove markers and screw guides.",
+    "Competitor Analysis": "I analyzed platforms like JigSpace and WikiHow VR, finding gaps in interactive guidance, spatial fidelity, and cross-context templates.",
+    "User Interviews": "I interviewed nine participants who used online tutorials, finding most struggled to switch between tasks and wanted hands-free instruction.",
+    "Persona Building": "I built three user personas from interview data: a DIY repairer, a home cook, and a computer builder.",
+    "Affinity Mapping": "I clustered interview responses around multitasking load, switching friction, demand for spatial tutorials, and headset interest for hands-free guidance."
+  },
+  "omniabrowser": {
+    "Brainstorming Sessions": "I coordinated with a full-stack team on development, backend systems, AI recommendations, and interactive Figma and code prototypes.",
+    "Competitor Analysis": "I reviewed media sharing applications across Apple Vision Pro and Meta Quest, comparing native and third-party solutions to evaluate gaps.",
+    "User Interviews": "I conducted over fifteen interviews with traditional media users, spatial content creators, headset owners, and company founders on use cases.",
+    "Persona Building": "We developed user personas for spatial content viewers and creators to capture their motivations, constraints, expectations, and feature priorities.",
+    "Affinity Mapping": "We synthesized interview, competitor, and brainstorming data through affinity mapping to categorize user pain points, core needs, and prioritized features."
+  },
+  "spatialshowroom": {
+    "Brainstorming Sessions": "I organized a full-stack team to address development, backend requirements, 3D model delivery, and prototyping in Figma and code.",
+    "Competitor Analysis": "I evaluated web car configurators to borrow functional configuration features and translated those mechanics into a Vision Pro app.",
+    "User Interviews": "I conducted over 25 interviews with traditional media users, spatial content creators, headset owners, and founders on use cases.",
+    "Persona Building": "We created personas for tech-savvy buyers and shoppers who needed real-life views, using their constraints to prioritize showroom features.",
+    "Affinity Mapping": "We organized insights from interviews, competitor audits, and brainstorming sessions into categorized pain points, needs, and prioritized features."
+  },
+  "syncare-ai-health": {
+    "Research & Discovery": "I audited EHR platforms and interviewed seven patients and three clinicians, identifying chronic condition management, medication adherence, and preventive screening.",
+    "Literature Review": "I reviewed academic research on digital twins, personalization, and AI ethics, establishing trust and psychological safety as core design requirements.",
+    "Stakeholder Interviews": "I interviewed stakeholders to gather requirements, shaping project principles and refining prototype features to match real patient needs.",
+    "Usability Evaluations": "I tested prototypes with users, measuring clarity, emotional support, and personalization to iterate and refine the design.",
+    "Design & Prototyping": "I developed modular mobile prototypes for conversational interfaces, health timelines, risk cards, and lab result normalizers for usability testing."
+  },
+  "sitelens": {
+    "Research & Discovery": "I audited inspection tools and interviewed inspectors, managers, and trade engineers, identifying role-specific checklists, visual comparisons, and cost verification.",
+    "Literature Review": "I reviewed research on construction AR and wearables, focusing on data compliance, legal notifications, and real-time collaboration requirements.",
+    "Stakeholder Interviews": "I interviewed field stakeholders to capture tool requirements and design room-based inspection checklists, tailored dashboards, and contractor workflows.",
+    "Usability Evaluations": "I tested AR prototypes with field users to measure time saved over paper workflows and improve voice commands and readability.",
+    "Design & Prototyping": "I built prototypes for mobile and Even Realities G1 glasses, testing room-wise task overlays, photo attachments, and verification prompts."
+  }
+}

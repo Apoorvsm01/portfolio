@@ -78,7 +78,7 @@
                   "text": "Held 5 internal sessions to ideate onboarding flows, spatial interactions, and modular templates (e.g., stove/oven marker for cooking, screw guide for repair)."
                 }
               ],
-              "condensed": "Held 5 internal sessions to ideate onboarding flows, spatial interactions, and modular templates (e.g., stove/oven marker for cooking, screw guide for repair)."
+              "condensed": "I held five internal sessions to ideate onboarding flows, spatial interactions, and modular templates like stove markers and screw guides."
             },
             {
               "title": "Competitor Analysis",
@@ -92,7 +92,7 @@
                   "text": "Identified gaps in interactive guidance, spatial UX fidelity, and lack of cross-context template systems for different task types (DIY, cooking, tech repair)."
                 }
               ],
-              "condensed": "Analyzed spatial learning and tutorial platforms (e.g., JigSpace, WikiHow VR, YouTube with AR extensions)."
+              "condensed": "I analyzed platforms like JigSpace and WikiHow VR, finding gaps in interactive guidance, spatial fidelity, and cross-context templates."
             },
             {
               "title": "User Interviews",
@@ -110,7 +110,7 @@
                   ]
                 }
               ],
-              "condensed": "Interviewed 9 participants (ages 20–45) who regularly engage with instructional content online (YouTube, blogs, mobile apps)."
+              "condensed": "I interviewed nine participants who used online tutorials, finding most struggled to switch between tasks and wanted hands-free instruction."
             },
             {
               "title": "Persona Building",
@@ -128,7 +128,7 @@
                   ]
                 }
               ],
-              "condensed": "Constructed 3 personas from interview data:"
+              "condensed": "I built three user personas from interview data: a DIY repairer, a home cook, and a computer builder."
             },
             {
               "title": "Affinity Mapping",
@@ -147,7 +147,7 @@
                   ]
                 }
               ],
-              "condensed": "Clustered responses into core themes:"
+              "condensed": "I clustered interview responses around multitasking load, switching friction, demand for spatial tutorials, and headset interest for hands-free guidance."
             }
           ]
         }

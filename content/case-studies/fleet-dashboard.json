@@ -120,7 +120,7 @@
                   "text": "Owned end-to-end design for Fleet Dashboard, spanning the incident log, the hazard map, and the team-wins morale panel that engineers actually check every morning."
                 }
               ],
-              "condensed": "Owned end-to-end design for Fleet Dashboard, spanning the incident log, the hazard map, and the team-wins morale panel that engineers actually check every morning."
+              "condensed": "I led the design for Fleet Dashboard across the incident log, the hazard map, and the team-wins panel for engineers."
             },
             {
               "title": "One Taxonomy, One Dashboard",
@@ -134,7 +134,7 @@
                   "text": "The same subsystem × severity classification the cockpit tags with renders directly here — no separate office-side schema to keep in sync."
                 }
               ],
-              "condensed": "Nothing re-mapped for the office."
+              "condensed": "I rendered the cockpit subsystem and severity classification directly in the dashboard without re-mapping data or creating a separate schema."
             },
             {
               "title": "Validated Palette, Not Guessed",
@@ -152,7 +152,7 @@
                   ]
                 }
               ],
-              "condensed": "Ran every color through the dataviz skill’s validator before shipping it:"
+              "condensed": "I tested every color through a validator, paired severity hues with text labels, and checked contrast on the dark surface."
             },
             {
               "title": "Built From Real Fixtures",
@@ -170,7 +170,7 @@
                   ]
                 }
               ],
-              "condensed": "Every panel reads from the same shape of data the cockpit would eventually stream:"
+              "condensed": "I built panels using typed damage fixtures, computed team-wins metrics from incidents, and plotted hotspots on OpenStreetMap tiles."
             },
             {
               "title": "Same Taxonomy, New Surface",
@@ -188,7 +188,7 @@
                   ]
                 }
               ],
-              "condensed": "Extended the cockpit’s data model for the office context, not reinvented it:"
+              "condensed": "I extended the cockpit data model to provide a live map for hotspot patterns, vehicle damage summaries, and team-wins panels."
             }
           ]
         }

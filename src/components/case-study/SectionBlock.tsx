@@ -5,6 +5,7 @@ import { FadeImage } from "../FadeImage";
 import { Figure } from "./Figure";
 import { Metrics } from "./Metrics";
 import { Widgets } from "./Widgets";
+import { Bento } from "./Bento";
 import { IframeWithSkeleton } from "./IframeWithSkeleton";
 
 function renderListItem(item: string) {
@@ -27,10 +28,12 @@ export function BlockRenderer({
   block,
   studyTitle = "",
   sectionLabel = "",
+  flag,
 }: {
   block: Block;
   studyTitle?: string;
   sectionLabel?: string;
+  flag?: string;
 }) {
   const cleanLabel = sectionLabel?.trim() || "";
   const hasLabel = Boolean(cleanLabel);
@@ -208,6 +211,9 @@ export function BlockRenderer({
     case "widgets":
       return <Widgets items={block.items} />;
 
+    case "bento":
+      return <Bento items={block.items} flag={flag} />;
+
     default:
       return null;
   }
@@ -218,14 +224,16 @@ export function SectionBlock({
   index = 0,
   block,
   studyTitle = "",
+  flag,
 }: {
   section?: Section;
   index?: number;
   block?: Block;
   studyTitle?: string;
+  flag?: string;
 }) {
   if (block) {
-    return <BlockRenderer block={block} studyTitle={studyTitle} sectionLabel="" />;
+    return <BlockRenderer block={block} studyTitle={studyTitle} sectionLabel="" flag={flag} />;
   }
 
   if (!section) return null;
@@ -253,6 +261,7 @@ export function SectionBlock({
               block={b}
               studyTitle={studyTitle}
               sectionLabel={section.label}
+              flag={flag}
             />
           ))}
         </div>
@@ -274,6 +283,7 @@ export function SectionBlock({
             block={b}
             studyTitle={studyTitle}
             sectionLabel={section.label}
+            flag={flag}
           />
         ))}
       </div>

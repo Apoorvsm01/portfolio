@@ -88,7 +88,7 @@
                   ]
                 }
               ],
-              "condensed": "Conducted competitive audits of existing construction inspection apps and AR-enabled field tools."
+              "condensed": "I audited inspection tools and interviewed inspectors, managers, and trade engineers, identifying role-specific checklists, visual comparisons, and cost verification."
             },
             {
               "title": "Literature Review",
@@ -103,7 +103,7 @@
                   ]
                 }
               ],
-              "condensed": "Reviewed academic and industry sources on AR in construction, wearable-assisted inspections, and spatial computing."
+              "condensed": "I reviewed research on construction AR and wearables, focusing on data compliance, legal notifications, and real-time collaboration requirements."
             },
             {
               "title": "Stakeholder Interviews",
@@ -121,7 +121,7 @@
                   ]
                 }
               ],
-              "condensed": "Conducted interviews to gather insights from users and stakeholders (implied by mention of stakeholder interviews)."
+              "condensed": "I interviewed field stakeholders to capture tool requirements and design room-based inspection checklists, tailored dashboards, and contractor workflows."
             },
             {
               "title": "Usability Evaluations",
@@ -139,7 +139,7 @@
                   ]
                 }
               ],
-              "condensed": "Tested prototypes with users to assess emotional support, clarity, and personalization."
+              "condensed": "I tested AR prototypes with field users to measure time saved over paper workflows and improve voice commands and readability."
             },
             {
               "title": "Design & Prototyping",
@@ -155,7 +155,7 @@
                   ]
                 }
               ],
-              "condensed": "Developed low- and high-fidelity prototypes for mobile and AR glasses."
+              "condensed": "I built prototypes for mobile and Even Realities G1 glasses, testing room-wise task overlays, photo attachments, and verification prompts."
             }
           ]
         }

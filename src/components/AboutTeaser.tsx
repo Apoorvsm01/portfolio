@@ -97,12 +97,12 @@ export function AboutTeaser() {
         <div className="mt-10 sm:mt-12">
           <Link
             href="/about/"
-            className="link-underline min-h-[44px] inline-flex items-center gap-1.5 font-sans font-medium text-sm sm:text-base text-fg hover:text-accent transition-colors group"
+            className="group link-wipe min-h-[44px] inline-flex items-center gap-1.5 font-sans font-medium text-sm sm:text-base text-fg hover:text-accent transition-colors"
           >
             <span>The long way here</span>
             <span
               aria-hidden="true"
-              className="arrow-nudge-right font-bold text-accent"
+              className="arrow-slide-right font-bold text-accent"
             >
               →
             </span>

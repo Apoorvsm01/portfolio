@@ -41,6 +41,11 @@ VISUAL = {"figure", "metrics", "widgets", "bento"}
 # content/bento-summaries.json ({slug: {title: condensed}}); until a summary exists, the first sentence
 # of the tile's own source text is used.
 PROCESS_LABELS = ("Approach & Process", "Research Methods", "Process")
+
+# On the Framer page for Omnia Browser each research paragraph sits one heading too low ("Identified
+# media sharing applications…" under Brainstorming, "Organized a full-stack team…" under Affinity Mapping).
+# Rotate the sources back up so each heading gets its own paragraph.
+SOURCE_ROTATE = {"omniabrowser": 1}
 SUMMARIES = ROOT / "content" / "bento-summaries.json"
 
 # Prototype frames hug the prototype: the hmi_ui Flutter app letterboxes itself to ~7:3.
@@ -154,6 +159,11 @@ def bento(study: dict) -> None:
             tiles[-1]["source"].append(b)
         else:
             trailing.append(b)  # e.g. an image after the last tile stays below the grid
+    shift = SOURCE_ROTATE.get(study["slug"], 0)
+    if shift:
+        sources = [t["source"] for t in tiles]
+        for i, t in enumerate(tiles):
+            t["source"] = sources[(i - shift) % len(tiles)]
     for t in tiles:
         t["condensed"] = summaries.get(t["title"]) or first_sentence(t["source"])
     s["blocks"] = [{"type": "bento", "items": tiles}] + trailing

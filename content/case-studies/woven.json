@@ -57,7 +57,7 @@
                   "text": "Owned end-to-end UX for Generative Drive Coach, spanning research, HMI and voice interaction design, prototyping, and validation."
                 }
               ],
-              "condensed": "Owned end-to-end UX for Generative Drive Coach, spanning research, HMI and voice interaction design, prototyping, and validation."
+              "condensed": "I led the UX for Generative Drive Coach across research, HMI, voice interaction design, prototyping, and validation."
             },
             {
               "title": "Reusable Coaching Patterns",
@@ -71,7 +71,7 @@
                   "text": "Patterns now cover parking, intersections, stop signs, turns, lane changes, and speed management, all built on the same voice-first coaching logic."
                 }
               ],
-              "condensed": "Scaled a single teen-driving concept into a reusable coaching pattern system."
+              "condensed": "I scaled a teen driving concept into coaching patterns covering parking, intersections, stop signs, turns, lane changes, and speed management."
             },
             {
               "title": "Cross-Functional Partnership",
@@ -89,7 +89,7 @@
                   ]
                 }
               ],
-              "condensed": "Grounded every design decision in Woven’s engineering stack:"
+              "condensed": "I grounded designs in CARLA simulation, Vehicle SDK signals, and CAN bus data to test coaching against live vehicle states."
             },
             {
               "title": "Multi-Fidelity Prototyping",
@@ -107,7 +107,7 @@
                   ]
                 }
               ],
-              "condensed": "Rapidly translated feedback into working prototypes across Figma, simulator, and physical hardware:"
+              "condensed": "I built prototypes across voice-enabled Figma flows, CARLA simulator scenarios, and a physical steering and pedal rig."
             },
             {
               "title": "Independent Research & Validation",
@@ -126,7 +126,7 @@
                   ]
                 }
               ],
-              "condensed": "Owned research and validation end to end:"
+              "condensed": "I ran study plans, voice-frequency tests, and CARLA driving simulations to validate and refine coaching behavior from participant feedback."
             }
           ]
         }
