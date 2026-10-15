@@ -1,59 +1,248 @@
-import { site } from "../../content/site";
-import { imageDims } from "../lib/content";
-import { HeroPortrait } from "./HeroPortrait";
+"use client";
 
-export function Hero() {
-  const dims = imageDims(site.hero.image.src);
-  const words = site.hero.headline.split(" ");
+import { useState } from "react";
+import Link from "next/link";
+import { site } from "../../content/site";
+import { FadeImage } from "./FadeImage";
+
+export interface StudyHeroInfo {
+  slug: string;
+  title: string;
+  claim: string;
+  coverSrc: string;
+  coverAlt: string;
+  coverWidth: number;
+  coverHeight: number;
+}
+
+export interface HeroProps {
+  studyDataMap: Record<string, StudyHeroInfo>;
+  portraitDims?: { width: number; height: number };
+}
+
+export function Hero({
+  studyDataMap,
+  portraitDims = { width: 800, height: 1000 },
+}: HeroProps) {
+  // Toggle selection: null when no door is selected
+  const [selectedDoorId, setSelectedDoorId] = useState<string | null>(null);
+
+  const activeIntent = site.intents.find((it) => it.id === selectedDoorId);
+  const activeFlag = activeIntent
+    ? site.flags[activeIntent.flag as keyof typeof site.flags]
+    : null;
+
+  const handleDoorClick = (id: string) => {
+    setSelectedDoorId((current) => (current === id ? null : id));
+  };
+
+  const firstLinkedSlug = activeIntent?.links?.[0];
+  const firstLinkedStudy = firstLinkedSlug
+    ? studyDataMap[firstLinkedSlug]
+    : null;
 
   return (
     <section
-      aria-labelledby="hero-headline"
-      className="border-b border-line lg:min-h-[calc(100svh-var(--nav-h))] py-12 md:py-16 lg:py-0 flex flex-col justify-center"
+      aria-labelledby="hero-display-heading"
+      className="w-full bg-ground border-b border-rule py-12 md:py-16 lg:py-24"
     >
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-x-8 md:gap-y-10 lg:gap-x-12 lg:items-start">
-        {/* Full-width headline across all 12 columns */}
-        <div className="md:col-span-12">
-          <h1
-            id="hero-headline"
-            className="font-display text-hero font-bold tracking-tight text-text leading-[1.08] text-balance max-w-[70rem]"
+      <div className="container-page">
+        {/* Top 2 columns: Text left, Portrait right */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          {/* Left Column: Giant Display name, Tagline, Intro (max 36rem) */}
+          <div className="lg:col-span-7 xl:col-span-8 flex flex-col justify-start">
+            <h1
+              id="hero-display-heading"
+              className="font-display font-black leading-[0.95] tracking-[-0.025em] text-fg select-none relative mb-4 sm:mb-6"
+              style={{ fontSize: "clamp(4rem, 12vw, 11.5rem)" }}
+            >
+              <span
+                className={`inline-block transition-colors duration-[320ms] ${
+                  activeFlag ? "name-as-window" : "text-fg"
+                }`}
+                style={{
+                  transitionTimingFunction: "var(--ease-settle)",
+                  ...(activeFlag
+                    ? {
+                        backgroundImage: `url(${site.hero.image.src})`,
+                      }
+                    : {}),
+                }}
+              >
+                {site.hero.display}
+              </span>
+            </h1>
+
+            <p
+              className="font-sans font-medium text-fg leading-snug text-balance mb-4"
+              style={{ fontSize: "clamp(1.375rem, 1.1rem + 1vw, 1.75rem)" }}
+            >
+              {site.hero.headline}
+            </p>
+
+            <p className="font-serif text-fg-2 text-base sm:text-lg leading-[1.6] max-w-[36rem] text-pretty">
+              {site.hero.intro}
+            </p>
+          </div>
+
+          {/* Right Column: Portrait (aspect 4:5, radius 6px) with duotone crossfade */}
+          <div className="lg:col-span-5 xl:col-span-4 flex justify-start lg:justify-end">
+            <div className="relative aspect-[4/5] w-full max-w-[22rem] lg:max-w-none rounded-[6px] overflow-hidden border border-rule bg-surface self-start">
+              <FadeImage
+                src={site.hero.image.src}
+                alt={site.hero.image.alt}
+                width={portraitDims.width}
+                height={portraitDims.height}
+                className={`w-full h-full object-cover transition-[filter] duration-[320ms] ${
+                  activeFlag ? "grayscale contrast-125" : "grayscale-0"
+                }`}
+                style={{ transitionTimingFunction: "var(--ease-settle)" }}
+              />
+              {/* Decorative Duotone multiply overlay */}
+              <div
+                aria-hidden="true"
+                className={`absolute inset-0 pointer-events-none mix-blend-multiply transition-opacity duration-[320ms] ${
+                  activeFlag ? "opacity-100" : "opacity-0"
+                }`}
+                style={{
+                  backgroundColor: activeFlag?.bg ?? "transparent",
+                  transitionTimingFunction: "var(--ease-settle)",
+                }}
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Below both: "What brings you here?" + Three Doors */}
+        <div className="mt-12 sm:mt-16 pt-8 border-t border-rule/60">
+          <h2 className="font-sans text-xs sm:text-sm text-muted font-medium mb-4">
+            What brings you here?
+          </h2>
+
+          <div
+            role="group"
+            aria-label="What brings you here"
+            className="flex flex-wrap gap-3"
           >
-            {/* Visually hidden full sentence for screen readers */}
-            <span className="sr-only">{site.hero.headline}</span>
-            {/* Aria-hidden animated words */}
-            <span aria-hidden="true" className="inline">
-              {words.map((word, i) => (
-                <span
-                  key={i}
-                  className="inline-block overflow-hidden align-top mr-[0.25em] last:mr-0"
+            {site.intents.map((intent) => {
+              const isSelected = intent.id === selectedDoorId;
+              const flag = site.flags[intent.flag as keyof typeof site.flags];
+
+              return (
+                <button
+                  key={intent.id}
+                  type="button"
+                  aria-pressed={isSelected}
+                  onClick={() => handleDoorClick(intent.id)}
+                  style={
+                    isSelected && flag
+                      ? {
+                          backgroundColor: flag.bg,
+                          color: flag.ink,
+                          borderColor: flag.bg,
+                        }
+                      : undefined
+                  }
+                  className={`min-h-[44px] px-5 py-2.5 rounded-full border text-xs sm:text-sm font-sans font-medium transition-colors cursor-pointer inline-flex items-center justify-center ${
+                    isSelected
+                      ? "shadow-xs"
+                      : "bg-transparent text-muted hover:text-fg border-rule hover:border-fg"
+                  }`}
                 >
-                  <span
-                    className="inline-block hero-word"
-                    style={{ animationDelay: `${i * 60}ms` }}
+                  {intent.label}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Panel: 2 columns with 3px top rule in flag colour (only when a door is selected) */}
+          {activeIntent && activeFlag && (
+            <div
+              className="mt-8 pt-8 border-t-[3px] animate-settle grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12"
+              style={{ borderTopColor: activeFlag.bg }}
+            >
+              {/* Left Side: Headline (h3 Mona Sans 900) + Bullets (square markers) + Study Links */}
+              <div className="lg:col-span-7 xl:col-span-8 flex flex-col justify-start">
+                <h3 className="font-display font-black text-2xl sm:text-3xl lg:text-4xl text-fg leading-tight mb-6">
+                  {activeIntent.headline}
+                </h3>
+
+                <ul className="space-y-4 mb-8 list-none p-0">
+                  {activeIntent.bullets.map((bullet, idx) => (
+                    <li
+                      key={idx}
+                      className="flex items-start gap-3.5 text-fg-2 font-serif text-base sm:text-lg leading-relaxed"
+                    >
+                      <span
+                        className="w-2.5 h-2.5 mt-2 rounded-[1px] shrink-0"
+                        style={{ backgroundColor: activeFlag.bg }}
+                        aria-hidden="true"
+                      />
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {activeIntent.links && activeIntent.links.length > 0 && (
+                  <ul
+                    className="flex flex-wrap gap-4 list-none p-0"
+                    aria-label="Recommended case studies"
                   >
-                    {word}
-                  </span>
-                </span>
-              ))}
-            </span>
-          </h1>
-        </div>
+                    {activeIntent.links.map((slug) => {
+                      const studyInfo = studyDataMap[slug];
+                      const title = studyInfo?.title ?? slug;
+                      return (
+                        <li key={slug}>
+                          <Link
+                            href={`/work/${slug}/`}
+                            className="group font-sans font-semibold text-sm sm:text-base text-fg hover:text-fg min-h-[44px] inline-flex items-center gap-1.5 link-prose"
+                            style={
+                              {
+                                "--flag-color": activeFlag.bg,
+                              } as React.CSSProperties
+                            }
+                          >
+                            <span>{title}</span>
+                            <span
+                              aria-hidden="true"
+                              className="arrow-nudge-right font-bold"
+                            >
+                              →
+                            </span>
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                )}
+              </div>
 
-        {/* Intro paragraph: columns 1–7 at md, columns 1–6 at lg; self-start directly under headline */}
-        <div className="md:col-span-7 lg:col-span-6 lg:self-start">
-          <p className="hero-intro max-w-[42rem] text-base sm:text-lg md:text-xl text-muted leading-relaxed">
-            {site.hero.intro}
-          </p>
-        </div>
-
-        {/* Portrait: below md left-aligned (max-w 22rem), 5-col on md, columns 8–12 on lg (max-height 62svh), self-start */}
-        <div className="md:col-span-5 lg:col-span-5 lg:col-start-8 flex justify-start md:justify-end lg:self-start">
-          <HeroPortrait
-            src={site.hero.image.src}
-            alt={site.hero.image.alt}
-            width={dims.width}
-            height={dims.height}
-          />
+              {/* Right Side: First linked study's cover image + claim caption */}
+              {firstLinkedStudy && (
+                <div className="lg:col-span-5 xl:col-span-4">
+                  <figure className="w-full">
+                    <Link
+                      href={`/work/${firstLinkedSlug}/`}
+                      className="block group"
+                    >
+                      <div className="rounded-[6px] overflow-hidden border border-rule bg-surface aspect-[4/3]">
+                        <FadeImage
+                          src={firstLinkedStudy.coverSrc}
+                          alt=""
+                          width={firstLinkedStudy.coverWidth}
+                          height={firstLinkedStudy.coverHeight}
+                          className="w-full h-full object-cover group-hover:brightness-105 transition-[filter] duration-140"
+                        />
+                      </div>
+                    </Link>
+                    <figcaption className="mt-3 font-sans text-xs sm:text-sm text-muted leading-relaxed">
+                      {firstLinkedStudy.claim}
+                    </figcaption>
+                  </figure>
+                </div>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </section>

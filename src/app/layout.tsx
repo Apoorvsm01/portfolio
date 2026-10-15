@@ -8,18 +8,22 @@ import { BackToTop } from "../components/BackToTop";
 import { getNavIndex } from "../lib/nav-index";
 import "./globals.css";
 
-const fontDisplay = Bricolage_Grotesque({
+// v4 T: Mona_Sans with axes: ["wdth"] for display/headlines
+const fontDisplay = Mona_Sans({
   subsets: ["latin"],
   variable: "--font-display",
+  axes: ["wdth"],
   display: "swap",
 });
 
-const fontSans = Mona_Sans({
+// v4 T: Bricolage_Grotesque for subheads, tagline, UI, buttons, labels
+const fontSans = Bricolage_Grotesque({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
 });
 
+// v4 T: Newsreader (serif) for body paragraphs
 const fontSerif = Newsreader({
   subsets: ["latin"],
   variable: "--font-serif",
@@ -29,8 +33,8 @@ const fontSerif = Newsreader({
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#0e0f0f" },
-    { media: "(prefers-color-scheme: light)", color: "#f6f4ef" },
+    { media: "(prefers-color-scheme: dark)", color: "#12110f" },
+    { media: "(prefers-color-scheme: light)", color: "#ede7db" },
   ],
   colorScheme: "dark light",
 };
@@ -60,7 +64,12 @@ export const metadata: Metadata = {
   },
 };
 
-// Also marks <html> with data-js so reveal animations only hide content when JS is running.
+// CSS custom properties generated from site.flags (v4 C)
+const flagStyles = Object.entries(site.flags)
+  .map(([name, { bg, ink }]) => `--flag-${name}: ${bg}; --flag-${name}-ink: ${ink};`)
+  .join(" ");
+
+// Theme bootstrap script: sets dark by default, respects localStorage
 const themeBootstrapScript = `(function() {
   document.documentElement.setAttribute('data-js', '');
   try {
@@ -81,16 +90,21 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${fontSans.variable} ${fontDisplay.variable} ${fontSerif.variable} h-full antialiased`}
     >
       <head>
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `:root { ${flagStyles} }`,
+          }}
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: themeBootstrapScript,
           }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-bg text-text">
+      <body className="min-h-full flex flex-col bg-ground text-fg">
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2.5 focus:min-h-[44px] focus:inline-flex focus:items-center focus:bg-surface focus:text-text focus:border focus:border-line focus:rounded-md focus:shadow-lg focus:outline-none"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2.5 focus:min-h-[44px] focus:inline-flex focus:items-center focus:bg-surface focus:text-fg focus:border focus:border-rule focus:rounded-[6px] focus:shadow-lg focus:outline-none"
         >
           Skip to content
         </a>

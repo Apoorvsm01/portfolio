@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { site } from "../../content/site";
-import { Reveal } from "./Reveal";
 
 function renderYears(years: string) {
   const parts = years.split(/[–—-]/).map((p) => p.trim());
@@ -24,80 +23,92 @@ function renderYears(years: string) {
 }
 
 export function AboutTeaser() {
-  const recentTimeline = site.timeline.slice(-3).reverse();
+  const recentTimeline = site.timeline.slice(0, 3);
 
   return (
-    <Reveal
-      as="section"
+    <section
       aria-labelledby="about-teaser-heading"
-      className="py-14 md:py-16 border-b border-line"
+      className="w-full bg-ground border-b border-rule py-16 md:py-24"
     >
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-        {/* Left column: h2 + the 2-line intro + 'The long way here →' link */}
-        <div className="lg:col-span-5 flex flex-col">
+      <div className="container-page">
+        {/* Section Heading & Intro */}
+        <div className="max-w-[44rem] mb-10 sm:mb-14">
           <h2
             id="about-teaser-heading"
-            className="text-xs uppercase tracking-[0.14em] text-muted font-medium"
+            className="font-display font-black text-h2 text-fg leading-tight mb-3"
           >
-            About
+            The long way here
           </h2>
-
-          <p className="mt-4 text-base sm:text-lg text-muted leading-relaxed line-clamp-2 max-w-[34rem]">
-            {site.hero.intro}
+          <p
+            className="font-sans font-medium text-muted leading-snug"
+            style={{ fontSize: "clamp(1.375rem, 1.1rem + 1vw, 1.75rem)" }}
+          >
+            {site.timelineIntro}
           </p>
-
-          <div className="mt-6">
-            <Link
-              href="/about/"
-              className="link-underline min-h-[44px] inline-flex items-center gap-1.5 text-sm sm:text-base font-medium text-text hover:text-accent transition-colors group"
-            >
-              <span>The long way here</span>
-              <span aria-hidden="true" className="arrow-nudge-right font-bold">
-                →
-              </span>
-            </Link>
-          </div>
         </div>
 
-        {/* Right column: the 3 timeline rows as a compact ol */}
-        <div className="lg:col-span-7">
-          <div className="relative">
-            <div
-              className="absolute left-[9px] top-2 bottom-2 w-[2px] bg-line pointer-events-none"
+        {/* 3 newest timeline rows formatted per v4 Timeline style */}
+        <ol className="border-t border-rule divide-y divide-rule list-none p-0 m-0">
+          {recentTimeline.map((item) => {
+            const flagBg =
+              site.flags[item.flag as keyof typeof site.flags]?.bg ?? "#f5a524";
+
+            return (
+              <li
+                key={`${item.years}-${item.role}`}
+                className="py-6 sm:py-8 grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-8 items-start"
+              >
+                {/* 1. years (muted, small, left) */}
+                <div className="md:col-span-3 font-sans text-xs sm:text-sm text-muted">
+                  {renderYears(item.years)}
+                </div>
+
+                {/* 2. role (Mona Sans 900, ~1.75rem) with note below in serif, muted */}
+                <div className="md:col-span-6">
+                  <h3 className="font-display font-black text-xl sm:text-2xl text-fg leading-tight">
+                    {item.role}
+                  </h3>
+                  {item.note && (
+                    <p className="mt-2 font-serif text-sm sm:text-base text-muted leading-relaxed">
+                      {item.note}
+                    </p>
+                  )}
+                </div>
+
+                {/* 3. org chips on the right: 10px square in the org's flag plus the org name, muted */}
+                <div className="md:col-span-3 md:text-right flex items-center md:justify-end gap-2 text-xs sm:text-sm text-muted font-sans">
+                  {item.org && (
+                    <>
+                      <span
+                        className="w-2.5 h-2.5 rounded-[1px] shrink-0"
+                        style={{ backgroundColor: flagBg }}
+                        aria-hidden="true"
+                      />
+                      <span>{item.org}</span>
+                    </>
+                  )}
+                </div>
+              </li>
+            );
+          })}
+        </ol>
+
+        {/* Link to /about/ */}
+        <div className="mt-10 sm:mt-12">
+          <Link
+            href="/about/"
+            className="link-underline min-h-[44px] inline-flex items-center gap-1.5 font-sans font-medium text-sm sm:text-base text-fg hover:text-accent transition-colors group"
+          >
+            <span>The long way here</span>
+            <span
               aria-hidden="true"
-            />
-            <ol className="relative pl-6 sm:pl-7 divide-y divide-line/60 list-none p-0 m-0">
-              {recentTimeline.map((item) => (
-                <li
-                  key={`${item.years}-${item.role}`}
-                  className="relative py-3.5 first:pt-0 last:pb-0 grid grid-cols-1 sm:grid-cols-12 gap-1 sm:gap-4 items-baseline"
-                >
-                  <span
-                    className="absolute left-[5px] top-1.5 w-2.5 h-2.5 rounded-full border-2 border-accent bg-accent pointer-events-none"
-                    aria-hidden="true"
-                  />
-                  <div className="sm:col-span-4 text-xs sm:text-sm font-mono text-muted">
-                    {renderYears(item.years)}
-                  </div>
-                  <div className="sm:col-span-8">
-                    <div className="text-sm sm:text-base font-display font-semibold text-text leading-snug">
-                      {item.role}
-                      {item.org && (
-                        <span className="font-normal text-muted"> · {item.org}</span>
-                      )}
-                    </div>
-                    {item.note && (
-                      <p className="mt-0.5 text-xs sm:text-sm text-muted leading-relaxed line-clamp-1">
-                        {item.note}
-                      </p>
-                    )}
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </div>
+              className="arrow-nudge-right font-bold text-accent"
+            >
+              →
+            </span>
+          </Link>
         </div>
       </div>
-    </Reveal>
+    </section>
   );
 }

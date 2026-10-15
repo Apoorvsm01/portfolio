@@ -37,8 +37,6 @@ export function Nav() {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    // Sync initial state (e.g. reload mid-page). Call directly: pre-setting rafId here would make
-    // handleScroll's guard return early and leave rafId set forever, ignoring every later scroll.
     handleScroll();
 
     return () => {
@@ -96,7 +94,6 @@ export function Nav() {
       }
     };
 
-    // Auto-focus the first element in the sheet
     const timer = setTimeout(() => {
       const sheet = sheetRef.current;
       if (sheet) {
@@ -131,7 +128,7 @@ export function Nav() {
         <Link
           href="/"
           aria-current={isHome ? "page" : undefined}
-          className="font-display font-semibold text-base sm:text-lg text-text hover:text-accent transition-colors tracking-tight min-h-[44px] inline-flex items-center gap-2"
+          className="font-display font-black text-base sm:text-lg text-fg hover:text-accent transition-colors tracking-tight min-h-[44px] inline-flex items-center gap-2"
         >
           <span>{site.name}</span>
           {isHome && (
@@ -145,12 +142,12 @@ export function Nav() {
         {/* Desktop Navigation */}
         <nav
           aria-label="Primary"
-          className="hidden md:flex items-center gap-1.5 text-sm text-muted"
+          className="hidden md:flex items-center gap-1.5 font-sans text-sm text-muted"
         >
           <Link
             href="/work/"
             aria-current={isWork ? "page" : undefined}
-            className="min-h-[44px] px-3 inline-flex items-center gap-1.5 hover:text-text transition-colors data-[current=true]:text-text link-underline"
+            className="min-h-[44px] px-3 inline-flex items-center gap-1.5 hover:text-fg transition-colors data-[current=true]:text-fg link-underline"
             data-current={isWork ? "true" : undefined}
           >
             <span>Work</span>
@@ -165,7 +162,7 @@ export function Nav() {
           <Link
             href="/about/"
             aria-current={isAbout ? "page" : undefined}
-            className="min-h-[44px] px-3 inline-flex items-center gap-1.5 hover:text-text transition-colors data-[current=true]:text-text link-underline"
+            className="min-h-[44px] px-3 inline-flex items-center gap-1.5 hover:text-fg transition-colors data-[current=true]:text-fg link-underline"
             data-current={isAbout ? "true" : undefined}
           >
             <span>About</span>
@@ -179,7 +176,7 @@ export function Nav() {
 
           <a
             href={`mailto:${site.email}`}
-            className="min-h-[44px] px-3 inline-flex items-center hover:text-text transition-colors link-underline"
+            className="min-h-[44px] px-3 inline-flex items-center hover:text-fg transition-colors link-underline"
           >
             Contact
           </a>
@@ -188,7 +185,7 @@ export function Nav() {
             href={site.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="group min-h-[44px] px-3 inline-flex items-center gap-1 hover:text-text transition-colors link-underline"
+            className="group min-h-[44px] px-3 inline-flex items-center gap-1 hover:text-fg transition-colors link-underline"
           >
             <span>LinkedIn</span>
             <span aria-hidden="true" className="arrow-nudge-diag">
@@ -202,7 +199,7 @@ export function Nav() {
             type="button"
             onClick={openCommandPalette}
             aria-label="Open command palette"
-            className="min-h-[44px] px-2.5 py-1.5 rounded-lg border border-line/60 bg-surface/50 text-muted hover:text-text hover:border-line transition-colors inline-flex items-center gap-2 text-xs ml-1 cursor-pointer"
+            className="min-h-[44px] px-2.5 py-1.5 rounded-[6px] border border-rule/60 bg-surface/50 text-muted hover:text-fg hover:border-rule transition-colors inline-flex items-center gap-2 text-xs ml-1 cursor-pointer"
           >
             <svg
               className="w-3.5 h-3.5"
@@ -217,7 +214,7 @@ export function Nav() {
               <circle cx="11" cy="11" r="8" />
               <path d="m21 21-4.3-4.3" />
             </svg>
-            <kbd className="font-mono text-[10px] px-1 py-0.5 rounded bg-bg border border-line text-muted">
+            <kbd className="font-mono text-[10px] px-1 py-0.5 rounded-[4px] bg-ground border border-rule text-muted">
               ⌘K
             </kbd>
           </button>
@@ -233,7 +230,7 @@ export function Nav() {
             type="button"
             onClick={openCommandPalette}
             aria-label="Open command palette"
-            className="min-w-[44px] min-h-[44px] inline-flex items-center justify-center p-2.5 rounded-lg text-muted hover:text-text hover:bg-surface border border-line/60 transition-colors cursor-pointer"
+            className="min-w-[44px] min-h-[44px] inline-flex items-center justify-center p-2.5 rounded-[6px] text-muted hover:text-fg hover:bg-surface border border-rule/60 transition-colors cursor-pointer"
           >
             <svg
               className="w-4 h-4"
@@ -259,7 +256,7 @@ export function Nav() {
             aria-expanded={isOpen}
             aria-controls="mobile-nav-sheet"
             aria-label="Toggle navigation menu"
-            className="min-w-[44px] min-h-[44px] inline-flex items-center justify-center p-2.5 rounded-lg text-muted hover:text-text hover:bg-surface border border-line/60 transition-colors cursor-pointer"
+            className="min-w-[44px] min-h-[44px] inline-flex items-center justify-center p-2.5 rounded-[6px] text-muted hover:text-fg hover:bg-surface border border-rule/60 transition-colors cursor-pointer"
           >
             <svg
               className="w-5 h-5"
@@ -281,7 +278,7 @@ export function Nav() {
         </div>
       </div>
 
-      {/* Mobile full-height sheet menu with focus trap */}
+      {/* Mobile full-height sheet menu */}
       {isOpen && (
         <nav
           ref={sheetRef}
@@ -289,14 +286,14 @@ export function Nav() {
           role="dialog"
           aria-modal="true"
           aria-label="Mobile Navigation"
-          className="fixed inset-0 top-16 z-50 bg-bg/98 backdrop-blur-xl flex flex-col justify-between p-6 sm:p-8 border-t border-line overflow-y-auto md:hidden"
+          className="fixed inset-0 top-16 z-50 bg-ground/98 backdrop-blur-xl flex flex-col justify-between p-6 sm:p-8 border-t border-rule overflow-y-auto md:hidden"
         >
           <div className="flex flex-col gap-6 pt-4">
             <Link
               href="/"
               aria-current={isHome ? "page" : undefined}
               onClick={() => setIsOpen(false)}
-              className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-text hover:text-accent flex items-center justify-between min-h-[44px]"
+              className="font-display text-2xl sm:text-3xl font-black tracking-tight text-fg hover:text-accent flex items-center justify-between min-h-[44px]"
             >
               <span>Home</span>
               {isHome && (
@@ -311,7 +308,7 @@ export function Nav() {
               href="/work/"
               aria-current={isWork ? "page" : undefined}
               onClick={() => setIsOpen(false)}
-              className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-text hover:text-accent flex items-center justify-between min-h-[44px]"
+              className="font-display text-2xl sm:text-3xl font-black tracking-tight text-fg hover:text-accent flex items-center justify-between min-h-[44px]"
             >
               <span>Work</span>
               {isWork && (
@@ -326,7 +323,7 @@ export function Nav() {
               href="/about/"
               aria-current={isAbout ? "page" : undefined}
               onClick={() => setIsOpen(false)}
-              className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-text hover:text-accent flex items-center justify-between min-h-[44px]"
+              className="font-display text-2xl sm:text-3xl font-black tracking-tight text-fg hover:text-accent flex items-center justify-between min-h-[44px]"
             >
               <span>About</span>
               {isAbout && (
@@ -340,7 +337,7 @@ export function Nav() {
             <a
               href={`mailto:${site.email}`}
               onClick={() => setIsOpen(false)}
-              className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-text hover:text-accent min-h-[44px] flex items-center"
+              className="font-display text-2xl sm:text-3xl font-black tracking-tight text-fg hover:text-accent min-h-[44px] flex items-center"
             >
               Contact
             </a>
@@ -350,7 +347,7 @@ export function Nav() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsOpen(false)}
-              className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-text hover:text-accent flex items-center gap-2 min-h-[44px]"
+              className="font-display text-2xl sm:text-3xl font-black tracking-tight text-fg hover:text-accent flex items-center gap-2 min-h-[44px]"
             >
               <span>LinkedIn</span>
               <span aria-hidden="true" className="arrow-nudge-diag text-lg">
@@ -360,14 +357,14 @@ export function Nav() {
             </a>
           </div>
 
-          <div className="pt-8 border-t border-line flex flex-col gap-4">
+          <div className="pt-8 border-t border-rule flex flex-col gap-4">
             <button
               type="button"
               onClick={() => {
                 setIsOpen(false);
                 openCommandPalette();
               }}
-              className="w-full min-h-[44px] px-4 py-3 rounded-xl bg-surface border border-line text-sm text-muted hover:text-text flex items-center justify-between cursor-pointer"
+              className="w-full min-h-[44px] px-4 py-3 rounded-[6px] bg-surface border border-rule text-sm text-muted hover:text-fg flex items-center justify-between cursor-pointer"
             >
               <span className="inline-flex items-center gap-2">
                 <svg
@@ -385,7 +382,7 @@ export function Nav() {
                 </svg>
                 <span>Search</span>
               </span>
-              <kbd className="font-mono text-xs px-2 py-0.5 rounded bg-bg border border-line">
+              <kbd className="font-mono text-xs px-2 py-0.5 rounded-[4px] bg-ground border border-rule">
                 ⌘K
               </kbd>
             </button>

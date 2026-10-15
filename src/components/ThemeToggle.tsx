@@ -132,7 +132,7 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
       type="button"
       onClick={toggleTheme}
       aria-label={ariaLabel}
-      className={`min-w-[44px] min-h-[44px] inline-flex items-center justify-center p-2 rounded-lg text-muted hover:text-text hover:bg-surface border border-line/60 transition-colors cursor-pointer ${className}`}
+      className={`min-w-[44px] min-h-[44px] inline-flex items-center justify-center p-2 rounded-[6px] text-muted hover:text-fg hover:bg-surface border border-rule/60 transition-colors cursor-pointer ${className}`}
     >
       <span className="relative w-4 h-4 flex items-center justify-center">
         {/* Placeholder circle icon until mounted */}

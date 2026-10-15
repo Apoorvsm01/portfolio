@@ -1,5 +1,4 @@
 import { site } from "../../content/site";
-import { Reveal } from "./Reveal";
 
 function renderYears(years: string) {
   const parts = years.split(/[–—-]/).map((p) => p.trim());
@@ -24,56 +23,69 @@ function renderYears(years: string) {
 
 export function Timeline() {
   return (
-    <Reveal as="section" aria-labelledby="timeline-heading" className="py-24 md:py-32 border-b border-line">
-      <div className="mb-12">
-        <h2 id="timeline-heading" className="font-display text-h2 font-bold tracking-tight text-text">
+    <section
+      aria-labelledby="timeline-heading"
+      className="py-16 sm:py-24 border-b border-rule"
+    >
+      <div className="max-w-[44rem] mb-10 sm:mb-14">
+        <h2
+          id="timeline-heading"
+          className="font-display font-black text-h2 text-fg leading-tight mb-3"
+        >
           The long way here
         </h2>
+        <p
+          className="font-sans font-medium text-muted leading-snug"
+          style={{ fontSize: "clamp(1.375rem, 1.1rem + 1vw, 1.75rem)" }}
+        >
+          {site.timelineIntro}
+        </p>
       </div>
 
-      <div className="relative">
-        {/* Static vertical track line */}
-        <div
-          className="absolute left-[11px] sm:left-[15px] top-3 bottom-3 w-[2px] bg-line pointer-events-none"
-          aria-hidden="true"
-        />
-        {/* Scroll-driven vertical progress bar */}
-        <div
-          className="timeline-progress-bar absolute left-[11px] sm:left-[15px] top-3 bottom-3 w-[2px] bg-accent origin-top pointer-events-none"
-          aria-hidden="true"
-        />
+      <ol className="border-t border-rule divide-y divide-rule list-none p-0 m-0">
+        {site.timeline.map((item) => {
+          const flagBg =
+            site.flags[item.flag as keyof typeof site.flags]?.bg ?? "#f5a524";
 
-        <ol className="relative pl-7 sm:pl-9 divide-y divide-line/60 list-none p-0 m-0">
-          {site.timeline.map((item) => (
+          return (
             <li
               key={`${item.years}-${item.role}`}
-              className="relative py-6 first:pt-0 last:pb-0 grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-8 items-baseline"
+              className="py-6 sm:py-8 grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-8 items-start"
             >
-              {/* Scroll-driven dot indicator */}
-              <span
-                className="timeline-dot absolute left-[7px] sm:left-[11px] top-2 sm:top-1.5 w-2.5 h-2.5 rounded-full border-2 border-accent pointer-events-none"
-                aria-hidden="true"
-              />
-              <div className="md:col-span-4 text-sm font-mono text-muted">
+              {/* years (muted, small, left) */}
+              <div className="md:col-span-3 font-sans text-xs sm:text-sm text-muted">
                 {renderYears(item.years)}
               </div>
-              <div className="md:col-span-8">
-                <div className="text-base sm:text-lg font-display font-semibold text-text">
+
+              {/* role (Mona Sans 900, ~1.75rem) with note below in serif, muted */}
+              <div className="md:col-span-6">
+                <h3 className="font-display font-black text-xl sm:text-2xl text-fg leading-tight">
                   {item.role}
-                  {item.org && (
-                    <span className="font-normal text-muted"> · {item.org}</span>
-                  )}
-                </div>
+                </h3>
                 {item.note && (
-                  <p className="mt-1.5 text-sm sm:text-base text-muted leading-relaxed max-w-[42rem]">
+                  <p className="mt-2 font-serif text-sm sm:text-base text-muted leading-relaxed">
                     {item.note}
                   </p>
                 )}
               </div>
+
+              {/* org chips on the right: a 10px square in the org's flag plus the org name, muted */}
+              <div className="md:col-span-3 md:text-right flex items-center md:justify-end gap-2 text-xs sm:text-sm text-muted font-sans">
+                {item.org && (
+                  <>
+                    <span
+                      className="w-2.5 h-2.5 rounded-[1px] shrink-0"
+                      style={{ backgroundColor: flagBg }}
+                      aria-hidden="true"
+                    />
+                    <span>{item.org}</span>
+                  </>
+                )}
+              </div>
             </li>
-          ))}
-        </ol>
-      </div>
-    </Reveal>
+          );
+        })}
+      </ol>
+    </section>
   );
 }

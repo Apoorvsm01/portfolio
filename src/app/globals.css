@@ -1,61 +1,149 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #0e0f0f;
-  --surface: #17191a;
-  --text: #ecebe6;
-  --muted: #9a9a94;
-  --line: #2a2c2d;
-  --accent: #e8b86b;
+  /* v4 Palette: Ink / Dark is default */
+  --ground: #12110f;
+  --surface: #1b1916;
+  --surface-2: #26231f;
+  --rule: #2b2823;
+  --fg: #f1ece3;
+  --fg-2: #c9c2b5;
+  --muted: #a39c8f;
+  --focus: #9ad0ff;
+
+  /* Paper band tokens */
+  --paper: #ede7db;
+  --paper-ink: #171513;
+  --paper-muted: #5c564c;
+  --paper-rule: #d6cfc1;
+
+  /* Accent (flags.amber) */
+  --accent: #f5a524;
+
+  /* Flags from site.flags (CSS custom properties) */
+  --flag-amber: #f5a524;
+  --flag-amber-ink: #12110f;
+  --flag-blue: #4aa3ff;
+  --flag-blue-ink: #0b1420;
+  --flag-lime: #b6e05a;
+  --flag-lime-ink: #12110f;
+  --flag-pink: #ee5c96;
+  --flag-pink-ink: #12110f;
+  --flag-teal: #3cc8b4;
+  --flag-teal-ink: #0b1a17;
+  --flag-violet: #a98cf5;
+  --flag-violet-ink: #12110f;
+  --flag-yellow: #f2c94c;
+  --flag-yellow-ink: #12110f;
+
+  /* Compatibility tokens for existing styles */
+  --bg: var(--ground);
+  --text: var(--fg);
+  --line: var(--rule);
   --nav-h: 4rem;
 
-  /* Fluid typography steps (SPEC R) */
-  --step-hero: clamp(2.125rem, 1.4rem + 3.6vw, 5rem);
-  --step-h1: clamp(2.25rem, 1.5rem + 3vw, 4.25rem);
-  --step-h2: clamp(1.75rem, 1.3rem + 1.8vw, 2.75rem);
+  /* Fluid typography steps (v4 T & L) */
+  --step-hero: clamp(4rem, 12vw, 11.5rem);
+  --step-h1: clamp(2.5rem, 6vw, 4.75rem);
+  --step-h2: clamp(2rem, 1.4rem + 2.2vw, 2.75rem);
   --step-h3: clamp(1.2rem, 1.05rem + 0.6vw, 1.5rem);
 
-  /* Motion tokens (SPEC M) */
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-  --dur-1: 150ms;
-  --dur-2: 250ms;
-  --dur-3: 450ms;
-  --dur-4: 700ms;
+  /* Section rhythm (v4 L: clamp(4.5rem, 9vw, 8.5rem)) */
+  --step-rhythm: clamp(4.5rem, 9vw, 8.5rem);
+
+  /* Motion tokens (v4 M2) */
+  --ease-settle: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --dur-hover: 140ms;
 
   color-scheme: dark;
 }
 
 [data-theme="light"] {
-  --bg: #f6f4ef;
+  /* Light theme uses the paper values (v4 C) */
+  --ground: #ede7db;
   --surface: #ffffff;
-  --text: #1a1a19;
-  --muted: #5f5e59;
-  --line: #e2dfd7;
-  --accent: #9a5b00;
+  --surface-2: #f2ece0;
+  --rule: #d6cfc1;
+  --fg: #171513;
+  --fg-2: #38342e;
+  --muted: #5c564c;
+  --focus: #1d68bd;
+
+  /* Paper band tokens stay consistent */
+  --paper: #ede7db;
+  --paper-ink: #171513;
+  --paper-muted: #5c564c;
+  --paper-rule: #d6cfc1;
+
+  --accent: #f5a524;
+
+  --bg: var(--ground);
+  --text: var(--fg);
+  --line: var(--rule);
+
   color-scheme: light;
 }
 
 [data-theme="dark"] {
-  --bg: #0e0f0f;
-  --surface: #17191a;
-  --text: #ecebe6;
-  --muted: #9a9a94;
-  --line: #2a2c2d;
-  --accent: #e8b86b;
+  --ground: #12110f;
+  --surface: #1b1916;
+  --surface-2: #26231f;
+  --rule: #2b2823;
+  --fg: #f1ece3;
+  --fg-2: #c9c2b5;
+  --muted: #a39c8f;
+  --focus: #9ad0ff;
+
+  --paper: #ede7db;
+  --paper-ink: #171513;
+  --paper-muted: #5c564c;
+  --paper-rule: #d6cfc1;
+
+  --accent: #f5a524;
+
+  --bg: var(--ground);
+  --text: var(--fg);
+  --line: var(--rule);
+
   color-scheme: dark;
 }
 
 @theme inline {
-  --color-bg: var(--bg);
+  --color-ground: var(--ground);
   --color-surface: var(--surface);
-  --color-text: var(--text);
+  --color-surface-2: var(--surface-2);
+  --color-rule: var(--rule);
+  --color-fg: var(--fg);
+  --color-fg-2: var(--fg-2);
   --color-muted: var(--muted);
-  --color-line: var(--line);
+  --color-focus: var(--focus);
+
+  --color-paper: var(--paper);
+  --color-paper-ink: var(--paper-ink);
+  --color-paper-muted: var(--paper-muted);
+  --color-paper-rule: var(--paper-rule);
+
   --color-accent: var(--accent);
 
-  /* Fluid heading sizes as Tailwind font-size tokens: text-hero, text-h1, text-h2, text-h3.
-     (An arbitrary text-[var(--x)] class is read as a color, so tokens are required.) */
+  --color-bg: var(--bg);
+  --color-text: var(--text);
+  --color-line: var(--line);
+
+  --color-flag-amber: var(--flag-amber);
+  --color-flag-amber-ink: var(--flag-amber-ink);
+  --color-flag-blue: var(--flag-blue);
+  --color-flag-blue-ink: var(--flag-blue-ink);
+  --color-flag-lime: var(--flag-lime);
+  --color-flag-lime-ink: var(--flag-lime-ink);
+  --color-flag-pink: var(--flag-pink);
+  --color-flag-pink-ink: var(--flag-pink-ink);
+  --color-flag-teal: var(--flag-teal);
+  --color-flag-teal-ink: var(--flag-teal-ink);
+  --color-flag-violet: var(--flag-violet);
+  --color-flag-violet-ink: var(--flag-violet-ink);
+  --color-flag-yellow: var(--flag-yellow);
+  --color-flag-yellow-ink: var(--flag-yellow-ink);
+
   --text-hero: var(--step-hero);
   --text-h1: var(--step-h1);
   --text-h2: var(--step-h2);
@@ -66,35 +154,40 @@
   --font-serif: var(--font-serif);
 }
 
-/* Page container (SPEC R: max-width 80rem, side gutters clamp(1rem, 4vw, 3rem)) */
+/* Page container (v4 L: max-width 110rem, side gutters clamp(1.25rem, 5vw, 6rem)) */
 .container-page {
   width: 100%;
-  max-width: 80rem;
+  max-width: 110rem;
   margin-inline: auto;
-  padding-inline: clamp(1rem, 4vw, 3rem);
+  padding-inline: clamp(1.25rem, 5vw, 6rem);
 }
 
 .prose-width {
   max-width: 42rem;
 }
 
-/* Base typography */
+.py-rhythm {
+  padding-block: var(--step-rhythm);
+}
+
+/* Base typography (v4 T) */
 html {
-  background-color: var(--bg);
-  color: var(--text);
+  background-color: var(--ground);
+  color: var(--fg);
   scroll-behavior: smooth;
 }
 
 body {
-  background-color: var(--bg);
-  color: var(--text);
+  background-color: var(--ground);
+  color: var(--fg);
   font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
-  line-height: 1.65;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Display / Headlines: Mona Sans 900, wdth 112, tracking -0.025em, line-height 0.95-1.05 */
 h1,
 h2,
 h3,
@@ -102,35 +195,70 @@ h4,
 h5,
 h6 {
   font-family: var(--font-display), sans-serif;
-  letter-spacing: -0.02em;
+  font-weight: 900;
+  font-variation-settings: "wdth" 112;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
   text-wrap: balance;
 }
 
+/* Body paragraphs: Newsreader (serif), 400, clamp(1.0625rem, 1rem + .3vw, 1.1875rem), line-height 1.6 */
 p {
+  font-family: var(--font-serif), Georgia, Cambria, "Times New Roman", Times, serif;
+  font-weight: 400;
+  font-size: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);
+  line-height: 1.6;
+  color: var(--fg-2);
   text-wrap: pretty;
 }
 
-/* Small caps-style labels */
-.label-caps {
-  font-size: 0.75rem;
-  line-height: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
+.band-paper p,
+[data-theme="light"] p {
+  color: var(--paper-ink);
+}
+
+/* Labels: Bricolage at 13-14px, colour --muted, sentence case (v4 T) */
+.label-subhead {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
   color: var(--muted);
 }
 
-/* Accessible visible focus ring */
+/* Focus ring (v4 M2) */
 *:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px var(--ground);
 }
 
-/* Data-reveal motion */
+.band-paper *:focus-visible,
+[data-theme="light"] *:focus-visible {
+  box-shadow: 0 0 0 6px var(--paper);
+}
+
+/* Settle keyframe (v4 M2) */
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-settle {
+  animation: settle 260ms var(--ease-settle) both;
+}
+
+/* Data-reveal motion with settle keyframe */
 [data-js] [data-reveal] {
   opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 600ms ease-out, transform 600ms ease-out;
-  transition-delay: calc(var(--i, 0) * 80ms);
+  transform: translateY(6px);
+  transition: opacity 260ms var(--ease-settle), transform 260ms var(--ease-settle);
+  transition-delay: calc(var(--i, 0) * 40ms);
   will-change: opacity, transform;
 }
 
@@ -139,17 +267,26 @@ p {
   transform: translateY(0);
 }
 
-/* ==========================================================================
-   SPEC M: Micro-interactions and motion
-   ========================================================================== */
+/* Links in prose (v4 T): underlined, thickness .08em -> .22em on hover, text-underline-offset: .18em */
+.link-prose {
+  text-decoration: underline;
+  text-decoration-color: var(--flag-color, var(--accent));
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
+  transition: text-decoration-thickness var(--dur-hover) var(--ease-settle);
+}
 
-/* 1. Links: underline grows from the left on hover/focus */
+.link-prose:hover {
+  text-decoration-thickness: 0.22em;
+}
+
+/* Nav link underline */
 .link-underline {
   background-image: linear-gradient(currentColor, currentColor);
   background-repeat: no-repeat;
   background-position: left bottom;
   background-size: 0% 1px;
-  transition: background-size var(--dur-2) var(--ease-out);
+  transition: background-size var(--dur-hover) var(--ease-settle);
 }
 
 .link-underline:hover,
@@ -159,10 +296,10 @@ p {
   background-size: 100% 1px;
 }
 
-/* 1. Links: Arrow nudging */
+/* Arrow nudges */
 .arrow-nudge-right {
   display: inline-block;
-  transition: transform var(--dur-1) var(--ease-out);
+  transition: transform var(--dur-hover) var(--ease-settle);
 }
 :hover > .arrow-nudge-right,
 :focus-visible > .arrow-nudge-right,
@@ -173,7 +310,7 @@ p {
 
 .arrow-nudge-diag {
   display: inline-block;
-  transition: transform var(--dur-1) var(--ease-out);
+  transition: transform var(--dur-hover) var(--ease-settle);
 }
 :hover > .arrow-nudge-diag,
 :focus-visible > .arrow-nudge-diag,
@@ -184,7 +321,7 @@ p {
 
 .arrow-nudge-left {
   display: inline-block;
-  transition: transform var(--dur-1) var(--ease-out);
+  transition: transform var(--dur-hover) var(--ease-settle);
 }
 :hover > .arrow-nudge-left,
 :focus-visible > .arrow-nudge-left,
@@ -193,31 +330,31 @@ p {
   transform: translateX(-3px);
 }
 
-/* 2. Buttons/pills/chips: hover tints bg, :active scales to .97, transition --dur-1 */
+/* Buttons active translate (v4 M2): active translateY(1px). No scale. */
 button,
 [role="tab"],
 .btn-pill,
 .chip {
-  transition: transform var(--dur-1) var(--ease-out),
-              background-color var(--dur-1) var(--ease-out),
-              border-color var(--dur-1) var(--ease-out),
-              color var(--dur-1) var(--ease-out);
+  transition: transform var(--dur-hover) var(--ease-settle),
+              background-color var(--dur-hover) var(--ease-settle),
+              border-color var(--dur-hover) var(--ease-settle),
+              color var(--dur-hover) var(--ease-settle);
 }
 
 button:active,
 [role="tab"]:active,
 .btn-pill:active,
 .chip:active {
-  transform: scale(0.97);
+  transform: translateY(1px);
 }
 
-/* 3. Nav */
+/* Nav header */
 header[data-nav] {
-  transition: transform var(--dur-3) var(--ease-out),
-              background-color var(--dur-2) var(--ease-out),
-              border-color var(--dur-2) var(--ease-out),
-              backdrop-filter var(--dur-2) var(--ease-out),
-              -webkit-backdrop-filter var(--dur-2) var(--ease-out);
+  transition: transform 300ms var(--ease-settle),
+              background-color var(--dur-hover) var(--ease-settle),
+              border-color var(--dur-hover) var(--ease-settle),
+              backdrop-filter var(--dur-hover) var(--ease-settle),
+              -webkit-backdrop-filter var(--dur-hover) var(--ease-settle);
   background-color: transparent;
   border-bottom: 1px solid transparent;
   backdrop-filter: none;
@@ -225,8 +362,8 @@ header[data-nav] {
 }
 
 header[data-nav][data-scrolled="true"] {
-  background-color: color-mix(in srgb, var(--bg) 94%, transparent);
-  border-bottom-color: var(--line);
+  background-color: color-mix(in srgb, var(--ground) 94%, transparent);
+  border-bottom-color: var(--rule);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
@@ -243,263 +380,33 @@ header[data-nav][data-hidden="true"]:not(:focus-within) {
 }
 
 html:not([data-js]) header[data-nav] {
-  background-color: color-mix(in srgb, var(--bg) 94%, transparent);
-  border-bottom-color: var(--line);
+  background-color: color-mix(in srgb, var(--ground) 94%, transparent);
+  border-bottom-color: var(--rule);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
 
-/* 4. Hero entrance */
-@keyframes heroWordSlide {
-  from {
-    transform: translateY(100%);
-  }
-  to {
-    transform: translateY(0);
-  }
-}
-
-@keyframes heroIntroFade {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+/* Name-as-window effect (v4 H.1) */
+@supports ((background-clip: text) or (-webkit-background-clip: text)) {
+  .name-as-window {
+    background-size: cover;
+    background-position: center 25%;
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
   }
 }
 
-@keyframes heroPortraitReveal {
-  from {
-    clip-path: inset(100% 0 0 0);
-  }
-  to {
-    clip-path: inset(0 0 0 0);
+@supports not ((background-clip: text) or (-webkit-background-clip: text)) {
+  .name-as-window {
+    color: var(--fg) !important;
+    -webkit-text-fill-color: var(--fg) !important;
   }
 }
 
-[data-js] .hero-word {
-  animation: heroWordSlide var(--dur-3) var(--ease-out) both;
-}
-
-[data-js] .hero-intro {
-  animation: heroIntroFade var(--dur-4) var(--ease-out) both;
-  animation-delay: 500ms;
-}
-
-[data-js] .hero-portrait-reveal {
-  animation: heroPortraitReveal var(--dur-4) var(--ease-out) both;
-  animation-delay: 350ms;
-}
-
-/* 5. Portrait */
-.portrait-container {
-  perspective: 1000px;
-}
-
-.portrait-img {
-  filter: grayscale(15%);
-  transform: rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) scale(var(--portrait-scale, 1));
-  transition: filter var(--dur-3) var(--ease-out), transform var(--dur-1) var(--ease-out);
-  will-change: transform, filter;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .portrait-container:hover .portrait-img {
-    filter: grayscale(0%);
-    --portrait-scale: 1.02;
-  }
-}
-
-/* 6. Intent picker answer panel */
-@keyframes panelCrossfade {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.intent-panel-animate {
-  animation: panelCrossfade var(--dur-2) var(--ease-out) both;
-}
-
-/* 7. Work cards */
-.work-card {
-  position: relative;
-  transition: transform var(--dur-2) var(--ease-out),
-              border-color var(--dur-2) var(--ease-out);
-}
-
-.work-card:hover,
-.work-card:focus-within {
-  transform: translateY(-4px);
-  border-color: color-mix(in srgb, var(--accent) 40%, var(--line));
-}
-
-.work-card img {
-  transition: transform var(--dur-3) var(--ease-out);
-}
-
-.work-card:hover img,
-.work-card:focus-within img {
-  transform: scale(1.04);
-}
-
-.work-card-spotlight {
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  opacity: 0;
-  background: radial-gradient(
-    600px circle at var(--mx, -1000px) var(--my, -1000px),
-    color-mix(in srgb, var(--accent) 15%, transparent),
-    transparent 60%
-  );
-  transition: opacity var(--dur-2) var(--ease-out);
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .work-card:hover .work-card-spotlight {
-    opacity: 1;
-  }
-}
-
-.work-card-arrow {
-  opacity: 0;
-  transform: translate(-4px, 4px);
-  transition: transform var(--dur-2) var(--ease-out), opacity var(--dur-2) var(--ease-out);
-  pointer-events: none;
-}
-
-.work-card:hover .work-card-arrow,
-.work-card:focus-within .work-card-arrow {
-  opacity: 1;
-  transform: translate(0, 0);
-}
-
-/* 8. Scroll-driven effects */
-@keyframes featuredParallax {
-  from {
-    transform: translateY(-6%) scale(1.08);
-  }
-  to {
-    transform: translateY(6%) scale(1.08);
-  }
-}
-
-@keyframes timelineProgress {
-  from {
-    transform: scaleY(0);
-  }
-  to {
-    transform: scaleY(1);
-  }
-}
-
-@keyframes dotFill {
-  0% {
-    background-color: var(--bg);
-    transform: scale(0.85);
-  }
-  100% {
-    background-color: var(--accent);
-    transform: scale(1);
-  }
-}
-
-@keyframes caseStudyImgFadeScale {
-  from {
-    opacity: 0.4;
-    transform: scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.timeline-progress-bar {
-  transform: scaleY(1);
-}
-
-.timeline-dot {
-  background-color: var(--accent);
-}
-
-@supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
-    .featured-parallax-img {
-      animation: featuredParallax linear both;
-      animation-timeline: view();
-      animation-range: cover 0% cover 100%;
-    }
-
-    .timeline-progress-bar {
-      transform-origin: top;
-      animation: timelineProgress linear both;
-      animation-timeline: view();
-      animation-range: entry 10% exit 90%;
-    }
-
-    .timeline-dot {
-      background-color: var(--bg);
-      animation: dotFill linear both;
-      animation-timeline: view();
-      animation-range: cover 30% cover 55%;
-    }
-
-    .case-study-scroll-img {
-      animation: caseStudyImgFadeScale linear both;
-      animation-timeline: view();
-      animation-range: entry 0% cover 30%;
-    }
-  }
-}
-
-/* 9. Platforms infinite marquee */
-@keyframes marqueeScroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(calc(-100% - 0.75rem));
-  }
-}
-
-.marquee-wrapper {
-  display: flex;
-  overflow: hidden;
-  user-select: none;
-  gap: 0.75rem;
-  mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 4%,
-    black 96%,
-    transparent 100%
-  );
-}
-
-.marquee-content {
-  display: flex;
-  flex-shrink: 0;
-  gap: 0.75rem;
-  animation: marqueeScroll 28s linear infinite;
-  will-change: transform;
-}
-
-.marquee-wrapper:hover .marquee-content,
-.marquee-wrapper:focus-within .marquee-content {
-  animation-play-state: paused;
-}
-
-/* 10. Case study reading progress & shimmer skeleton */
+/* Reading progress bar */
 .reading-progress-bar {
   position: fixed;
   top: var(--nav-h);
@@ -531,6 +438,7 @@ html:not([data-js]) header[data-nav] {
   }
 }
 
+/* Shimmer skeleton for iframe */
 @keyframes shimmerWave {
   0% {
     transform: translateX(-100%);
@@ -546,7 +454,7 @@ html:not([data-js]) header[data-nav] {
   background-color: var(--surface);
   overflow: hidden;
   z-index: 10;
-  transition: opacity var(--dur-2) var(--ease-out);
+  transition: opacity var(--dur-hover) var(--ease-settle);
 }
 
 .shimmer-skeleton::after {
@@ -556,13 +464,13 @@ html:not([data-js]) header[data-nav] {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    color-mix(in srgb, var(--line) 70%, transparent) 50%,
+    color-mix(in srgb, var(--rule) 70%, transparent) 50%,
     transparent 100%
   );
   animation: shimmerWave 1.8s infinite;
 }
 
-/* 11. Theme toggle view transition */
+/* View transition for theme toggle */
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;
@@ -575,10 +483,10 @@ html:not([data-js]) header[data-nav] {
   z-index: 9999;
 }
 
-/* 13. Images fade in from opacity: 0 on load */
+/* Image load fade-in (kept per M2) */
 [data-js] .fade-image {
   opacity: 0;
-  transition: opacity var(--dur-3) var(--ease-out);
+  transition: opacity 260ms var(--ease-settle);
 }
 
 [data-js] .fade-image[data-loaded="true"] {
@@ -589,7 +497,22 @@ html:not([data-js]) .fade-image {
   opacity: 1;
 }
 
-/* Reduced motion handling: disable all effects and show final state */
+/* Text selection */
+::selection {
+  background-color: var(--accent);
+  color: var(--ground);
+}
+
+/* Woven by Toyota logo inversion in dark mode */
+.woven-logo {
+  filter: invert(1);
+}
+
+[data-theme="light"] .woven-logo {
+  filter: none;
+}
+
+/* Reduced motion (v4 M2) */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -609,18 +532,10 @@ html:not([data-js]) .fade-image {
     transition-duration: 0.001ms !important;
   }
 
-  .hero-word,
-  .hero-intro,
-  .hero-portrait-reveal,
   .fade-image,
-  .work-card,
-  .portrait-img,
-  .marquee-content,
+  .animate-settle,
   .reading-progress-bar,
   .shimmer-skeleton,
-  .timeline-progress-bar,
-  .timeline-dot,
-  .intent-panel-animate,
   .arrow-nudge-right,
   .arrow-nudge-diag,
   .arrow-nudge-left {
@@ -629,34 +544,6 @@ html:not([data-js]) .fade-image {
     transition: none !important;
     opacity: 1 !important;
     clip-path: none !important;
-  }
-
-  .work-card-spotlight {
-    display: none !important;
-  }
-
-  .marquee-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    overflow: visible;
-    mask-image: none;
-  }
-
-  .marquee-content {
-    flex-wrap: wrap;
-    flex-shrink: 1;
-  }
-
-  .marquee-content[aria-hidden="true"] {
-    display: none !important;
-  }
-
-  .timeline-progress-bar {
-    transform: scaleY(1) !important;
-  }
-
-  .timeline-dot {
-    background-color: var(--accent) !important;
   }
 
   .reading-progress-bar {
@@ -670,20 +557,3 @@ html:not([data-js]) .fade-image {
     transform: none !important;
   }
 }
-
-/* Text selection */
-::selection {
-  background-color: var(--accent);
-  color: var(--bg);
-}
-
-/* Woven by Toyota logo inversion in dark mode */
-.woven-logo {
-  filter: invert(1);
-}
-
-[data-theme="light"] .woven-logo {
-  filter: none;
-}
-
-

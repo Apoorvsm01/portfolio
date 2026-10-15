@@ -6,49 +6,60 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full border-t border-line bg-bg text-text mt-auto py-14 md:py-16">
+    <footer className="w-full bg-ground text-fg border-t border-rule mt-auto py-16 md:py-24">
       <div className="container-page">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-          {/* Left column: ContactCTA headline + body + email/LinkedIn/GitHub with CopyEmail */}
+          {/* Left column: ContactCTA */}
           <div className="lg:col-span-8">
             <ContactCTA />
           </div>
 
-          {/* Right column: small nav list (Work, About) and copyright */}
-          <div className="lg:col-span-4 flex flex-col sm:flex-row sm:items-center sm:justify-between lg:flex-col lg:items-end lg:justify-between h-full gap-4 lg:gap-0 pt-1">
-            <nav aria-label="Footer navigation">
-              <ul className="flex flex-row lg:flex-col items-center lg:items-end gap-6 lg:gap-2 list-none p-0 m-0">
-                <li>
-                  <Link
-                    href="/work/"
-                    className="link-underline min-h-[44px] inline-flex items-center text-sm font-medium text-muted hover:text-text transition-colors"
-                  >
-                    Work
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/about/"
-                    className="link-underline min-h-[44px] inline-flex items-center text-sm font-medium text-muted hover:text-text transition-colors"
-                  >
-                    About
-                  </Link>
-                </li>
-              </ul>
-            </nav>
-
-            <div className="text-xs text-muted lg:mt-auto">
-              © {currentYear} {site.name}
-            </div>
+          {/* Right column: small nav list (Work, About) */}
+          <div className="lg:col-span-4 flex flex-row lg:flex-col items-center lg:items-end justify-start gap-6 lg:gap-3 pt-2">
+            <Link
+              href="/work/"
+              className="link-underline min-h-[44px] inline-flex items-center font-sans text-sm font-medium text-muted hover:text-fg transition-colors"
+            >
+              Work
+            </Link>
+            <Link
+              href="/about/"
+              className="link-underline min-h-[44px] inline-flex items-center font-sans text-sm font-medium text-muted hover:text-fg transition-colors"
+            >
+              About
+            </Link>
           </div>
         </div>
 
-        {/* Disclaimer as one small muted paragraph across the bottom */}
-        {site.disclaimer && (
-          <p className="mt-8 pt-6 border-t border-line/40 text-xs text-muted leading-relaxed max-w-full">
-            {site.disclaimer}
-          </p>
-        )}
+        {/* Hairline + Bottom row: © year · location · GitHub · disclaimer (small) */}
+        <div className="mt-12 sm:mt-16 pt-8 border-t border-rule flex flex-col gap-3 font-sans text-xs text-muted">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+            <span>
+              © {currentYear} {site.name}
+            </span>
+            <span aria-hidden="true">·</span>
+            <span>{site.location}</span>
+            <span aria-hidden="true">·</span>
+            <a
+              href={site.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 hover:text-fg transition-colors"
+            >
+              <span>GitHub</span>
+              <span aria-hidden="true" className="arrow-nudge-diag">
+                ↗
+              </span>
+              <span className="sr-only"> (opens in new tab)</span>
+            </a>
+          </div>
+
+          {site.disclaimer && (
+            <p className="font-sans text-[11px] sm:text-xs text-muted leading-relaxed max-w-full">
+              {site.disclaimer}
+            </p>
+          )}
+        </div>
       </div>
     </footer>
   );

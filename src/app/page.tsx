@@ -1,20 +1,52 @@
 import { Hero } from "../components/Hero";
-import { IntentPicker } from "../components/IntentPicker";
 import { Featured } from "../components/Featured";
 import { SelectedWork } from "../components/SelectedWork";
+import { HowIWork } from "../components/HowIWork";
 import { AboutTeaser } from "../components/AboutTeaser";
-import { getNavIndex } from "../lib/nav-index";
+import { getAllStudies, coverFor, imageDims } from "../lib/content";
+import { studyMeta } from "../../content/study-meta";
+import { site } from "../../content/site";
 
 export default function Home() {
-  const items = getNavIndex();
-  const slugTitleMap = Object.fromEntries(items.map((it) => [it.slug, it.title]));
+  const allStudies = getAllStudies();
+  const studyDataMap: Record<
+    string,
+    {
+      slug: string;
+      title: string;
+      claim: string;
+      coverSrc: string;
+      coverAlt: string;
+      coverWidth: number;
+      coverHeight: number;
+    }
+  > = {};
+
+  for (const s of allStudies) {
+    const meta = studyMeta[s.slug];
+    const coverInfo = coverFor(s.slug);
+    const coverImg = coverInfo?.img;
+    const dims = coverImg ? imageDims(coverImg.src) : { width: 1200, height: 800 };
+
+    studyDataMap[s.slug] = {
+      slug: s.slug,
+      title: s.title,
+      claim: meta?.claim ?? s.description,
+      coverSrc: coverImg?.src ?? "",
+      coverAlt: coverImg?.alt ?? s.title,
+      coverWidth: dims.width,
+      coverHeight: dims.height,
+    };
+  }
+
+  const portraitDims = imageDims(site.hero.image.src);
 
   return (
-    <main id="main" className="container-page flex-1">
-      <Hero />
-      <IntentPicker slugTitleMap={slugTitleMap} />
+    <main id="main" className="flex-1 w-full">
+      <Hero studyDataMap={studyDataMap} portraitDims={portraitDims} />
       <Featured />
       <SelectedWork />
+      <HowIWork />
       <AboutTeaser />
     </main>
   );

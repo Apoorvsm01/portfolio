@@ -332,11 +332,11 @@ export function CommandPalette({ items = [] }: { items?: NavIndexItem[] }) {
         }
       }}
       aria-label="Command palette"
-      className="m-auto fixed inset-0 z-50 w-full max-w-xl p-0 bg-transparent backdrop:bg-black/70 backdrop:backdrop-blur-sm open:flex open:flex-col shadow-2xl rounded-[20px] overflow-hidden border border-line outline-none"
+      className="m-auto fixed inset-0 z-50 w-full max-w-xl p-0 bg-transparent backdrop:bg-black/70 backdrop:backdrop-blur-sm open:flex open:flex-col shadow-2xl rounded-[6px] overflow-hidden border border-rule outline-none"
     >
-      <div className="bg-surface w-full flex flex-col max-h-[80svh] overflow-hidden rounded-[20px]">
+      <div className="bg-surface w-full flex flex-col max-h-[80svh] overflow-hidden rounded-[6px]">
         {/* Combobox Search Input */}
-        <div className="relative flex items-center px-4 border-b border-line">
+        <div className="relative flex items-center px-4 border-b border-rule">
           <svg
             className="w-5 h-5 text-muted shrink-0 mr-3"
             fill="none"
@@ -366,7 +366,7 @@ export function CommandPalette({ items = [] }: { items?: NavIndexItem[] }) {
             }}
             onKeyDown={handleInputKeyDown}
             placeholder="Search pages, projects, sections..."
-            className="w-full min-h-[56px] py-3.5 bg-transparent text-text placeholder:text-muted focus:outline-none text-base"
+            className="w-full min-h-[56px] py-3.5 bg-transparent text-fg placeholder:text-muted focus:outline-none text-base"
           />
           {query && (
             <button
@@ -376,7 +376,7 @@ export function CommandPalette({ items = [] }: { items?: NavIndexItem[] }) {
                 setSelectedIndex(0);
               }}
               aria-label="Clear search"
-              className="min-h-[44px] min-w-[44px] inline-flex items-center justify-center p-2 text-muted hover:text-text cursor-pointer"
+              className="min-h-[44px] min-w-[44px] inline-flex items-center justify-center p-2 text-muted hover:text-fg cursor-pointer"
             >
               <svg
                 className="w-4 h-4"
@@ -425,18 +425,18 @@ export function CommandPalette({ items = [] }: { items?: NavIndexItem[] }) {
                     data-index={index}
                     onClick={() => handleSelectItem(item)}
                     onMouseEnter={() => setSelectedIndex(index)}
-                    className={`min-h-[48px] px-3.5 py-2.5 rounded-xl flex items-center justify-between cursor-pointer transition-colors ${
+                    className={`min-h-[48px] px-3.5 py-2.5 rounded-[6px] flex items-center justify-between cursor-pointer transition-colors ${
                       isSelected
-                        ? "bg-bg text-text border border-line"
-                        : "text-text hover:bg-bg/50 border border-transparent"
+                        ? "bg-ground text-fg border border-rule"
+                        : "text-fg hover:bg-ground/50 border border-transparent"
                     }`}
                   >
                     <div className="flex flex-col min-w-0 pr-2">
                       <div className="flex items-center gap-2">
-                        <span className="font-medium text-sm text-text truncate">
+                        <span className="font-medium text-sm text-fg truncate">
                           {item.title}
                         </span>
-                        <span className="text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded bg-surface border border-line text-muted shrink-0">
+                        <span className="text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded-[4px] bg-surface border border-rule text-muted shrink-0">
                           {item.category}
                         </span>
                       </div>
@@ -462,25 +462,25 @@ export function CommandPalette({ items = [] }: { items?: NavIndexItem[] }) {
         </div>
 
         {/* Footer shortcuts info */}
-        <div className="p-3 border-t border-line bg-bg/50 flex items-center justify-between text-xs text-muted">
+        <div className="p-3 border-t border-rule bg-ground/50 flex items-center justify-between text-xs text-muted">
           <div className="flex items-center gap-3">
             <span className="inline-flex items-center gap-1">
-              <kbd className="px-1.5 py-0.5 rounded bg-surface border border-line font-mono text-[10px] text-text">
+              <kbd className="px-1.5 py-0.5 rounded-[4px] bg-surface border border-rule font-mono text-[10px] text-fg">
                 ↑
               </kbd>
-              <kbd className="px-1.5 py-0.5 rounded bg-surface border border-line font-mono text-[10px] text-text">
+              <kbd className="px-1.5 py-0.5 rounded-[4px] bg-surface border border-rule font-mono text-[10px] text-fg">
                 ↓
               </kbd>
               <span>navigate</span>
             </span>
             <span className="inline-flex items-center gap-1">
-              <kbd className="px-1.5 py-0.5 rounded bg-surface border border-line font-mono text-[10px] text-text">
+              <kbd className="px-1.5 py-0.5 rounded-[4px] bg-surface border border-rule font-mono text-[10px] text-fg">
                 ↵
               </kbd>
               <span>select</span>
             </span>
             <span className="inline-flex items-center gap-1">
-              <kbd className="px-1.5 py-0.5 rounded bg-surface border border-line font-mono text-[10px] text-text">
+              <kbd className="px-1.5 py-0.5 rounded-[4px] bg-surface border border-rule font-mono text-[10px] text-fg">
                 esc
               </kbd>
               <span>close</span>
