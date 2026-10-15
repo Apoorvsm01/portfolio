@@ -309,3 +309,133 @@ Case-study JSON can contain these block types in addition to the existing ones (
     wraps.
   - The last-chosen language syncs across all widgets on the page.
   - Two columns on `lg`+, stacked below.
+
+---
+
+# v4: editorial design language (supersedes anything above that conflicts)
+Modelled on the *approach* of voigt.work. Never copy its text, images or code. Copy now lives in
+`content/site.ts` (new fields: `hero.display`, intent `flag`/`headline`/`bullets`, `featured.lede`/`chapters`,
+`howIWorkIntro`, `timelineIntro`, timeline `flag`, `flags`) and `content/study-meta.ts` (claim, band, flag, facts,
+outcomes per study). Use those fields; the old ones stay only for compatibility.
+
+## C. Colour
+These replace the earlier palette. Dark is the default. A light theme still exists, but its "paper" values are
+the same ones the paper bands use.
+- `--ground #12110f` (warm ink), `--surface #1b1916`, `--surface-2 #26231f`, `--rule #2b2823`, `--fg #f1ece3`,
+  `--fg-2 #c9c2b5`, `--muted #a39c8f`, `--focus #9ad0ff`.
+- **Paper band**: `--paper #ede7db`, `--paper-ink #171513`, `--paper-muted #5c564c`, `--paper-rule #d6cfc1`.
+- **Accent** = `flags.amber` (`#f5a524`), used for primary buttons, the nav current-page marker and link underlines.
+- **Flags** (`site.flags`) colour the intent doors, org chips in the timeline, and the per-study accent.
+- **Bands**: full-bleed sections can be `ink` (the default), `paper` (light: How I work and the About teaser), or
+  a study `band` colour (the Featured section uses `studyMeta.woven.band`; every case-study page uses its study's
+  band for the hero and facts area).
+- Band changes are hard edges, with no gradients between bands.
+
+## T. Type
+- **Display/headlines**: Mona Sans, weight 900, `font-variation-settings: "wdth" 112`, tracking −0.025em,
+  line-height 0.95–1.05. Load Mona_Sans with `axes: ["wdth"]`.
+  - `hero.display` ("I’m Apoorv") is huge: `clamp(4rem, 12vw, 11.5rem)`.
+  - h2 is `clamp(2rem, 1.4rem + 2.2vw, 2.75rem)`.
+- **Subheads, tagline, UI, buttons, labels**: Bricolage Grotesque 500–700.
+  - The tagline (`hero.headline`) is `clamp(1.375rem, 1.1rem + 1vw, 1.75rem)`, weight 500.
+  - Section intro lines are the same size.
+- **Body paragraphs**: Newsreader (serif), 400, `clamp(1.0625rem, 1rem + .3vw, 1.1875rem)`, line-height 1.6,
+  colour `--fg-2` on ink and `--paper-ink` on paper.
+- **Labels** (facts table, timeline years, captions): Bricolage at 13–14px, colour `--muted`, sentence case. No
+  uppercase tracking labels any more.
+- **Links in prose**: underlined, `text-decoration-color: var(--flag or accent)`, thickness .08em → .22em on hover,
+  `text-underline-offset: .18em`.
+
+## L. Layout and shape
+- Max width 110rem (1760px). Gutter `clamp(1.25rem, 5vw, 6rem)`. Section rhythm `--step: clamp(4.5rem, 9vw, 8.5rem)`
+  of vertical padding.
+- Radius 6px everywhere: cards, images, buttons. The only exception is pill buttons (intent doors, ghost buttons),
+  which are fully round.
+- Rows are separated by 1px `--rule` hairlines, not boxed cards: facts tables, timeline rows, chapter rows, how-I-work
+  steps.
+- Cards (team-style or project cards) are `--surface` with a 3px top border in the item's flag colour, and no
+  shadow.
+
+## H. Home
+1. **Hero** (ink band, 2 columns from lg):
+   - The left column has `hero.display` (giant), then the tagline (`hero.headline`), then `hero.intro` in serif
+     (max 36rem).
+   - The right column has the portrait (aspect 4:5, radius 6px).
+   - Below both: "What brings you here?" and the three **doors**, which are pill buttons with a 1px border.
+   - Hover on a door: the border turns `--fg`.
+   - Selected door: it fills with its flag colour and the text turns the flag's ink. `aria-pressed` reflects this
+     and selection toggles.
+   - **Signature effect when a door is selected:**
+     1. The portrait takes a duotone of that flag (CSS: grayscale + a `mix-blend-mode: multiply` overlay in the flag
+        colour, cross-fading at 320ms).
+     2. The giant name becomes a window onto the portrait: `background-clip: text` with the portrait image as the
+        background, positioned to align with the photo. It cross-fades in over ~320ms with `--ease-settle`.
+     3. With no door selected, the name is solid `--fg`.
+   - **Panel**: below the doors, a 2-column panel with a 3px top rule in the flag colour. The left side has the
+     intent `headline` (h3, Mona Sans 900), the `bullets` as an unordered list with 10px square markers in the flag
+     colour, then links to `links` studies (underline in the flag colour). The right side shows the first linked
+     study's cover image with a caption of that study's `claim`. The panel animates in with the settle keyframe.
+   - With no door selected, no panel shows (this keeps the hero short).
+2. **Featured** (band = `studyMeta.woven.band`, full-bleed):
+   - The left side has the org label plus logo, the h2 `featured.headline`, the `featured.lede` paragraphs (serif),
+     then the `chapters` as hairline-separated rows (bold underlined `term` link on the left, `line` on the right),
+     then a solid amber button "Open the case study" and a text link "All projects".
+   - The right side has the featured image (radius 6px).
+3. **Selected work** (ink): a 2×2 grid of cards (cover 4:3, title in Mona Sans 900 ~1.5rem, the study's `claim` as
+   the blurb, org label). Each card has a 3px top border in its study flag. Hover: the border goes to `--fg` and the
+   image brightens slightly. No lift, no spotlight.
+4. **How I work** (paper band):
+   - The left side has the h2 plus `howIWorkIntro`, then an ol of the 4 steps. Each step has a 28px filled circle in
+     the accent with its number in ink, a title in Bricolage 700, and the body in serif. Rows are separated by
+     paper-rule hairlines.
+   - The right side has a photo with a caption (use `/work/woven/01.jpg`, caption = `studyMeta.woven.claim`).
+5. **About teaser** (ink): "The long way here" h2, `timelineIntro`, the 3 newest timeline rows (see the timeline
+   style below), and a "The long way here →" link to /about/.
+6. **Footer CTA** (ink): the `cta.headline` h2 big, `cta.body` in serif, a solid amber "Email me" button (mailto) and
+   a ghost "LinkedIn" button. Then a hairline, then a bottom row with © year · location · GitHub · disclaimer
+   (small).
+
+## Timeline style (about page and teaser)
+Each row is a hairline-separated grid with three parts:
+- years (muted, small, left)
+- role (Mona Sans 900, ~1.75rem)
+- org chips on the right: a 10px square in the org's flag plus the org name, muted
+The `note` sits below the role in serif, muted. Newest first.
+
+## K. Case study
+- **Band**: the hero area (breadcrumb, title, claim, facts, outcomes, chapter links) sits on the study's `band`
+  colour, full-bleed. The article body below returns to ink.
+- **Hero**:
+  - The left side has the title (Mona Sans 900, h1 size), `claim` as the tagline, and the **facts table**
+    (`studyMeta.facts`): a `dl` of hairline rows, with the label in a 7rem muted column and the value in serif.
+  - The right side has the first hero image with a caption.
+  - The old Framer facts and tags render below as a small muted line, or not at all if they duplicate.
+- **Outcomes** (if present): the `outcomes.title` h2, then a 4-column row. Each item shows a big Mona Sans 900 value,
+  with "from → to" rendered as `from` + " → " + `value`, and the label below in small muted text. Then `note` in
+  small muted text. Count-up is removed; the numbers are static.
+- **Chapters**: replace the sticky TOC rail with an inline wrap of underlined chapter links (in the study flag
+  colour) under the hero, plus a compact sticky "chapter bar" that appears under the nav after scrolling past the
+  hero.
+  - The chapter bar is a single horizontal row: the current chapter name plus prev/next arrow buttons plus a
+    "Chapters" disclosure that opens the full list. It keeps the scrollspy and the ↑/↓ keyboard behaviour.
+- **Section headlines** stay as they are (Framer copy). Body paragraphs switch to serif.
+- **End**: the "Next project" card and the CTA, as before.
+
+## M2. Motion: restrained and quick (replaces section M where they conflict)
+Remove: the hero word-by-word animation, the portrait tilt, the card pointer spotlight, the card lift, the platform
+marquee (it becomes a static wrapped list), featured parallax, metric count-up, and the image fade-in on scroll
+(keep only the load fade).
+
+Keep and standardise:
+- Tokens: `--ease-settle: cubic-bezier(.2,.7,.2,1)`. Hovers run 120–160ms (colour, border-color, background-color,
+  `text-decoration-thickness`).
+- **Settle**: a single entrance keyframe `settle { from { opacity:0; transform: translateY(6px) } }`, 260ms,
+  ease-out. Apply it to Reveal (replacing the 12px/600ms version), panels and the chapter bar. No stagger longer
+  than 40ms.
+- Buttons: `:active { transform: translateY(1px) }`. No scale.
+- Nav: keep the scrolled state and hide-on-scroll-down, but use the new colours.
+- Theme toggle: keep the circular view transition.
+- Door selection effects as described in H. The name window and duotone cross-fade at 320ms `--ease-settle`.
+- Focus ring: `outline: 3px solid var(--focus); outline-offset: 3px; box-shadow: 0 0 0 6px var(--ground)` (use
+  `--paper` for the shadow on paper bands).
+- Reduced motion: no settle, instant states.
