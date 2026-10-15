@@ -14,7 +14,7 @@ function renderListItem(item: string) {
     if (!/^(https?|ftp)$/i.test(term)) {
       return (
         <>
-          <strong className="font-semibold text-text">{term}</strong>:{" "}
+          <strong className="font-semibold text-fg">{term}</strong>:{" "}
           <span>{rest}</span>
         </>
       );
@@ -48,7 +48,7 @@ export function BlockRenderer({
         return null;
       }
       return (
-        <h3 className="font-display text-h3 font-bold tracking-tight text-text mt-8 first:mt-0 mb-4">
+        <h3 className="font-display text-h3 font-black tracking-tight text-fg mt-10 first:mt-0 mb-4">
           {block.text}
         </h3>
       );
@@ -56,14 +56,14 @@ export function BlockRenderer({
 
     case "paragraph":
       return (
-        <p className="max-w-[42rem] text-[1.0625rem] leading-[1.65] text-text/90 mb-6 last:mb-0 whitespace-pre-line">
+        <p className="max-w-[46rem] font-serif text-base sm:text-lg leading-[1.6] text-fg-2 mb-6 last:mb-0 whitespace-pre-line text-pretty">
           {block.text}
         </p>
       );
 
     case "list":
       return (
-        <ul className="max-w-[42rem] list-disc pl-5 space-y-2.5 mb-6 last:mb-0 text-[1.0625rem] leading-[1.65] text-text/90 marker:text-muted">
+        <ul className="max-w-[46rem] font-serif text-base sm:text-lg leading-[1.6] text-fg-2 list-disc pl-5 space-y-2.5 mb-6 last:mb-0 marker:text-muted">
           {block.items.map((item, i) => (
             <li key={i} className="pl-1">
               {renderListItem(item)}
@@ -81,13 +81,13 @@ export function BlockRenderer({
         const alt = img.alt?.trim() ? img.alt : imageFallbackAlt;
         const dims = imageDims(img.src);
         return (
-          <figure className="w-full rounded-[16px] overflow-hidden border border-line bg-surface my-8 first:mt-0 last:mb-0">
+          <figure className="w-full rounded-[6px] overflow-hidden border border-rule bg-surface my-8 first:mt-0 last:mb-0">
             <FadeImage
               src={img.src}
               alt={alt}
               width={dims.width}
               height={dims.height}
-              className="case-study-scroll-img w-full h-auto object-cover rounded-[16px]"
+              className="w-full h-auto object-cover rounded-[6px]"
               loading="lazy"
             />
           </figure>
@@ -103,14 +103,14 @@ export function BlockRenderer({
               return (
                 <figure
                   key={i}
-                  className="rounded-[16px] overflow-hidden border border-line bg-surface"
+                  className="rounded-[6px] overflow-hidden border border-rule bg-surface"
                 >
                   <FadeImage
                     src={img.src}
                     alt={alt}
                     width={dims.width}
                     height={dims.height}
-                    className="case-study-scroll-img w-full h-auto object-cover rounded-[16px]"
+                    className="w-full h-auto object-cover rounded-[6px]"
                     loading="lazy"
                   />
                 </figure>
@@ -128,14 +128,14 @@ export function BlockRenderer({
             return (
               <figure
                 key={i}
-                className="rounded-[16px] overflow-hidden border border-line bg-surface"
+                className="rounded-[6px] overflow-hidden border border-rule bg-surface"
               >
                 <FadeImage
                   src={img.src}
                   alt={alt}
                   width={dims.width}
                   height={dims.height}
-                  className="case-study-scroll-img w-full h-auto object-cover rounded-[16px]"
+                  className="w-full h-auto object-cover rounded-[6px]"
                   loading="lazy"
                 />
               </figure>
@@ -151,12 +151,12 @@ export function BlockRenderer({
           {block.cards.map((card, i) => (
             <div
               key={i}
-              className="p-5 sm:p-6 rounded-[20px] bg-surface border border-line flex flex-col justify-start"
+              className="p-5 sm:p-6 rounded-[6px] bg-surface border border-rule flex flex-col justify-start"
             >
-              <div className="font-semibold text-text text-base mb-2">
+              <div className="font-sans font-bold text-fg text-base mb-2">
                 {card.label}
               </div>
-              <div className="text-sm text-muted space-y-1">
+              <div className="font-serif text-sm text-muted space-y-1">
                 {card.value.split("\n").map((line, lIdx) => (
                   <div key={lIdx}>{line}</div>
                 ))}
@@ -238,11 +238,11 @@ export function SectionBlock({
         as="section"
         id={`section-${index}`}
         aria-labelledby={`section-heading-${index}`}
-        className="py-16 sm:py-24 border-b border-line scroll-mt-24"
+        className="py-12 sm:py-16 md:py-20 border-b border-rule scroll-mt-24"
       >
         <h2
           id={`section-heading-${index}`}
-          className="text-xs uppercase tracking-[0.14em] text-muted font-medium mb-8 sm:mb-12"
+          className="font-sans text-xs sm:text-sm text-muted font-medium mb-6"
         >
           {section.label}
         </h2>
@@ -265,7 +265,7 @@ export function SectionBlock({
     <Reveal
       as="div"
       id={`section-${index}`}
-      className="py-16 sm:py-24 border-b border-line scroll-mt-24"
+      className="py-12 sm:py-16 md:py-20 border-b border-rule scroll-mt-24"
     >
       <div>
         {section.blocks.map((b, bIdx) => (

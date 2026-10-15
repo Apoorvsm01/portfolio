@@ -21,23 +21,21 @@ export function Figure({
   return (
     <figure
       className={`my-8 first:mt-0 last:mb-0 ${
-        wide
-          ? "w-full" // full width of the content column; never breaks out under the sticky TOC rail
-          : "w-full max-w-[42rem]"
+        wide ? "w-full" : "w-full max-w-[46rem]"
       }`}
     >
-      <div className="rounded-[16px] overflow-hidden border border-line bg-surface">
+      <div className="rounded-[6px] overflow-hidden border border-rule bg-surface">
         <FadeImage
           src={image.src}
           alt={alt}
           width={dims.width}
           height={dims.height}
           loading="lazy"
-          className="case-study-scroll-img w-full h-auto object-cover rounded-[16px]"
+          className="w-full h-auto object-cover rounded-[6px]"
         />
       </div>
       {caption && caption.trim() !== "" && (
-        <figcaption className="mt-3 text-xs sm:text-sm text-muted leading-relaxed max-w-[42rem]">
+        <figcaption className="mt-3 font-sans text-xs sm:text-sm text-muted leading-relaxed max-w-[46rem]">
           {caption}
         </figcaption>
       )}

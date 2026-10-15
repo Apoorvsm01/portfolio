@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { site } from "../../../content/site";
+import { studyMeta } from "../../../content/study-meta";
 import {
   coverFor,
   getAllStudies,
@@ -16,30 +17,35 @@ export function StudyNav({ currentSlug }: { currentSlug: string }) {
   const coverInfo = nextStudy ? coverFor(nextStudy.slug) : undefined;
   const cover = coverInfo?.img;
   const dims = cover ? imageDims(cover.src) : undefined;
+  const nextMeta = nextStudy ? studyMeta[nextStudy.slug] : undefined;
   const blurb =
+    nextMeta?.claim ??
     site.work.find((w) => w.slug === nextStudy.slug)?.blurb ??
     (nextStudy.slug === site.featured.slug
       ? site.featured.summary
       : nextStudy.description);
 
+  const flagName = nextMeta?.flag ?? "amber";
+  const flagBg = site.flags[flagName]?.bg ?? "#f5a524";
+
   return (
     <Reveal
       as="nav"
       aria-label="Case study navigation"
-      className="py-12 sm:py-16 border-b border-line"
+      className="pt-16 sm:pt-20"
     >
-      {/* Large Next project card */}
+      {/* Large Next project card in v4 card style */}
       {nextStudy && (
-        <div className="mb-8">
+        <div className="mb-10 sm:mb-12">
           <Link
             href={studyHref(nextStudy.slug)}
             rel="next"
-            className="work-card group relative block rounded-[20px] bg-surface border border-line p-6 sm:p-8 hover:border-accent/40 transition-colors"
+            style={{ borderTopColor: flagBg }}
+            className="group relative block rounded-[6px] bg-surface border border-rule border-t-[3px] p-6 sm:p-8 hover:border-t-fg transition-colors duration-140"
           >
-            <div className="work-card-spotlight" aria-hidden="true" />
             <div className="flex flex-col md:grid md:grid-cols-12 md:gap-8 items-center">
               {cover && dims && (
-                <figure className="aspect-[16/10] w-full overflow-hidden rounded-[16px] bg-bg/50 border border-line/40 mb-6 md:mb-0 md:col-span-6 lg:col-span-5">
+                <figure className="aspect-[16/10] w-full overflow-hidden rounded-[6px] bg-ground/50 border border-rule/40 mb-6 md:mb-0 md:col-span-6 lg:col-span-5">
                   <FadeImage
                     src={cover.src}
                     alt=""
@@ -48,14 +54,14 @@ export function StudyNav({ currentSlug }: { currentSlug: string }) {
                     loading="lazy"
                     className={`w-full h-full ${
                       coverInfo?.fit === "contain"
-                        ? "object-contain"
+                        ? "object-contain p-2"
                         : "object-cover"
-                    } group-hover:scale-[1.03] transition-transform duration-500`}
+                    } group-hover:brightness-105 transition-[filter] duration-140`}
                   />
                 </figure>
               )}
               <div className="w-full md:col-span-6 lg:col-span-7 flex flex-col justify-center">
-                <span className="text-xs uppercase tracking-[0.14em] text-muted font-medium mb-3 flex items-center gap-2">
+                <span className="font-sans text-xs text-muted font-medium mb-2.5 flex items-center gap-2">
                   <span>Next project</span>
                   <span
                     aria-hidden="true"
@@ -64,11 +70,11 @@ export function StudyNav({ currentSlug }: { currentSlug: string }) {
                     →
                   </span>
                 </span>
-                <h3 className="font-display text-h2 font-bold text-text group-hover:text-accent transition-colors leading-tight">
+                <h3 className="font-display font-black text-xl sm:text-2xl lg:text-3xl text-fg group-hover:text-accent transition-colors leading-tight">
                   {nextStudy.title}
                 </h3>
                 {blurb && (
-                  <p className="mt-3 text-sm sm:text-base text-muted leading-relaxed max-w-[42rem]">
+                  <p className="mt-3 font-serif text-sm sm:text-base text-muted leading-relaxed max-w-[42rem]">
                     {blurb}
                   </p>
                 )}
@@ -79,15 +85,15 @@ export function StudyNav({ currentSlug }: { currentSlug: string }) {
       )}
 
       {/* Smaller Navigation Links: Previous & All work */}
-      <div className="flex items-center justify-between pt-4 border-t border-line/60">
+      <div className="flex items-center justify-between pt-6 border-t border-rule">
         <div>
           {prev ? (
             <Link
               href={studyHref(prev.slug)}
               rel="prev"
-              className="link-underline min-h-[44px] inline-flex items-center gap-1.5 text-sm font-medium text-muted hover:text-text transition-colors group"
+              className="link-underline min-h-[44px] inline-flex items-center gap-1.5 font-sans text-sm font-medium text-muted hover:text-fg transition-colors group"
             >
-              <span aria-hidden="true" className="arrow-nudge-left">
+              <span aria-hidden="true" className="arrow-nudge-left font-bold">
                 ←
               </span>
               <span>Previous</span>
@@ -100,10 +106,10 @@ export function StudyNav({ currentSlug }: { currentSlug: string }) {
         <div>
           <Link
             href="/work/"
-            className="link-underline min-h-[44px] inline-flex items-center gap-1.5 text-sm font-medium text-muted hover:text-text transition-colors group"
+            className="link-underline min-h-[44px] inline-flex items-center gap-1.5 font-sans text-sm font-medium text-muted hover:text-fg transition-colors group"
           >
             <span>All work</span>
-            <span aria-hidden="true" className="arrow-nudge-right">
+            <span aria-hidden="true" className="arrow-nudge-right font-bold text-accent">
               →
             </span>
           </Link>

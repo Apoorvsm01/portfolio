@@ -3,6 +3,7 @@ export { Facts } from "./Facts";
 export { PrototypeEmbed } from "./PrototypeEmbed";
 export { HeroImages } from "./HeroImages";
 export { Toc } from "./Toc";
+export { ChapterBar } from "./ChapterBar";
 export { SectionBlock, BlockRenderer } from "./SectionBlock";
 export { StudyNav } from "./StudyNav";
 export { Figure } from "./Figure";

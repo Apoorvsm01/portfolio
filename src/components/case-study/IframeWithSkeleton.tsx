@@ -15,7 +15,7 @@ export function IframeWithSkeleton({
 
   return (
     <div
-      className={`relative ${aspect} w-full rounded-[20px] overflow-hidden border border-line bg-surface my-8 first:mt-0 last:mb-0`}
+      className={`relative ${aspect} w-full rounded-[6px] overflow-hidden border border-rule bg-surface my-8 first:mt-0 last:mb-0`}
     >
       {!loaded && <div className="shimmer-skeleton" aria-hidden="true" />}
       <iframe

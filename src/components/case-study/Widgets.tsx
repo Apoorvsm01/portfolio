@@ -96,18 +96,18 @@ function SingleWidget({
   };
 
   return (
-    <article className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 rounded-[20px] bg-surface border border-line p-5 sm:p-6 lg:p-8 my-8 first:mt-0 last:mb-0">
+    <article className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 rounded-[6px] bg-surface border border-rule p-5 sm:p-6 lg:p-8 my-8 first:mt-0 last:mb-0">
       {/* Left Column: Title, Subtitle, Preview Stage */}
       <div className="flex flex-col justify-between">
         <div>
-          <h3 className="font-display text-lg sm:text-xl font-bold text-text">
+          <h3 className="font-display text-lg sm:text-xl font-bold text-fg">
             {widget.title}
           </h3>
-          <p className="text-xs sm:text-sm text-muted mt-1 leading-relaxed">
+          <p className="font-sans text-xs sm:text-sm text-muted mt-1 leading-relaxed">
             {widget.subtitle}
           </p>
         </div>
-        <div className="mt-4 sm:mt-6 rounded-xl bg-black/60 border border-line/40 p-4 sm:p-6 flex items-center justify-center min-h-[160px]">
+        <div className="mt-4 sm:mt-6 rounded-[6px] bg-black/60 border border-rule/60 p-4 sm:p-6 flex items-center justify-center min-h-[160px]">
           <FadeImage
             src={widget.preview.src}
             alt={widget.preview.alt || widget.title}
@@ -125,7 +125,7 @@ function SingleWidget({
           <div
             role="tablist"
             aria-label="Code language"
-            className="flex items-center gap-1 p-1 rounded-xl bg-bg/80 border border-line/60"
+            className="flex items-center gap-1 p-1 rounded-[6px] bg-ground border border-rule/60"
           >
             {TABS.map((tab, idx) => {
               const isSelected = selectedLang === tab.id;
@@ -143,10 +143,10 @@ function SingleWidget({
                   tabIndex={isSelected ? 0 : -1}
                   onClick={() => setSharedLanguage(tab.id)}
                   onKeyDown={(e) => handleKeyDown(e, idx)}
-                  className={`min-h-[44px] px-3 sm:px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-colors cursor-pointer ${
+                  className={`min-h-[44px] px-3 sm:px-3.5 py-1.5 rounded-[4px] text-xs sm:text-sm font-sans font-medium transition-colors cursor-pointer ${
                     isSelected
-                      ? "bg-surface text-text shadow-xs border border-line"
-                      : "text-muted hover:text-text"
+                      ? "bg-surface text-fg shadow-xs border border-rule"
+                      : "text-muted hover:text-fg"
                   }`}
                 >
                   {tab.label}
@@ -160,7 +160,7 @@ function SingleWidget({
               type="button"
               onClick={handleCopy}
               aria-label={copied ? "Copied" : "Copy"}
-              className="min-h-[44px] px-3 py-2 rounded-lg text-xs font-medium text-muted hover:text-text hover:bg-surface border border-line/60 transition-colors inline-flex items-center gap-1.5 cursor-pointer"
+              className="min-h-[44px] px-3 py-2 rounded-[6px] text-xs font-sans font-medium text-muted hover:text-fg hover:bg-ground border border-rule/60 transition-colors inline-flex items-center gap-1.5 cursor-pointer"
             >
               {copied ? (
                 <>
@@ -214,11 +214,11 @@ function SingleWidget({
               aria-labelledby={`tab-${widgetId}-${tab.id}`}
               hidden={!isSelected}
               tabIndex={isSelected ? 0 : -1}
-              className={`relative flex-1 rounded-xl border border-line/60 bg-bg/90 overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
+              className={`relative flex-1 rounded-[6px] border border-rule/60 bg-ground/90 overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                 isSelected ? "" : "hidden"
               }`}
             >
-              <pre className="overflow-x-auto whitespace-pre font-mono text-xs sm:text-sm p-4 sm:p-5 text-text/90 leading-relaxed h-full">
+              <pre className="overflow-x-auto whitespace-pre font-mono text-xs sm:text-sm p-4 sm:p-5 text-fg-2 leading-relaxed h-full">
                 <code>{code}</code>
               </pre>
             </div>

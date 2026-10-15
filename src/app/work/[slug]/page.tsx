@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { site } from "../../../../content/site";
-import { getAllStudies, getStudy } from "../../../lib/content";
+import { getAllStudies, getStudy, coverFor } from "../../../lib/content";
+import { studyMeta } from "../../../../content/study-meta";
 import {
   Hero,
-  Facts,
+  ChapterBar,
   PrototypeEmbed,
   HeroImages,
-  Toc,
   SectionBlock,
   StudyNav,
 } from "../../../components/case-study";
@@ -27,12 +27,13 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const study = getStudy(slug);
+  const meta = studyMeta[slug];
 
   if (!study) {
     return {};
   }
 
-  const desc = study.description || site.hero.intro;
+  const desc = meta?.claim || study.description || site.hero.intro;
   const url = `${site.url}/work/${slug}/`;
 
   return {
@@ -64,37 +65,46 @@ export default async function CaseStudyPage({
     notFound();
   }
 
+  const meta = studyMeta[slug] ?? {
+    claim: study.description,
+    band: "#12110f",
+    flag: "amber" as const,
+    facts: study.facts.map((f) => ({ label: f.label, value: f.value })),
+  };
+
+  const flagBg = site.flags[meta.flag]?.bg ?? "#f5a524";
+  const firstImage = study.heroImages?.[0] ?? coverFor(study.slug)?.img;
+  const remainingHeroImages = study.heroImages?.slice(1) ?? [];
+
   const labelledSections = study.sections
     .map((section, index) => ({ section, index }))
     .filter(({ section }) => Boolean(section.label && section.label.trim() !== ""));
-  const showToc = labelledSections.length >= 3;
 
   return (
-    <main id="main" className="container-page flex-1">
+    <main id="main" className="flex-1 w-full bg-ground">
       <div className="reading-progress-bar" aria-hidden="true" />
       <article>
-        <Hero study={study} />
-        <Facts facts={study.facts} />
+        {/* Full-bleed hero on studyMeta[slug].band */}
+        <Hero
+          study={study}
+          meta={meta}
+          firstImage={firstImage}
+          labelledSections={labelledSections}
+        />
 
-        {/* Below lg: horizontal scrollable chip row under facts */}
-        {showToc && (
-          <div className="lg:hidden">
-            <Toc sections={study.sections} variant="chip-row" />
-          </div>
-        )}
+        {/* Compact sticky chapter bar replacing the sticky TOC rail */}
+        <ChapterBar
+          sections={study.sections}
+          flagColor={flagBg}
+        />
 
-        {/* lg+: 12-column grid with sticky TOC rail in cols 1-3 and content in cols 4-12 */}
-        <div className={showToc ? "lg:grid lg:grid-cols-12 lg:gap-12" : ""}>
-          {showToc && (
-            <aside className="hidden lg:block lg:col-span-3">
-              <div className="sticky top-[calc(var(--nav-h)+2rem)] py-12">
-                <Toc sections={study.sections} variant="rail" />
-              </div>
-            </aside>
-          )}
-          <div className={showToc ? "lg:col-span-9" : "w-full"}>
+        {/* Article content in readable single column on ink */}
+        <div className="container-page py-12 md:py-16">
+          <div className="w-full">
             <PrototypeEmbed prototype={study.prototype} title={study.title} />
-            <HeroImages images={study.heroImages} title={study.title} />
+            {remainingHeroImages.length > 0 && (
+              <HeroImages images={remainingHeroImages} title={study.title} />
+            )}
             {study.sections.map((section, index) => (
               <SectionBlock
                 key={index}
@@ -104,9 +114,10 @@ export default async function CaseStudyPage({
               />
             ))}
           </div>
-        </div>
 
-        <StudyNav currentSlug={study.slug} />
+          {/* End with Next project card + CTA */}
+          <StudyNav currentSlug={study.slug} />
+        </div>
       </article>
     </main>
   );

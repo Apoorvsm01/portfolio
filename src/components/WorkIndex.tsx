@@ -169,14 +169,14 @@ export function WorkIndex({ items = [] }: { items?: NavIndexItem[] }) {
   }, [filteredProjects, exitingItems.length]);
 
   return (
-    <main id="main" className="container-page flex-1 py-16 sm:py-24">
+    <main id="main" className="container-page flex-1 py-16 md:py-24">
       {/* Header */}
-      <header className="mb-10 sm:mb-12 border-b border-line pb-8 sm:pb-12">
-        <h1 className="font-display text-h1 font-bold tracking-tight text-text leading-[1.08] mb-6">
+      <header className="mb-10 sm:mb-12 border-b border-rule pb-8 sm:pb-12">
+        <h1 className="font-display font-black text-h1 text-fg leading-[1.08] mb-6">
           Work
         </h1>
 
-        {/* Filter bar of domain chips */}
+        {/* Filter bar of domain chips: restyled as v4 pill doors */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div
             role="toolbar"
@@ -191,10 +191,19 @@ export function WorkIndex({ items = [] }: { items?: NavIndexItem[] }) {
                   type="button"
                   aria-pressed={isActive}
                   onClick={() => handleFilterChange(domain)}
-                  className={`min-h-[44px] px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors cursor-pointer border inline-flex items-center justify-center ${
+                  style={
                     isActive
-                      ? "bg-text text-bg border-text shadow-xs"
-                      : "bg-surface text-muted border-line hover:text-text hover:border-muted/60"
+                      ? {
+                          backgroundColor: "var(--accent)",
+                          color: "var(--ground)",
+                          borderColor: "var(--accent)",
+                        }
+                      : undefined
+                  }
+                  className={`min-h-[44px] px-5 py-2.5 rounded-full border text-xs sm:text-sm font-sans font-medium transition-colors cursor-pointer inline-flex items-center justify-center ${
+                    isActive
+                      ? "shadow-xs font-bold"
+                      : "bg-transparent text-muted hover:text-fg border-rule hover:border-fg"
                   }`}
                 >
                   {domain}
@@ -206,7 +215,7 @@ export function WorkIndex({ items = [] }: { items?: NavIndexItem[] }) {
           {/* Showing N projects announcement */}
           <div
             aria-live="polite"
-            className="text-xs sm:text-sm text-muted font-medium"
+            className="text-xs sm:text-sm text-muted font-sans font-medium"
           >
             Showing {filteredProjects.length}{" "}
             {filteredProjects.length === 1 ? "project" : "projects"}
@@ -217,7 +226,7 @@ export function WorkIndex({ items = [] }: { items?: NavIndexItem[] }) {
       {/* Grid of WorkCards */}
       <ul
         ref={containerRef}
-        className="relative grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 list-none p-0"
+        className="relative grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 list-none p-0 m-0"
       >
         {filteredProjects.map((work, index) => (
           <li
