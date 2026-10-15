@@ -3,6 +3,7 @@ import { Featured } from "../components/Featured";
 import { SelectedWork } from "../components/SelectedWork";
 import { HowIWork } from "../components/HowIWork";
 import { AboutTeaser } from "../components/AboutTeaser";
+import { HeadsetWall } from "../components/HeadsetWall";
 import { getAllStudies, coverFor, imageDims } from "../lib/content";
 import { studyMeta } from "../../content/study-meta";
 import { site } from "../../content/site";
@@ -47,6 +48,7 @@ export default function Home() {
       <Featured />
       <SelectedWork />
       <HowIWork />
+      <HeadsetWall />
       <AboutTeaser />
     </main>
   );

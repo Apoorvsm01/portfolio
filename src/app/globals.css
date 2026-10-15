@@ -827,3 +827,149 @@ html:not([data-js]) .fade-image {
 .band-dark p {
   color: var(--fg-2);
 }
+
+/* ---------- Headset wall (home): Framer's "3D Look" — the whole wall turns with the pointer ---------- */
+.headset-wrap {
+  container-type: inline-size;
+  /* Keep the whole wall in one screen: its height tracks the viewport, not just the width. */
+  max-width: calc(112svh * 1109 / 1006);
+  margin-inline: auto;
+}
+.headset-stage {
+  position: relative;
+  aspect-ratio: 1109 / 1006;
+}
+.headset-copy {
+  position: absolute;
+  left: 50%;
+  top: 48.5%;
+  transform: translate(-50%, -50%);
+  width: min(52cqw, 34rem);
+  text-align: center;
+  z-index: 2;
+  pointer-events: none;
+}
+.headset-copy h2 {
+  font-size: clamp(1.75rem, 4.2cqw, 3.25rem);
+}
+.headset-scene {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  transform-style: preserve-3d;
+  /* Framer's 3D Look: perspective as part of the wall's own transform, cards placed in that space. */
+  transform: perspective(var(--persp)) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  will-change: transform;
+}
+.headset-card {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  transform-style: preserve-3d;
+  transform: translate(-50%, -50%) translateZ(var(--tz)) rotateX(var(--rx)) rotateY(var(--ry)) rotateZ(var(--rz));
+}
+.headset-card figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9cqw;
+  transform-style: preserve-3d;
+  transition: transform 520ms var(--ease-settle);
+}
+.headset-card img {
+  display: block;
+  width: var(--w);
+  height: var(--h);
+  object-fit: cover;
+  border-radius: var(--radius);
+  background: var(--surface, #1d1b18);
+  box-shadow: 0 1.6cqw 3.6cqw -1.2cqw rgb(0 0 0 / 0.45);
+}
+.headset-card figcaption {
+  font-size: clamp(0.625rem, 1.15cqw, 0.875rem);
+  line-height: 1.2;
+  color: var(--fg-2);
+  white-space: nowrap;
+}
+@media (hover: hover) and (pointer: fine) {
+  .headset-card:hover figure {
+    transform: translateZ(4cqw) scale(1.04);
+  }
+}
+/* Narrow screens: no room for a 3D wall, so the cards become a swipeable row under the heading. */
+@media (max-width: 720px) {
+  .headset-wrap {
+    max-width: none;
+  }
+}
+@container (max-width: 680px) {
+  .headset-stage {
+    aspect-ratio: auto;
+  }
+  .headset-copy {
+    position: static;
+    transform: none;
+    width: auto;
+    text-align: left;
+    margin-bottom: 1.5rem;
+  }
+  .headset-copy h2 {
+    font-size: var(--text-h2);
+  }
+  .headset-scene {
+    position: static;
+    transform: none;
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 0.75rem;
+  }
+  .headset-card {
+    position: static;
+    transform: none;
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+  }
+  .headset-card figure {
+    gap: 0.5rem;
+  }
+  .headset-card img {
+    width: 44cqw;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    box-shadow: none;
+  }
+  .headset-card figcaption {
+    font-size: 0.8125rem;
+  }
+}
+
+/* ---------- Hero cursor trail: spatial UI screenshots behind the hero content ---------- */
+.trail-host {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+  perspective: 1200px;
+}
+.trail-img {
+  position: absolute;
+  max-width: 245px;
+  max-height: 175px;
+  width: auto;
+  height: auto;
+  border-radius: 10px;
+  opacity: 0;
+  box-shadow: 0 18px 40px -14px rgb(0 0 0 / 0.5);
+  will-change: transform, opacity;
+}
+@media (prefers-reduced-motion: reduce) {
+  .headset-card figure {
+    transition: none;
+  }
+}
