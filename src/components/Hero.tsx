@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { site } from "../../content/site";
 import { FadeImage } from "./FadeImage";
+import { asset } from "@/lib/asset";
 
 export interface StudyHeroInfo {
   slug: string;
@@ -67,7 +68,7 @@ export function Hero({
                     ? {
                         // The portrait is dark, so on its own the letters read dark-on-dark. A flag-colour layer
                         // screen-blended over it lifts the photo into a bright tint of the door's colour.
-                        backgroundImage: `linear-gradient(${activeFlag.bg}, ${activeFlag.bg}), url(${site.hero.image.src})`,
+                        backgroundImage: `linear-gradient(${activeFlag.bg}, ${activeFlag.bg}), url(${asset(site.hero.image.src)})`,
                         backgroundBlendMode: "screen",
                       }
                     : {}),

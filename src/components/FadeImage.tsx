@@ -2,11 +2,13 @@
 "use client";
 
 import { useState, useRef, useEffect, ComponentProps } from "react";
+import { asset } from "@/lib/asset";
 
 export function FadeImage({
   alt = "",
   className = "",
   onLoad,
+  src,
   ...props
 }: ComponentProps<"img">) {
   const [loaded, setLoaded] = useState(false);
@@ -22,6 +24,7 @@ export function FadeImage({
     <img
       ref={imgRef}
       alt={alt}
+      src={typeof src === "string" ? asset(src) : src}
       {...props}
       onLoad={(e) => {
         setLoaded(true);

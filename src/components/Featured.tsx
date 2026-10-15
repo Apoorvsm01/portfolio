@@ -4,6 +4,7 @@ import { site } from "../../content/site";
 import { studyMeta } from "../../content/study-meta";
 import { getStudy, imageDims, studyHref } from "../lib/content";
 import { FadeImage } from "./FadeImage";
+import { asset } from "@/lib/asset";
 
 export function Featured() {
   const featuredStudy = getStudy(site.featured.slug);
@@ -28,7 +29,7 @@ export function Featured() {
               </span>
               <span className="woven-logo-plate" aria-hidden="true">
                 <img
-                  src="/me/woven-logo.png"
+                  src={asset("/me/woven-logo.png")}
                   alt=""
                   width={logoDims.width}
                   height={logoDims.height}

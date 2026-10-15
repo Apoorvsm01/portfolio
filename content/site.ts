@@ -17,7 +17,7 @@ export type WorkRef = {
 export const site = {
   name: "Apoorv Mahajan",
   role: "UX Engineer",
-  url: "https://apoorvmahajan.com", // placeholder until a domain is chosen
+  url: "https://apoorvsm01.github.io/portfolio", // GitHub Pages; update with a custom domain
   email: "apoorvsm@gmail.com",
   linkedin: "https://www.linkedin.com/in/apoorvmahajan",
   github: "https://github.com/Apoorvsm01",
