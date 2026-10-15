@@ -53,8 +53,9 @@ export function Hero({
           <div className="lg:col-span-7 xl:col-span-8 flex flex-col justify-start">
             <h1
               id="hero-display-heading"
-              className="font-display font-black leading-[0.95] tracking-[-0.025em] text-fg select-none relative mb-4 sm:mb-6"
-              style={{ fontSize: "clamp(4rem, 12vw, 11.5rem)" }}
+              className="font-display font-black leading-[0.95] tracking-[-0.025em] text-fg select-none relative mb-4 sm:mb-6 whitespace-nowrap"
+              // Sized so "I’m Apoorv" stays on one line from ~360px up (it is longer than a 4-letter name).
+              style={{ fontSize: "clamp(3.25rem, 8.6vw, 9.5rem)" }}
             >
               <span
                 className={`inline-block transition-colors duration-[320ms] ${
@@ -64,7 +65,10 @@ export function Hero({
                   transitionTimingFunction: "var(--ease-settle)",
                   ...(activeFlag
                     ? {
-                        backgroundImage: `url(${site.hero.image.src})`,
+                        // The portrait is dark, so on its own the letters read dark-on-dark. A flag-colour layer
+                        // screen-blended over it lifts the photo into a bright tint of the door's colour.
+                        backgroundImage: `linear-gradient(${activeFlag.bg}, ${activeFlag.bg}), url(${site.hero.image.src})`,
+                        backgroundBlendMode: "screen",
                       }
                     : {}),
                 }}

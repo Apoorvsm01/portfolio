@@ -170,51 +170,55 @@
   padding-block: var(--step-rhythm);
 }
 
-/* Base typography (v4 T) */
-html {
-  background-color: var(--ground);
-  color: var(--fg);
-  scroll-behavior: smooth;
-}
+/* Element defaults live in @layer base so Tailwind utilities (font-sans, text-*, colours) on a
+   <p> or heading can override them. Unlayered rules beat every utility in Tailwind v4. */
+@layer base {
+  /* Base typography (v4 T) */
+  html {
+    background-color: var(--ground);
+    color: var(--fg);
+    scroll-behavior: smooth;
+  }
 
-body {
-  background-color: var(--ground);
-  color: var(--fg);
-  font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  body {
+    background-color: var(--ground);
+    color: var(--fg);
+    font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-/* Display / Headlines: Mona Sans 900, wdth 112, tracking -0.025em, line-height 0.95-1.05 */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-display), sans-serif;
-  font-weight: 900;
-  font-variation-settings: "wdth" 112;
-  letter-spacing: -0.025em;
-  line-height: 1.05;
-  text-wrap: balance;
-}
+  /* Display / Headlines: Mona Sans 900, wdth 112, tracking -0.025em, line-height 0.95-1.05 */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display), sans-serif;
+    font-weight: 900;
+    font-variation-settings: "wdth" 112;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+    text-wrap: balance;
+  }
 
-/* Body paragraphs: Newsreader (serif), 400, clamp(1.0625rem, 1rem + .3vw, 1.1875rem), line-height 1.6 */
-p {
-  font-family: var(--font-serif), Georgia, Cambria, "Times New Roman", Times, serif;
-  font-weight: 400;
-  font-size: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);
-  line-height: 1.6;
-  color: var(--fg-2);
-  text-wrap: pretty;
-}
+  /* Body paragraphs: Newsreader (serif), 400, clamp(1.0625rem, 1rem + .3vw, 1.1875rem), line-height 1.6 */
+  p {
+    font-family: var(--font-serif), Georgia, Cambria, "Times New Roman", Times, serif;
+    font-weight: 400;
+    font-size: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);
+    line-height: 1.6;
+    color: var(--fg-2);
+    text-wrap: pretty;
+  }
 
-.band-paper p,
-[data-theme="light"] p {
-  color: var(--paper-ink);
+  .band-paper p,
+  [data-theme="light"] p {
+    color: var(--paper-ink);
+  }
 }
 
 /* Labels: Bricolage at 13-14px, colour --muted, sentence case (v4 T) */
@@ -436,6 +440,16 @@ html:not([data-js]) header[data-nav] {
       animation-timeline: scroll(root);
     }
   }
+}
+
+/* Sticky chapter bar (v4 K) */
+.sticky-chapter-bar {
+  top: var(--nav-h);
+  transition: top 300ms var(--ease-settle), opacity 200ms var(--ease-settle);
+}
+
+header[data-nav][data-hidden="true"] ~ div .sticky-chapter-bar {
+  top: 0px;
 }
 
 /* Shimmer skeleton for iframe */
