@@ -1,5 +1,6 @@
 import { Hero } from "../components/Hero";
 import { Featured } from "../components/Featured";
+import { PersonalWork } from "../components/PersonalWork";
 import { SelectedWork } from "../components/SelectedWork";
 import { HowIWork } from "../components/HowIWork";
 import { AboutTeaser } from "../components/AboutTeaser";
@@ -46,6 +47,7 @@ export default function Home() {
     <main id="main" className="flex-1 w-full">
       <Hero studyDataMap={studyDataMap} portraitDims={portraitDims} />
       <Featured />
+      <PersonalWork />
       <SelectedWork />
       <HowIWork />
       <HeadsetWall />

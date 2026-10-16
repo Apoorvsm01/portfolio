@@ -6,7 +6,9 @@ import type { NavIndexItem } from "../lib/nav-index";
 import { getNavIndex } from "../lib/nav-index";
 
 export interface WorkCardProps {
-  work: NavIndexItem | { slug: string; org?: string; blurb?: string };
+  work:
+    | NavIndexItem
+    | { slug: string; org?: string; blurb?: string; domain?: string };
   isLead?: boolean;
   compact?: boolean;
 }
@@ -25,7 +27,12 @@ export function WorkCard({
   const meta = studyMeta[work.slug];
   // v4: the study's claim is the blurb
   const blurb = meta?.claim ?? navItem?.blurb ?? ("blurb" in work ? work.blurb : "");
-  const org = navItem?.org ?? ("org" in work ? work.org : undefined);
+  const rawOrg = navItem?.org ?? ("org" in work ? work.org : undefined);
+  const domain =
+    navItem?.domain ??
+    ("domain" in work ? (work as { domain?: string }).domain : undefined);
+  const org =
+    rawOrg || (domain === "Personal" ? site.personal.personalLabel : undefined);
   const cover = navItem?.cover;
   const href = `/work/${work.slug}/`;
 

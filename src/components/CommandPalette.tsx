@@ -39,7 +39,7 @@ function buildItemsFromNavIndex(items: NavIndexItem[]): PaletteItem[] {
     id: "page-work",
     category: "Pages",
     title: "Work",
-    subtitle: "All 9 Projects & Case Studies",
+    subtitle: `All ${items.length} Projects & Case Studies`,
     keywords: "work projects portfolio case studies index",
     url: "/work/",
   });

@@ -1,0 +1,187 @@
+{
+  "slug": "good-roommate",
+  "title": "The Good Roommate",
+  "description": "A camera-first chore app for roommates, designed for Apple's foldable iPhone Duo from day one: one layout on the 5.4-inch outer display, a split camera and to-do list on the 7.6-inch inner display.",
+  "tags": [
+    "iPhone Duo",
+    "SwiftUI",
+    "On-device AI"
+  ],
+  "hmw": "make logging a clean room take as little effort as sending a Snap, on a phone that unfolds?",
+  "facts": [
+    {
+      "label": "My part",
+      "value": "Everything: product, UX, UI, the iOS app and the backend"
+    },
+    {
+      "label": "Platforms",
+      "value": "iPhone Duo and every iPhone, iOS 27"
+    },
+    {
+      "label": "Built on",
+      "value": "SwiftUI and Liquid Glass, Vision, Supabase"
+    },
+    {
+      "label": "Status",
+      "value": "In progress, v0.5.0 (started October 2026)"
+    }
+  ],
+  "prototype": null,
+  "heroImages": [
+    {
+      "src": "/work/good-roommate/01-duo-unfolded.png",
+      "alt": "The Good Roommate on the unfolded iPhone Duo: the Up next task list on the left half and the camera on the right half"
+    },
+    {
+      "src": "/work/good-roommate/03-duo-folded.png",
+      "alt": "The Good Roommate on the folded iPhone Duo's outer display: the camera with the streak counter, and the tab bar in the side strip"
+    },
+    {
+      "src": "/work/good-roommate/04-detection.png",
+      "alt": "The camera on iPhone with a chip reading Spotted dishwasher, Dishes, plus 20"
+    }
+  ],
+  "sections": [
+    {
+      "label": "Designed for iPhone Duo",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "One app, two displays, no seams"
+        },
+        {
+          "type": "paragraph",
+          "text": "iPhone Duo is Apple's first foldable: a 5.4-inch outer display and a 7.6-inch inner one. I set one rule before any screen: everything works folded and unfolded, and opening or closing the phone mid-task never loses your place."
+        },
+        {
+          "type": "figure",
+          "image": {
+            "src": "/work/good-roommate/01-duo-unfolded.png",
+            "alt": "Unfolded iPhone Duo: Up next on the left half, the camera aimed at Make your bed on the right half"
+          },
+          "caption": "Unfolded: the camera takes the right half and Up next fills the left. Tapping a task aims the camera at it.",
+          "wide": true
+        },
+        {
+          "type": "list",
+          "items": [
+            "Folded, the outer display uses the same layout as any iPhone. Unfolded in landscape, the camera takes the right half and the most urgent tasks fill the left.",
+            "The split is chosen by display size, not by fold state: it only appears when the screen is wider than tall and its short side is at least 600 points.",
+            "The two halves are equal and the camera half is the exact same camera screen as the phone, so there's one camera to design and test, not two.",
+            "Fold it mid-task and the app returns to the folded camera with the same task still selected."
+          ]
+        },
+        {
+          "type": "figure",
+          "image": {
+            "src": "/work/good-roommate/03-duo-folded.png",
+            "alt": "Folded iPhone Duo: the camera on the outer display, with the tab bar in the strip down the right edge"
+          },
+          "caption": "Folded: iOS moves the status bar and the tab bar into an 84-point strip down the side. The app reads that inset at the root and keeps everything except the camera feed clear of it."
+        },
+        {
+          "type": "paragraph",
+          "text": "I measured that strip in the simulator: the outer display reports it as an 84-point trailing safe-area inset. A container that ignores the safe area hides it from its children, so the app reads the insets once at the root and passes them down. Full-screen moments like the celebration are centred with equal padding on both sides."
+        }
+      ]
+    },
+    {
+      "label": "Camera first",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "The app opens to the camera"
+        },
+        {
+          "type": "paragraph",
+          "text": "Logging a chore is a photo, so the camera is home. A streak counter sits on it, a pill shows how many tasks are left today, and the camera always surfaces the most urgent tasks, ranked by what's overdue, what's due soonest, and whose streak is at risk."
+        }
+      ]
+    },
+    {
+      "label": "Chores that feel physical",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "A tiny story before the points"
+        },
+        {
+          "type": "paragraph",
+          "text": "Logging the trash plays a short SF Symbols story: the can drops in, the lid swings open, a bag falls in, the lid slams shut, stars burst, then +10. Every chore has its own beat with a haptic on each, the points land at 1.7 seconds, and the whole thing stays under 3 seconds. Reduce Motion skips straight to the points."
+        },
+        {
+          "type": "figure",
+          "image": {
+            "src": "/work/good-roommate/07-trash-sequence.gif",
+            "alt": "Animated sequence: a trash can opens, a bag drops in, the lid shuts and stars burst before the points appear"
+          },
+          "caption": "The trash story, captured from the app."
+        }
+      ]
+    },
+    {
+      "label": "On-device AI",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "The camera knows what you're pointing at"
+        },
+        {
+          "type": "paragraph",
+          "text": "Apple's Vision classifier runs on the phone about twice a second. The app maps what it sees to rooms and chores, smooths the guess over five frames, and only then shows a chip like \"Spotted dishwasher · Dishes +20\". It pauses when the camera tab is hidden, the phone is hot, or Low Power Mode is on. No frame is stored or sent; at most three labels are saved with a log."
+        },
+        {
+          "type": "figure",
+          "image": {
+            "src": "/work/good-roommate/04-detection.png",
+            "alt": "The camera on iPhone with the detection chip Spotted dishwasher, Dishes, plus 20"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Private by design",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "A name, an emoji, and nothing else"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A profile is a display name and an emoji. Email stays with the sign-in provider, and there are no tracking identifiers or analytics.",
+            "Chore photos lose their location and camera data on the phone, live in a private bucket only the house can read, and are deleted after 7 days.",
+            "The server sets the time and the points on every log, so a phone can't backdate a chore or award itself points.",
+            "Invite codes rotate every 24 hours and can be shared as a QR code, through the share sheet, or by holding two phones together."
+          ]
+        },
+        {
+          "type": "figure",
+          "image": {
+            "src": "/work/good-roommate/05-invite.png",
+            "alt": "The House page with a QR code invite, the code ZNZ0-TV1G, a countdown to the next code, and Share invite and Hold phones together buttons"
+          }
+        }
+      ]
+    },
+    {
+      "label": "How it's built",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "SwiftUI now, Android later"
+        },
+        {
+          "type": "paragraph",
+          "text": "The iOS 27 app is SwiftUI with tinted Liquid Glass. The rules (streaks, ranking, points, invite codes, matching camera labels to chores) live in a plain Swift package with 53 tests, so the same logic can reach Android through Skip later. Supabase handles sign-in with Apple, Google or an emailed code, the data with row-level security on every table, and live updates between roommates."
+        },
+        {
+          "type": "paragraph",
+          "text": "I ran it like a product team: a decision log, an ideas backlog with statuses, versioned screenshots for every release, and a Linear project. I built it with Claude Code leading and reviewing, and Google's Antigravity and smaller models taking scoped tickets."
+        }
+      ]
+    }
+  ],
+  "unportedComponents": [],
+  "imageCount": 6
+}

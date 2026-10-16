@@ -4,7 +4,7 @@ import { useState, useRef, useLayoutEffect, useMemo } from "react";
 import { WorkCard } from "./WorkCard";
 import type { NavIndexItem } from "../lib/nav-index";
 
-const DOMAINS = ["All", "Automotive", "Spatial", "Health"] as const;
+const DOMAINS = ["All", "Automotive", "Spatial", "Health", "Personal"] as const;
 type DomainFilter = (typeof DOMAINS)[number];
 
 interface ExitingCard {
@@ -33,6 +33,8 @@ export function WorkIndex({ items = [] }: { items?: NavIndexItem[] }) {
         setFilter("Spatial");
       } else if (hash === "health") {
         setFilter("Health");
+      } else if (hash === "personal") {
+        setFilter("Personal");
       } else {
         setFilter("All");
       }

@@ -1,0 +1,118 @@
+{
+  "slug": "just-fill-it",
+  "title": "Just Fill it!",
+  "description": "A Chrome and Safari extension that turns the job page you're on into a tailored resume or cover letter and drops the PDF straight into the application.",
+  "tags": [
+    "Browser extension",
+    "Material 3 + Liquid Glass",
+    "Claude"
+  ],
+  "hmw": "tailor every application without ever leaving the job page?",
+  "facts": [
+    {
+      "label": "My part",
+      "value": "Designed and built it, for my own job search"
+    },
+    {
+      "label": "Platforms",
+      "value": "Chrome (Material 3) and Safari (Liquid Glass)"
+    },
+    {
+      "label": "Built on",
+      "value": "A browser extension, a local helper, and Claude"
+    },
+    {
+      "label": "Code",
+      "value": "github.com/Apoorvsm01/just-fill-it"
+    }
+  ],
+  "prototype": null,
+  "heroImages": [
+    {
+      "src": "/work/just-fill-it/panel-m3-done-light.png",
+      "alt": "The Just Fill it! panel in Chrome, in Material 3, with a finished resume ready to attach"
+    },
+    {
+      "src": "/work/just-fill-it/panel-glass-done-light.png",
+      "alt": "The Just Fill it! panel in Safari, in Liquid Glass, with a finished resume ready to attach"
+    }
+  ],
+  "sections": [
+    {
+      "label": "The loop",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "The writing wasn't the problem"
+        },
+        {
+          "type": "paragraph",
+          "text": "I already had an AI workflow that tailored my resume and cover letter to each posting. Everything around it was the problem: copy the link, switch to a terminal, chat past whatever broke, find the PDF in Finder, read it, switch back, and pick the right file out of several drafts in a file picker. That was roughly 15 steps, four app switches and two file pickers per document, twice per job."
+        },
+        {
+          "type": "paragraph",
+          "text": "Designing for myself made the brief unusually sharp: I should never have to leave the job page."
+        }
+      ]
+    },
+    {
+      "label": "Stay in the flow",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "One panel, on the page you're already on"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Everything happens in a panel on the job page. No terminal, no Finder, no file picker.",
+            "The panel never submits anything. It hands you a file you can read, drag or attach, with notes on what it couldn't honestly claim.",
+            "A free-text box takes this run's instructions (\"lead with design systems\") instead of a back-and-forth chat.",
+            "It survives reloads and page changes, and keeps your last 10 documents, each linked to the job it was written for."
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Two design languages",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Native in each browser"
+        },
+        {
+          "type": "paragraph",
+          "text": "One product, drawn in each browser's own design language: Material 3 in Chrome and Liquid Glass in Safari."
+        },
+        {
+          "type": "images",
+          "images": [
+            {
+              "src": "/work/just-fill-it/panel-m3-done-light.png",
+              "alt": "The panel in Chrome, Material 3"
+            },
+            {
+              "src": "/work/just-fill-it/panel-glass-done-light.png",
+              "alt": "The panel in Safari, Liquid Glass"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Fast enough to use every time",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "About 15 seconds a resume"
+        },
+        {
+          "type": "paragraph",
+          "text": "A resume takes about 15 seconds and about 13,000 tokens, and a second document for the same job a few minutes later reuses most of that from cache. Cheap and quick enough to run on every application."
+        }
+      ]
+    }
+  ],
+  "unportedComponents": [],
+  "imageCount": 2
+}

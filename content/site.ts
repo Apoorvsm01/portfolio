@@ -11,7 +11,8 @@ export type WorkRef = {
   blurb: string;
   cover?: string; // card image override (public path)
   coverFit?: "contain"; // for tall/logo images that shouldn't be cropped
-  domain: "Automotive" | "Spatial" | "Health";
+  domain: "Automotive" | "Spatial" | "Health" | "Personal";
+  link?: { label: string; href: string }; // external link shown on the card (personal projects)
 };
 
 export const site = {
@@ -41,13 +42,14 @@ export const site = {
       label: "I’m hiring a UX engineer",
       headline: "I hand engineers code, not pictures.",
       answer:
-        "Start with the Generative Drive Coach: a CARLA simulator bridged to an iPad HMI in React and TypeScript, and a design system shared across four Toyota companies. Then Drive Coach iOS, which I designed and built in SwiftUI.",
+        "Start with the Generative Drive Coach: a CARLA simulator bridged to an iPad HMI in React and TypeScript, and a design system shared across four Toyota companies. Then The Good Roommate, a SwiftUI app I designed and built on my own for iPhone Duo, Apple's foldable.",
       bullets: [
         "I wrote the Python bridge between the CARLA driving simulator and an iPad HMI in React and TypeScript, and it read faster than the 2-second glance standard.",
         "Engineers get production-ready React, Flutter, SwiftUI or Tailwind from me, not a spec to interpret.",
         "I built the Figma design system Woven, TRI, TMNA and TCNA now share, with tokens and visual regression tests.",
+        "On my own time I designed and built The Good Roommate for iPhone Duo: one layout folded, a split camera and task list unfolded, and on-device Vision.",
       ],
-      links: ["woven", "drive-coach-ios"],
+      links: ["woven", "good-roommate", "drive-coach-ios"],
     },
     {
       id: "researcher",
@@ -100,6 +102,28 @@ export const site = {
     related: ["fleet-co-pilot", "fleet-dashboard", "drive-coach-ios"],
   },
 
+  // Personal projects band, right under the Woven feature on the home page.
+  personal: {
+    kicker: "Built on my own time",
+    headline: "I design for new hardware before it ships.",
+    intro:
+      "Outside work I build complete products, from the first decision to the backend. These are the newest two.",
+    personalLabel: "Personal project",
+    lead: {
+      slug: "good-roommate",
+      // Shown under the two Duo screenshots.
+      folded: { src: "/work/good-roommate/03-duo-folded.png", alt: "The Good Roommate's camera on the folded iPhone Duo, with the tab bar in the side strip", caption: "Folded, 5.4 inches: the phone layout, with iOS's tab bar moved into the side strip." },
+      unfolded: { src: "/work/good-roommate/01-duo-unfolded.png", alt: "The Good Roommate on the unfolded iPhone Duo: Up next on the left half, the camera on the right half", caption: "Unfolded, 7.6 inches: the camera takes the right half and Up next fills the left." },
+      points: [
+        "Designed for iPhone Duo from day one, and every other iPhone",
+        "SwiftUI and Liquid Glass, with chore animations under 3 seconds",
+        "On-device Vision spots the chore; Supabase keeps the house in sync",
+      ],
+      cta: "Read the case study",
+    },
+    others: ["just-fill-it"],
+  },
+
   // Domain of the featured study (it isn't in `work`): used by the /work/ index filter.
   featuredDomain: "Automotive" as const,
 
@@ -112,6 +136,9 @@ export const site = {
     { slug: "spatialshowroom", domain: "Spatial", cover: "/work/spatialshowroom/01.png", blurb: "A spatial showroom experience for Vision Pro." },
     { slug: "syncare-ai-health", domain: "Health", cover: "/work/syncare-ai-health/01.png", org: "Patched Reality", blurb: "Making AI-integrated health records easier to read." },
     { slug: "sitelens", domain: "Spatial", cover: "/work/sitelens/02.png", blurb: "AR glasses for on-site construction inspections." },
+    // Personal projects: listed after employer work; shown in their own band under the Woven feature.
+    { slug: "good-roommate", domain: "Personal", cover: "/work/good-roommate/01-duo-unfolded.png", blurb: "A camera-first chore app for roommates, designed for iPhone Duo." },
+    { slug: "just-fill-it", domain: "Personal", cover: "/work/just-fill-it/panel-glass-done-light.png", blurb: "A Chrome and Safari extension that tailors a resume to the job page you're on.", link: { label: "Code on GitHub", href: "https://github.com/Apoorvsm01/just-fill-it" } },
   ] satisfies WorkRef[],
 
   howIWorkIntro:
