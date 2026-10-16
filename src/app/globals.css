@@ -973,3 +973,18 @@ html:not([data-js]) .fade-image {
     transition: none;
   }
 }
+
+/* Device gallery scale per breakpoint (Ticket P2) */
+.device-gallery {
+  --mm: 2.1px;
+}
+@media (min-width: 768px) {
+  .device-gallery {
+    --mm: 2.8px;
+  }
+}
+@media (min-width: 1024px) {
+  .device-gallery {
+    --mm: 3.6px;
+  }
+}

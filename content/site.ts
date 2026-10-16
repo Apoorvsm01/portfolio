@@ -112,8 +112,8 @@ export const site = {
     lead: {
       slug: "good-roommate",
       // Shown under the two Duo screenshots.
-      folded: { src: "/work/good-roommate/03-duo-folded.png", alt: "The Good Roommate's camera on the folded iPhone Duo, with the tab bar in the side strip", caption: "Folded, 5.4 inches: the phone layout, with iOS's tab bar moved into the side strip." },
-      unfolded: { src: "/work/good-roommate/01-duo-unfolded.png", alt: "The Good Roommate on the unfolded iPhone Duo: Up next on the left half, the camera on the right half", caption: "Unfolded, 7.6 inches: the camera takes the right half and Up next fills the left." },
+      folded: { src: "/work/good-roommate/duo-folded-camera.png", alt: "The Good Roommate's camera on the folded iPhone Duo, with the tab bar in the side strip", caption: "Folded, 5.4 inches: the phone layout, with iOS's tab bar moved into the side strip." },
+      unfolded: { src: "/work/good-roommate/duo-unfolded-camera.png", alt: "The Good Roommate on the unfolded iPhone Duo: Up next on the left half, the camera on the right half", caption: "Unfolded, 7.6 inches: the camera takes the right half and Up next fills the left." },
       points: [
         "Designed for iPhone Duo from day one, and every other iPhone",
         "SwiftUI and Liquid Glass, with chore animations under 3 seconds",
@@ -137,7 +137,7 @@ export const site = {
     { slug: "syncare-ai-health", domain: "Health", cover: "/work/syncare-ai-health/01.png", org: "Patched Reality", blurb: "Making AI-integrated health records easier to read." },
     { slug: "sitelens", domain: "Spatial", cover: "/work/sitelens/02.png", blurb: "AR glasses for on-site construction inspections." },
     // Personal projects: listed after employer work; shown in their own band under the Woven feature.
-    { slug: "good-roommate", domain: "Personal", cover: "/work/good-roommate/01-duo-unfolded.png", blurb: "A camera-first chore app for roommates, designed for iPhone Duo." },
+    { slug: "good-roommate", domain: "Personal", cover: "/work/good-roommate/duo-unfolded-camera.png", coverFit: "contain", blurb: "A camera-first chore app for roommates, designed for iPhone Duo." },
     { slug: "just-fill-it", domain: "Personal", cover: "/work/just-fill-it/panel-glass-done-light.png", blurb: "A Chrome and Safari extension that tailors a resume to the job page you're on.", link: { label: "Code on GitHub", href: "https://github.com/Apoorvsm01/just-fill-it" } },
   ] satisfies WorkRef[],
 
@@ -201,6 +201,12 @@ export const site = {
     violet: { bg: "#a98cf5", ink: "#12110f" },
     yellow: { bg: "#f2c94c", ink: "#12110f" },
   },
+
+  // Physical height of each framed device image's long side as shown, in mm, so devices sit at true relative size. iPhone 18 Pro portrait; iPhone Duo folded (outer) portrait; iPhone Duo unfolded (inner) shown landscape, so its height is the device's short side.
+  // Height of each framed device image as shown, in mm, so devices sit at true relative size. Worked out
+  // from the screen diagonal (6.3" iPhone 18 Pro, 5.4" Duo outer, 7.6" Duo inner) and the proportions of
+  // Apple's product bezels. The unfolded Duo is shown landscape, so its height is the short side.
+  deviceHeightsMm: { iphone: 153, "duo-folded": 122, "duo-unfolded": 124 },
 
   disclaimer:
     "Woven by Toyota logo is a copyright of Woven by Toyota, Inc. ©2026. I did not design or create the logo in any capacity. All Woven by Toyota projects are inspired by the work I did, not true copies.",

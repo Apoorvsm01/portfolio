@@ -89,17 +89,32 @@ export function Hero({
           {heroImage && (
             <div className="lg:col-span-5 xl:col-span-5 self-start">
               <figure className="w-full">
-                <div className="rounded-[6px] overflow-hidden border border-rule/60 bg-surface aspect-[4/3]">
+                {study.heroFit === "contain" ? (
                   <FadeImage
                     src={heroImage.src}
                     alt={heroImage.alt || study.title}
                     width={heroDims.width}
                     height={heroDims.height}
                     loading="eager"
-                    className="w-full h-full object-cover"
+                    className="w-auto h-auto max-h-[60svh] max-w-full object-contain mx-auto block"
                   />
-                </div>
-                <figcaption className="mt-3 font-sans text-xs sm:text-sm text-muted leading-relaxed">
+                ) : (
+                  <div className="rounded-[6px] overflow-hidden border border-rule/60 bg-surface aspect-[4/3]">
+                    <FadeImage
+                      src={heroImage.src}
+                      alt={heroImage.alt || study.title}
+                      width={heroDims.width}
+                      height={heroDims.height}
+                      loading="eager"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                )}
+                <figcaption
+                  className={`mt-3 font-sans text-xs sm:text-sm text-muted leading-relaxed ${
+                    study.heroFit === "contain" ? "text-center" : ""
+                  }`}
+                >
                   {caption}
                 </figcaption>
               </figure>

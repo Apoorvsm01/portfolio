@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { site } from "../../content/site";
 import { studyMeta } from "../../content/study-meta";
-import { getStudy, imageDims, studyHref } from "../lib/content";
-import { FadeImage } from "./FadeImage";
+import { getStudy, studyHref } from "../lib/content";
+import { DeviceGallery } from "./case-study/DeviceGallery";
 import { WorkCard } from "./WorkCard";
 
 export function PersonalWork() {
@@ -12,9 +12,6 @@ export function PersonalWork() {
   const leadMeta = studyMeta[lead.slug];
   const leadFlagName = leadMeta?.flag ?? "pink";
   const leadFlagBg = site.flags[leadFlagName]?.bg ?? "#ee5c96";
-
-  const foldedDims = imageDims(lead.folded.src);
-  const unfoldedDims = imageDims(lead.unfolded.src);
 
   return (
     <section
@@ -44,42 +41,14 @@ export function PersonalWork() {
           style={{ borderTopColor: leadFlagBg }}
           className="rounded-[6px] bg-surface border border-rule border-t-[3px] p-5 sm:p-7 md:p-9 card-lift mb-8 sm:mb-12"
         >
-          {/* iPhone Duo first: the two screenshots side by side on md+ (unfolded wider, folded narrower), stacked on mobile */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
-            {/* Unfolded (landscape ~1.42:1) - wider */}
-            <figure className="md:col-span-8 flex flex-col">
-              <div className="overflow-hidden rounded-[6px] border border-rule/60 bg-ground/50">
-                <FadeImage
-                  src={lead.unfolded.src}
-                  alt={lead.unfolded.alt}
-                  width={unfoldedDims.width}
-                  height={unfoldedDims.height}
-                  loading="lazy"
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-              <figcaption className="mt-2.5 font-sans text-xs text-muted leading-relaxed">
-                {lead.unfolded.caption}
-              </figcaption>
-            </figure>
-
-            {/* Folded (portrait ~0.69:1) - narrower */}
-            <figure className="md:col-span-4 flex flex-col w-full max-w-[17rem] mx-auto md:max-w-none">
-              <div className="overflow-hidden rounded-[6px] border border-rule/60 bg-ground/50">
-                <FadeImage
-                  src={lead.folded.src}
-                  alt={lead.folded.alt}
-                  width={foldedDims.width}
-                  height={foldedDims.height}
-                  loading="lazy"
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-              <figcaption className="mt-2.5 font-sans text-xs text-muted leading-relaxed">
-                {lead.folded.caption}
-              </figcaption>
-            </figure>
-          </div>
+          {/* iPhone Duo first: folded and unfolded in Apple's bezels, at true relative size. */}
+          <DeviceGallery
+            title={leadTitle}
+            items={[
+              { ...lead.unfolded, device: "duo-unfolded" },
+              { ...lead.folded, device: "duo-folded" },
+            ]}
+          />
 
           {/* Under them: personalLabel, study title, claim, points list, and CTA link */}
           <div className="mt-8 pt-8 border-t border-rule/60 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-start">

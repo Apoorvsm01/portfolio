@@ -6,6 +6,7 @@ import { Figure } from "./Figure";
 import { Metrics } from "./Metrics";
 import { Widgets } from "./Widgets";
 import { Bento } from "./Bento";
+import { DeviceGallery } from "./DeviceGallery";
 import { IframeWithSkeleton } from "./IframeWithSkeleton";
 
 function renderListItem(item: string) {
@@ -213,6 +214,15 @@ export function BlockRenderer({
 
     case "bento":
       return <Bento items={block.items} flag={flag} />;
+
+    case "devices":
+      return (
+        <DeviceGallery
+          items={block.items}
+          caption={block.caption}
+          title={studyTitle}
+        />
+      );
 
     default:
       return null;

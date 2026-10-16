@@ -107,7 +107,11 @@ export default async function CaseStudyPage({
               flag={meta.flag}
             />
             {remainingHeroImages.length > 0 && (
-              <HeroImages images={remainingHeroImages} title={study.title} />
+              <HeroImages
+                images={remainingHeroImages}
+                title={study.title}
+                heroFit={study.heroFit}
+              />
             )}
             {study.sections.map((section, index) => (
               <SectionBlock

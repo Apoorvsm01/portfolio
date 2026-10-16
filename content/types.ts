@@ -3,6 +3,13 @@
 export type Img = { src: string; alt: string };
 export type Card = { label: string; value: string };
 
+export type DeviceShot = {
+  src: string;
+  alt: string;
+  device: "iphone" | "duo-folded" | "duo-unfolded";
+  caption?: string;
+};
+
 export type Block =
   | { type: "heading"; text: string }
   | { type: "paragraph"; text: string }
@@ -16,7 +23,8 @@ export type Block =
   | { type: "metrics"; items: Metric[] }
   | { type: "widgets"; items: Widget[] }
   // Process section as a bento grid: one tile per heading (scripts/visual-blocks.py).
-  | { type: "bento"; items: BentoTile[] };
+  | { type: "bento"; items: BentoTile[] }
+  | { type: "devices"; items: DeviceShot[]; caption?: string };
 
 export type BentoTile = {
   title: string; // the main point, shown on the closed note
@@ -44,6 +52,7 @@ export type CaseStudy = {
   facts: Card[]; // values may contain "\n" line breaks
   prototype: { embed: string; link: string | null; aspect?: string } | null; // aspect: CSS ratio the prototype letterboxes to
   heroImages: Img[];
+  heroFit?: "contain";
   sections: Section[]; // a section's label may be "" (untitled intro section)
   unportedComponents: string[];
   imageCount: number;

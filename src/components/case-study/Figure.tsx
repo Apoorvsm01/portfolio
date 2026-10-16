@@ -18,10 +18,16 @@ export function Figure({
     ? image.alt
     : caption?.trim() || (studyTitle ? `${studyTitle} specification` : "Specification");
 
+  const isPortrait = dims.height > dims.width;
+
   return (
     <figure
       className={`my-8 first:mt-0 last:mb-0 ${
-        wide ? "w-full" : "w-full max-w-[46rem]"
+        isPortrait
+          ? "w-full max-w-[22rem] mx-auto"
+          : wide
+          ? "w-full"
+          : "w-full max-w-[46rem]"
       }`}
     >
       <div className="rounded-[6px] overflow-hidden border border-rule bg-surface">
@@ -35,7 +41,11 @@ export function Figure({
         />
       </div>
       {caption && caption.trim() !== "" && (
-        <figcaption className="mt-3 font-sans text-xs sm:text-sm text-muted leading-relaxed max-w-[46rem]">
+        <figcaption
+          className={`mt-3 font-sans text-xs sm:text-sm text-muted leading-relaxed ${
+            isPortrait ? "text-center" : "max-w-[46rem]"
+          }`}
+        >
           {caption}
         </figcaption>
       )}

@@ -8,6 +8,7 @@
     "On-device AI"
   ],
   "hmw": "make logging a clean room take as little effort as sending a Snap, on a phone that unfolds?",
+  "heroFit": "contain",
   "facts": [
     {
       "label": "My part",
@@ -29,16 +30,8 @@
   "prototype": null,
   "heroImages": [
     {
-      "src": "/work/good-roommate/01-duo-unfolded.png",
-      "alt": "The Good Roommate on the unfolded iPhone Duo: the Up next task list on the left half and the camera on the right half"
-    },
-    {
-      "src": "/work/good-roommate/03-duo-folded.png",
-      "alt": "The Good Roommate on the folded iPhone Duo's outer display: the camera with the streak counter, and the tab bar in the side strip"
-    },
-    {
-      "src": "/work/good-roommate/04-detection.png",
-      "alt": "The camera on iPhone with a chip reading Spotted dishwasher, Dishes, plus 20"
+      "src": "/work/good-roommate/duo-unfolded-camera.png",
+      "alt": "The Good Roommate on an unfolded iPhone Duo: Up next on the left half of the inner display, the camera on the right half"
     }
   ],
   "sections": [
@@ -54,13 +47,22 @@
           "text": "iPhone Duo is Apple's first foldable: a 5.4-inch outer display and a 7.6-inch inner one. I set one rule before any screen: everything works folded and unfolded, and opening or closing the phone mid-task never loses your place."
         },
         {
-          "type": "figure",
-          "image": {
-            "src": "/work/good-roommate/01-duo-unfolded.png",
-            "alt": "Unfolded iPhone Duo: Up next on the left half, the camera aimed at Make your bed on the right half"
-          },
-          "caption": "Unfolded: the camera takes the right half and Up next fills the left. Tapping a task aims the camera at it.",
-          "wide": true
+          "type": "devices",
+          "items": [
+            {
+              "src": "/work/good-roommate/duo-unfolded-camera.png",
+              "alt": "Unfolded iPhone Duo: Up next on the left half, the camera on the right half",
+              "device": "duo-unfolded",
+              "caption": "Unfolded, 7.6 inches: the camera takes the right half and Up next fills the left."
+            },
+            {
+              "src": "/work/good-roommate/duo-folded-camera.png",
+              "alt": "Folded iPhone Duo: the camera on the outer display with the tab bar in the side strip",
+              "device": "duo-folded",
+              "caption": "Folded, 5.4 inches: the phone layout, with iOS's tab bar moved into the side strip."
+            }
+          ],
+          "caption": "Shown at true relative size, in Apple's iPhone Duo bezels."
         },
         {
           "type": "list",
@@ -72,16 +74,19 @@
           ]
         },
         {
-          "type": "figure",
-          "image": {
-            "src": "/work/good-roommate/03-duo-folded.png",
-            "alt": "Folded iPhone Duo: the camera on the outer display, with the tab bar in the strip down the right edge"
-          },
-          "caption": "Folded: iOS moves the status bar and the tab bar into an 84-point strip down the side. The app reads that inset at the root and keeps everything except the camera feed clear of it."
+          "type": "devices",
+          "items": [
+            {
+              "src": "/work/good-roommate/duo-unfolded-leaderboard.png",
+              "alt": "Unfolded iPhone Duo: the house leaderboard on the left half, the camera on the right half",
+              "device": "duo-unfolded",
+              "caption": "The left half switches between Up next and the leaderboard; the camera stays put."
+            }
+          ]
         },
         {
           "type": "paragraph",
-          "text": "I measured that strip in the simulator: the outer display reports it as an 84-point trailing safe-area inset. A container that ignores the safe area hides it from its children, so the app reads the insets once at the root and passes them down. Full-screen moments like the celebration are centred with equal padding on both sides."
+          "text": "Folded, iOS moves the status bar and the tab bar into an 84-point strip down the side. I measured it in the simulator as a trailing safe-area inset. A container that ignores the safe area hides it from its children, so the app reads the insets once at the root and keeps everything except the camera feed clear of the strip."
         }
       ]
     },
@@ -94,7 +99,119 @@
         },
         {
           "type": "paragraph",
-          "text": "Logging a chore is a photo, so the camera is home. A streak counter sits on it, a pill shows how many tasks are left today, and the camera always surfaces the most urgent tasks, ranked by what's overdue, what's due soonest, and whose streak is at risk."
+          "text": "Logging a chore is a photo, so the camera is home. A streak counter sits on it, a pill shows how many tasks are left today, and Up next ranks what's due by what's overdue, what's due soonest, and whose streak is at risk."
+        },
+        {
+          "type": "devices",
+          "items": [
+            {
+              "src": "/work/good-roommate/iphone-camera.png",
+              "alt": "The camera on iPhone 18 Pro with the streak counter, a Spotted dishwasher chip and the shutter",
+              "device": "iphone",
+              "caption": "Camera, with on-device detection."
+            },
+            {
+              "src": "/work/good-roommate/iphone-up-next.png",
+              "alt": "The Up next tab on iPhone 18 Pro listing ranked chores with their points",
+              "device": "iphone",
+              "caption": "Up next, ranked."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Profiles and badges",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Your week at a glance"
+        },
+        {
+          "type": "paragraph",
+          "text": "Your profile is your streak card, the points you've earned, the chores you've logged, your best streak, your badges and your recent logs. Badges reward the habits the app is for, like a first log, a 7-day streak and 25 chores. A profile is only a display name and an emoji."
+        },
+        {
+          "type": "devices",
+          "items": [
+            {
+              "src": "/work/good-roommate/iphone-profile.png",
+              "alt": "The Profile page on iPhone 18 Pro: a 12-day streak card, 280 points earned, 28 chores logged, best streak 16, and badges",
+              "device": "iphone"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Sharing the chores",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Anyone can hand a chore to anyone"
+        },
+        {
+          "type": "paragraph",
+          "text": "The House page lists every open chore with who it belongs to. Tap the avatar to hand it to a roommate or back to the whole house, or add a new chore with its room, assignee and due date. The server checks that the assignee lives in the house, and a chore assigned to someone else can only be logged by them."
+        },
+        {
+          "type": "devices",
+          "items": [
+            {
+              "src": "/work/good-roommate/iphone-house-tasks.png",
+              "alt": "The House page on iPhone 18 Pro listing roommates and open tasks with an assignee on each",
+              "device": "iphone",
+              "caption": "Every chore shows who has it."
+            },
+            {
+              "src": "/work/good-roommate/iphone-assign-menu.png",
+              "alt": "The assign menu open over the House tasks: Anyone, You, Maya, Jordan, Sam",
+              "device": "iphone",
+              "caption": "Reassign in one tap."
+            },
+            {
+              "src": "/work/good-roommate/iphone-new-task.png",
+              "alt": "The New task sheet on iPhone 18 Pro with title, kind, room and who it's assigned to",
+              "device": "iphone",
+              "caption": "Add a chore and give it to someone."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Points you can spend",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "A leaderboard, and something to spend on"
+        },
+        {
+          "type": "paragraph",
+          "text": "Every chore is worth points. The leaderboard ranks the house this week or all time, and Rewards turns points into perks the house agrees on, like the aux cord, first shower or skipping a chore. Your balance is what you've earned minus what you've spent, and the server checks it and locks it while you redeem, so two quick taps can't spend the same points twice."
+        },
+        {
+          "type": "devices",
+          "items": [
+            {
+              "src": "/work/good-roommate/iphone-leaderboard.png",
+              "alt": "The Leaderboard tab on iPhone 18 Pro ranking the four roommates by points this week",
+              "device": "iphone",
+              "caption": "The house, ranked."
+            },
+            {
+              "src": "/work/good-roommate/iphone-rewards.png",
+              "alt": "The Rewards page on iPhone 18 Pro with a 220-point balance and the house rewards with their costs",
+              "device": "iphone",
+              "caption": "Points to spend."
+            },
+            {
+              "src": "/work/good-roommate/iphone-rewards-redeemed.png",
+              "alt": "Redeeming a reward: an Aux cord is yours confirmation over the Rewards page",
+              "device": "iphone",
+              "caption": "Redeemed."
+            }
+          ]
         }
       ]
     },
@@ -129,13 +246,6 @@
         {
           "type": "paragraph",
           "text": "Apple's Vision classifier runs on the phone about twice a second. The app maps what it sees to rooms and chores, smooths the guess over five frames, and only then shows a chip like \"Spotted dishwasher · Dishes +20\". It pauses when the camera tab is hidden, the phone is hot, or Low Power Mode is on. No frame is stored or sent; at most three labels are saved with a log."
-        },
-        {
-          "type": "figure",
-          "image": {
-            "src": "/work/good-roommate/04-detection.png",
-            "alt": "The camera on iPhone with the detection chip Spotted dishwasher, Dishes, plus 20"
-          }
         }
       ]
     },
@@ -156,11 +266,15 @@
           ]
         },
         {
-          "type": "figure",
-          "image": {
-            "src": "/work/good-roommate/05-invite.png",
-            "alt": "The House page with a QR code invite, the code ZNZ0-TV1G, a countdown to the next code, and Share invite and Hold phones together buttons"
-          }
+          "type": "devices",
+          "items": [
+            {
+              "src": "/work/good-roommate/iphone-house.png",
+              "alt": "The House page on iPhone 18 Pro with a QR code invite, the code, a countdown to the next code, and Share invite and Hold phones together buttons",
+              "device": "iphone",
+              "caption": "A rotating QR invite."
+            }
+          ]
         }
       ]
     },
@@ -177,11 +291,11 @@
         },
         {
           "type": "paragraph",
-          "text": "I ran it like a product team: a decision log, an ideas backlog with statuses, versioned screenshots for every release, and a Linear project. I built it with Claude Code leading and reviewing, and Google's Antigravity and smaller models taking scoped tickets."
+          "text": "I ran it like a product team: a decision log, an ideas backlog with statuses, versioned screenshots for every release, and a Linear project. I built it with Claude Code leading and reviewing, and Google's Antigravity and smaller models taking scoped tickets. The screenshots on this page come from UI tests that drive the app and frame each screen in Apple's bezels."
         }
       ]
     }
   ],
   "unportedComponents": [],
-  "imageCount": 6
+  "imageCount": 13
 }
