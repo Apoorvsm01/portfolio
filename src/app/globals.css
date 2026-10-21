@@ -1170,7 +1170,7 @@ html:not([data-js]) .fade-image {
   position: relative;
   width: 100%;
   max-width: 44rem;
-  aspect-ratio: 1.45;
+  aspect-ratio: 1.4;
   perspective: 1600px;
 }
 .flip-face {
@@ -1226,4 +1226,48 @@ html:not([data-js]) .fade-image {
   }
   .flip-face { transition: none !important; filter: none !important; }
   [data-js] [data-reveal].blur-reveal { filter: none !important; }
+}
+
+/* Newest designs: large, framed Duo shots. The bezel PNG is transparent, so no panel padding tricks. */
+.now-shot {
+  display: block;
+  height: auto;
+  width: auto;
+  max-width: 100%;
+  max-height: 34rem;
+  border-radius: 0;
+}
+.now-spread .fold-half {
+  background: color-mix(in srgb, var(--surface) 70%, transparent);
+}
+.now-spread .now-shot {
+  max-height: 40rem;
+}
+
+/* Version 1: small, quiet carousel (scroll-snap, keyboard scrollable) */
+.v1-carousel {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 0.75rem;
+  -webkit-overflow-scrolling: touch;
+}
+.v1-carousel:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+.v1-card {
+  flex: 0 0 auto;
+  width: 9.5rem;
+  scroll-snap-align: start;
+  opacity: 0.85;
+}
+.v1-card:hover { opacity: 1; }
+.v1-shot {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  border: 1px solid var(--rule);
 }

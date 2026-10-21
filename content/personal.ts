@@ -51,17 +51,58 @@ export const personal = {
       caption: "Figma: Screens v1.2, the Dishes cover.",
     } as Shot,
     right: {
-      src: "/work/good-roommate/process/shipped-cover-dishes.png",
-      alt: "The shipped stopwatch cover on iPhone Duo in the simulator, Lagoon theme: 04:20 on the timer, Dishes, Done and Cancel buttons, the washing-up bowl illustration, and white outlines marking the safe zone and the camera-hole corner",
-      caption: "The shipped cover in the Duo simulator, Lagoon theme. The white outlines are the safe zone.",
+      src: "/work/good-roommate/process/now-cover-dishes.png",
+      alt: "The shipped stopwatch cover on the folded iPhone Duo in landscape: 04:20 on the timer, Dishes, Done and Cancel buttons, and the washing-up bowl illustration, in the Duo bezel",
+      caption: "The shipped cover on the Duo, in landscape.",
     } as Shot,
   },
 
-  // Chapter 3: V1, V2, V3
-  evolution: {
-    label: "03  Versions",
-    title: "Every version stays viewable.",
-    body: "Each version that changes the look gets its own folder of screenshots, a tag and a pull request, so I can put the first scaffold next to today's build and see what actually changed.",
+  // Chapter 3: where the design is now (newest captures, framed in Apple's Duo bezel from the Figma file)
+  now: {
+    label: "03  Now",
+    title: "Where the design is today.",
+    body: "The app has moved a long way from the first scaffold. Up next ranks what is overdue, a running chore sits above the tab bar with its own timer, finishing one pays out a speed bonus, and three themes change the whole mood of the house.",
+    lead: {
+      left: {
+        src: "/work/good-roommate/process/now-up-next.png",
+        alt: "The Good Roommate on the folded iPhone Duo, Plum and Coral theme in light: Up next lists Dishes as overdue and aimed at by the camera, then five more chores, with the toolbar and tab bar in the side strip",
+        caption: "Up next on the folded Duo, Plum · Coral, light. The camera is aimed at the most overdue chore.",
+      } as Shot,
+      right: {
+        src: "/work/good-roommate/process/now-in-progress.png",
+        alt: "The same Up next screen in the Lagoon theme in dark, with a running Dishes chore pill showing 04:20 above the bottom of the list",
+        caption: "Lagoon, dark. Start a chore and its stopwatch rides along above the tab bar.",
+      } as Shot,
+    },
+    more: [
+      {
+        src: "/work/good-roommate/process/now-celebration.png",
+        alt: "The celebration screen on the folded Duo: +30 points, Dishes done, a 13 day streak saved for today, and a speed bonus line",
+        caption: "Finish a chore: points, the streak, and a speed bonus.",
+      },
+      {
+        src: "/work/good-roommate/process/now-theme-lagoon.png",
+        alt: "Up next in the Lagoon theme, navy and azure, in dark",
+        caption: "Lagoon: navy and azure.",
+      },
+      {
+        src: "/work/good-roommate/process/now-theme-moss.png",
+        alt: "Up next in the Moss theme, forest and lime, in light",
+        caption: "Moss: forest and lime.",
+      },
+    ] as Shot[],
+    cover: {
+      src: "/work/good-roommate/process/now-cover-dishes.png",
+      alt: "The folded iPhone Duo turned to landscape in tent mode: a stopwatch at 04:20, the chore Dishes, and the animated washing-up illustration, with the camera-hole corner kept clear",
+      caption: "Tent mode on the outer screen: the stopwatch cover from the sketch, now the real thing.",
+    } as Shot,
+  },
+
+  // Chapter 4: Version 1, kept as a small carousel
+  v1: {
+    label: "04  Version 1",
+    title: "Where it started.",
+    body: "Every version that changes the look gets its own folder of screenshots, a tag and a pull request, so the first scaffold still sits next to today's build.",
     steps: [
       {
         version: "v0.1.0",
@@ -73,12 +114,30 @@ export const personal = {
         } as Shot,
       },
       {
+        version: "v0.1.0",
+        name: "Leaderboard",
+        shot: {
+          src: "/work/good-roommate/process/v1-leaderboard.png",
+          alt: "Version 0.1.0 leaderboard screen in system list styling",
+          caption: "The leaderboard, still plain system lists.",
+        } as Shot,
+      },
+      {
         version: "v0.2.0",
         name: "First design pass",
         shot: {
           src: "/work/good-roommate/process/v2-camera.png",
           alt: "Version 0.2.0 camera screen from the first design pass: plum and coral palette, reticle and an Aiming at pill",
           caption: "Plum and coral palette, a reticle and an Aiming at pill, from the Figma canvas.",
+        } as Shot,
+      },
+      {
+        version: "v0.2.0",
+        name: "Leaderboard",
+        shot: {
+          src: "/work/good-roommate/process/v2-leaderboard.png",
+          alt: "Version 0.2.0 leaderboard screen in the plum and coral palette",
+          caption: "The leaderboard picks up the palette.",
         } as Shot,
       },
       {
@@ -95,7 +154,7 @@ export const personal = {
 
   // Chapter 4: how it was made. Statuses are the project's own (Linear: The Good Roommate).
   workflow: {
-    label: "04  How I work",
+    label: "05  How I work",
     title: "My decisions, a tight loop of tools.",
     body: "I run product, UX, UI and the build in conversation with Claude Code. The decisions and the design are mine; the tools keep each step small, written down and reversible.",
     steps: [

@@ -48,7 +48,7 @@ function ChapterHead({ label, title, body }: { label: string; title: string; bod
 }
 
 export default function PersonalPage() {
-  const { hero, sketch, shipped, evolution, workflow } = personal;
+  const { hero, sketch, shipped, now, v1, workflow } = personal;
   const nextStudy = getStudy(personal.next.slug);
   const nextMeta = studyMeta[personal.next.slug];
 
@@ -119,25 +119,51 @@ export default function PersonalPage() {
         </div>
       </section>
 
-      {/* 03 Versions */}
+      {/* 03 Now: the newest designs, big, in the Duo bezel */}
       <section className="w-full border-b border-rule py-16 md:py-24">
         <div className="container-page">
-          <ChapterHead label={evolution.label} title={evolution.title} body={evolution.body} />
-          <ol className="grid grid-cols-1 sm:grid-cols-3 gap-6 list-none p-0 m-0">
-            {evolution.steps.map((s, i) => (
-              <Reveal as="li" key={s.version} index={i} className="blur-reveal flex flex-col gap-3">
-                <div className="glass-panel p-4 flex justify-center">
-                  <Img shot={s.shot} className="block h-auto w-auto max-h-[28rem] rounded-xl" />
-                </div>
-                <div>
-                  <p className="font-display font-black text-lg text-fg">
-                    {s.version} <span className="font-serif font-normal text-muted">· {s.name}</span>
-                  </p>
-                  <p className="font-serif text-sm text-fg-2 leading-relaxed mt-1">{s.shot.caption}</p>
-                </div>
+          <ChapterHead label={now.label} title={now.title} body={now.body} />
+          <FoldSpread
+            className="now-spread"
+            left={<Img shot={now.lead.left} className="now-shot" />}
+            right={<Img shot={now.lead.right} className="now-shot" />}
+            leftLabel={now.lead.left.caption}
+            rightLabel={now.lead.right.caption}
+          />
+          <ul className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6 list-none p-0 m-0">
+            {now.more.map((m, i) => (
+              <Reveal as="li" key={m.src} index={i} className="blur-reveal glass-panel p-5 flex flex-col items-center gap-3">
+                <Img shot={m} className="now-shot" />
+                <p className="font-sans text-xs text-muted text-center leading-relaxed max-w-[22rem]">{m.caption}</p>
               </Reveal>
             ))}
-          </ol>
+          </ul>
+          <Reveal className="blur-reveal mt-6 glass-panel p-5 sm:p-8 flex flex-col items-center gap-3">
+            <Img shot={now.cover} className="block h-auto w-full max-w-[44rem]" />
+            <p className="font-sans text-xs sm:text-sm text-muted text-center leading-relaxed max-w-[34rem]">{now.cover.caption}</p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* 04 Version 1: small carousel */}
+      <section className="w-full border-b border-rule py-16 md:py-24">
+        <div className="container-page">
+          <ChapterHead label={v1.label} title={v1.title} body={v1.body} />
+          <ul
+            tabIndex={0}
+            aria-label="Version 1 screens, scroll sideways"
+            className="v1-carousel list-none p-0 m-0"
+          >
+            {v1.steps.map((s) => (
+              <li key={s.shot.src} className="v1-card">
+                <Img shot={s.shot} className="v1-shot" />
+                <p className="font-display font-black text-sm text-fg mt-3">
+                  {s.version} <span className="font-serif font-normal text-muted">· {s.name}</span>
+                </p>
+                <p className="font-serif text-xs text-fg-2 leading-relaxed mt-1">{s.shot.caption}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
