@@ -104,10 +104,6 @@ export const site = {
 
   // Personal projects band, right under the Woven feature on the home page.
   personal: {
-    kicker: "Built on my own time",
-    headline: "I design for new hardware before it ships.",
-    intro:
-      "Outside work I build complete products, from the first decision to the backend. These are the newest two.",
     personalLabel: "Personal project",
     lead: {
       title: "The Good Roommate",
@@ -124,7 +120,16 @@ export const site = {
       ],
       cta: "See how it was designed",
     },
-    others: ["just-fill-it"],
+  },
+
+  // Home page order below the hero. The featured study (Generative Drive Coach) is the first of the top
+  // three; `top` are the other two. `pair` shares a half-width row with the personal project; the rest of
+  // `work` fills the three-column grid.
+  home: {
+    top: ["fleet-dashboard", "omniabrowser"],
+    pair: "drive-coach-ios",
+    topKicker: "Also at the top",
+    gridHeading: "More work",
   },
 
   // Domain of the featured study (it isn't in `work`): used by the /work/ index filter.

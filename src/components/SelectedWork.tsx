@@ -3,7 +3,8 @@ import { site } from "../../content/site";
 import { WorkCard } from "./WorkCard";
 
 export function SelectedWork() {
-  const selected = site.work.slice(0, 4);
+  const placed = new Set<string>([...site.home.top, site.home.pair]);
+  const selected = site.work.filter((w) => !placed.has(w.slug));
 
   return (
     <section
@@ -18,7 +19,7 @@ export function SelectedWork() {
             id="selected-work-heading"
             className="font-display font-black text-h2 text-fg leading-tight"
           >
-            Selected work
+            {site.home.gridHeading}
           </h2>
           <Link
             href="/work/"
@@ -34,8 +35,8 @@ export function SelectedWork() {
           </Link>
         </div>
 
-        {/* 2x2 Grid of Cards */}
-        <ul className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 list-none p-0">
+        {/* Everything else, three across */}
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 list-none p-0">
           {selected.map((work, index) => (
             <li
               key={work.slug}
