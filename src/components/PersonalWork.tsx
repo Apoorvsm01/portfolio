@@ -1,17 +1,11 @@
 import Link from "next/link";
 import { site } from "../../content/site";
-import { studyMeta } from "../../content/study-meta";
-import { getStudy, studyHref } from "../lib/content";
-import { DeviceGallery } from "./case-study/DeviceGallery";
+import { imageDims } from "../lib/content";
+import { FadeImage } from "./FadeImage";
 import { WorkCard } from "./WorkCard";
 
 export function PersonalWork() {
   const { kicker, headline, intro, personalLabel, lead, others } = site.personal;
-  const leadStudy = getStudy(lead.slug);
-  const leadTitle = leadStudy?.title ?? lead.slug;
-  const leadMeta = studyMeta[lead.slug];
-  const leadFlagName = leadMeta?.flag ?? "pink";
-  const leadFlagBg = site.flags[leadFlagName]?.bg ?? "#ee5c96";
 
   return (
     <section
@@ -36,44 +30,49 @@ export function PersonalWork() {
           </p>
         </div>
 
-        {/* LEAD card for site.personal.lead (Good Roommate) */}
+        {/* LEAD card: the Good Roommate, straight to the /personal page */}
         <article
-          style={{ borderTopColor: leadFlagBg }}
+          style={{ borderTopColor: "#ee5c96" }}
           className="rounded-[6px] bg-surface border border-rule border-t-[3px] p-5 sm:p-7 md:p-9 card-lift mb-8 sm:mb-12"
         >
-          {/* iPhone Duo first: folded and unfolded in Apple's bezels, at true relative size. */}
-          <DeviceGallery
-            title={leadTitle}
-            items={[
-              { ...lead.unfolded, device: "duo-unfolded" },
-              { ...lead.folded, device: "duo-folded" },
-            ]}
-          />
+          <Link
+            href="/personal/"
+            aria-label={`${lead.title}: ${lead.cta}`}
+            className="flex items-end justify-center gap-4 sm:gap-8 flex-wrap"
+          >
+            {lead.shots.map((shot) => {
+              const { width, height } = imageDims(shot.src);
+              return (
+                <FadeImage
+                  key={shot.src}
+                  src={shot.src}
+                  alt={shot.alt}
+                  width={width}
+                  height={height}
+                  loading="lazy"
+                  className="block h-auto w-auto max-w-[44%] max-h-[26rem] sm:max-h-[30rem] object-contain"
+                />
+              );
+            })}
+          </Link>
 
-          {/* Under them: personalLabel, study title, claim, points list, and CTA link */}
           <div className="mt-8 pt-8 border-t border-rule/60 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-start">
             <div className="lg:col-span-7 flex flex-col">
               <span className="font-sans text-xs text-muted font-medium mb-1.5">
                 {personalLabel}
               </span>
               <h3 className="font-display font-black text-2xl sm:text-3xl text-fg leading-tight">
-                <Link
-                  href={studyHref(lead.slug)}
-                  className="hover:text-accent transition-colors"
-                >
-                  {leadTitle}
+                <Link href="/personal/" className="hover:text-accent transition-colors">
+                  {lead.title}
                 </Link>
               </h3>
               <p className="mt-3 font-serif text-base sm:text-lg text-muted leading-relaxed max-w-[38rem]">
-                {leadMeta?.claim}
+                {lead.claim}
               </p>
             </div>
 
             <div className="lg:col-span-5 flex flex-col justify-between">
-              <ul
-                className="space-y-2.5 list-none p-0 m-0"
-                aria-label="Key highlights"
-              >
+              <ul className="space-y-2.5 list-none p-0 m-0" aria-label="Key highlights">
                 {lead.points.map((pt, idx) => (
                   <li
                     key={idx}
@@ -81,7 +80,7 @@ export function PersonalWork() {
                   >
                     <span
                       className="w-1.5 h-1.5 rounded-full shrink-0 self-center"
-                      style={{ backgroundColor: leadFlagBg }}
+                      style={{ backgroundColor: "#ee5c96" }}
                       aria-hidden="true"
                     />
                     <span>{pt}</span>
@@ -90,26 +89,11 @@ export function PersonalWork() {
               </ul>
               <div className="mt-6">
                 <Link
-                  href={studyHref(lead.slug)}
+                  href="/personal/"
                   className="group link-wipe min-h-[44px] inline-flex items-center gap-1.5 font-sans font-medium text-sm sm:text-base text-fg hover:text-accent transition-colors"
                 >
                   <span>{lead.cta}</span>
-                  <span
-                    aria-hidden="true"
-                    className="arrow-slide-right font-bold text-accent"
-                  >
-                    →
-                  </span>
-                </Link>
-                <Link
-                  href="/personal/"
-                  className="group link-wipe min-h-[44px] inline-flex items-center gap-1.5 font-sans font-medium text-sm sm:text-base text-fg hover:text-accent transition-colors sm:ml-6"
-                >
-                  <span>{lead.processCta}</span>
-                  <span
-                    aria-hidden="true"
-                    className="arrow-slide-right font-bold text-accent"
-                  >
+                  <span aria-hidden="true" className="arrow-slide-right font-bold text-accent">
                     →
                   </span>
                 </Link>

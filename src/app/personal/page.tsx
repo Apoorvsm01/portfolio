@@ -72,9 +72,7 @@ export default function PersonalPage() {
           <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="md:col-span-3">
               <p className="font-display font-black text-2xl sm:text-3xl text-fg leading-tight">
-                <Link href={studyHref("good-roommate")} className="hover:text-accent transition-colors">
-                  {hero.eyebrow}
-                </Link>
+                {hero.eyebrow}
                 <span className="text-muted font-serif font-normal text-lg sm:text-xl"> · {hero.headline}</span>
               </p>
             </div>
