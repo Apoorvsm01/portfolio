@@ -141,11 +141,12 @@ export function IntentPicker({
             {intent.links && intent.links.length > 0 && (
               <ul className="mt-6 flex flex-wrap gap-3 list-none p-0" aria-label="Recommended studies">
                 {intent.links.map((slug) => {
-                  const title = slugTitleMap[slug] ?? slug;
+                  const isPersonal = slug === "good-roommate";
+                  const title = isPersonal ? "The Good Roommate" : slugTitleMap[slug] ?? slug;
                   return (
                     <li key={slug}>
                       <Link
-                        href={`/work/${slug}/`}
+                        href={isPersonal ? "/personal/" : `/work/${slug}/`}
                         className="group min-h-[44px] inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full text-xs sm:text-sm bg-surface border border-line text-text hover:border-accent hover:text-accent transition-colors"
                       >
                         <span>{title}</span>

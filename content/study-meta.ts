@@ -123,17 +123,6 @@ export const studyMeta: Record<string, StudyMeta> = {
       { label: "Built on", value: "iOS, Android and MentraOS AR glasses" },
     ],
   },
-  "good-roommate": {
-    claim: "A chore app built around a phone that unfolds.",
-    band: "#1c1220",
-    flag: "pink",
-    facts: [
-      { label: "My part", value: "Everything: product, UX, UI, the SwiftUI app, and the Supabase backend" },
-      { label: "When", value: "October 2026 to now, on my own time" },
-      { label: "For", value: "College students and young professionals sharing a home, on iPhone Duo and every iPhone" },
-      { label: "Built on", value: "iOS 27, SwiftUI and Liquid Glass, on-device Vision, Supabase" },
-    ],
-  },
   "just-fill-it": {
     claim: "From a job page to a tailored resume, without leaving the page.",
     band: "#14181f",

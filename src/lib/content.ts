@@ -10,7 +10,6 @@ import omniaBrowserData from "../../content/case-studies/omniabrowser.json";
 import spatialShowroomData from "../../content/case-studies/spatialshowroom.json";
 import syncareAiHealthData from "../../content/case-studies/syncare-ai-health.json";
 import sitelensData from "../../content/case-studies/sitelens.json";
-import goodRoommateData from "../../content/case-studies/good-roommate.json";
 import justFillItData from "../../content/case-studies/just-fill-it.json";
 
 export { imageDims };
@@ -26,7 +25,6 @@ const studies: CaseStudy[] = [
   spatialShowroomData as CaseStudy,
   syncareAiHealthData as CaseStudy,
   sitelensData as CaseStudy,
-  goodRoommateData as CaseStudy,
   justFillItData as CaseStudy,
 ];
 

@@ -110,17 +110,19 @@ export const site = {
       "Outside work I build complete products, from the first decision to the backend. These are the newest two.",
     personalLabel: "Personal project",
     lead: {
-      slug: "good-roommate",
-      // Shown under the two Duo screenshots.
-      folded: { src: "/work/good-roommate/duo-folded-camera.png", alt: "The Good Roommate's camera on the folded iPhone Duo, with the tab bar in the side strip", caption: "Folded, 5.4 inches: the phone layout, with iOS's tab bar moved into the side strip." },
-      unfolded: { src: "/work/good-roommate/duo-unfolded-camera.png", alt: "The Good Roommate on the unfolded iPhone Duo: Up next on the left half, the camera on the right half", caption: "Unfolded, 7.6 inches: the camera takes the right half and Up next fills the left." },
+      title: "The Good Roommate",
+      claim: "A chore app built around a phone that unfolds.",
+      // Newest captures, in Apple's Duo bezel (see /personal).
+      shots: [
+        { src: "/work/good-roommate/process/now-up-next.png", alt: "The Good Roommate on the folded iPhone Duo, Plum and Coral theme in light: Up next with the most overdue chore aimed at by the camera" },
+        { src: "/work/good-roommate/process/now-in-progress.png", alt: "The same screen in the Lagoon theme in dark, with a running Dishes stopwatch above the tab bar" },
+      ],
       points: [
         "Designed for iPhone Duo from day one, and every other iPhone",
         "SwiftUI and Liquid Glass, with chore animations under 3 seconds",
         "On-device Vision spots the chore; Supabase keeps the house in sync",
       ],
-      cta: "Read the case study",
-      processCta: "See how it was designed",
+      cta: "See how it was designed",
     },
     others: ["just-fill-it"],
   },
@@ -138,7 +140,6 @@ export const site = {
     { slug: "syncare-ai-health", domain: "Health", cover: "/work/syncare-ai-health/01.png", org: "Patched Reality", blurb: "Making AI-integrated health records easier to read." },
     { slug: "sitelens", domain: "Spatial", cover: "/work/sitelens/02.png", blurb: "AR glasses for on-site construction inspections." },
     // Personal projects: listed after employer work; shown in their own band under the Woven feature.
-    { slug: "good-roommate", domain: "Personal", cover: "/work/good-roommate/duo-unfolded-camera.png", coverFit: "contain", blurb: "A camera-first chore app for roommates, designed for iPhone Duo." },
     { slug: "just-fill-it", domain: "Personal", cover: "/work/just-fill-it/panel-glass-done-light.png", blurb: "A Chrome and Safari extension that tailors a resume to the job page you're on.", link: { label: "Code on GitHub", href: "https://github.com/Apoorvsm01/just-fill-it" } },
   ] satisfies WorkRef[],
 
