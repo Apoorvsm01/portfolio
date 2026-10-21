@@ -115,6 +115,7 @@ export function Nav() {
 
   const isHome = pathname === "/";
   const isWork = pathname === "/work" || pathname.startsWith("/work/");
+  const isPersonal = pathname === "/personal" || pathname.startsWith("/personal/");
   const isAbout = pathname === "/about" || pathname === "/about/";
 
   return (
@@ -158,6 +159,22 @@ export function Nav() {
               />
             )}
           </Link>
+
+          <Link
+            href="/personal/"
+            aria-current={isPersonal ? "page" : undefined}
+            className="min-h-[44px] px-3 inline-flex items-center gap-1.5 hover:text-fg transition-colors data-[current=true]:text-fg link-underline"
+            data-current={isPersonal ? "true" : undefined}
+          >
+            <span>Personal</span>
+            {isPersonal && (
+              <span
+                className="w-1.5 h-1.5 rounded-full bg-accent inline-block shrink-0"
+                aria-hidden="true"
+              />
+            )}
+          </Link>
+
 
           <Link
             href="/about/"
@@ -318,6 +335,22 @@ export function Nav() {
                 />
               )}
             </Link>
+
+            <Link
+              href="/personal/"
+              aria-current={isPersonal ? "page" : undefined}
+              onClick={() => setIsOpen(false)}
+              className="font-display text-2xl sm:text-3xl font-black tracking-tight text-fg hover:text-accent flex items-center justify-between min-h-[44px]"
+            >
+              <span>Personal</span>
+              {isPersonal && (
+                <span
+                  className="w-2 h-2 rounded-full bg-accent inline-block"
+                  aria-hidden="true"
+                />
+              )}
+            </Link>
+
 
             <Link
               href="/about/"

@@ -120,6 +120,7 @@ export const site = {
         "On-device Vision spots the chore; Supabase keeps the house in sync",
       ],
       cta: "Read the case study",
+      processCta: "See how it was designed",
     },
     others: ["just-fill-it"],
   },
