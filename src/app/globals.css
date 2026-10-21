@@ -988,3 +988,286 @@ html:not([data-js]) .fade-image {
     --mm: 3.6px;
   }
 }
+
+/* ---------- Personal projects: Duo-style fold and blur ---------- */
+
+/* Two halves hinged at the center seam. --fold goes 0 -> 1 with scroll (see useFoldProgress). */
+.fold-spread {
+  --fold: 1;
+  width: 100%;
+}
+.fold-stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+.fold-half {
+  position: relative;
+  border-radius: 20px;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+  /* Mobile: no 3D, just the blur-in */
+  filter: blur(calc((1 - var(--fold)) * 10px));
+  opacity: calc(0.35 + var(--fold) * 0.65);
+}
+.fold-half img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+.fold-tag {
+  font-family: var(--font-sans, inherit);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--muted);
+  text-align: center;
+  max-width: 28rem;
+}
+.fold-seam {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .fold-stage {
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    perspective: 1600px;
+    perspective-origin: 50% 40%;
+  }
+  .fold-half {
+    border-radius: 24px;
+    backface-visibility: hidden;
+    will-change: transform, filter;
+  }
+  .fold-half-left {
+    transform-origin: 100% 50%;
+    transform: rotateY(calc((1 - var(--fold)) * 72deg));
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+  }
+  .fold-half-right {
+    transform-origin: 0% 50%;
+    transform: rotateY(calc((1 - var(--fold)) * -72deg));
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+  }
+  /* The hinge: a soft crease that fades in as the halves flatten */
+  .fold-seam {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 36px;
+    transform: translateX(-50%);
+    pointer-events: none;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in srgb, var(--fg, #000) 14%, transparent) 50%,
+      transparent
+    );
+    opacity: calc(0.25 + var(--fold) * 0.75);
+    filter: blur(6px);
+  }
+}
+
+/* Chapter text: sharpens from a blur as it reveals (rides the existing data-reveal observer) */
+[data-js] [data-reveal].blur-reveal {
+  filter: blur(12px);
+  transition:
+    opacity 600ms var(--ease-settle),
+    transform 600ms var(--ease-settle),
+    filter 700ms var(--ease-settle);
+}
+[data-js] [data-reveal].blur-reveal[data-revealed="true"] {
+  filter: blur(0);
+}
+
+/* Frosted panel used for the workflow steps and hero facts */
+.glass-panel {
+  background: color-mix(in srgb, var(--surface) 70%, transparent);
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+  backdrop-filter: blur(18px) saturate(1.2);
+  border: 1px solid var(--rule);
+  border-radius: 20px;
+}
+
+/* Hero video in a Duo-shaped frame: opens from a folded, blurred state on load */
+.fold-hero {
+  max-width: 62rem;
+  margin: 0 auto;
+}
+.fold-hero-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 28px;
+  background: #1c1b19;
+  border: 1px solid var(--rule);
+  aspect-ratio: 16 / 9;
+  filter: blur(14px);
+  opacity: 0.4;
+  transform: perspective(1800px) rotateX(14deg) scale(0.96);
+  transform-origin: 50% 100%;
+  transition:
+    filter 900ms var(--ease-settle),
+    opacity 700ms var(--ease-settle),
+    transform 1000ms var(--ease-settle);
+}
+.fold-hero[data-open="true"] .fold-hero-frame {
+  filter: blur(0);
+  opacity: 1;
+  transform: none;
+}
+.fold-hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.fold-hero-seam {
+  position: absolute;
+  inset: 0 auto 0 50%;
+  width: 28px;
+  transform: translateX(-50%);
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgb(0 0 0 / 0.28), transparent);
+  filter: blur(4px);
+  opacity: 0;
+  transition: opacity 1200ms var(--ease-settle) 300ms;
+}
+.fold-hero[data-open="true"] .fold-hero-seam {
+  opacity: 0.6;
+}
+.fold-hero-toggle {
+  margin: 0.75rem auto 0;
+  display: block;
+  min-height: 44px;
+  padding: 0 1rem;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+.fold-hero-toggle:hover {
+  color: var(--fg);
+}
+
+/* Flip card: Figma frame on the front, the shipped screen on the back */
+.flip-compare {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.flip-card {
+  position: relative;
+  width: 100%;
+  max-width: 44rem;
+  aspect-ratio: 1.4;
+  perspective: 1600px;
+}
+.flip-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 24px;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  backface-visibility: hidden;
+  transition: transform 900ms var(--ease-settle), filter 900ms var(--ease-settle);
+  transform-origin: 50% 50%;
+}
+.flip-face img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+  /* the Figma export has white corners outside the device's rounded screen */
+  border-radius: 7% / 10%;
+}
+.flip-back {
+  transform: rotateY(180deg);
+  filter: blur(8px);
+}
+.flip-compare[data-flipped="true"] .flip-front {
+  transform: rotateY(-180deg);
+  filter: blur(8px);
+}
+.flip-compare[data-flipped="true"] .flip-back {
+  transform: rotateY(0);
+  filter: blur(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fold-half,
+  .fold-half-left,
+  .fold-half-right {
+    transform: none !important;
+    filter: none !important;
+    opacity: 1 !important;
+    will-change: auto;
+  }
+  .fold-seam { opacity: 0.6 !important; }
+  .fold-hero-frame {
+    filter: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .flip-face { transition: none !important; filter: none !important; }
+  [data-js] [data-reveal].blur-reveal { filter: none !important; }
+}
+
+/* Newest designs: large, framed Duo shots. The bezel PNG is transparent, so no panel padding tricks. */
+.now-shot {
+  display: block;
+  height: auto;
+  width: auto;
+  max-width: 100%;
+  max-height: 34rem;
+  border-radius: 0;
+}
+.now-spread .fold-half {
+  background: color-mix(in srgb, var(--surface) 70%, transparent);
+}
+.now-spread .now-shot {
+  max-height: 40rem;
+}
+
+/* Version 1: small, quiet carousel (scroll-snap, keyboard scrollable) */
+.v1-carousel {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 0.75rem;
+  -webkit-overflow-scrolling: touch;
+}
+.v1-carousel:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+.v1-card {
+  flex: 0 0 auto;
+  width: 9.5rem;
+  scroll-snap-align: start;
+  opacity: 0.85;
+}
+.v1-card:hover { opacity: 1; }
+.v1-shot {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  border: 1px solid var(--rule);
+}

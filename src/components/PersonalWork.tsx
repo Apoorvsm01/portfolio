@@ -101,6 +101,18 @@ export function PersonalWork() {
                     →
                   </span>
                 </Link>
+                <Link
+                  href="/personal/"
+                  className="group link-wipe min-h-[44px] inline-flex items-center gap-1.5 font-sans font-medium text-sm sm:text-base text-fg hover:text-accent transition-colors sm:ml-6"
+                >
+                  <span>{lead.processCta}</span>
+                  <span
+                    aria-hidden="true"
+                    className="arrow-slide-right font-bold text-accent"
+                  >
+                    →
+                  </span>
+                </Link>
               </div>
             </div>
           </div>
