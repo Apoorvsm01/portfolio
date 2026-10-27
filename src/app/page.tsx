@@ -1,56 +1,48 @@
-import { Hero } from "../components/Hero";
-import { Featured } from "../components/Featured";
-import { TopProjects } from "../components/TopProjects";
-import { PersonalPair } from "../components/PersonalPair";
-import { SelectedWork } from "../components/SelectedWork";
+import { AskLanding } from "../components/ask/AskLanding";
+import type { ProjectCard } from "../components/shelves/types";
 import { HowIWork } from "../components/HowIWork";
 import { AboutTeaser } from "../components/AboutTeaser";
 import { HeadsetWall } from "../components/HeadsetWall";
-import { getAllStudies, coverFor, imageDims } from "../lib/content";
+import { getAllStudies, coverFor, studyHref, imageDims } from "../lib/content";
 import { studyMeta } from "../../content/study-meta";
 import { site } from "../../content/site";
 
 export default function Home() {
-  const allStudies = getAllStudies();
-  const studyDataMap: Record<
-    string,
-    {
-      slug: string;
-      title: string;
-      claim: string;
-      coverSrc: string;
-      coverAlt: string;
-      coverWidth: number;
-      coverHeight: number;
-    }
-  > = {};
-
-  for (const s of allStudies) {
-    const meta = studyMeta[s.slug];
-    const coverInfo = coverFor(s.slug);
-    const coverImg = coverInfo?.img;
-    const dims = coverImg ? imageDims(coverImg.src) : { width: 1200, height: 800 };
-
-    studyDataMap[s.slug] = {
-      slug: s.slug,
-      title: s.title,
-      claim: meta?.claim ?? s.description,
-      coverSrc: coverImg?.src ?? "",
-      coverAlt: coverImg?.alt ?? s.title,
-      coverWidth: dims.width,
-      coverHeight: dims.height,
+  const projects: ProjectCard[] = getAllStudies().map((study) => {
+    const meta = studyMeta[study.slug];
+    const ref = site.work.find((w) => w.slug === study.slug) as { org?: string; domain?: string } | undefined;
+    const cover = coverFor(study.slug);
+    const dims = cover ? imageDims(cover.img.src) : undefined;
+    return {
+      slug: study.slug,
+      href: studyHref(study.slug),
+      title: study.title,
+      claim: meta?.claim ?? study.description,
+      org: ref?.org,
+      domain: ref?.domain ?? site.featuredDomain,
+      flag: meta?.flag ?? "amber",
+      cover: cover && dims ? { src: cover.img.src, alt: study.title, width: dims.width, height: dims.height, fit: cover.fit } : undefined,
     };
-  }
+  });
 
-  const portraitDims = imageDims(site.hero.image.src);
+  // The Good Roommate has no case study; its story lives on /personal.
+  const roommate = site.personal.lead;
+  const shot = roommate.shots[0];
+  const shotDims = imageDims(shot.src);
+  projects.push({
+    slug: "good-roommate",
+    href: "/personal/",
+    title: roommate.title,
+    claim: roommate.claim,
+    org: site.personal.personalLabel,
+    domain: "Personal",
+    flag: "pink",
+    cover: { src: shot.src, alt: shot.alt, width: shotDims.width, height: shotDims.height, fit: "contain" },
+  });
 
   return (
     <main id="main" className="flex-1 w-full">
-      <Hero studyDataMap={studyDataMap} portraitDims={portraitDims} />
-      <Featured />
-      <TopProjects />
-      <PersonalPair />
-      <SelectedWork />
+      <AskLanding projects={projects} />
       <HowIWork />
       <HeadsetWall />
       <AboutTeaser />
