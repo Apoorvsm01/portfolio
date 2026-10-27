@@ -2272,3 +2272,70 @@ html:not([data-js]) .fade-image {
     opacity: 1;
   }
 }
+
+/* ---- Back to home (shown once a question is asked) ---- */
+.ask-back {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 3rem;
+  padding: 0.55rem 1.3rem 0.55rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: var(--fg);
+  color: var(--ground);
+  font-family: var(--ask-ui);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 12px 30px -14px rgb(0 0 0 / 0.55);
+  transition: transform 520ms var(--ease-spring), box-shadow 200ms;
+  animation: chip-in 600ms var(--ease-out-expo) both;
+}
+.ask-back svg {
+  transition: transform 520ms var(--ease-spring);
+}
+.ask-back:hover {
+  transform: translateX(-3px) scale(1.03);
+}
+.ask-back:hover svg {
+  transform: translateX(-3px);
+}
+.ask-back:active {
+  transform: scale(0.96);
+}
+.ask-back:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+
+/* Small Copy button beside an email in an answer */
+.ask-copy {
+  margin-left: 0.5rem;
+  padding: 0.1rem 0.6rem;
+  min-height: 1.9rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--fg);
+  font-family: var(--ask-ui);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 200ms;
+}
+.ask-copy:hover,
+.ask-copy:focus-visible {
+  border-color: var(--ai-3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ask-back {
+    animation: none;
+  }
+  .ask-back,
+  .ask-back svg {
+    transition-duration: 1ms;
+  }
+}

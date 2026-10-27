@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { site } from "../../content/site";
+import { HeroPortrait } from "./HeroPortrait";
 
 function renderYears(years: string) {
   const parts = years.split(/[–—-]/).map((p) => p.trim());
@@ -32,19 +33,29 @@ export function AboutTeaser() {
     >
       <div className="container-page">
         {/* Section Heading & Intro */}
-        <div className="max-w-[44rem] mb-10 sm:mb-14">
-          <h2
-            id="about-teaser-heading"
-            className="font-display font-black text-h2 text-fg leading-tight mb-3"
-          >
-            The long way here
-          </h2>
-          <p
-            className="font-sans font-medium text-muted leading-snug"
-            style={{ fontSize: "clamp(1.375rem, 1.1rem + 1vw, 1.75rem)" }}
-          >
-            {site.timelineIntro}
-          </p>
+        <div className="grid gap-8 md:grid-cols-12 md:items-end mb-10 sm:mb-14">
+          <div className="md:col-span-8 max-w-[44rem]">
+            <h2
+              id="about-teaser-heading"
+              className="font-display font-black text-h2 text-fg leading-tight mb-3"
+            >
+              The long way here
+            </h2>
+            <p
+              className="font-sans font-medium text-muted leading-snug"
+              style={{ fontSize: "clamp(1.375rem, 1.1rem + 1vw, 1.75rem)" }}
+            >
+              {site.timelineIntro}
+            </p>
+          </div>
+          <div className="md:col-span-4 md:max-w-[16rem] md:justify-self-end w-full">
+            <HeroPortrait
+              src={site.hero.image.src}
+              alt={site.hero.image.alt}
+              width={site.hero.image.width}
+              height={site.hero.image.height}
+            />
+          </div>
         </div>
 
         {/* 3 newest timeline rows formatted per v4 Timeline style */}

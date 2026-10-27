@@ -4,21 +4,44 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import type { AskAnswer, AskRefusal, SourceRef } from "../../lib/ask/types";
 import { askCopy, type SuggestedPrompt } from "../../../content/ask";
+import { copyText } from "../../lib/copy-text";
 import { useReducedMotion } from "../../lib/use-reduced-motion";
 import { Sparkle } from "./Sparkle";
 
 const LINKISH = /^(https?:\/\/[^\s]+?|[\w.+-]+@[\w-]+\.[\w.-]+?)([.,;:)]*)(\s*)$/;
 
+// A mailto: link does nothing without a mail app, so an email in an answer also gets a Copy button.
+function CopyButton({ text }: { text: string }) {
+  const [copied, setCopied] = useState(false);
+  return (
+    <button
+      type="button"
+      className="ask-copy"
+      onClick={async () => {
+        if (await copyText(text)) {
+          setCopied(true);
+          setTimeout(() => setCopied(false), 2000);
+        }
+      }}
+      aria-label={copied ? "Email copied" : `Copy ${text}`}
+    >
+      {copied ? "Copied" : "Copy"}
+    </button>
+  );
+}
+
 function Token({ text }: { text: string }) {
   const m = text.match(LINKISH);
   if (!m) return <span className="tok">{text}</span>;
   const [, url, trail, space] = m;
-  const href = url.includes("@") && !url.startsWith("http") ? `mailto:${url}` : url;
+  const isEmail = url.includes("@") && !url.startsWith("http");
+  const href = isEmail ? `mailto:${url}` : url;
   return (
     <span className="tok">
       <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer" className="underline underline-offset-4 decoration-[var(--ai-3)] hover:text-fg">
         {url}
       </a>
+      {isEmail && <CopyButton text={url} />}
       {trail}
       {space}
     </span>

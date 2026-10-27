@@ -18,7 +18,9 @@ export default function Home() {
       href: studyHref(study.slug),
       title: study.title,
       claim: meta?.claim ?? study.description,
-      org: ref?.org,
+      org:
+        ref?.org ??
+        (study.slug === site.featured.slug ? site.featured.org : ref?.domain === "Personal" ? site.personal.personalLabel : undefined),
       domain: ref?.domain ?? site.featuredDomain,
       flag: meta?.flag ?? "amber",
       cover: cover && dims ? { src: cover.img.src, alt: study.title, width: dims.width, height: dims.height, fit: cover.fit } : undefined,

@@ -119,7 +119,7 @@ export function AskLanding({ projects }: { projects: ProjectCard[] }) {
     [submit],
   );
 
-  const reset = useCallback(() => {
+  const resetState = useCallback(() => {
     clearTimeout(timer.current);
     morph(() => {
       setPhase("idle");
@@ -127,13 +127,37 @@ export function AskLanding({ projects }: { projects: ProjectCard[] }) {
       setQuery("");
       setStreaming(false);
     });
-    requestAnimationFrame(() => document.querySelector<HTMLInputElement>(".ask-input")?.focus());
   }, []);
+
+  // "Ask something else": back to the empty prompt, ready to type.
+  const reset = useCallback(() => {
+    resetState();
+    requestAnimationFrame(() => document.querySelector<HTMLInputElement>(".ask-input")?.focus());
+  }, [resetState]);
+
+  // The default home page: empty prompt, scrolled to the top. Used by the Back button and the nav name.
+  const goHome = useCallback(() => {
+    resetState();
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [resetState]);
+
+  useEffect(() => {
+    window.addEventListener("ask:reset", goHome);
+    return () => window.removeEventListener("ask:reset", goHome);
+  }, [goHome]);
 
   const orbState: OrbState = phase === "thinking" ? "thinking" : streaming ? "speaking" : "idle";
   const answer = result?.status === "answer" ? result : null;
   const matches = answer ? pick(answer.slugs) : [];
   const [lead, tail] = askCopy.greeting.split(askCopy.greetingAccent);
+
+  // Each project shows once below the hero: the carousel first, then each shelf takes what is left.
+  const shown = new Set<string>(pick(featuredSlugs).map((p) => p.slug));
+  const shelfRows = shelves.map((s) => {
+    const items = pick(s.slugs).filter((p) => !shown.has(p.slug));
+    items.forEach((p) => shown.add(p.slug));
+    return { ...s, items };
+  });
 
   return (
     <>
@@ -151,6 +175,14 @@ export function AskLanding({ projects }: { projects: ProjectCard[] }) {
           <span />
           <span />
         </div>
+        {phase !== "idle" && (
+          <button type="button" className="ask-back" onClick={goHome}>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M19 12H5M11 6l-6 6 6 6" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            <span>Back to home</span>
+          </button>
+        )}
         <Orb state={orbState} />
         <h1 id="ask-greeting" className="ask-greeting">
           {lead}
@@ -194,9 +226,9 @@ export function AskLanding({ projects }: { projects: ProjectCard[] }) {
               />
             </ScrollBlur>
           )}
-          {shelves.map((s) => (
+          {shelfRows.map((s) => (
             <ScrollBlur key={s.id}>
-              <Shelf id={`shelf-${s.id}`} title={s.title} kicker={s.kicker} projects={pick(s.slugs)} />
+              <Shelf id={`shelf-${s.id}`} title={s.title} kicker={s.kicker} projects={s.items} />
             </ScrollBlur>
           ))}
         </div>

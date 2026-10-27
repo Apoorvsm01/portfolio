@@ -317,14 +317,16 @@ export const injectionPatterns: string[] = [
 ];
 
 // Apple TV style shelves under the prompt. After an answer, a "Matches" shelf is placed first.
+// Each project appears once across the carousel and these shelves (the page also enforces it), so the
+// carousel takes one spotlight project per area and the shelves hold the rest.
 export const shelves: { id: string; title: string; kicker: string; slugs: string[] }[] = [
-  { id: "automotive", title: "Automotive", kicker: "In the car, at Woven by Toyota", slugs: ["woven", "fleet-co-pilot", "fleet-dashboard", "drive-coach-ios"] },
-  { id: "spatial", title: "Spatial & XR", kicker: "Headsets, glasses and the room around you", slugs: ["how2to", "omniabrowser", "spatialshowroom", "sitelens"] },
-  { id: "apps", title: "Apps & AI", kicker: "Phones, health and tools I built myself", slugs: ["syncare-ai-health", "good-roommate", "just-fill-it", "drive-coach-ios"] },
+  { id: "automotive", title: "More automotive", kicker: "In the car, at Woven by Toyota", slugs: ["fleet-co-pilot", "fleet-dashboard", "drive-coach-ios"] },
+  { id: "spatial", title: "More spatial & XR", kicker: "Headsets, glasses and the room around you", slugs: ["how2to", "spatialshowroom", "sitelens"] },
+  { id: "apps", title: "Apps & AI", kicker: "Health, and tools I built myself", slugs: ["syncare-ai-health", "just-fill-it"] },
 ];
 
-// The big carousel above the shelves.
-export const featuredSlugs: string[] = ["woven", "fleet-dashboard", "omniabrowser", "good-roommate", "syncare-ai-health"];
+// The big carousel above the shelves: one spotlight each for automotive, spatial and personal work.
+export const featuredSlugs: string[] = ["woven", "omniabrowser", "good-roommate"];
 
 export const shelfCopy = {
   featuredLabel: "Featured",

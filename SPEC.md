@@ -554,3 +554,9 @@ Run the evals with `node --test src/lib/ask/ask.test.ts` (Node 22.18+). `tsconfi
   as they enter; the hero blurs only once the page has been scrolled and its bottom edge is in the upper half of the
   screen, so an answer is never blurred while it is being read. Off under reduced motion.
 - Dev note: this setup's dev server does not hot-reload CSS edits; restart it after changing globals.css.
+- **Back to home**: once a question is asked, a filled "Back to home" pill sits top-left of the hero. Clicking the name in the nav
+  while on `/` does the same (the nav dispatches `ask:reset`; `AskLanding` listens): empty prompt, no answer, scrolled to top.
+- **Contact is a menu, not a bare `mailto:`**: a `mailto:` does nothing without a mail app. `ContactMenu` shows the address, Copy,
+  Open mail app and LinkedIn; an email inside an answer gets a Copy button. Shared helper: `src/lib/copy-text.ts`.
+- **Each project appears once** below the hero (carousel first, then shelves take what is left); the page enforces it.
+- Scroll blur "in" is keyed to the block's **top edge**, not its centre, so tall blocks are sharp once mostly on screen.

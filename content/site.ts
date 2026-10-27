@@ -30,7 +30,8 @@ export const site = {
     headline: "I study how people drive, and then I build what they need.",
     intro:
       "For the past year I’ve been the UX engineer behind an in-car AI driving coach at Woven by Toyota. I took it from a product brief and raw research on 100+ drivers to 22 driving scenarios, a CARLA simulator rig with real steering and pedals, and studies where 70% of drivers understood its re-timed voice instructions, a 50% improvement on the version before. I’ve been designing for cars, headsets and health apps since 2019.",
-    image: { src: "/me/portrait.jpeg", alt: "Apoorv Mahajan" },
+    // 1200 px real JPEG (the original portrait.jpeg is a 1.7 MB PNG with the wrong extension)
+    image: { src: "/me/portrait-1200.jpg", alt: "Apoorv Mahajan smiling, sitting on a swing at night", width: 1200, height: 1193 },
   },
 
   // Each intent ("door") has its own flag colour (see `flags` below): the chosen door fills with it,
