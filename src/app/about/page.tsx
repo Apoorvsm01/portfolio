@@ -3,6 +3,7 @@ import { site } from "../../../content/site";
 import { Timeline } from "../../components/Timeline";
 import { HowIWork } from "../../components/HowIWork";
 import { PlatformStrip } from "../../components/PlatformStrip";
+import { HeroPortrait } from "../../components/HeroPortrait";
 
 export const metadata: Metadata = {
   title: "About",
@@ -22,13 +23,23 @@ export default function AboutPage() {
     <main id="main" className="flex-1 w-full bg-ground">
       {/* Ink hero with h1 'About' and the hero intro in serif */}
       <header className="w-full bg-ground border-b border-rule py-16 md:py-24">
-        <div className="container-page">
-          <h1 className="font-display font-black text-h1 text-fg leading-[1.08] mb-6">
-            About
-          </h1>
-          <p className="font-serif text-fg-2 text-base sm:text-lg lg:text-xl leading-[1.6] max-w-[46rem] text-pretty">
-            {site.hero.intro}
-          </p>
+        <div className="container-page grid gap-10 md:grid-cols-12 md:items-center">
+          <div className="md:col-span-8">
+            <h1 className="font-display font-black text-h1 text-fg leading-[1.08] mb-6">
+              About
+            </h1>
+            <p className="font-serif text-fg-2 text-base sm:text-lg lg:text-xl leading-[1.6] max-w-[46rem] text-pretty">
+              {site.hero.intro}
+            </p>
+          </div>
+          <div className="md:col-span-4">
+            <HeroPortrait
+              src={site.hero.image.src}
+              alt={site.hero.image.alt}
+              width={site.hero.image.width}
+              height={site.hero.image.height}
+            />
+          </div>
         </div>
       </header>
 

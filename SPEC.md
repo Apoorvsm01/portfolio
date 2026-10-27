@@ -545,10 +545,23 @@ Run the evals with `node --test src/lib/ask/ask.test.ts` (Node 22.18+). `tsconfi
 - **Type pair** (landing only; the rest of the site keeps the v4 fonts): Instrument Serif for the greeting, the answer's
   lead line, shelf and carousel titles (regular weight, italic for the gradient accent); Geist for everything functional
   (input, chips, labels, bullets, card text). Variables `--ask-serif` and `--ask-ui` in globals.css.
-- **No hard colour edges.** The prompt ring's band is itself blurred (about 3.5px) over a wide soft aura. The orb has no thin
-  contours: low-frequency, slow, heavily smoothed colour fields only.
+- **No hard colour edges, anywhere.** The prompt glow is an unmasked, blurred conic gradient behind an opaque pill (two layers:
+  a tight rim and a wide aura). The viewport glow on submit puts its blur on a parent of the masked band. Rule: CSS applies a
+  mask after a filter, so never blur and mask the same element and expect a soft edge. The orb has no thin contours:
+  low-frequency, slow, heavily smoothed colour fields only.
 - Suggested prompts are plain pills: no coloured dots.
 - **Scroll blur** (`src/lib/use-scroll-blur.ts`, `.scroll-blur`): blur and fade only, no folding. Carousel and shelves sharpen
   as they enter; the hero blurs only once the page has been scrolled and its bottom edge is in the upper half of the
   screen, so an answer is never blurred while it is being read. Off under reduced motion.
 - Dev note: this setup's dev server does not hot-reload CSS edits; restart it after changing globals.css.
+- **Back to home**: once a question is asked, a filled "Back to home" pill sits top-left of the hero. Clicking the name in the nav
+  while on `/` does the same (the nav dispatches `ask:reset`; `AskLanding` listens): empty prompt, no answer, scrolled to top.
+- **Contact is a menu, not a bare `mailto:`**: a `mailto:` does nothing without a mail app. `ContactMenu` shows the address, Copy,
+  Open mail app and LinkedIn; an email inside an answer gets a Copy button. Shared helper: `src/lib/copy-text.ts`.
+- **Each project appears once** below the hero (carousel first, then shelves take what is left); the page enforces it.
+- Scroll blur "in" is keyed to the block's **top edge**, not its centre, so tall blocks are sharp once mostly on screen.
+- **Values and ethics questions** ("work ethic", "professional values", "what drives him") route to the `values` topic in
+  `content/ask.ts`. Its lead and bullets restate things the site already says (listen first, let the test win, ship code,
+  end-to-end ownership, voice-first for safety, the 2-second glance standard); no new claims. `ask.test.ts` fails if any
+  authored topic bullet is not verbatim site copy. When several topic phrases match a question, the one with the most
+  subject words wins (then the longest), so "work ethic" beats the filler phrase "about apoorv".

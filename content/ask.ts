@@ -74,6 +74,7 @@ export const suggestedPrompts: SuggestedPrompt[] = [
   { id: "spatial", label: "Spatial computing & XR", query: "What have you built for spatial computing?", kind: "industry", flag: "violet" },
   { id: "voice-ai", label: "Voice & AI", query: "Tell me about your voice and AI work", kind: "topic", flag: "lime" },
   { id: "process", label: "How do you work?", query: "How do you work?", kind: "topic", flag: "yellow" },
+  { id: "values", label: "Work ethic & values", query: "Tell me about Apoorv’s work ethic", kind: "topic", flag: "lime" },
   { id: "best-work", label: "Show me your best work", query: "Show me your best work", kind: "topic", flag: "pink" },
   { id: "contact", label: "Get in touch", query: "How do I get in touch?", kind: "topic", flag: "blue" },
 ];
@@ -173,6 +174,30 @@ export const topics: Topic[] = [
     followUps: ["ux-engineer", "ux-researcher", "best-work"],
   },
   {
+    id: "values",
+    kind: "topic",
+    label: "Values & work ethic",
+    aliases: [
+      "work ethic", "work ethics", "ethic", "ethics", "ethical", "professional values", "my values", "his values", "your values",
+      "core values", "principles", "philosophy", "design philosophy", "what do you value", "what does he value", "what drives you",
+      "what drives him", "what matters to you", "integrity", "what are your strengths", "what makes you different",
+    ],
+    headline: "Values and work ethic",
+    lead:
+      "I let the test win and I own the work end to end. I run the study and I build the interface, so what the research finds and what ships are the same thing. When real-car tests showed my voice prompts reached speeding drivers too late, I re-timed them by speed, and the retest backed it.",
+    // Each line restates something the site already says. Nothing here is a new claim.
+    bullets: [
+      "Listen first. Research before screens. On the drive coach, 100+ drivers’ research became 22 scenarios before I drew anything.",
+      "Let the test win. Real-car tests showed my voice prompts reached speeding drivers too late. I re-timed them by speed, and the retest backed it.",
+      "Ship code, not pictures. Engineers get working React, Flutter, SwiftUI or Tailwind, a shared design system, and a written log of every decision.",
+      "I owned the experience end to end: the research, the voice and screen design, the simulator rig, and the studies that proved it worked.",
+      "Coaching by voice, after gaze studies showed the screen pulled eyes off the road.",
+      "Every alert was designed to meet the industry’s 2-second glance-to-comprehension standard.",
+    ],
+    slugs: ["woven", "fleet-co-pilot", "drive-coach-ios"],
+    followUps: ["process", "best-work", "contact"],
+  },
+  {
     id: "best-work",
     kind: "topic",
     label: "Best work",
@@ -206,7 +231,7 @@ export const topics: Topic[] = [
       "I build in React and TypeScript, Flutter, SwiftUI and Tailwind, and I prototype in Figma. For driving studies I use the CARLA simulator with a Python bridge to an iPad HMI, and I’ve designed for Apple Vision Pro, Meta Quest, HoloLens 2, Snapchat Spectacles, Tilt Five, RealWear, Even Realities G1 and CarPlay.",
     bullets: [
       "Engineers get production-ready React, Flutter, SwiftUI or Tailwind from me, not a spec to interpret.",
-      "I wrote the Python bridge between the CARLA driving simulator and an iPad HMI in React and TypeScript.",
+      "I wrote the Python bridge between the CARLA driving simulator and an iPad HMI in React and TypeScript, and it read faster than the 2-second glance standard.",
       "I built the Figma design system Woven, TRI, TMNA and TCNA now share, with tokens and visual regression tests.",
     ],
     slugs: ["woven", "drive-coach-ios", "fleet-co-pilot", "just-fill-it"],
@@ -317,14 +342,16 @@ export const injectionPatterns: string[] = [
 ];
 
 // Apple TV style shelves under the prompt. After an answer, a "Matches" shelf is placed first.
+// Each project appears once across the carousel and these shelves (the page also enforces it), so the
+// carousel takes one spotlight project per area and the shelves hold the rest.
 export const shelves: { id: string; title: string; kicker: string; slugs: string[] }[] = [
-  { id: "automotive", title: "Automotive", kicker: "In the car, at Woven by Toyota", slugs: ["woven", "fleet-co-pilot", "fleet-dashboard", "drive-coach-ios"] },
-  { id: "spatial", title: "Spatial & XR", kicker: "Headsets, glasses and the room around you", slugs: ["how2to", "omniabrowser", "spatialshowroom", "sitelens"] },
-  { id: "apps", title: "Apps & AI", kicker: "Phones, health and tools I built myself", slugs: ["syncare-ai-health", "good-roommate", "just-fill-it", "drive-coach-ios"] },
+  { id: "automotive", title: "More automotive", kicker: "In the car, at Woven by Toyota", slugs: ["fleet-co-pilot", "fleet-dashboard", "drive-coach-ios"] },
+  { id: "spatial", title: "More spatial & XR", kicker: "Headsets, glasses and the room around you", slugs: ["how2to", "spatialshowroom", "sitelens"] },
+  { id: "apps", title: "Apps & AI", kicker: "Health, and tools I built myself", slugs: ["syncare-ai-health", "just-fill-it"] },
 ];
 
-// The big carousel above the shelves.
-export const featuredSlugs: string[] = ["woven", "fleet-dashboard", "omniabrowser", "good-roommate", "syncare-ai-health"];
+// The big carousel above the shelves: one spotlight each for automotive, spatial and personal work.
+export const featuredSlugs: string[] = ["woven", "omniabrowser", "good-roommate"];
 
 export const shelfCopy = {
   featuredLabel: "Featured",

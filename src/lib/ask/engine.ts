@@ -175,13 +175,16 @@ export function createAsk(input: AskEngineInput) {
     if (injection.some((r) => r.test(query)) || offTopic.some((r) => r.test(query))) {
       return { ok: false, query, reason: "out-of-scope" };
     }
-    // 3. A topic the portfolio answers directly: longest matching phrase wins.
+    // 3. A topic the portfolio answers directly. The most specific matching phrase wins: the one with the most
+    //    subject words (not stopwords), then the longest. So "work ethic" beats "about apoorv" in "tell me
+    //    about Apoorv's work ethic", where the second phrase is all filler.
     const terms = tokens.map(stem).filter((t) => !stopSet.has(t));
+    const aliasWeight = (alias: string) => stems(alias).filter((s) => !stopSet.has(s)).length * 1000 + alias.length;
     let topic: Topic | undefined;
     let matchedAlias = "";
     for (const t of config.topics) {
       for (const alias of t.aliases) {
-        if (alias.length > matchedAlias.length && padded.includes(` ${words(alias).join(" ")} `)) {
+        if (padded.includes(` ${words(alias).join(" ")} `) && (!matchedAlias || aliasWeight(alias) > aliasWeight(matchedAlias))) {
           matchedAlias = alias;
           topic = t;
         }

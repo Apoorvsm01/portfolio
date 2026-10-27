@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { site } from "../../content/site";
 import { ThemeToggle } from "./ThemeToggle";
 import { openCommandPalette } from "./CommandPalette";
+import { ContactMenu } from "./ContactMenu";
 
 export function Nav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -118,6 +119,16 @@ export function Nav() {
   const isPersonal = pathname === "/personal" || pathname.startsWith("/personal/");
   const isAbout = pathname === "/about" || pathname === "/about/";
 
+  // Already on the home page, a plain link to "/" would do nothing. Reset it to its default state instead:
+  // empty prompt, answer cleared, scrolled to the top (AskLanding listens for this event).
+  const goHome = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    setIsOpen(false);
+    if (!isHome || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+    e.preventDefault();
+    window.dispatchEvent(new Event("ask:reset"));
+    window.scrollTo({ top: 0, behavior: "instant" });
+  };
+
   return (
     <header
       data-nav=""
@@ -129,6 +140,7 @@ export function Nav() {
         <Link
           href="/"
           aria-current={isHome ? "page" : undefined}
+          onClick={goHome}
           className="font-display font-black text-base sm:text-lg text-fg hover:text-accent transition-colors tracking-tight min-h-[44px] inline-flex items-center gap-2"
         >
           <span>{site.name}</span>
@@ -191,12 +203,7 @@ export function Nav() {
             )}
           </Link>
 
-          <a
-            href={`mailto:${site.email}`}
-            className="min-h-[44px] px-3 inline-flex items-center hover:text-fg transition-colors link-underline"
-          >
-            Contact
-          </a>
+          <ContactMenu variant="desktop" />
 
           <a
             href={site.linkedin}
@@ -309,7 +316,7 @@ export function Nav() {
             <Link
               href="/"
               aria-current={isHome ? "page" : undefined}
-              onClick={() => setIsOpen(false)}
+              onClick={goHome}
               className="font-display text-2xl sm:text-3xl font-black tracking-tight text-fg hover:text-accent flex items-center justify-between min-h-[44px]"
             >
               <span>Home</span>
@@ -367,13 +374,7 @@ export function Nav() {
               )}
             </Link>
 
-            <a
-              href={`mailto:${site.email}`}
-              onClick={() => setIsOpen(false)}
-              className="font-display text-2xl sm:text-3xl font-black tracking-tight text-fg hover:text-accent min-h-[44px] flex items-center"
-            >
-              Contact
-            </a>
+            <ContactMenu variant="mobile" onNavigate={() => setIsOpen(false)} />
 
             <a
               href={site.linkedin}

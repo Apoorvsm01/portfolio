@@ -1485,35 +1485,36 @@ html:not([data-js]) .fade-image {
   animation: ring-spin var(--ring-speed) linear infinite;
   transition: --ring-sat 500ms var(--ease-settle);
 }
+/* The glow is a blurred conic gradient sitting behind an opaque pill, with no mask. CSS applies a mask
+   after a filter, so a masked band can never be soft: it stays a crisp ring however much blur it has. */
 .glow-ring::before,
 .glow-ring::after {
   content: "";
   position: absolute;
-  inset: -3px;
-  padding: 3px;
   border-radius: inherit;
   background: conic-gradient(from var(--ring-angle), var(--ai-1), var(--ai-2), var(--ai-3), var(--ai-4), var(--ai-5), var(--ai-1));
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
-  /* The band itself is blurred, so there is no crisp coloured edge anywhere. */
-  filter: blur(3.5px) saturate(var(--ring-sat));
-  opacity: 0.85;
   pointer-events: none;
-  z-index: 1;
+  z-index: -1;
+  transition: opacity 400ms var(--ease-settle);
+}
+.glow-ring::before {
+  inset: -4px;
+  filter: blur(16px) saturate(var(--ring-sat));
+  opacity: 0.75;
 }
 .glow-ring::after {
-  inset: -12px;
-  padding: 16px;
-  filter: blur(26px) saturate(var(--ring-sat));
-  opacity: 0.5;
-  transition: opacity 300ms var(--ease-settle);
+  inset: -22px;
+  filter: blur(44px) saturate(var(--ring-sat));
+  opacity: 0.4;
 }
 .glow-ring:focus-within {
   --ring-speed: 3.4s;
 }
+.glow-ring:focus-within::before {
+  opacity: 0.95;
+}
 .glow-ring:focus-within::after {
-  opacity: 0.8;
+  opacity: 0.65;
 }
 .glow-ring[data-scope="out"] {
   --ring-sat: 0.08;
@@ -1521,7 +1522,7 @@ html:not([data-js]) .fade-image {
 }
 .glow-ring[data-scope="out"]::before,
 .glow-ring[data-scope="out"]::after {
-  opacity: 0.3;
+  opacity: 0.22;
 }
 @keyframes ring-spin {
   to { --ring-angle: 360deg; }
@@ -1535,8 +1536,8 @@ html:not([data-js]) .fade-image {
   width: 100%;
   padding: 0.55rem 0.55rem 0.55rem 1.4rem;
   border-radius: inherit;
-  background: color-mix(in srgb, var(--surface) 94%, transparent);
-  border: 1px solid color-mix(in srgb, var(--fg) 10%, transparent);
+  background: var(--surface);
+  border: 1px solid color-mix(in srgb, var(--fg) 8%, transparent);
   box-shadow: 0 18px 50px -22px rgb(0 0 0 / 0.55);
   view-transition-name: ask-prompt;
 }
@@ -1863,18 +1864,20 @@ html:not([data-js]) .fade-image {
   z-index: 45;
   pointer-events: none;
   opacity: 0;
+  /* The blur sits on this parent so it softens the child's already-masked band (a filter on the masked
+     element itself would be cut back to a crisp edge by its own mask). */
+  filter: blur(30px) saturate(1.35);
   animation: ring-spin 3.2s linear infinite, edge-pulse 1.9s var(--ease-settle) forwards;
 }
 .edge-glow::before {
   content: "";
   position: absolute;
   inset: 0;
-  padding: 10px;
+  padding: 46px;
   background: conic-gradient(from var(--ring-angle), var(--ai-1), var(--ai-2), var(--ai-3), var(--ai-4), var(--ai-5), var(--ai-1));
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
-  filter: blur(18px);
 }
 @keyframes edge-pulse {
   0% { opacity: 0; }
@@ -2267,5 +2270,72 @@ html:not([data-js]) .fade-image {
   .scroll-blur[data-blurred="true"] {
     filter: none;
     opacity: 1;
+  }
+}
+
+/* ---- Back to home (shown once a question is asked) ---- */
+.ask-back {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 3rem;
+  padding: 0.55rem 1.3rem 0.55rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: var(--fg);
+  color: var(--ground);
+  font-family: var(--ask-ui);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 12px 30px -14px rgb(0 0 0 / 0.55);
+  transition: transform 520ms var(--ease-spring), box-shadow 200ms;
+  animation: chip-in 600ms var(--ease-out-expo) both;
+}
+.ask-back svg {
+  transition: transform 520ms var(--ease-spring);
+}
+.ask-back:hover {
+  transform: translateX(-3px) scale(1.03);
+}
+.ask-back:hover svg {
+  transform: translateX(-3px);
+}
+.ask-back:active {
+  transform: scale(0.96);
+}
+.ask-back:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+
+/* Small Copy button beside an email in an answer */
+.ask-copy {
+  margin-left: 0.5rem;
+  padding: 0.1rem 0.6rem;
+  min-height: 1.9rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--fg);
+  font-family: var(--ask-ui);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 200ms;
+}
+.ask-copy:hover,
+.ask-copy:focus-visible {
+  border-color: var(--ai-3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ask-back {
+    animation: none;
+  }
+  .ask-back,
+  .ask-back svg {
+    transition-duration: 1ms;
   }
 }

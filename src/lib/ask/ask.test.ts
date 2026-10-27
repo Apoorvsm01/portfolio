@@ -42,6 +42,12 @@ const inScope: [string, string | undefined, string | undefined][] = [
   ["What have you built for spatial computing?", "spatial", "how2to"],
   ["Tell me about your voice and AI work", "voice-ai", "woven"],
   ["How do you work?", "process", undefined],
+  ["Tell me about Apoorv’s work ethic", "values", "woven"],
+  ["What are his professional values?", "values", "woven"],
+  ["What are your ethics?", "values", "woven"],
+  ["What drives him?", "values", "woven"],
+  ["What is Apoorv’s design philosophy?", "values", "woven"],
+  ["How do you approach your work?", "process", undefined],
   ["Show me your best work", "best-work", "woven"],
   ["How do I get in touch?", "contact", undefined],
   ["Who is Apoorv?", "about", undefined],
@@ -147,4 +153,19 @@ test("long and hostile input is capped and never throws", () => {
   const long = "healthcare ".repeat(500);
   assert.doesNotThrow(() => engine.ask(long));
   assert.doesNotThrow(() => engine.ask("<script>alert(1)</script> \u0000 \n healthcare"));
+});
+
+// Authored topic copy may only restate what the site already says: every bullet must appear in the corpus.
+test("every authored topic bullet is verbatim site copy", () => {
+  const norm = (s: string) => s.replace(/\s+/g, " ").trim().toLowerCase();
+  const haystack = engine.chunks.map((c) => norm(c.text));
+  for (const topic of askContent.topics) {
+    for (const bullet of topic.bullets ?? []) {
+      if (bullet.includes("{")) continue; // contact details are filled from site.ts
+      assert.ok(
+        haystack.some((text) => text.includes(norm(bullet))),
+        `topic "${topic.id}" has a bullet that is not on the site: ${bullet}`,
+      );
+    }
+  }
 });
