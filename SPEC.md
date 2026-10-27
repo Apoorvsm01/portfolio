@@ -500,3 +500,55 @@ Keep and standardise:
 ## Logo
 The Woven logo PNG has a white background baked in. Never apply a CSS filter to it. Show it on a white plate:
 `background: #fff`, radius 4px, padding 4px 8px, height ~28px, in both themes.
+
+# v6: Ask landing (supersedes the Home sections above where they conflict)
+
+The home page (`/`) is an AI Mode style landing. It answers questions from the portfolio's own content and
+nothing else. Sections after the landing are unchanged: How I work, Headset wall, About teaser.
+
+## A. Page
+1. **Hero**: a siri-style orb, the greeting, the prompt box inside a rotating ring, and suggested prompts.
+2. **Answer**: appears under the prompt. Submitting docks the orb and prompt upward with the View Transitions API
+   (applied directly after 350 ms if the browser cannot render a frame).
+3. **Featured carousel** and **shelves** (Apple TV style): scroll-snap rows, pointer tilt with a specular highlight,
+   the same lift on keyboard focus. After an answer, a "Matches" shelf is placed first, fed by the answer's project list.
+
+## B. Answers are retrieved, never generated
+- No LLM, no network call, no server. `src/lib/ask/` indexes the site's copy in the browser (BM25 with a light
+  stemmer and synonym groups) and composes the answer from verbatim passages. Every bullet carries a source link.
+- The engine loads as its own chunk on first idle or first focus of the prompt box (`src/lib/ask/load.ts`).
+- All copy and vocabulary lives in `content/ask.ts`: prompts, topics, synonym groups, stopwords, blocklists, refusal
+  wording, shelf definitions. Do not hard-code any of it in components.
+- Authored topic answers may only restate facts that already appear elsewhere in `content/`. No invented metrics.
+
+## C. Scope gate (runs before anything is answered)
+Order matters: personal or sensitive topics (always refused, even if another word matches) → requests to steer or
+leave the topic (poems, weather, "ignore previous instructions") → a matched topic, which must not carry an unknown
+subject ("Apoorv's dog") → free-form questions, which need known words, at least one *anchor* word (a project, org,
+tool, domain or proper noun), and a minimum BM25 score. Everything else gets the polite refusal card plus three
+things that can be answered. While typing, a soft hint tells the visitor if the question looks out of scope.
+When a question is wrongly refused or answered, fix `content/ask.ts` and add the query to `src/lib/ask/ask.test.ts`.
+Run the evals with `node --test src/lib/ask/ask.test.ts` (Node 22.18+). `tsconfig.json` sets
+`allowImportingTsExtensions` so the engine's relative imports can name `.ts` for that runner.
+
+## D. Motion (deliberately heavy; an exception to M2 "restrained and quick", for this page only)
+- Palette is the `--flag-*` tokens, exposed as `--ai-1..5`. Light and dark are both tuned.
+- Ring: `@property --ring-angle` conic gradient masked to a thin band, with a blurred twin. One animation, inherited.
+- Orb: one hand-written WebGL fragment shader (`src/components/ask/Orb.tsx`), three states (idle, thinking,
+  speaking), DPR capped at 1.5, paused off-screen and in hidden tabs, one static frame under reduced motion, CSS gradient
+  fallback without WebGL.
+- Everything else animates only `transform` and `opacity`. Springs are CSS `linear()` easings (`--ease-spring`).
+- `prefers-reduced-motion`: no aurora, ring rotation, edge glow, chip float or streaming; answers appear at once.
+- No new dependencies. Use `src/lib/use-reduced-motion.ts` rather than reading the media query inside effects.
+
+## E. Refinements (Ask landing)
+- **Type pair** (landing only; the rest of the site keeps the v4 fonts): Instrument Serif for the greeting, the answer's
+  lead line, shelf and carousel titles (regular weight, italic for the gradient accent); Geist for everything functional
+  (input, chips, labels, bullets, card text). Variables `--ask-serif` and `--ask-ui` in globals.css.
+- **No hard colour edges.** The prompt ring's band is itself blurred (about 3.5px) over a wide soft aura. The orb has no thin
+  contours: low-frequency, slow, heavily smoothed colour fields only.
+- Suggested prompts are plain pills: no coloured dots.
+- **Scroll blur** (`src/lib/use-scroll-blur.ts`, `.scroll-blur`): blur and fade only, no folding. Carousel and shelves sharpen
+  as they enter; the hero blurs only once the page has been scrolled and its bottom edge is in the upper half of the
+  screen, so an answer is never blurred while it is being read. Off under reduced motion.
+- Dev note: this setup's dev server does not hot-reload CSS edits; restart it after changing globals.css.

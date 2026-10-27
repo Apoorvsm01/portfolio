@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, Mona_Sans, Newsreader } from "next/font/google";
+import { Bricolage_Grotesque, Geist, Instrument_Serif, Mona_Sans, Newsreader } from "next/font/google";
+import Script from "next/script";
 import { site } from "../../content/site";
 import { Nav } from "../components/Nav";
 import { Footer } from "../components/Footer";
@@ -28,6 +29,21 @@ const fontSerif = Newsreader({
   subsets: ["latin"],
   variable: "--font-serif",
   style: ["normal", "italic"],
+  display: "swap",
+});
+
+// Ask landing pair (v6): Instrument Serif for the greeting, answers' lead line and section titles; Geist for
+// everything functional (input, chips, labels, body). A high-contrast serif over a quiet neutral sans.
+const fontAskDisplay = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-ask-display",
+  display: "swap",
+});
+const fontAskUi = Geist({
+  subsets: ["latin"],
+  variable: "--font-ask-ui",
   display: "swap",
 });
 
@@ -81,13 +97,18 @@ const themeBootstrapScript = `(function() {
   }
 })();`;
 
+const apolloTrackerScript = `function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");
+o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,
+o.onload=function(){window.trackingFunctions.onLoad({appId:"6a8470f7d78c1f000ce6626d"})},
+document.head.appendChild(o)}initApollo();`;
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
       data-theme="dark"
       suppressHydrationWarning
-      className={`${fontSans.variable} ${fontDisplay.variable} ${fontSerif.variable} h-full antialiased`}
+      className={`${fontSans.variable} ${fontDisplay.variable} ${fontSerif.variable} ${fontAskDisplay.variable} ${fontAskUi.variable} h-full antialiased`}
     >
       <head>
         <style
@@ -113,6 +134,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Footer />
         <BackToTop />
         <CommandPalette items={getNavIndex()} />
+        <Script id="apollo-tracker" strategy="afterInteractive">
+          {apolloTrackerScript}
+        </Script>
       </body>
     </html>
   );
