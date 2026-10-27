@@ -560,3 +560,8 @@ Run the evals with `node --test src/lib/ask/ask.test.ts` (Node 22.18+). `tsconfi
   Open mail app and LinkedIn; an email inside an answer gets a Copy button. Shared helper: `src/lib/copy-text.ts`.
 - **Each project appears once** below the hero (carousel first, then shelves take what is left); the page enforces it.
 - Scroll blur "in" is keyed to the block's **top edge**, not its centre, so tall blocks are sharp once mostly on screen.
+- **Values and ethics questions** ("work ethic", "professional values", "what drives him") route to the `values` topic in
+  `content/ask.ts`. Its lead and bullets restate things the site already says (listen first, let the test win, ship code,
+  end-to-end ownership, voice-first for safety, the 2-second glance standard); no new claims. `ask.test.ts` fails if any
+  authored topic bullet is not verbatim site copy. When several topic phrases match a question, the one with the most
+  subject words wins (then the longest), so "work ethic" beats the filler phrase "about apoorv".
