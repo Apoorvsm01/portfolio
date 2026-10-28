@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Geist, Instrument_Serif, Mona_Sans, Newsreader } from "next/font/google";
 import Script from "next/script";
 import { site } from "../../content/site";
+import { seo } from "../../content/seo";
+import { JsonLd, siteGraph } from "../lib/structured-data";
 import { Nav } from "../components/Nav";
 import { Footer } from "../components/Footer";
 import { CommandPalette } from "../components/CommandPalette";
@@ -55,28 +57,48 @@ export const viewport: Viewport = {
   colorScheme: "dark light",
 };
 
+// Absolute on purpose: the site lives under /portfolio, and a root-relative path would drop it.
+const ogImage = {
+  url: `${site.url}${seo.ogImage.path}`,
+  width: seo.ogImage.width,
+  height: seo.ogImage.height,
+  alt: seo.ogImage.alt,
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — ${site.role}`,
+    default: seo.title,
     template: `%s — ${site.name}`,
   },
-  description: site.hero.intro,
+  description: seo.description,
+  applicationName: site.name,
+  authors: [{ name: site.name, url: site.url }],
+  creator: site.name,
   alternates: {
     canonical: "./",
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+  },
   openGraph: {
-    title: `${site.name} — ${site.role}`,
-    description: site.hero.intro,
+    title: seo.title,
+    description: seo.description,
     url: site.url,
     siteName: site.name,
     locale: "en_US",
-    type: "website",
+    type: "profile",
+    firstName: "Apoorv",
+    lastName: "Mahajan",
+    images: [ogImage],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} — ${site.role}`,
-    description: site.hero.intro,
+    title: seo.title,
+    description: seo.description,
+    images: [ogImage.url],
   },
 };
 
@@ -121,6 +143,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             __html: themeBootstrapScript,
           }}
         />
+        <JsonLd data={siteGraph()} />
       </head>
       <body className="min-h-full flex flex-col bg-ground text-fg">
         <a

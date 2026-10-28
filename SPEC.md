@@ -565,3 +565,18 @@ Run the evals with `node --test src/lib/ask/ask.test.ts` (Node 22.18+). `tsconfi
   end-to-end ownership, voice-first for safety, the 2-second glance standard); no new claims. `ask.test.ts` fails if any
   authored topic bullet is not verbatim site copy. When several topic phrases match a question, the one with the most
   subject words wins (then the longest), so "work ethic" beats the filler phrase "about apoorv".
+
+# v7: search and AI discoverability (supersedes earlier sections where they conflict)
+
+- All search-facing wording lives in `content/seo.ts`: title, ~155-character description, role line, job titles,
+  skills, share image. It summarises the rest of `content/`; it never adds claims.
+- Root layout ships schema.org JSON-LD (`src/lib/structured-data.ts`): Person + WebSite on every page, ProfilePage on
+  the home page, CreativeWork on each case study. Image and page URLs are absolute (the site lives under `/portfolio`).
+- The home hero's H1 is the name and role line (visible); the big greeting is an H2. Crawlers that do not run
+  JavaScript must still see who this is and what they do.
+- Generated at build from content: `sitemap.xml` (`src/app/sitemap.ts`), `robots.txt` (`src/app/robots.ts`, AI search
+  crawlers explicitly allowed) and `llms.txt` (`src/app/llms.txt/route.ts`). Static (`force-static`) metadata routes and
+  GET route handlers are allowed for these files; no other route handlers.
+- Share card: `public/og.png` (1200x630), rendered from `scripts/og-card.html` with headless Chrome (command in the file).
+- Limits of the GitHub Pages project path: crawlers read `robots.txt` (and look for `llms.txt`) only at the domain root.
+  Moving to a custom domain makes both effective and is the biggest single SEO improvement left.

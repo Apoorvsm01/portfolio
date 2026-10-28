@@ -44,7 +44,7 @@ export function Footer() {
               href={site.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 hover:text-fg transition-colors"
+              className="min-h-[44px] inline-flex items-center gap-1 hover:text-fg transition-colors"
             >
               <span>GitHub</span>
               <span aria-hidden="true" className="arrow-nudge-diag">
