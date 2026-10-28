@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { site } from "../../../../content/site";
 import { getAllStudies, getStudy, coverFor } from "../../../lib/content";
 import { studyMeta } from "../../../../content/study-meta";
+import { JsonLd, caseStudyGraph } from "../../../lib/structured-data";
 import {
   Hero,
   ChapterBar,
@@ -33,12 +34,17 @@ export async function generateMetadata({
     return {};
   }
 
-  const desc = meta?.claim || study.description || site.hero.intro;
+  const claim = meta?.claim || study.description || site.hero.intro;
+  // The claim alone is short; naming the work and the author helps searches like "Woven UX case study".
+  const desc = `${claim} A UX case study by ${site.name}, ${site.role}.`;
   const url = `${site.url}/work/${slug}/`;
+  const cover = coverFor(slug)?.img;
+  const images = cover ? [{ url: `${site.url}${cover.src}`, alt: cover.alt || study.title }] : undefined;
 
   return {
-    title: study.title,
+    title: `${study.title}: UX case study`,
     description: desc,
+    keywords: study.tags,
     alternates: {
       canonical: `/work/${slug}/`,
     },
@@ -49,6 +55,14 @@ export async function generateMetadata({
       siteName: site.name,
       locale: "en_US",
       type: "article",
+      authors: [site.name],
+      images,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${study.title} — ${site.name}`,
+      description: desc,
+      images: images?.map((i) => i.url),
     },
   };
 }
@@ -82,6 +96,7 @@ export default async function CaseStudyPage({
 
   return (
     <main id="main" className="flex-1 w-full bg-ground">
+      <JsonLd data={caseStudyGraph(study, meta.claim, coverFor(study.slug)?.img.src)} />
       <div className="reading-progress-bar" aria-hidden="true" />
       <article>
         {/* Full-bleed hero on studyMeta[slug].band */}

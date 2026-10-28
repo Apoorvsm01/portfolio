@@ -6,6 +6,7 @@ import { HeadsetWall } from "../components/HeadsetWall";
 import { getAllStudies, coverFor, studyHref, imageDims } from "../lib/content";
 import { studyMeta } from "../../content/study-meta";
 import { site } from "../../content/site";
+import { JsonLd, profilePageGraph } from "../lib/structured-data";
 
 export default function Home() {
   const projects: ProjectCard[] = getAllStudies().map((study) => {
@@ -44,6 +45,7 @@ export default function Home() {
 
   return (
     <main id="main" className="flex-1 w-full">
+      <JsonLd data={profilePageGraph()} />
       <AskLanding projects={projects} />
       <HowIWork />
       <HeadsetWall />

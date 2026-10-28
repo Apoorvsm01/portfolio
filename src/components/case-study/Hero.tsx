@@ -159,7 +159,7 @@ export function Hero({
                 <li key={index}>
                   <a
                     href={`#section-${index}`}
-                    className="group link-wipe font-sans font-medium text-sm sm:text-base text-fg hover:text-accent transition-colors"
+                    className="group link-wipe min-h-[40px] inline-flex items-center font-sans font-medium text-sm sm:text-base text-fg hover:text-accent transition-colors"
                     style={
                       {
                         "--flag-color": flagBg,

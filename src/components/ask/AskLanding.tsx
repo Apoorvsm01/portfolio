@@ -3,6 +3,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { flushSync } from "react-dom";
 import { askCopy, featuredSlugs, shelfCopy, shelves, suggestedPrompts, type SuggestedPrompt } from "../../../content/ask";
+import { site } from "../../../content/site";
+import { seo } from "../../../content/seo";
 import { loadEngine } from "../../lib/ask/load";
 import type { AskEngine } from "../../lib/ask/engine";
 import type { AskResult, ScopeCheck } from "../../lib/ask/types";
@@ -165,7 +167,7 @@ export function AskLanding({ projects }: { projects: ProjectCard[] }) {
         ref={heroRef}
         className="ask-hero container-page scroll-blur"
         data-docked={phase !== "idle"}
-        aria-labelledby="ask-greeting"
+        aria-labelledby="ask-identity"
         onKeyDown={(e) => {
           if (e.key === "Escape" && phase !== "idle") reset();
         }}
@@ -184,11 +186,22 @@ export function AskLanding({ projects }: { projects: ProjectCard[] }) {
           </button>
         )}
         <Orb state={orbState} />
-        <h1 id="ask-greeting" className="ask-greeting">
+        {/* Who this is, before anything else: the page's real heading, for people and for crawlers. */}
+        <div className="ask-identity">
+          <h1 id="ask-identity" className="ask-identity-name">
+            {site.name} <span className="ask-identity-sep" aria-hidden="true">·</span>{" "}
+            <span className="ask-identity-role">{seo.roleLine}</span>
+          </h1>
+          <p className="ask-status">
+            <span className="ask-status-dot" aria-hidden="true" />
+            {seo.status}
+          </p>
+        </div>
+        <h2 id="ask-greeting" className="ask-greeting">
           {lead}
           <span className="shimmer-text">{askCopy.greetingAccent}</span>
           {tail}
-        </h1>
+        </h2>
         <p className="ask-helper">{askCopy.helper}</p>
         <PromptBox
           value={query}
