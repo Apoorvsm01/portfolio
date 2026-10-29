@@ -1,5 +1,6 @@
 import type { Card } from "../../../content/types";
 import { Reveal } from "../Reveal";
+import { RichText } from "./RichText";
 
 export function Facts({ facts }: { facts: Card[] }) {
   if (!facts || facts.length === 0) return null;
@@ -23,7 +24,7 @@ export function Facts({ facts }: { facts: Card[] }) {
               </dt>
               <dd className="text-sm sm:text-base text-text font-medium space-y-1">
                 {lines.map((line, lIdx) => (
-                  <div key={lIdx}>{line}</div>
+                  <div key={lIdx}><RichText text={line} /></div>
                 ))}
               </dd>
             </div>

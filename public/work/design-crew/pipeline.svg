@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1350" width="2400" height="1350" role="img" aria-labelledby="t d">
+<title id="t">Design-crew pipeline</title>
+<desc id="d">Left-to-right agent pipeline: brief, domain modeler, IA architect, human gate 1, system designer, parallel builders, token linter and UX critic with a fix-rounds loop, human gate 2, storyteller, honesty checker, published. Files pass between stages; every agent appends to a shared decisions and metrics ledger.</desc>
+<style>
+.h{font-family:"Bricolage Grotesque","Avenir Next","Segoe UI",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Inter,sans-serif;font-weight:700}
+.b{font-family:"Mona Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,"Helvetica Neue",sans-serif}
+.s{font-family:Newsreader,"Iowan Old Style","Palatino Linotype",Georgia,serif;font-style:italic}
+.m{font-family:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace}
+.tag{font-size:15px;letter-spacing:1.6px;font-weight:600;fill:#a39c8f}
+.nm{font-size:25px;fill:#f1ece3;letter-spacing:-.2px}
+.jb{font-size:19px;fill:#a39c8f}
+.pl{font-size:14px;letter-spacing:1.4px;font-weight:700}
+.el{font-size:17px;fill:#d3ccbf}
+.e{stroke:#8a8375;stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.dot{stroke:#6f695e;stroke-width:2;stroke-dasharray:.1 7;stroke-linecap:round;fill:none}
+</style>
+<defs>
+<marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path d="M1.5 1.5L8.5 5L1.5 8.5Z" fill="#8a8375" stroke="#8a8375" stroke-width="1" stroke-linejoin="round"/></marker>
+<marker id="arl" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path d="M1.5 1.5L8.5 5L1.5 8.5Z" fill="#c9bcf5" stroke="#c9bcf5" stroke-width="1" stroke-linejoin="round"/></marker>
+<pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="12" cy="12" r="1" fill="#2b2823" opacity=".7"/></pattern>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#171512"/><stop offset="1" stop-color="#100f0d"/></linearGradient>
+<linearGradient id="rail" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f5a524" stop-opacity=".10"/><stop offset="1" stop-color="#f5a524" stop-opacity=".03"/></linearGradient>
+</defs>
+<rect width="2400" height="1350" rx="28" fill="url(#bg)"/>
+<rect width="2400" height="1350" rx="28" fill="url(#grid)"/>
+<rect x=".75" y=".75" width="2398.5" height="1348.5" rx="27.5" fill="none" stroke="#2b2823" stroke-width="1.5"/>
+<text x="72" y="126" class="h" font-size="68" fill="#f1ece3" letter-spacing="-1.5">Design-crew</text>
+<text x="72" y="170" class="b" font-size="27" fill="#a39c8f">A file-passing agent pipeline with human gates</text>
+
+<circle cx="1086" cy="146" r="7" fill="#3cc8b4"/><text x="1106" y="153" class="b" font-size="20" fill="#a39c8f"><tspan font-weight="700" fill="#3cc8b4">Haiku</tspan>  mechanical checks</text>
+<circle cx="1424" cy="146" r="7" fill="#a98cf5"/><text x="1444" y="153" class="b" font-size="20" fill="#a39c8f"><tspan font-weight="700" fill="#a98cf5">Sonnet</tspan>  modeling, design, building, writing</text>
+<circle cx="1966" cy="146" r="7" fill="#f5a524"/><text x="1986" y="153" class="b" font-size="20" fill="#a39c8f"><tspan font-weight="700" fill="#f5a524">Human + Opus</tspan>  brief and gates</text>
+<rect x="72" y="250" width="300" height="170" rx="16" fill="#1b1916"/><rect x="72" y="250" width="300" height="170" rx="16" fill="#f5a524" fill-opacity=".055" stroke="#f5a524" stroke-opacity=".6" stroke-width="1.5"/>
+<text x="96" y="289" class="b tag">STAGE 0</text>
+<rect x="206" y="270" width="142" height="26" rx="13" fill="#f5a524" fill-opacity=".16"/><text x="277.0" y="288.5" text-anchor="middle" class="b pl" fill="#f5a524">HUMAN + OPUS</text>
+<text x="96" y="338" class="h nm">Designer + Opus</text>
+<text x="96" y="370" class="b jb">Writes the ground truth</text><text x="96" y="396" class="b jb">with Opus</text>
+<rect x="611" y="250" width="300" height="170" rx="16" fill="#1b1916"/><rect x="611" y="250" width="300" height="170" rx="16" fill="#a98cf5" fill-opacity=".055" stroke="#a98cf5" stroke-opacity=".6" stroke-width="1.5"/>
+<text x="635" y="289" class="b tag">STAGE 1</text>
+<rect x="805" y="270" width="82" height="26" rx="13" fill="#a98cf5" fill-opacity=".16"/><text x="846.0" y="288.5" text-anchor="middle" class="b pl" fill="#a98cf5">SONNET</text>
+<text x="635" y="338" class="h nm">domain-modeler</text>
+<text x="635" y="370" class="b jb">Maps the domain objects</text><text x="635" y="396" class="b jb">and jobs to be done</text>
+<rect x="1150" y="250" width="300" height="170" rx="16" fill="#1b1916"/><rect x="1150" y="250" width="300" height="170" rx="16" fill="#a98cf5" fill-opacity=".055" stroke="#a98cf5" stroke-opacity=".6" stroke-width="1.5"/>
+<text x="1174" y="289" class="b tag">STAGE 2</text>
+<rect x="1344" y="270" width="82" height="26" rx="13" fill="#a98cf5" fill-opacity=".16"/><text x="1385.0" y="288.5" text-anchor="middle" class="b pl" fill="#a98cf5">SONNET</text>
+<text x="1174" y="338" class="h nm">ia-architect</text>
+<text x="1174" y="370" class="b jb">Navigation + screens,</text><text x="1174" y="396" class="b jb">with rejected options</text>
+<polygon points="1739,285 1789,335 1739,385 1689,335" fill="#1b1916" stroke-linejoin="round"/><polygon points="1739,285 1789,335 1739,385 1689,335" fill="#f5a524" fill-opacity=".14" stroke="#f5a524" stroke-width="1.5" stroke-linejoin="round"/>
+<text x="1739" y="348" text-anchor="middle" class="h" font-size="38" fill="#f5a524">1</text>
+<rect x="1697" y="243" width="84" height="26" rx="13" fill="#f5a524" fill-opacity=".16"/><text x="1739" y="261.5" text-anchor="middle" class="b pl" fill="#f5a524">HUMAN</text>
+<text x="1739" y="421" text-anchor="middle" class="h" font-size="25" fill="#f1ece3">Gate 1</text><text x="1739" y="449" text-anchor="middle" class="b jb">Human picks the IA</text>
+<rect x="2028" y="250" width="300" height="170" rx="16" fill="#1b1916"/><rect x="2028" y="250" width="300" height="170" rx="16" fill="#a98cf5" fill-opacity=".055" stroke="#a98cf5" stroke-opacity=".6" stroke-width="1.5"/>
+<text x="2052" y="289" class="b tag">STAGE 3</text>
+<rect x="2222" y="270" width="82" height="26" rx="13" fill="#a98cf5" fill-opacity=".16"/><text x="2263.0" y="288.5" text-anchor="middle" class="b pl" fill="#a98cf5">SONNET</text>
+<text x="2052" y="338" class="h nm">system-designer</text>
+<text x="2052" y="370" class="b jb">Lean B2B design system:</text><text x="2052" y="396" class="b jb">tokens + components</text>
+<path d="M372 335H603" class="e" marker-end="url(#ar)"/>
+<text x="484.5" y="321" text-anchor="middle" class="m el">brief.md</text>
+<path d="M911 335H1142" class="e" marker-end="url(#ar)"/>
+<text x="1023.5" y="321" text-anchor="middle" class="m el">object-model.md</text>
+<path d="M1450 335H1681" class="e" marker-end="url(#ar)"/>
+<text x="1562.5" y="321" text-anchor="middle" class="m el">ia.md</text>
+<path d="M1789 335H2020" class="e" marker-end="url(#ar)"/>
+<text x="1901.5" y="321" text-anchor="middle" class="m el">approved ia.md</text>
+<path d="M2250 420V504a16 16 0 0 1-16 16H176a16 16 0 0 0-16 16V612" class="e" marker-end="url(#ar)"/>
+<text x="1200" y="506" text-anchor="middle" class="m el">tokens.json + components.md</text>
+<rect x="114" y="662" width="280" height="170" rx="16" fill="#1b1916" stroke="#a98cf5" stroke-opacity="0.30" stroke-width="1.5"/>
+<rect x="100" y="648" width="280" height="170" rx="16" fill="#1b1916" stroke="#a98cf5" stroke-opacity="0.40" stroke-width="1.5"/>
+<rect x="86" y="634" width="280" height="170" rx="16" fill="#1b1916" stroke="#a98cf5" stroke-opacity="0.50" stroke-width="1.5"/>
+<rect x="72" y="620" width="280" height="170" rx="16" fill="#1b1916"/><rect x="72" y="620" width="280" height="170" rx="16" fill="#a98cf5" fill-opacity=".055" stroke="#a98cf5" stroke-opacity=".6" stroke-width="1.5"/>
+<text x="96" y="659" class="b tag">STAGE 4</text>
+<rect x="246" y="640" width="82" height="26" rx="13" fill="#a98cf5" fill-opacity=".16"/><text x="287.0" y="658.5" text-anchor="middle" class="b pl" fill="#a98cf5">SONNET</text>
+<text x="96" y="708" class="h nm">builder ×N</text>
+<text x="96" y="740" class="b jb">One screen each,</text><text x="96" y="766" class="b jb">built in parallel</text>
+<rect x="206" y="794" width="0" height="0"/>
+<rect x="554" y="604" width="476" height="202" rx="22" fill="none" stroke="#2b2823" stroke-width="1.5" stroke-dasharray="3 6" stroke-linecap="round"/>
+<rect x="570" y="620" width="210" height="170" rx="16" fill="#1b1916"/><rect x="570" y="620" width="210" height="170" rx="16" fill="#3cc8b4" fill-opacity=".055" stroke="#3cc8b4" stroke-opacity=".6" stroke-width="1.5"/>
+<text x="594" y="659" class="b tag">5a</text>
+<rect x="684" y="640" width="72" height="26" rx="13" fill="#3cc8b4" fill-opacity=".16"/><text x="720.0" y="658.5" text-anchor="middle" class="b pl" fill="#3cc8b4">HAIKU</text>
+<text x="594" y="708" class="h nm">token-linter</text>
+<text x="594" y="740" class="b jb">Hard-coded values</text><text x="594" y="766" class="b jb">and contrast</text>
+<rect x="804" y="620" width="210" height="170" rx="16" fill="#1b1916"/><rect x="804" y="620" width="210" height="170" rx="16" fill="#a98cf5" fill-opacity=".055" stroke="#a98cf5" stroke-opacity=".6" stroke-width="1.5"/>
+<text x="828" y="659" class="b tag">5b</text>
+<rect x="908" y="640" width="82" height="26" rx="13" fill="#a98cf5" fill-opacity=".16"/><text x="949.0" y="658.5" text-anchor="middle" class="b pl" fill="#a98cf5">SONNET</text>
+<text x="828" y="708" class="h nm">ux-critic</text>
+<text x="828" y="740" class="b jb">Senior critique</text><text x="828" y="766" class="b jb">of screenshots</text>
+<path d="M402 705H546" class="e" marker-end="url(#ar)"/>
+<text x="471.0" y="691" text-anchor="middle" class="m el">prototype/</text>
+<path d="M1030 705H1162" class="e" marker-end="url(#ar)"/>
+<text x="1093.0" y="691" text-anchor="middle" class="m el">critiques/</text>
+<polygon points="1220,655 1270,705 1220,755 1170,705" fill="#1b1916" stroke-linejoin="round"/><polygon points="1220,655 1270,705 1220,755 1170,705" fill="#f5a524" fill-opacity=".14" stroke="#f5a524" stroke-width="1.5" stroke-linejoin="round"/>
+<text x="1220" y="718" text-anchor="middle" class="h" font-size="38" fill="#f5a524">2</text>
+<rect x="1178" y="613" width="84" height="26" rx="13" fill="#f5a524" fill-opacity=".16"/><text x="1220" y="631.5" text-anchor="middle" class="b pl" fill="#f5a524">HUMAN</text>
+<text x="1220" y="791" text-anchor="middle" class="h" font-size="25" fill="#f1ece3">Gate 2</text><text x="1220" y="819" text-anchor="middle" class="b jb">Human reviews screens</text>
+<rect x="1410" y="620" width="270" height="170" rx="16" fill="#1b1916"/><rect x="1410" y="620" width="270" height="170" rx="16" fill="#a98cf5" fill-opacity=".055" stroke="#a98cf5" stroke-opacity=".6" stroke-width="1.5"/>
+<text x="1434" y="659" class="b tag">STAGE 6</text>
+<rect x="1574" y="640" width="82" height="26" rx="13" fill="#a98cf5" fill-opacity=".16"/><text x="1615.0" y="658.5" text-anchor="middle" class="b pl" fill="#a98cf5">SONNET</text>
+<text x="1434" y="708" class="h nm">storyteller</text>
+<text x="1434" y="740" class="b jb">Drafts the case study</text><text x="1434" y="766" class="b jb">from the decision log</text>
+<rect x="1850" y="620" width="270" height="170" rx="16" fill="#1b1916"/><rect x="1850" y="620" width="270" height="170" rx="16" fill="#3cc8b4" fill-opacity=".055" stroke="#3cc8b4" stroke-opacity=".6" stroke-width="1.5"/>
+<text x="1874" y="659" class="b tag">STAGE 7</text>
+<rect x="2024" y="640" width="72" height="26" rx="13" fill="#3cc8b4" fill-opacity=".16"/><text x="2060.0" y="658.5" text-anchor="middle" class="b pl" fill="#3cc8b4">HAIKU</text>
+<text x="1874" y="708" class="h nm">honesty-checker</text>
+<text x="1874" y="740" class="b jb">Flags any claim not</text><text x="1874" y="766" class="b jb">backed by the record</text>
+<path d="M1270 705H1402" class="e" marker-end="url(#ar)"/>
+<path d="M1680 705H1842" class="e" marker-end="url(#ar)"/>
+<text x="1758.0" y="691" text-anchor="middle" class="m el">case-study.md</text>
+<path d="M2120 705H2232" class="e" marker-end="url(#ar)"/>
+<text x="2173.0" y="691" text-anchor="middle" class="m el">flags.md</text>
+<text x="1341" y="691" text-anchor="middle" class="m el" opacity="0">.</text>
+<circle cx="2284" cy="705" r="44" fill="#f1ece3" fill-opacity=".06" stroke="#f1ece3" stroke-opacity=".7" stroke-width="1.5"/><path d="M2267 706l11 11 21-24" fill="none" stroke="#f1ece3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="2284" y="789" text-anchor="middle" class="h" font-size="25" fill="#f1ece3">Published</text>
+<path d="M792 604V584a16 16 0 0 0-16-16H316a16 16 0 0 1-16-16V552" class="e" opacity="0"/>
+<path d="M792 604V584a16 16 0 0 0-16-16H316a16 16 0 0 0-16 16V612" stroke="#c9bcf5" stroke-width="1.5" stroke-dasharray="7 6" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arl)"/>
+<rect x="490" y="552" width="124" height="32" rx="16" fill="#1d1a2b" stroke="#a98cf5" stroke-opacity=".6" stroke-width="1.5"/><text x="552" y="574" text-anchor="middle" class="b" font-size="19" font-weight="600" fill="#d5c9f9">fix rounds</text>
+<path d="M254 832V960" class="dot"/><circle cx="254" cy="960" r="4" fill="#a39c8f"/>
+<path d="M675 790V960" class="dot"/><circle cx="675" cy="960" r="4" fill="#a39c8f"/>
+<path d="M909 790V960" class="dot"/><circle cx="909" cy="960" r="4" fill="#a39c8f"/>
+<path d="M1545 790V960" class="dot"/><circle cx="1545" cy="960" r="4" fill="#a39c8f"/>
+<path d="M1985 790V960" class="dot"/><circle cx="1985" cy="960" r="4" fill="#a39c8f"/>
+<path d="M2078 420V456H44V1005H72" class="dot"/>
+<path d="M761 420V456" class="dot"/>
+<circle cx="761" cy="456" r="4" fill="#a39c8f"/>
+<path d="M1300 420V456" class="dot"/>
+<circle cx="1300" cy="456" r="4" fill="#a39c8f"/>
+<path d="M2078 420V456" class="dot"/>
+<circle cx="2078" cy="456" r="4" fill="#a39c8f"/>
+<circle cx="72" cy="1005" r="4" fill="#a39c8f"/>
+<rect x="72" y="960" width="2256" height="110" rx="18" fill="#1b1916"/><rect x="72" y="960" width="2256" height="110" rx="18" fill="url(#rail)" stroke="#f5a524" stroke-opacity=".4" stroke-width="1.5"/>
+<text x="104" y="997" class="b tag" fill="#f5a524" style="fill:#f5a524">SHARED LEDGER</text>
+<rect x="104" y="1012" width="184" height="38" rx="10" fill="#12110f" stroke="#2b2823" stroke-width="1.5"/><text x="196" y="1037" text-anchor="middle" class="m" font-size="21" fill="#f1ece3">decisions.md</text>
+<rect x="304" y="1012" width="160" height="38" rx="10" fill="#12110f" stroke="#2b2823" stroke-width="1.5"/><text x="384" y="1037" text-anchor="middle" class="m" font-size="21" fill="#f1ece3">metrics.md</text>
+<text x="2296" y="1031" text-anchor="end" class="s" font-size="30" fill="#f1ece3">every agent appends; the case study is written from this</text>
+<rect x="72" y="1146" width="2256" height="112" rx="18" fill="none" stroke="#2b2823" stroke-width="1.5"/>
+<text x="104" y="1210" class="h" font-size="46" fill="#f1ece3" letter-spacing="-1">34</text><text x="104" y="1238" class="b" font-size="19" fill="#a39c8f">logged runs</text>
+<text x="360" y="1210" class="h" font-size="46" fill="#f1ece3" letter-spacing="-1">2.4M</text><text x="360" y="1238" class="b" font-size="19" fill="#a39c8f">tokens</text>
+<text x="620" y="1210" class="h" font-size="46" fill="#f1ece3" letter-spacing="-1">29 / 5</text><text x="620" y="1238" class="b" font-size="19" fill="#a39c8f">Sonnet / Haiku runs</text>
+<text x="960" y="1210" class="h" font-size="46" fill="#f1ece3" letter-spacing="-1">2</text><text x="960" y="1238" class="b" font-size="19" fill="#a39c8f">human gates</text>
+<path d="M328 1170V1234" stroke="#2b2823" stroke-width="1.5"/>
+<path d="M588 1170V1234" stroke="#2b2823" stroke-width="1.5"/>
+<path d="M908 1170V1234" stroke="#2b2823" stroke-width="1.5"/>
+<text x="2296" y="1217" text-anchor="end" class="s" font-size="38" fill="#f5a524">Agents pass files, not chat history</text>
+</svg>

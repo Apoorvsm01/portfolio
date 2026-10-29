@@ -11,7 +11,7 @@ export type CorpusInput = {
   personal: typeof Personal;
 };
 
-const clean = (s: string) => s.replace(/\s+/g, " ").trim();
+const clean = (s: string) => s.replace(/\[([^\]]+)\]\([^)\s]+\)/g, "$1").replace(/\s+/g, " ").trim();
 
 // Personal-page keys that hold media paths or alt text, not copy.
 const SKIP_KEYS = new Set(["src", "alt", "poster", "video", "videoLabel", "caption", "version"]);
