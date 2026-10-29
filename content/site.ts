@@ -29,7 +29,7 @@ export const site = {
     display: "I’m Apoorv",
     headline: "I study how people drive, and then I build what they need.",
     intro:
-      "For the past year I’ve been the UX engineer behind an in-car AI driving coach at Woven by Toyota. I took it from a product brief and raw research on 100+ drivers to 22 driving scenarios, a CARLA simulator rig with real steering and pedals, and studies where 70% of drivers understood its re-timed voice instructions, a 50% improvement on the version before. I’ve been designing for cars, headsets and health apps since 2019.",
+      "From November 2025 to October 2026 I was the UX engineer behind an in-car AI driving coach at Woven by Toyota. I took it from a product brief and raw research on 100+ drivers to 22 driving scenarios, a CARLA simulator rig with real steering and pedals, and studies where 70% of drivers understood its re-timed voice instructions, a 50% improvement on the version before. I’ve been designing for cars, headsets and health apps since 2019.",
     // 1200 px real JPEG (the original portrait.jpeg is a 1.7 MB PNG with the wrong extension)
     image: { src: "/me/portrait-1200.jpg", alt: "Apoorv Mahajan smiling, sitting on a swing at night", width: 1200, height: 1193 },
   },
@@ -172,7 +172,7 @@ export const site = {
   timelineIntro: "Researcher, designer, engineer. Newest first, back to 2019.",
   // Newest first. `flag` colours the org chip.
   timeline: [
-    { years: "2025 to now", role: "UX Engineer", org: "Woven by Toyota", flag: "amber", note: "In-car AI coaching, autonomous fleet tools, and a design system four Toyota companies share." },
+    { years: "2025 to 2026", role: "UX Engineer", org: "Woven by Toyota", flag: "amber", note: "In-car AI coaching, autonomous fleet tools, and a design system four Toyota companies share." },
     { years: "2024 to 2025", role: "UI/UX Designer", org: "Omnia", flag: "violet", note: "Apple Vision Pro, Meta Quest and CarPlay." },
     { years: "2024", role: "UX Researcher and UI Designer", org: "Patched Reality", flag: "teal", note: "VR physiotherapy and AI-assisted health records." },
     { years: "2023 to 2025", role: "M.S. in Human-Computer Interaction", org: "DePaul University", flag: "blue" },
