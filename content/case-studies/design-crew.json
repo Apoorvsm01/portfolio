@@ -23,11 +23,16 @@
     },
     {
       "label": "Code",
-      "value": "github.com/Apoorvsm01/fleet-console"
+      "value": "[github.com/Apoorvsm01/fleet-console](https://github.com/Apoorvsm01/fleet-console)"
     }
   ],
   "prototype": null,
-  "heroImages": [],
+  "heroImages": [
+    {
+      "src": "/work/design-crew/pipeline.svg",
+      "alt": "The pipeline: each arrow is a file one agent hands the next, with two human gates."
+    }
+  ],
   "sections": [
     {
       "label": "Scope",
@@ -61,13 +66,22 @@
         },
         {
           "type": "paragraph",
-          "text": "The result is the Fleet Console case study, at /work/fleet-console/."
+          "text": "The result is the Fleet Console case study, at [/work/fleet-console/](/work/fleet-console/)."
         }
       ]
     },
     {
       "label": "The human gates",
       "blocks": [
+        {
+          "type": "figure",
+          "image": {
+            "src": "/work/design-crew/pipeline.svg",
+            "alt": "Design-crew pipeline diagram. Brief (designer and Opus) to domain modeler, IA architect, human gate 1, system designer, parallel builders, token linter and UX critic with fix rounds, human gate 2, storyteller, honesty checker, published. Every agent appends to a shared ledger of decisions.md and metrics.md. 34 logged runs, 2.4M tokens, 29 Sonnet and 5 Haiku runs."
+          },
+          "caption": "Each arrow is the file one agent hands the next. Agents never share chat history; the ledger is the shared memory.",
+          "wide": true
+        },
         {
           "type": "list",
           "items": [
@@ -234,8 +248,21 @@
           ]
         }
       ]
+    },
+    {
+      "label": "Links",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Live prototype: [https://apoorvsm01.github.io/fleet-console/](https://apoorvsm01.github.io/fleet-console/)",
+            "Code on GitHub: [https://github.com/Apoorvsm01/fleet-console](https://github.com/Apoorvsm01/fleet-console)"
+          ]
+        }
+      ]
     }
   ],
   "unportedComponents": [],
-  "imageCount": 0
+  "imageCount": 0,
+  "heroFit": "contain"
 }

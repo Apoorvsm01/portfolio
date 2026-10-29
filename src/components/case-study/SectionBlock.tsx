@@ -8,6 +8,7 @@ import { Widgets } from "./Widgets";
 import { Bento } from "./Bento";
 import { DeviceGallery } from "./DeviceGallery";
 import { IframeWithSkeleton } from "./IframeWithSkeleton";
+import { RichText } from "./RichText";
 
 function renderListItem(item: string) {
   const match = item.match(/^([^:\n]+):\s*(.*)$/);
@@ -17,12 +18,12 @@ function renderListItem(item: string) {
       return (
         <>
           <strong className="font-semibold text-fg">{term}</strong>:{" "}
-          <span>{rest}</span>
+          <span><RichText text={rest} /></span>
         </>
       );
     }
   }
-  return item;
+  return <RichText text={item} />;
 }
 
 export function BlockRenderer({
@@ -61,7 +62,7 @@ export function BlockRenderer({
     case "paragraph":
       return (
         <p className="max-w-[46rem] font-serif text-base sm:text-lg leading-[1.6] text-fg-2 mb-6 last:mb-0 whitespace-pre-line text-pretty">
-          {block.text}
+          <RichText text={block.text} />
         </p>
       );
 

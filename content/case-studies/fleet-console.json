@@ -24,7 +24,7 @@
     },
     {
       "label": "Code",
-      "value": "github.com/Apoorvsm01/fleet-console"
+      "value": "[github.com/Apoorvsm01/fleet-console](https://github.com/Apoorvsm01/fleet-console)"
     }
   ],
   "prototype": {
@@ -61,7 +61,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Status: a concept. Nothing here shipped. I rebuilt it from scratch under NDA as a working three-surface prototype (desktop, iPhone, in-vehicle), and I directed it through an agent pipeline I built. Agents drafted and built, I made every call at the human gates, and every decision is logged. The pipeline has its own case study, Design-crew."
+          "text": "Status: a concept. Nothing here shipped. I rebuilt it from scratch under NDA as a working three-surface prototype (desktop, iPhone, in-vehicle), and I directed it through an agent pipeline I built. Agents drafted and built, I made every call at the human gates, and every decision is logged. The pipeline has its own case study, [Design-crew](/work/design-crew/)."
         }
       ]
     },
@@ -71,8 +71,8 @@
         {
           "type": "list",
           "items": [
-            "Live prototype: https://apoorvsm01.github.io/fleet-console/",
-            "Code on GitHub: https://github.com/Apoorvsm01/fleet-console"
+            "Live prototype: [https://apoorvsm01.github.io/fleet-console/](https://apoorvsm01.github.io/fleet-console/)",
+            "Code on GitHub: [https://github.com/Apoorvsm01/fleet-console](https://github.com/Apoorvsm01/fleet-console)"
           ]
         }
       ]
