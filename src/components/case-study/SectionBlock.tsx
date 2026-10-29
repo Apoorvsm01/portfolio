@@ -8,6 +8,7 @@ import { Widgets } from "./Widgets";
 import { Bento } from "./Bento";
 import { DeviceGallery } from "./DeviceGallery";
 import { IframeWithSkeleton } from "./IframeWithSkeleton";
+import { LoopVideo } from "./LoopVideo";
 import { RichText } from "./RichText";
 
 function renderListItem(item: string) {
@@ -206,6 +207,37 @@ export function BlockRenderer({
           studyTitle={studyTitle}
         />
       );
+
+    case "loop": {
+      const dims = imageDims(block.poster);
+      const hasCaption = Boolean(block.caption?.trim());
+      const label = hasCaption
+        ? block.caption!
+        : studyTitle
+        ? `${studyTitle} looping demo`
+        : "Looping demo";
+      return (
+        <figure
+          className={`my-8 first:mt-0 last:mb-0 ${block.wide ? "w-full" : "w-full max-w-[46rem]"}`}
+        >
+          <div className="rounded-[6px] overflow-hidden border border-rule bg-surface">
+            <LoopVideo
+              src={block.src}
+              poster={block.poster}
+              label={label}
+              width={dims.width}
+              height={dims.height}
+              className="w-full h-auto object-cover rounded-[6px] block"
+            />
+          </div>
+          {hasCaption && (
+            <figcaption className="mt-3 max-w-[46rem] font-sans text-xs sm:text-sm text-muted leading-relaxed">
+              {block.caption}
+            </figcaption>
+          )}
+        </figure>
+      );
+    }
 
     case "metrics":
       return <Metrics items={block.items} />;

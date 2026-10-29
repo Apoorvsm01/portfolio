@@ -15,7 +15,7 @@
     },
     {
       "label": "When",
-      "value": "Built afterward, for the portfolio re-creation of Fleet Console. Not used at Woven."
+      "value": "Built afterward for the Fleet Console re-creation. Not used at Woven."
     },
     {
       "label": "Built on",
@@ -35,88 +35,52 @@
   ],
   "sections": [
     {
-      "label": "Scope",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "text": "I built this pipeline afterward, for the portfolio re-creation of the Fleet Console concept. I did not use it at Woven."
-        },
-        {
-          "type": "paragraph",
-          "text": "I needed an NDA-safe re-creation of a concept, with a new design and a new system. Instead of hand-building it in one long chat, I split the job into stages. Agents never share chat history (by design). Each reads a few small files and writes one."
-        },
-        {
-          "type": "heading",
-          "text": "The stages, in order"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Brief, written by me with Opus (ground truth).",
-            "domain-modeler, then ia-architect, which writes ia.md.",
-            "Gate 1 (human).",
-            "system-designer writes tokens.json and components.md.",
-            "builder x N in parallel build the desktop prototype.",
-            "token-linter and ux-critic write critiques, and builders fix them.",
-            "Gate 2 (human).",
-            "system-designer extends the system for touch and glance, then an iOS builder and a vehicle builder work in parallel.",
-            "ux-critic reviews the surfaces, and fix builders follow.",
-            "storyteller writes case-study.md, then honesty-checker writes flags.md."
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "The result is the Fleet Console case study, at [/work/fleet-console/](/work/fleet-console/)."
-        }
-      ]
-    },
-    {
-      "label": "The human gates",
+      "label": "How it works",
       "blocks": [
         {
           "type": "figure",
           "image": {
             "src": "/work/design-crew/pipeline.svg",
-            "alt": "Design-crew pipeline diagram. Brief (designer and Opus) to domain modeler, IA architect, human gate 1, system designer, parallel builders, token linter and UX critic with fix rounds, human gate 2, storyteller, honesty checker, published. Every agent appends to a shared ledger of decisions.md and metrics.md. 34 logged runs, 2.4M tokens, 29 Sonnet and 5 Haiku runs."
+            "alt": "Design-crew pipeline diagram. Brief (designer and Opus) to domain modeler, IA architect, human gate 1, system designer, parallel builders, token linter and UX critic with fix rounds, human gate 2, storyteller, honesty checker, published. Every agent appends to a shared ledger of decisions.md and metrics.md."
           },
-          "caption": "Each arrow is the file one agent hands the next. Agents never share chat history; the ledger is the shared memory.",
-          "wide": true
+          "wide": true,
+          "caption": "Each arrow is a file one agent hands the next."
         },
         {
-          "type": "list",
-          "items": [
-            "Stage 0: I write the brief with Opus. It is ground truth, and no agent may contradict it or invent users, quotes or metrics.",
-            "Gate 1: I choose between three IA models and answer open questions. I picked workflow-first. It also marked which agent defaults were assumptions I hadn't confirmed.",
-            "Gate 2: I review screenshots, and my critique drove the second fix round.",
-            "After the surfaces fixes: the glance numbers and guided-call wording are still the agents' proposals, waiting on me and a safety owner (D-028, D-029)."
+          "type": "heading",
+          "text": "Agents pass files, not chat history"
+        },
+        {
+          "type": "paragraph",
+          "text": "Each agent reads a few small files and writes one. A shared ledger of decisions and metrics is the memory."
+        }
+      ]
+    },
+    {
+      "label": "Where I decide",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Two gates where only I decide"
+        },
+        {
+          "type": "cards",
+          "cards": [
+            {
+              "label": "Gate 1: the IA",
+              "value": "I chose workflow-first from three IA models, and marked which agent defaults were unconfirmed assumptions."
+            },
+            {
+              "label": "Gate 2: the screens",
+              "value": "I reviewed prototype screenshots, and my critique drove the second fix round."
+            }
           ]
         }
       ]
     },
     {
-      "label": "Model routing",
+      "label": "Routing",
       "blocks": [
-        {
-          "type": "paragraph",
-          "text": "Cheap models do the volume, and the human decides at gates."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Opus plus me: the brief and gate decisions. Opus tokens aren't logged.",
-            "Sonnet: modeling, IA, system design, building, critique, storytelling. 29 of the 34 logged runs.",
-            "Haiku: mechanical work: scaffold, contrast check, screenshots, token linting, and the honesty check. 5 runs."
-          ]
-        }
-      ]
-    },
-    {
-      "label": "Real numbers",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "text": "From metrics.md, all rows: 34 logged agent runs on one day, plus the Opus row, which has no numbers. The totals cover these logged pipeline runs only. They exclude the review and inventory agents that ran before the pipeline existed."
-        },
         {
           "type": "metrics",
           "items": [
@@ -126,110 +90,68 @@
             },
             {
               "value": "2.43M",
-              "label": "tokens (2,430,679)"
+              "label": "tokens across those runs"
             },
             {
-              "value": "532",
-              "label": "tool calls"
+              "value": "29 / 5",
+              "label": "Sonnet / Haiku runs"
             },
             {
-              "value": "77% / 23%",
-              "label": "Sonnet / Haiku share of tokens, about"
+              "value": "2",
+              "label": "human gates"
             }
           ]
         },
         {
-          "type": "paragraph",
-          "text": "Summed agent seconds come to 14,438 s, of which 8,108 s is one row. Without that row it is 6,330 s, about 106 min. The honesty-checker's 8,108 s is wall time that includes waiting, not work. Parallel runs also overlap, so the summed seconds are not wall-clock."
-        },
-        {
           "type": "heading",
-          "text": "Per stage"
+          "text": "Cheap models for volume, people for judgment"
         },
         {
-          "type": "list",
-          "items": [
-            "Domain model: 70.6k tokens. IA: 22.6k.",
-            "System: 50.7k, 224 s. Surfaces extension: 63.8k, 199 s.",
-            "Foundation builder: 186.9k tokens, 39 tool calls, 940 s. The longest working run.",
-            "Four parallel desktop screen builders: 40k to 64k each.",
-            "Token linter: 232k, the largest single run.",
-            "Desktop UX critic: 83k tokens, 22 tool calls, 105 s.",
-            "Desktop fix rounds: round 1 about 297k, round 2 about 106k, a 55k table-fit pass, a 37k polish pass.",
-            "Surfaces phase (8 runs): about 675k tokens, 170 tool calls. Surfaces critic: 152k, 33 tool calls.",
-            "Storyteller: 80.8k tokens, 20 tool calls. Honesty-checker: 79.9k, 7 tool calls."
-          ]
+          "type": "paragraph",
+          "text": "Opus and I wrote the brief and made the gate calls; Opus tokens aren't logged."
         }
       ]
     },
     {
-      "label": "The surfaces phase",
+      "label": "What it caught",
       "blocks": [
         {
-          "type": "paragraph",
-          "text": "The brief splits the work by job (D-008): desktop triages, iPhone reaches the right person, the car captures. So after the desktop round I ran a second, shorter cycle."
-        },
-        {
-          "type": "list",
-          "items": [
-            "System extension. The system-designer added theme-surfaces.css, scoped by data-surface. It remaps Plumb's existing scale for touch and glance. I rejected a separate system per surface, because that forks severity and status meaning (D-025).",
-            "Two builders in parallel, one for iOS and one for the car.",
-            "A critique of 36 screenshots, with ranked findings.",
-            "Four fix builders: hand-off, vocabulary, iOS and vehicle."
+          "type": "images",
+          "images": [
+            {
+              "src": "/work/fleet-console/08.png",
+              "alt": "iPhone takeover with Resolve locked after the fix"
+            },
+            {
+              "src": "/work/fleet-console/06.png",
+              "alt": "In-vehicle call with Yes and No keys after the fix"
+            },
+            {
+              "src": "/work/fleet-console/03.jpg",
+              "alt": "Inbox with every column on screen after the fix"
+            }
           ]
         },
         {
-          "type": "paragraph",
-          "text": "Everything on these surfaces is a prototype with fixture data. The glance numbers are proposals built on my own in-vehicle standard, not research."
-        }
-      ]
-    },
-    {
-      "label": "Five moments that mattered",
-      "blocks": [
-        {
           "type": "heading",
-          "text": "1. The contrast script caught what I'd hand-computed"
+          "text": "What the critics caught"
         },
         {
-          "type": "paragraph",
-          "text": "The system designer's contrast ratios were hand-computed, and I'd flagged them as unverified. A script checked 194 pairs, and 6 failed, all on one token (unfilled status segments, 1.35 to 1.91:1). I raised it to at least 3:1 (D-018). The same run showed two claimed ratios in the tokens file differing from the computed ones by more than 5%. Both were understated."
-        },
-        {
-          "type": "heading",
-          "text": "2. Parallel builders collided on decision numbers"
-        },
-        {
-          "type": "paragraph",
-          "text": "Builders picked overlapping IDs in decisions.md, and two used the same label. I changed the rule: builders write D-NEW, and the orchestrator renumbers entries after each stage. Some D-NEW entries are still in the log."
-        },
-        {
-          "type": "heading",
-          "text": "3. The critique caught clipped columns, and it took three passes"
-        },
-        {
-          "type": "paragraph",
-          "text": "The UX critic flagged Inbox columns clipped off-screen. They survived the first fix and again at Gate 2, when my review showed the Status header cut to \"STA\". The real cause, a table that sized flexible tracks to the longest title, was fixed in a dedicated pass."
-        },
-        {
-          "type": "heading",
-          "text": "4. The critique caught a question with the wrong answer key"
-        },
-        {
-          "type": "paragraph",
-          "text": "In the car, the guided call step read \"Are you safe?\" with a single Done key. Done doesn't answer a question. It was finding 1 of 12. The fix gives questions Yes/No keys. \"No\" shows \"Stay put. Help's coming.\" and doesn't tick the step. The wording is a placeholder for a safety owner."
-        },
-        {
-          "type": "heading",
-          "text": "5. The 2-second glance rule became a measurement"
-        },
-        {
-          "type": "paragraph",
-          "text": "The critique estimated type and target sizes from screenshots and told me to verify them in the DOM. It found a few below the 32 px floor, such as the \"m\" unit on the hazard band. The shoot script now measures the smallest computed font and the smallest target in every vehicle state, and fails below 32 and 76 px. Both floors are my proposals. The script enforces a rule, not a finding about drivers."
-        },
-        {
-          "type": "paragraph",
-          "text": "I also added a cross-surface hand-off check script. It passes: a tag captured in the car reaches the desktop through the shared in-memory store. That store resets on reload."
+          "type": "cards",
+          "cards": [
+            {
+              "label": "Resolve wasn't disabled",
+              "value": "The button was never passed disabled. It now stays locked, with the reason inline."
+            },
+            {
+              "label": "A question, one answer key",
+              "value": "“Are you safe?” offered only Done. It now has Yes and No keys."
+            },
+            {
+              "label": "Columns off-screen",
+              "value": "Status, Owner and Age were clipped. It took three passes to fix the cause."
+            }
+          ]
         }
       ]
     },
@@ -237,27 +159,20 @@
       "label": "Limits",
       "blocks": [
         {
-          "type": "list",
-          "items": [
-            "No quality benchmark. I have no proof that this beats a person working alone. The numbers measure effort, not quality.",
-            "Tokens aren't cost or calendar time. The summed seconds overlap, and I did not log my own time.",
-            "The critic judged static screenshots. The first full-page captures weren't full-page, so the coverage bar and Resolve button went unseen until later.",
-            "Contrast checks cover color only. They say nothing about layout or comprehension. The 32/76 px check covers size only.",
-            "Many decisions are still OPEN. These include unbuilt features and token drift between the spec and the prototype. The shared vocabulary reached the desktop but not yet the iPhone and in-car builds (D-034).",
-            "The agents invent things. Protocol steps, the severity map and the timeout length are placeholders, and the pipeline can't tell me they're wrong. Only a safety owner can."
-          ]
-        }
-      ]
-    },
-    {
-      "label": "Links",
-      "blocks": [
+          "type": "heading",
+          "text": "What it can't prove"
+        },
         {
           "type": "list",
           "items": [
-            "Live prototype: [https://apoorvsm01.github.io/fleet-console/](https://apoorvsm01.github.io/fleet-console/)",
-            "Code on GitHub: [https://github.com/Apoorvsm01/fleet-console](https://github.com/Apoorvsm01/fleet-console)"
+            "No benchmark against working alone. The numbers measure effort, not quality.",
+            "The critic judged static screenshots, and contrast checks cover color only.",
+            "The agents invent things. Protocol steps, severity map and timeout are placeholders only a safety owner can check."
           ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The result is [Fleet Console](/work/fleet-console/). Code: [GitHub](https://github.com/Apoorvsm01/fleet-console)."
         }
       ]
     }
