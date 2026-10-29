@@ -22,7 +22,7 @@ export const site = {
   email: "apoorvsm@gmail.com",
   linkedin: "https://www.linkedin.com/in/apoorvmahajan",
   github: "https://github.com/Apoorvsm01",
-  location: "Ann Arbor, MI",
+  location: "New York, NY",
 
   hero: {
     // Display line: the giant name. `headline` is the tagline under it.

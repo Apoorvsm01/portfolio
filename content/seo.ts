@@ -7,7 +7,7 @@ export const seo = {
   title: "Apoorv Mahajan — UX Engineer & Product Designer",
   // About 155 characters, so search results show it whole.
   description:
-    "UX engineer and product designer in Ann Arbor, MI. I research, design and build in-car AI, voice and spatial products, from Woven by Toyota to Apple Vision Pro.",
+    "UX engineer and product designer in New York, NY. I research, design and build in-car AI, voice and spatial products, from Woven by Toyota to Apple Vision Pro.",
   // Visible under the name in the home hero, and the job title in structured data.
   roleLine: "UX Engineer & Product Designer",
   jobTitle: "UX Engineer",
@@ -39,7 +39,7 @@ export const seo = {
     "SwiftUI",
     "Flutter",
   ],
-  location: { locality: "Ann Arbor", region: "MI", country: "US" },
+  location: { locality: "New York", region: "NY", country: "US" },
   worksFor: "Woven by Toyota",
   alumniOf: ["DePaul University", "Symbiosis Centre for Media and Communication"],
   // Static share card in public/ (generated from scripts/og-card.html).

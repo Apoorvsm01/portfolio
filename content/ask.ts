@@ -257,7 +257,7 @@ export const topics: Topic[] = [
     bulletsFrom: "timeline",
     headline: "About Apoorv",
     lead:
-      "I’m Apoorv Mahajan, a UX engineer in Ann Arbor, MI. Until October 2026 I was behind an in-car AI driving coach at Woven by Toyota. Before that I designed for Apple Vision Pro and Meta Quest at Omnia, studied human-computer interaction at DePaul, and ran my own UX consultancy for four years.",
+      "I’m Apoorv Mahajan, a UX engineer in New York, NY. Until October 2026 I was behind an in-car AI driving coach at Woven by Toyota. Before that I designed for Apple Vision Pro and Meta Quest at Omnia, studied human-computer interaction at DePaul, and ran my own UX consultancy for four years.",
     slugs: ["woven", "how2to", "syncare-ai-health"],
     followUps: ["best-work", "process", "contact"],
   },
