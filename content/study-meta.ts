@@ -24,7 +24,7 @@ export const studyMeta: Record<string, StudyMeta> = {
     flag: "amber",
     facts: [
       { label: "My part", value: "UX engineer. I owned the experience end to end: research, voice and screen design, the simulator rig, and the studies." },
-      { label: "When", value: "2025 to now, at Woven by Toyota" },
+      { label: "When", value: "Nov 2025 to Oct 2026, at Woven by Toyota" },
       { label: "With", value: "AI/ML engineers, systems integration engineers and data analysts, across Woven, TRI, TMNA and TCNA" },
       { label: "Built on", value: "CARLA simulator, a Python bridge, React and TypeScript on an iPad HMI, CAN-bus signals" },
     ],
