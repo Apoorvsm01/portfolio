@@ -142,7 +142,7 @@ export const site = {
     { slug: "omniabrowser", domain: "Spatial", cover: "/work/omniabrowser/02.png", org: "Omnia", blurb: "A spatial browser for Apple Vision Pro." },
     { slug: "spatialshowroom", domain: "Spatial", cover: "/work/spatialshowroom/01.png", blurb: "A spatial showroom experience for Vision Pro." },
     { slug: "syncare-ai-health", domain: "Health", cover: "/work/syncare-ai-health/01.png", org: "Patched Reality", blurb: "Making AI-integrated health records easier to read." },
-    { slug: "sitelens", domain: "Spatial", cover: "/work/sitelens/02.png", blurb: "AR glasses for on-site construction inspections." },
+    { slug: "sitelens", domain: "Spatial", cover: "/work/sitelens/02.png", org: "Omnia", blurb: "AR glasses for on-site construction inspections." },
     // Personal projects: listed after employer work; shown in their own band under the Woven feature.
     { slug: "design-crew", domain: "Personal", cover: "/work/design-crew/pipeline.svg", coverFit: "contain", blurb: "An agent pipeline I built to re-create the Fleet Console concept, with human gates and a logged decision at every step.", link: { label: "Code on GitHub", href: "https://github.com/Apoorvsm01/fleet-console" } },
     { slug: "just-fill-it", domain: "Personal", cover: "/work/just-fill-it/panel-glass-done-light.png", blurb: "A Chrome and Safari extension that tailors a resume to the job page you're on.", link: { label: "Code on GitHub", href: "https://github.com/Apoorvsm01/just-fill-it" } },
