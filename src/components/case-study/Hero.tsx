@@ -4,6 +4,7 @@ import type { StudyMeta } from "../../../content/study-meta";
 import { site } from "../../../content/site";
 import { imageDims } from "../../lib/content";
 import { FadeImage } from "../FadeImage";
+import { LoopVideo } from "./LoopVideo";
 
 export interface CaseStudyHeroProps {
   study: CaseStudy;
@@ -89,7 +90,31 @@ export function Hero({
           {heroImage && (
             <div className="lg:col-span-5 xl:col-span-5 self-start">
               <figure className="w-full">
-                {study.heroFit === "contain" ? (
+                {heroImage.video ? (
+                  study.heroFit === "contain" ? (
+                    <LoopVideo
+                      src={heroImage.video}
+                      poster={heroImage.src}
+                      label={heroImage.alt || study.title}
+                      width={heroDims.width}
+                      height={heroDims.height}
+                      eager
+                      className="w-auto h-auto max-h-[60svh] max-w-full object-contain mx-auto block"
+                    />
+                  ) : (
+                    <div className="rounded-[6px] overflow-hidden border border-rule/60 bg-surface aspect-[4/3]">
+                      <LoopVideo
+                        src={heroImage.video}
+                        poster={heroImage.src}
+                        label={heroImage.alt || study.title}
+                        width={heroDims.width}
+                        height={heroDims.height}
+                        eager
+                        className="w-full h-full object-cover block"
+                      />
+                    </div>
+                  )
+                ) : study.heroFit === "contain" ? (
                   <FadeImage
                     src={heroImage.src}
                     alt={heroImage.alt || study.title}

@@ -45,8 +45,8 @@ export const studyMeta: Record<string, StudyMeta> = {
     flag: "amber",
     facts: [
       { label: "My part", value: "Proposed the concept and did its UX research, design and prototyping" },
-      { label: "When", value: "At Woven by Toyota; this page is an NDA-safe re-creation" },
-      { label: "Status", value: "A concept. Nothing shipped, and no outcome metrics exist" },
+      { label: "When", value: "Self-initiated at Woven by Toyota; an NDA re-creation" },
+      { label: "Status", value: "A concept. Nothing shipped, no outcome metrics, outcome internal" },
       { label: "Built on", value: "Plumb, an original design system, and a three-surface prototype: desktop, iPhone and in-vehicle" },
     ],
   },
@@ -59,16 +59,6 @@ export const studyMeta: Record<string, StudyMeta> = {
       { label: "When", value: "Built afterward, for the Fleet Console re-creation. Not used at Woven" },
       { label: "Built on", value: "Claude agents (Opus, Sonnet, Haiku) that read and write small files" },
     ],
-    outcomes: {
-      title: "What the logs show",
-      items: [
-        { value: "34", label: "logged agent runs, on one day" },
-        { value: "2.43M", label: "tokens across those runs" },
-        { value: "532", label: "tool calls" },
-        { value: "77%", label: "of tokens on Sonnet, 23% on Haiku, about" },
-      ],
-      note: "From the pipeline's metrics log. Totals cover logged runs only, and Opus tokens aren't logged. They measure effort, not quality.",
-    },
   },
   how2to: {
     claim: "Step-by-step tutorials that sit in the room with you.",

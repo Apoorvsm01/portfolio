@@ -11,3 +11,4 @@ export { Metrics } from "./Metrics";
 export { Widgets } from "./Widgets";
 export { Bento } from "./Bento";
 export { DeviceGallery } from "./DeviceGallery";
+export { LoopVideo } from "./LoopVideo";
