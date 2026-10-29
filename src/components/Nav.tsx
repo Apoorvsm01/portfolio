@@ -4,6 +4,10 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { site } from "../../content/site";
+import { asset } from "../lib/asset";
+
+const RESUME_HREF = "/resume/Apoorv-Mahajan-Resume.pdf";
+const RESUME_LABEL = "Résumé (PDF, opens in new tab)";
 import { ThemeToggle } from "./ThemeToggle";
 import { openCommandPalette } from "./CommandPalette";
 import { ContactMenu } from "./ContactMenu";
@@ -206,6 +210,19 @@ export function Nav() {
           <ContactMenu variant="desktop" />
 
           <a
+            href={asset(RESUME_HREF)}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={RESUME_LABEL}
+            className="group min-h-[44px] px-3 inline-flex items-center gap-1 hover:text-fg transition-colors link-underline"
+          >
+            <span>Résumé</span>
+            <span aria-hidden="true" className="arrow-nudge-diag">
+              ↗
+            </span>
+          </a>
+
+          <a
             href={site.linkedin}
             target="_blank"
             rel="noopener noreferrer"
@@ -375,6 +392,20 @@ export function Nav() {
             </Link>
 
             <ContactMenu variant="mobile" onNavigate={() => setIsOpen(false)} />
+
+            <a
+              href={asset(RESUME_HREF)}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={RESUME_LABEL}
+              onClick={() => setIsOpen(false)}
+              className="font-display text-2xl sm:text-3xl font-black tracking-tight text-fg hover:text-accent flex items-center gap-2 min-h-[44px]"
+            >
+              <span>Résumé</span>
+              <span aria-hidden="true" className="arrow-nudge-diag text-lg">
+                ↗
+              </span>
+            </a>
 
             <a
               href={site.linkedin}

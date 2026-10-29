@@ -1,4 +1,5 @@
 import { site } from "../../content/site";
+import { asset } from "../lib/asset";
 
 export function ContactCTA({ className = "" }: { className?: string }) {
   return (
@@ -17,6 +18,18 @@ export function ContactCTA({ className = "" }: { className?: string }) {
           className="btn-primary min-h-[44px] px-6 py-2.5 rounded-[6px] bg-accent text-ground font-sans font-bold text-sm sm:text-base hover:brightness-105 active:translate-y-[1px] inline-flex items-center justify-center"
         >
           Email me
+        </a>
+        <a
+          href={asset("/resume/Apoorv-Mahajan-Resume.pdf")}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Résumé (PDF, opens in new tab)"
+          className="group min-h-[44px] px-6 py-2.5 rounded-full border border-rule text-fg hover:border-fg active:translate-y-[1px] font-sans font-medium text-sm sm:text-base transition-colors inline-flex items-center justify-center gap-1.5"
+        >
+          <span>Résumé</span>
+          <span aria-hidden="true" className="arrow-slide-diag">
+            ↗
+          </span>
         </a>
         <a
           href={site.linkedin}
