@@ -50,7 +50,7 @@ export const site = {
         "I built the Figma design system Woven, TRI, TMNA and TCNA now share, with tokens and visual regression tests.",
         "On my own time I designed and built The Good Roommate for iPhone Duo: one layout folded, a split camera and task list unfolded, and on-device Vision.",
       ],
-      links: ["woven", "good-roommate", "drive-coach-ios"],
+      links: ["woven", "good-roommate", "design-crew"],
     },
     {
       id: "researcher",
@@ -64,7 +64,7 @@ export const site = {
         "In a 25-person CARLA simulator study, drivers acted on the AI\u2019s guidance 40% faster with the HMI active, and 80% of 35 participants preferred a quieter, less talkative AI.",
         "Real-car tests showed fixed-distance voice prompts reached speeding drivers too late, so I timed them by speed instead. In the real-car retest, 70% of drivers understood them, a 50% improvement.",
       ],
-      links: ["woven", "fleet-co-pilot"],
+      links: ["woven", "fleet-console"],
     },
     {
       id: "curious",
@@ -87,7 +87,7 @@ export const site = {
     org: "Woven by Toyota",
     headline: "From a product brief to a coach in the car.",
     summary:
-      "I took an in-car AI driving experience from a brief and raw research to validated prototypes on a CARLA rig with real steering, pedals, and CAN-bus signals. The same research spun off three more products.",
+      "I took an in-car AI driving experience from a brief and raw research to validated prototypes on a CARLA rig with real steering, pedals, and CAN-bus signals. The same research also led me to propose Fleet Console, a self-initiated concept for overseeing an autonomous test fleet.",
     // Lead paragraphs for the featured band (v4). Plain, first person.
     lede: [
       "Generative Drive Coach talks new drivers through parking, intersections and lane changes while they drive. It started as a product brief and raw agency research on more than 100 drivers.",
@@ -100,7 +100,7 @@ export const site = {
       { term: "Simulator", href: "/work/woven/#section-5", line: "A Python bridge from CARLA to an iPad HMI, with real steering, pedals and CAN signals." },
       { term: "Design system", href: "/work/woven/#section-3", line: "One Figma system now shared by Woven, TRI, TMNA and TCNA." },
     ],
-    related: ["fleet-co-pilot", "fleet-dashboard", "drive-coach-ios"],
+    related: ["fleet-console"],
   },
 
   // Personal projects band, right under the Woven feature on the home page.
@@ -127,8 +127,8 @@ export const site = {
   // three; `top` are the other two. `pair` shares a half-width row with the personal project; the rest of
   // `work` fills the three-column grid.
   home: {
-    top: ["fleet-dashboard", "omniabrowser"],
-    pair: "drive-coach-ios",
+    top: ["fleet-console", "omniabrowser"],
+    pair: "design-crew",
     topKicker: "Also at the top",
     gridHeading: "More work",
   },
@@ -137,15 +137,14 @@ export const site = {
   featuredDomain: "Automotive" as const,
 
   work: [
-    { slug: "fleet-co-pilot", domain: "Automotive", cover: "/work/fleet-co-pilot/03.jpg", org: "Woven by Toyota", blurb: "Cockpit HUD for safety drivers in an autonomous test fleet." },
-    { slug: "fleet-dashboard", domain: "Automotive", cover: "/work/fleet-dashboard/01.jpg", org: "Woven by Toyota", blurb: "Incident, damage, and telemetry views for fleet-ops engineers." },
-    { slug: "drive-coach-ios", domain: "Automotive", coverFit: "contain", org: "Woven by Toyota", blurb: "A SwiftUI confidence-building app for technicians and new drivers." },
+    { slug: "fleet-console", domain: "Automotive", cover: "/work/fleet-console/02.jpg", org: "Woven by Toyota", blurb: "A concept console that puts coverage gaps and open incidents on the first screen.", link: { label: "Code on GitHub", href: "https://github.com/Apoorvsm01/fleet-console" } },
     { slug: "how2to", domain: "Spatial", cover: "/work/how2to/03.png", org: "Omnia", blurb: "AI-powered, step-by-step spatial tutorials on visionOS." },
     { slug: "omniabrowser", domain: "Spatial", cover: "/work/omniabrowser/02.png", org: "Omnia", blurb: "A spatial browser for Apple Vision Pro." },
     { slug: "spatialshowroom", domain: "Spatial", cover: "/work/spatialshowroom/01.png", blurb: "A spatial showroom experience for Vision Pro." },
     { slug: "syncare-ai-health", domain: "Health", cover: "/work/syncare-ai-health/01.png", org: "Patched Reality", blurb: "Making AI-integrated health records easier to read." },
     { slug: "sitelens", domain: "Spatial", cover: "/work/sitelens/02.png", blurb: "AR glasses for on-site construction inspections." },
     // Personal projects: listed after employer work; shown in their own band under the Woven feature.
+    { slug: "design-crew", domain: "Personal", cover: "/work/fleet-console/02.jpg", blurb: "An agent pipeline I built to re-create the Fleet Console concept, with human gates and a logged decision at every step.", link: { label: "Code on GitHub", href: "https://github.com/Apoorvsm01/fleet-console" } },
     { slug: "just-fill-it", domain: "Personal", cover: "/work/just-fill-it/panel-glass-done-light.png", blurb: "A Chrome and Safari extension that tailors a resume to the job page you're on.", link: { label: "Code on GitHub", href: "https://github.com/Apoorvsm01/just-fill-it" } },
   ] satisfies WorkRef[],
 

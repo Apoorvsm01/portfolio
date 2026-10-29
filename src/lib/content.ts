@@ -1,10 +1,9 @@
 import type { CaseStudy, Img } from "../../content/types";
-import { site } from "../../content/site";
+import { site, type WorkRef } from "../../content/site";
 import { imageDims } from "./image-dims";
 import wovenData from "../../content/case-studies/woven.json";
-import fleetCoPilotData from "../../content/case-studies/fleet-co-pilot.json";
-import fleetDashboardData from "../../content/case-studies/fleet-dashboard.json";
-import driveCoachIosData from "../../content/case-studies/drive-coach-ios.json";
+import fleetConsoleData from "../../content/case-studies/fleet-console.json";
+import designCrewData from "../../content/case-studies/design-crew.json";
 import how2toData from "../../content/case-studies/how2to.json";
 import omniaBrowserData from "../../content/case-studies/omniabrowser.json";
 import spatialShowroomData from "../../content/case-studies/spatialshowroom.json";
@@ -17,15 +16,14 @@ export { imageDims };
 // Case studies in canonical display order (woven first, followed by site.work order)
 const studies: CaseStudy[] = [
   wovenData as CaseStudy,
-  fleetCoPilotData as CaseStudy,
-  fleetDashboardData as CaseStudy,
-  driveCoachIosData as CaseStudy,
+  fleetConsoleData as CaseStudy,
   how2toData as CaseStudy,
   omniaBrowserData as CaseStudy,
   spatialShowroomData as CaseStudy,
   syncareAiHealthData as CaseStudy,
   sitelensData as CaseStudy,
   justFillItData as CaseStudy,
+  designCrewData as CaseStudy,
 ];
 
 const studyMap = new Map<string, CaseStudy>(
@@ -84,7 +82,7 @@ export function getStudyNeighbors(slug: string): {
 export function coverFor(slug: string): { img: Img; fit: "cover" | "contain" } | undefined {
   const study = studyMap.get(slug);
   const ref = site.work.find((w) => w.slug === slug);
-  const fit = ref?.coverFit ?? "cover";
+  const fit = (ref as WorkRef | undefined)?.coverFit ?? "cover";
   if (ref?.cover) return { img: { src: ref.cover, alt: study?.title ?? slug }, fit };
   if (!study) return undefined;
   const first =

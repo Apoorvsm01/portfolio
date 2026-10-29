@@ -6,27 +6,6 @@
     "Multi-Fidelity Prototyping": "I built prototypes across voice-enabled Figma flows, CARLA simulator scenarios, and a physical steering and pedal rig.",
     "Independent Research & Validation": "I ran study plans, voice-frequency tests, and CARLA driving simulations to validate and refine coaching behavior from participant feedback."
   },
-  "fleet-co-pilot": {
-    "End-to-End Ownership": "I designed Fleet Co-Pilot end to end, covering the cockpit HUD, the incident taxonomy, and the office review dashboard.",
-    "Reusable Incident Taxonomy": "I built a subsystem and severity taxonomy that powered one-tap driver tags, the hazard map, and the office incident log.",
-    "Cross-Functional Partnership": "I designed for fleet teams by pairing sub-second quick-tags for drivers with exposure analytics and audit trails for ops and compliance.",
-    "Multi-Fidelity Prototyping": "I validated the taxonomy with simulated cockpit fixture data and built the office dashboard as a second consumer of that schema.",
-    "Independent Research & Validation": "I surveyed fleet operators on dispatch optimization, predictive maintenance, multi-vendor AV monitoring, safety-driver incident reporting, and video tagging."
-  },
-  "fleet-dashboard": {
-    "End-to-End Ownership": "I led the design for Fleet Dashboard across the incident log, the hazard map, and the team-wins panel for engineers.",
-    "One Taxonomy, One Dashboard": "I rendered the cockpit subsystem and severity classification directly in the dashboard without re-mapping data or creating a separate schema.",
-    "Validated Palette, Not Guessed": "I tested every color through a validator, paired severity hues with text labels, and checked contrast on the dark surface.",
-    "Built From Real Fixtures": "I built panels using typed damage fixtures, computed team-wins metrics from incidents, and plotted hotspots on OpenStreetMap tiles.",
-    "Same Taxonomy, New Surface": "I extended the cockpit data model to provide a live map for hotspot patterns, vehicle damage summaries, and team-wins panels."
-  },
-  "drive-coach-ios": {
-    "End-to-End Ownership": "I designed and built the SwiftUI app solo, creating the data model, scoring engine, and all four navigation tabs.",
-    "Reusable Score Language": "I used one ScoreBand and ConfidenceBand vocabulary across the score ring, trend badges, skill bars, and streak banner.",
-    "Borrowed the Shape, Not the Skin": "I adapted Apple Health patterns to create a rolling Confidence Score, paired win-and-focus coaching cards, and Skill Overview bars.",
-    "Fluid by Default": "I implemented iOS 17 numeric content transitions, viewport scroll transitions, view-aligned snapping, and spring press states across cards.",
-    "Independent Research & Validation": "I drew patterns from Apple announcements, using baseline-relative trend language, celebration-and-focus card pairings, and explanatory lines under scores."
-  },
   "how2to": {
     "Brainstorming Sessions": "I held five internal sessions to ideate onboarding flows, spatial interactions, and modular templates like stove markers and screw guides.",
     "Competitor Analysis": "I analyzed platforms like JigSpace and WikiHow VR, finding gaps in interactive guidance, spatial fidelity, and cross-context templates.",
