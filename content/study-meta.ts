@@ -39,38 +39,36 @@ export const studyMeta: Record<string, StudyMeta> = {
       note: "Real-car retest, a CARLA simulator study, and A/B tests with contextual interviews at Woven by Toyota. Every alert was designed to meet the industry’s 2-second glance-to-comprehension standard.",
     },
   },
-  "fleet-co-pilot": {
-    claim: "Every incident tagged in one tap, from the driver’s seat.",
+  "fleet-console": {
+    claim: "Oversight of an AV test fleet, made visible before it fails.",
     band: "#101a20",
     flag: "amber",
     facts: [
-      { label: "My part", value: "End to end: the cockpit UI, the incident taxonomy, and the office dashboard it feeds" },
-      { label: "When", value: "2025 to now, at Woven by Toyota" },
-      { label: "For", value: "Safety drivers, fleet-ops engineers and compliance teams" },
-      { label: "Built on", value: "A Flutter cockpit HUD for iOS and Android, and a React fleet dashboard" },
+      { label: "My part", value: "Proposed the concept and did its UX research, design and prototyping" },
+      { label: "When", value: "At Woven by Toyota; this page is an NDA-safe re-creation" },
+      { label: "Status", value: "A concept. Nothing shipped, and no outcome metrics exist" },
+      { label: "Built on", value: "Plumb, an original design system, and a three-surface prototype: desktop, iPhone and in-vehicle" },
     ],
   },
-  "fleet-dashboard": {
-    claim: "The office end of the fleet: incidents, damage and coverage on one screen.",
-    band: "#121a17",
-    flag: "amber",
+  "design-crew": {
+    claim: "An agent pipeline where I make every call at the human gates.",
+    band: "#14181f",
+    flag: "teal",
     facts: [
-      { label: "My part", value: "End to end: data visualisation, map integration and responsive layout" },
-      { label: "When", value: "2025 to now, at Woven by Toyota" },
-      { label: "For", value: "Fleet-ops engineers reviewing an autonomous test fleet" },
-      { label: "Built on", value: "React, TypeScript and Vite" },
+      { label: "My part", value: "Designed the pipeline and made every call at the human gates" },
+      { label: "When", value: "Built afterward, for the Fleet Console re-creation. Not used at Woven" },
+      { label: "Built on", value: "Claude agents (Opus, Sonnet, Haiku) that read and write small files" },
     ],
-  },
-  "drive-coach-ios": {
-    claim: "A confidence score new drivers can watch grow.",
-    band: "#0f1c1a",
-    flag: "amber",
-    facts: [
-      { label: "My part", value: "End to end: product design, the SwiftUI build, and the data model" },
-      { label: "When", value: "2025 to now, at Woven by Toyota" },
-      { label: "For", value: "Technicians and new drivers, as a B2B and B2C app" },
-      { label: "Built on", value: "iOS 17+, SwiftUI and Swift Charts" },
-    ],
+    outcomes: {
+      title: "What the logs show",
+      items: [
+        { value: "34", label: "logged agent runs, on one day" },
+        { value: "2.43M", label: "tokens across those runs" },
+        { value: "532", label: "tool calls" },
+        { value: "77%", label: "of tokens on Sonnet, 23% on Haiku, about" },
+      ],
+      note: "From the pipeline's metrics log. Totals cover logged runs only, and Opus tokens aren't logged. They measure effort, not quality.",
+    },
   },
   how2to: {
     claim: "Step-by-step tutorials that sit in the room with you.",

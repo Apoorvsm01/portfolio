@@ -87,7 +87,7 @@ export const topics: Topic[] = [
     aliases: ["ux engineer", "ux engineers", "design engineer", "design technologist", "hiring an engineer", "front end", "frontend"],
     headline: "For a UX engineering role",
     fromIntent: "engineer",
-    slugs: ["woven", "drive-coach-ios", "fleet-co-pilot", "good-roommate", "just-fill-it"],
+    slugs: ["woven", "fleet-console", "good-roommate", "just-fill-it"],
     followUps: ["automotive", "process", "contact"],
   },
   {
@@ -103,7 +103,7 @@ export const topics: Topic[] = [
       "At Omnia I designed for Apple Vision Pro and Meta Quest, including How2To, step-by-step tutorials that sit in the room with you.",
       "I ran my own UX consultancy, Crazy Minds, for four years and delivered 25+ projects in fintech, health and e-commerce.",
     ],
-    slugs: ["woven", "how2to", "omniabrowser", "fleet-dashboard", "syncare-ai-health", "spatialshowroom"],
+    slugs: ["woven", "how2to", "omniabrowser", "fleet-console", "syncare-ai-health", "spatialshowroom"],
     followUps: ["spatial", "healthcare", "process"],
   },
   {
@@ -113,7 +113,7 @@ export const topics: Topic[] = [
     aliases: ["ux researcher", "ux researchers", "user researcher", "design researcher", "research role"],
     headline: "For a UX research role",
     fromIntent: "researcher",
-    slugs: ["woven", "fleet-co-pilot", "syncare-ai-health", "how2to"],
+    slugs: ["woven", "fleet-console", "syncare-ai-health", "how2to"],
     followUps: ["voice-ai", "process", "contact"],
   },
   {
@@ -135,9 +135,9 @@ export const topics: Topic[] = [
     aliases: ["automotive", "car", "cars", "in car", "in vehicle", "vehicle", "driving", "driver", "drivers", "hmi", "cockpit", "toyota", "woven"],
     headline: "Automotive work",
     lead:
-      "Most of my recent work is in the car. At Woven by Toyota I’m the UX engineer behind an in-car AI driving coach, the cockpit HUD and office dashboard for an autonomous test fleet, and a SwiftUI confidence-building app for new drivers.",
+      "Most of my recent work is in the car. At Woven by Toyota I’m the UX engineer behind an in-car AI driving coach, and Fleet Console, a self-initiated concept for overseeing an autonomous test fleet.",
     bulletsFrom: "claims",
-    slugs: ["woven", "fleet-co-pilot", "fleet-dashboard", "drive-coach-ios"],
+    slugs: ["woven", "fleet-console"],
     followUps: ["voice-ai", "ux-engineer", "ux-researcher"],
   },
   {
@@ -158,7 +158,7 @@ export const topics: Topic[] = [
     headline: "Voice and AI work",
     lead:
       "Voice is the main interface of the in-car coach: after gaze studies showed the screen pulled eyes off the road, I moved coaching to voice and timed prompts by speed. How2To is voice-first too, and SynCare has an AI chat for reading health records.",
-    slugs: ["woven", "how2to", "syncare-ai-health", "fleet-co-pilot"],
+    slugs: ["woven", "how2to", "syncare-ai-health", "fleet-console"],
     followUps: ["ux-researcher", "automotive", "process"],
   },
   {
@@ -170,7 +170,7 @@ export const topics: Topic[] = [
     lead:
       "I run the study and I build the interface, so what the research finds and what ships are the same thing. Research comes before screens, prototypes run where the product runs, the test wins arguments, and engineers get working code instead of pictures.",
     bulletsFrom: "howIWork",
-    slugs: ["woven", "fleet-co-pilot", "drive-coach-ios"],
+    slugs: ["woven", "fleet-console"],
     followUps: ["ux-engineer", "ux-researcher", "best-work"],
   },
   {
@@ -194,7 +194,7 @@ export const topics: Topic[] = [
       "Coaching by voice, after gaze studies showed the screen pulled eyes off the road.",
       "Every alert was designed to meet the industry’s 2-second glance-to-comprehension standard.",
     ],
-    slugs: ["woven", "fleet-co-pilot", "drive-coach-ios"],
+    slugs: ["woven", "fleet-console"],
     followUps: ["process", "best-work", "contact"],
   },
   {
@@ -204,9 +204,9 @@ export const topics: Topic[] = [
     aliases: ["best work", "best project", "best projects", "featured", "highlights", "favorite project", "favourite project", "top projects", "portfolio", "projects", "case studies", "your work", "show me your work"],
     headline: "Where to start",
     lead:
-      "Start with the Generative Drive Coach at Woven by Toyota: a brief and research on 100+ drivers became a coach that talks new drivers through parking, intersections and lane changes. Then look at the fleet dashboard, the Vision Pro browser and the SwiftUI drive coach app.",
+      "Start with the Generative Drive Coach at Woven by Toyota: a brief and research on 100+ drivers became a coach that talks new drivers through parking, intersections and lane changes. Then look at Fleet Console, the Vision Pro browser and The Good Roommate.",
     bulletsFrom: "claims",
-    slugs: ["woven", "fleet-dashboard", "omniabrowser", "drive-coach-ios", "good-roommate"],
+    slugs: ["woven", "fleet-console", "omniabrowser", "good-roommate"],
     followUps: ["automotive", "spatial", "process"],
   },
   {
@@ -234,7 +234,7 @@ export const topics: Topic[] = [
       "I wrote the Python bridge between the CARLA driving simulator and an iPad HMI in React and TypeScript, and it read faster than the 2-second glance standard.",
       "I built the Figma design system Woven, TRI, TMNA and TCNA now share, with tokens and visual regression tests.",
     ],
-    slugs: ["woven", "drive-coach-ios", "fleet-co-pilot", "just-fill-it"],
+    slugs: ["woven", "fleet-console", "just-fill-it"],
     followUps: ["ux-engineer", "best-work", "contact"],
   },
   {
@@ -345,9 +345,9 @@ export const injectionPatterns: string[] = [
 // Each project appears once across the carousel and these shelves (the page also enforces it), so the
 // carousel takes one spotlight project per area and the shelves hold the rest.
 export const shelves: { id: string; title: string; kicker: string; slugs: string[] }[] = [
-  { id: "automotive", title: "More automotive", kicker: "In the car, at Woven by Toyota", slugs: ["fleet-co-pilot", "fleet-dashboard", "drive-coach-ios"] },
+  { id: "automotive", title: "More automotive", kicker: "In the car, at Woven by Toyota", slugs: ["fleet-console"] },
   { id: "spatial", title: "More spatial & XR", kicker: "Headsets, glasses and the room around you", slugs: ["how2to", "spatialshowroom", "sitelens"] },
-  { id: "apps", title: "Apps & AI", kicker: "Health, and tools I built myself", slugs: ["syncare-ai-health", "just-fill-it"] },
+  { id: "apps", title: "Apps & AI", kicker: "Health, and tools I built myself", slugs: ["syncare-ai-health", "just-fill-it", "design-crew"] },
 ];
 
 // The big carousel above the shelves: one spotlight each for automotive, spatial and personal work.

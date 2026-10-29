@@ -39,6 +39,10 @@
   480,
   640
  ],
+ "/me/portrait-1200.jpg": [
+  1200,
+  1193
+ ],
  "/me/portrait.jpeg": [
   2203,
   2190
@@ -79,6 +83,10 @@
   394,
   80
  ],
+ "/og.png": [
+  1200,
+  630
+ ],
  "/vercel.svg": [
   1155,
   1000
@@ -87,57 +95,41 @@
   16,
   16
  ],
- "/work/drive-coach-ios/01.png": [
-  1206,
-  2622
- ],
- "/work/drive-coach-ios/02.png": [
-  1206,
-  2622
- ],
- "/work/drive-coach-ios/03.png": [
-  1206,
-  2622
- ],
- "/work/drive-coach-ios/04.png": [
-  1206,
-  2622
- ],
- "/work/drive-coach-ios/design-system.png": [
-  2880,
-  1074
- ],
- "/work/fleet-co-pilot/01.jpg": [
+ "/work/fleet-console/01.jpg": [
   2400,
-  1602
+  1500
  ],
- "/work/fleet-co-pilot/02.jpg": [
+ "/work/fleet-console/02.jpg": [
   2400,
-  1600
+  1500
  ],
- "/work/fleet-co-pilot/03.jpg": [
+ "/work/fleet-console/03.jpg": [
   2400,
-  1600
+  1500
  ],
- "/work/fleet-co-pilot/design-system.png": [
-  2720,
-  1074
- ],
- "/work/fleet-dashboard/01.jpg": [
+ "/work/fleet-console/04.jpg": [
   2400,
-  1602
+  1500
  ],
- "/work/fleet-dashboard/02.jpg": [
+ "/work/fleet-console/05.jpg": [
   2400,
-  1600
+  1500
  ],
- "/work/fleet-dashboard/03.png": [
-  952,
-  365
+ "/work/fleet-console/06.png": [
+  2400,
+  1146
  ],
- "/work/fleet-dashboard/design-system.png": [
-  2720,
-  1074
+ "/work/fleet-console/07.png": [
+  2400,
+  1146
+ ],
+ "/work/fleet-console/08.png": [
+  2400,
+  2000
+ ],
+ "/work/fleet-console/09.jpg": [
+  2400,
+  1500
  ],
  "/work/good-roommate/demo-1-poster.jpg": [
   1280,
