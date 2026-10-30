@@ -102,7 +102,7 @@ export function Hero({
                       className="w-auto h-auto max-h-[60svh] max-w-full object-contain mx-auto block"
                     />
                   ) : (
-                    <div className="rounded-[6px] overflow-hidden border border-rule/60 bg-surface aspect-[4/3]">
+                    <div data-story-parallax className="rounded-[6px] overflow-hidden border border-rule/60 bg-surface aspect-[4/3]">
                       <LoopVideo
                         src={heroImage.video}
                         poster={heroImage.src}
@@ -124,7 +124,7 @@ export function Hero({
                     className="w-auto h-auto max-h-[60svh] max-w-full object-contain mx-auto block"
                   />
                 ) : (
-                  <div className="rounded-[6px] overflow-hidden border border-rule/60 bg-surface aspect-[4/3]">
+                  <div data-story-parallax className="rounded-[6px] overflow-hidden border border-rule/60 bg-surface aspect-[4/3]">
                     <FadeImage
                       src={heroImage.src}
                       alt={heroImage.alt || study.title}

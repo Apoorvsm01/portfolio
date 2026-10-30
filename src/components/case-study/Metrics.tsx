@@ -2,11 +2,11 @@ import type { Metric } from "../../../content/types";
 
 function StatTile({ item }: { item: Metric }) {
   return (
-    <div className="p-5 sm:p-6 rounded-[6px] bg-surface border border-rule flex flex-col-reverse justify-start">
+    <div data-story-batch className="p-5 sm:p-6 rounded-[6px] bg-surface border border-rule flex flex-col-reverse justify-start">
       <dt className="text-xs text-muted font-sans font-medium mt-2">
         {item.label}
       </dt>
-      <dd className="font-display text-2xl sm:text-3xl lg:text-4xl font-black text-fg tracking-tight">
+      <dd data-story-count className="tabular-nums font-display text-2xl sm:text-3xl lg:text-4xl font-black text-fg tracking-tight">
         {item.value}
       </dd>
     </div>

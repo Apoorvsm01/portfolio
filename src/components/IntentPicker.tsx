@@ -1,6 +1,9 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
+import { m } from "motion/react";
+import { useReducedMotion } from "../lib/use-reduced-motion";
+import { HomeMotion, SPRING_PRESS, SPRING_SOFT } from "./motion/home-motion";
 import Link from "next/link";
 import { site } from "../../content/site";
 import { Reveal } from "./Reveal";
@@ -12,38 +15,11 @@ export function IntentPicker({
 }) {
   const [selectedId, setSelectedId] = useState(site.intents[0]?.id ?? "");
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
-  const [highlight, setHighlight] = useState<{
-    left: number;
-    top: number;
-    width: number;
-    height: number;
-    ready: boolean;
-  }>({ left: 0, top: 0, width: 0, height: 0, ready: false });
+  const reduced = useReducedMotion();
 
   const activeIndex = site.intents.findIndex((intent) => intent.id === selectedId);
   const safeIndex = activeIndex >= 0 ? activeIndex : 0;
   const activeIntent = site.intents[safeIndex];
-
-  useEffect(() => {
-    const updateHighlight = () => {
-      const el = tabRefs.current[safeIndex];
-      if (el) {
-        setHighlight({
-          left: el.offsetLeft,
-          top: el.offsetTop,
-          width: el.offsetWidth,
-          height: el.offsetHeight,
-          ready: true,
-        });
-      }
-    };
-
-    updateHighlight();
-    window.addEventListener("resize", updateHighlight, { passive: true });
-    return () => {
-      window.removeEventListener("resize", updateHighlight);
-    };
-  }, [safeIndex]);
 
   const handleKeyDown = (e: React.KeyboardEvent, index: number) => {
     if (e.key === "ArrowRight") {
@@ -69,6 +45,7 @@ export function IntentPicker({
   };
 
   return (
+    <HomeMotion>
     <Reveal as="section" aria-labelledby="intent-picker-heading" className="py-16 md:py-24 border-b border-line">
       <h2 id="intent-picker-heading" className="text-xs uppercase tracking-[0.14em] text-muted font-medium mb-5">
         What brings you here?
@@ -79,24 +56,13 @@ export function IntentPicker({
         aria-label="What brings you here"
         className="relative flex flex-wrap gap-3"
       >
-        {highlight.ready && (
-          <span
-            aria-hidden="true"
-            className="absolute top-0 left-0 w-[100px] h-[44px] rounded-full bg-text pointer-events-none"
-            style={{
-              transform: `translate3d(${highlight.left}px, ${highlight.top}px, 0) scale(${highlight.width / 100}, ${highlight.height / 44})`,
-              transformOrigin: "0 0",
-              transitionProperty: "transform",
-              transitionDuration: "var(--dur-2)",
-              transitionTimingFunction: "var(--ease-out)",
-            }}
-          />
-        )}
         {site.intents.map((intent, index) => {
           const isSelected = intent.id === activeIntent.id;
           return (
-            <button
+            <m.button
               key={intent.id}
+              whileTap={reduced ? undefined : { scale: 0.97 }}
+              transition={SPRING_PRESS}
               ref={(el) => {
                 tabRefs.current[index] = el;
               }}
@@ -110,14 +76,21 @@ export function IntentPicker({
               onKeyDown={(e) => handleKeyDown(e, index)}
               className={`relative z-10 min-h-[44px] px-4 sm:px-5 py-2.5 rounded-full text-xs sm:text-sm font-medium transition-colors cursor-pointer border inline-flex items-center justify-center ${
                 isSelected
-                  ? highlight.ready
-                    ? "text-bg border-transparent"
-                    : "bg-text text-bg border-text shadow-sm"
+                  ? "text-bg border-transparent"
                   : "bg-surface/60 text-muted border-line hover:text-text hover:border-muted/60"
               }`}
             >
+              {isSelected && (
+                <m.span
+                  layoutId="intent-highlight"
+                  aria-hidden="true"
+                  transition={reduced ? { duration: 0 } : SPRING_SOFT}
+                  className="absolute inset-0 rounded-full bg-text pointer-events-none"
+                  style={{ zIndex: -1 }}
+                />
+              )}
               {intent.label}
-            </button>
+            </m.button>
           );
         })}
       </div>
@@ -166,5 +139,6 @@ export function IntentPicker({
         );
       })}
     </Reveal>
+    </HomeMotion>
   );
 }

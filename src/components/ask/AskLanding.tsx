@@ -1,5 +1,6 @@
 "use client";
 
+import { m } from "motion/react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { flushSync } from "react-dom";
 import { askCopy, featuredSlugs, shelfCopy, shelves, suggestedPrompts, type SuggestedPrompt } from "../../../content/ask";
@@ -12,7 +13,8 @@ import { FeaturedCarousel } from "../shelves/FeaturedCarousel";
 import { Shelf } from "../shelves/Shelf";
 import type { ProjectCard } from "../shelves/types";
 import { AnswerPanel, RefusalPanel, ThinkingPanel } from "./AnswerPanel";
-import { Chips } from "./Chips";
+import { HomeChips } from "../motion/home-chips";
+import { HomeMotion, useEnter } from "../motion/home-motion";
 import { Orb, type OrbState } from "./Orb";
 import { ScrollBlur } from "./ScrollBlur";
 import { useScrollBlur } from "../../lib/use-scroll-blur";
@@ -47,6 +49,46 @@ function morph(update: () => void) {
   transition.finished?.catch(ignore);
   transition.updateCallbackDone?.catch(ignore);
   setTimeout(apply, 350);
+}
+
+// One headline word that rises in with the staged entrance. Plain text when JS is off or motion is reduced.
+function Word({ children, delay, className }: { children: React.ReactNode; delay: number; className?: string }) {
+  const { opacity, y } = useEnter(delay, 18);
+  return (
+    <m.span className={className} style={{ display: "inline-block", opacity, y }}>
+      {children}
+    </m.span>
+  );
+}
+
+function Headline({ lead, accent, tail }: { lead: string; accent: string; tail: string }) {
+  const leadWords = lead.trim().split(/\s+/).filter(Boolean);
+  const fused = /^(\S*)([\s\S]*)$/.exec(tail) ?? [];
+  const tailWords = (fused[2] ?? "").trim().split(/\s+/).filter(Boolean);
+  const base = 0.14;
+  const step = 0.05;
+  const accentAt = leadWords.length;
+  return (
+    <>
+      {leadWords.map((w, i) => (
+        <span key={`${i}-${w}`}>
+          <Word delay={base + step * i}>{w}</Word>{" "}
+        </span>
+      ))}
+      <span style={{ whiteSpace: "nowrap" }}>
+        <Word delay={base + step * accentAt} className="shimmer-text">
+          {accent}
+        </Word>
+        {fused[1] && <Word delay={base + step * accentAt}>{fused[1]}</Word>}
+      </span>
+      {tailWords.map((w, i) => (
+        <span key={`t${i}-${w}`}>
+          {" "}
+          <Word delay={base + step * (accentAt + 1 + i)}>{w}</Word>
+        </span>
+      ))}
+    </>
+  );
 }
 
 export function AskLanding({ projects }: { projects: ProjectCard[] }) {
@@ -152,6 +194,9 @@ export function AskLanding({ projects }: { projects: ProjectCard[] }) {
   const answer = result?.status === "answer" ? result : null;
   const matches = answer ? pick(answer.slugs) : [];
   const [lead, tail] = askCopy.greeting.split(askCopy.greetingAccent);
+  const selectedChip = phase === "idle" ? null : (suggestedPrompts.find((p) => p.query === query)?.id ?? null);
+  const identityEnter = useEnter(0, 10);
+  const helperEnter = useEnter(0.5, 10);
 
   // Each project shows once below the hero: the carousel first, then each shelf takes what is left.
   const shown = new Set<string>(pick(featuredSlugs).map((p) => p.slug));
@@ -162,7 +207,7 @@ export function AskLanding({ projects }: { projects: ProjectCard[] }) {
   });
 
   return (
-    <>
+    <HomeMotion>
       <section
         ref={heroRef}
         className="ask-hero container-page scroll-blur"
@@ -187,7 +232,7 @@ export function AskLanding({ projects }: { projects: ProjectCard[] }) {
         )}
         <Orb state={orbState} />
         {/* Who this is, before anything else: the page's real heading, for people and for crawlers. */}
-        <div className="ask-identity">
+        <m.div className="ask-identity" style={{ opacity: identityEnter.opacity, y: identityEnter.y }}>
           <h1 id="ask-identity" className="ask-identity-name">
             {site.name} <span className="ask-identity-sep" aria-hidden="true">·</span>{" "}
             <span className="ask-identity-role">{seo.roleLine}</span>
@@ -196,13 +241,13 @@ export function AskLanding({ projects }: { projects: ProjectCard[] }) {
             <span className="ask-status-dot" aria-hidden="true" />
             {seo.status}
           </p>
-        </div>
+        </m.div>
         <h2 id="ask-greeting" className="ask-greeting">
-          {lead}
-          <span className="shimmer-text">{askCopy.greetingAccent}</span>
-          {tail}
+          <Headline lead={lead} accent={askCopy.greetingAccent} tail={tail} />
         </h2>
-        <p className="ask-helper">{askCopy.helper}</p>
+        <m.p className="ask-helper" style={{ opacity: helperEnter.opacity, y: helperEnter.y }}>
+          {askCopy.helper}
+        </m.p>
         <PromptBox
           value={query}
           onChange={setQuery}
@@ -211,7 +256,7 @@ export function AskLanding({ projects }: { projects: ProjectCard[] }) {
           scope={scope}
           busy={phase === "thinking"}
         />
-        <Chips prompts={suggestedPrompts} onPick={choose} disabled={phase === "thinking"} />
+        <HomeChips prompts={suggestedPrompts} onPick={choose} disabled={phase === "thinking"} selectedId={selectedChip} />
 
         {phase === "thinking" && <ThinkingPanel />}
         {phase === "answered" && answer && (
@@ -246,6 +291,6 @@ export function AskLanding({ projects }: { projects: ProjectCard[] }) {
           ))}
         </div>
       </div>
-    </>
+    </HomeMotion>
   );
 }

@@ -1,6 +1,5 @@
 import type { Img } from "../../../content/types";
 import { imageDims } from "../../lib/content";
-import { Reveal } from "../Reveal";
 import { FadeImage } from "../FadeImage";
 
 export function HeroImages({
@@ -20,8 +19,7 @@ export function HeroImages({
     const img = images[0];
     const dims = imageDims(img.src);
     return (
-      <Reveal
-        as="section"
+      <section
         aria-label="Hero image"
         className="py-10 sm:py-14 border-b border-rule"
       >
@@ -31,6 +29,7 @@ export function HeroImages({
               ? "w-full flex justify-center"
               : "w-full rounded-[6px] overflow-hidden border border-rule bg-surface"
           }
+          {...(isContain ? {} : { "data-story-parallax": "" })}
         >
           <FadeImage
             src={img.src}
@@ -44,13 +43,12 @@ export function HeroImages({
             }
           />
         </figure>
-      </Reveal>
+      </section>
     );
   }
 
   return (
-    <Reveal
-      as="section"
+    <section
       aria-label="Hero images"
       className="py-10 sm:py-14 border-b border-rule"
     >
@@ -82,6 +80,6 @@ export function HeroImages({
           );
         })}
       </div>
-    </Reveal>
+    </section>
   );
 }

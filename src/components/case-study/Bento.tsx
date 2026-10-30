@@ -72,13 +72,14 @@ export function Bento({ items, flag = "amber" }: BentoProps) {
             <li
               key={item.title}
               data-open={isOpen ? "true" : "false"}
+              data-story-batch
               style={
                 {
                   "--i": index,
                   "--rot": `${rot}deg`,
                 } as React.CSSProperties
               }
-              className={`bento-tile ${gridClasses} grid-item-enter relative flex flex-col`}
+              className={`bento-tile ${gridClasses} relative flex flex-col`}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => {
                 if (hoveredIndex === index) {

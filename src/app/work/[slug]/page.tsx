@@ -12,6 +12,7 @@ import {
   SectionBlock,
   StudyNav,
 } from "../../../components/case-study";
+import { ScrollStory } from "../../../components/case-study/scroll";
 
 export function generateStaticParams() {
   return getAllStudies().map((study) => ({
@@ -98,6 +99,7 @@ export default async function CaseStudyPage({
     <main id="main" className="flex-1 w-full bg-ground">
       <JsonLd data={caseStudyGraph(study, meta.claim, coverFor(study.slug)?.img.src)} />
       <div className="reading-progress-bar" aria-hidden="true" />
+      <ScrollStory />
       <article>
         {/* Full-bleed hero on studyMeta[slug].band */}
         <Hero

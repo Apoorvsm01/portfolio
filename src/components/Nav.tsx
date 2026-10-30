@@ -4,7 +4,10 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { site } from "../../content/site";
+import { motion, useReducedMotion } from "motion/react";
 import { asset } from "../lib/asset";
+import { GlobalNavIndicator } from "./motion/global-NavIndicator";
+import { SPRING_SOFT, NO_MOTION } from "./motion/global-ease";
 
 const RESUME_HREF = "/resume/Apoorv-Mahajan-Resume.pdf";
 const RESUME_LABEL = "Résumé (PDF, opens in new tab)";
@@ -19,6 +22,7 @@ export function Nav() {
   const toggleButtonRef = useRef<HTMLButtonElement | null>(null);
   const sheetRef = useRef<HTMLElement | null>(null);
   const pathname = usePathname();
+  const reduce = useReducedMotion();
 
   // Scroll detection
   useEffect(() => {
@@ -134,8 +138,11 @@ export function Nav() {
   };
 
   return (
-    <header
+    <motion.header
       data-nav=""
+      initial={false}
+      animate={{ y: hidden && !isOpen ? "-100%" : "0%" }}
+      transition={reduce ? NO_MOTION : SPRING_SOFT}
       data-scrolled={scrolled ? "true" : "false"}
       data-hidden={hidden && !isOpen ? "true" : "false"}
       className="sticky top-0 z-50 w-full"
@@ -164,47 +171,32 @@ export function Nav() {
           <Link
             href="/work/"
             aria-current={isWork ? "page" : undefined}
-            className="min-h-[44px] px-3 inline-flex items-center gap-1.5 hover:text-fg transition-colors data-[current=true]:text-fg link-underline"
+            className="relative min-h-[44px] px-3 inline-flex items-center gap-1.5 hover:text-fg transition-colors data-[current=true]:text-fg link-underline"
             data-current={isWork ? "true" : undefined}
           >
             <span>Work</span>
-            {isWork && (
-              <span
-                className="w-1.5 h-1.5 rounded-full bg-accent inline-block shrink-0"
-                aria-hidden="true"
-              />
-            )}
+            {isWork && <GlobalNavIndicator />}
           </Link>
 
           <Link
             href="/personal/"
             aria-current={isPersonal ? "page" : undefined}
-            className="min-h-[44px] px-3 inline-flex items-center gap-1.5 hover:text-fg transition-colors data-[current=true]:text-fg link-underline"
+            className="relative min-h-[44px] px-3 inline-flex items-center gap-1.5 hover:text-fg transition-colors data-[current=true]:text-fg link-underline"
             data-current={isPersonal ? "true" : undefined}
           >
             <span>Personal</span>
-            {isPersonal && (
-              <span
-                className="w-1.5 h-1.5 rounded-full bg-accent inline-block shrink-0"
-                aria-hidden="true"
-              />
-            )}
+            {isPersonal && <GlobalNavIndicator />}
           </Link>
 
 
           <Link
             href="/about/"
             aria-current={isAbout ? "page" : undefined}
-            className="min-h-[44px] px-3 inline-flex items-center gap-1.5 hover:text-fg transition-colors data-[current=true]:text-fg link-underline"
+            className="relative min-h-[44px] px-3 inline-flex items-center gap-1.5 hover:text-fg transition-colors data-[current=true]:text-fg link-underline"
             data-current={isAbout ? "true" : undefined}
           >
             <span>About</span>
-            {isAbout && (
-              <span
-                className="w-1.5 h-1.5 rounded-full bg-accent inline-block shrink-0"
-                aria-hidden="true"
-              />
-            )}
+            {isAbout && <GlobalNavIndicator />}
           </Link>
 
           <ContactMenu variant="desktop" />
@@ -454,6 +446,6 @@ export function Nav() {
           </div>
         </nav>
       )}
-    </header>
+    </motion.header>
   );
 }

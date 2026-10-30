@@ -8,6 +8,7 @@ import { Nav } from "../components/Nav";
 import { Footer } from "../components/Footer";
 import { CommandPalette } from "../components/CommandPalette";
 import { BackToTop } from "../components/BackToTop";
+import { GlobalPageTransitions } from "../components/motion/global-PageTransitions";
 import { getNavIndex } from "../lib/nav-index";
 import "./globals.css";
 
@@ -152,6 +153,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Skip to content
         </a>
+        <GlobalPageTransitions />
         <Nav />
         <div className="flex-1 flex flex-col">{children}</div>
         <Footer />
