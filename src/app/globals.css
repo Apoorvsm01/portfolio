@@ -1890,8 +1890,12 @@ html:not([data-js]) .fade-image {
 /* ---- Apple TV style shelves ---- */
 .shelves {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: clamp(2.5rem, 5vw, 4rem);
   padding: clamp(2rem, 4vw, 3rem) 0 clamp(3rem, 6vw, 5rem);
+}
+.shelf {
+  min-width: 0;
 }
 .shelf-head {
   display: flex;
@@ -1913,6 +1917,7 @@ html:not([data-js]) .fade-image {
   font-family: var(--ask-ui);
 }
 .shelf-track {
+  min-width: 0;
   display: flex;
   gap: clamp(0.9rem, 2vw, 1.4rem);
   overflow-x: auto;
@@ -2529,4 +2534,35 @@ html[data-page-vt] header[data-nav] {
     opacity: 0;
     transform: translateY(8px);
   }
+}
+
+/* ---- Phones: tap targets of at least 44px ---- */
+@media (max-width: 640px) {
+  .feature-dots {
+    gap: 1.5rem;
+  }
+  .feature-dot::before {
+    inset: -1.1rem -0.8rem;
+  }
+  .link-underline,
+  .link-wipe {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+  /* Inline links keep their line box; padding and a matching negative margin grow only the hit area. */
+  .link-prose {
+    padding-block: 0.7rem;
+    margin-block: -0.7rem;
+  }
+  .shelf-link {
+    min-height: 44px;
+  }
+}
+
+/* Decorative glows (prompt ring, aurora) bleed past the content box; clip them at the viewport so the
+   page never scrolls sideways. `clip` (unlike `hidden`) keeps position: sticky working. */
+body,
+.ask-hero {
+  overflow-x: clip;
 }

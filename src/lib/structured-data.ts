@@ -24,8 +24,6 @@ export function personNode() {
     email: `mailto:${site.email}`,
     address: {
       "@type": "PostalAddress",
-      addressLocality: seo.location.locality,
-      addressRegion: seo.location.region,
       addressCountry: seo.location.country,
     },
     worksFor: { "@type": "Organization", name: seo.worksFor },

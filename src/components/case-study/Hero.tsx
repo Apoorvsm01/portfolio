@@ -66,6 +66,31 @@ export function Hero({
               {meta.claim}
             </p>
 
+            {/* TL;DR: one line each for problem, role, key decision, outcome */}
+            {meta.tldr && (
+              <dl
+                aria-label="TL;DR"
+                data-tldr=""
+                className="mb-8 rounded-[6px] border border-rule/60 bg-surface/30 p-4 sm:p-5 grid gap-3 m-0"
+              >
+                {(
+                  [
+                    ["Problem", meta.tldr.problem],
+                    ["My role", meta.tldr.role],
+                    ["Key decision", meta.tldr.decision],
+                    ["Outcome", meta.tldr.outcome],
+                  ] as const
+                ).map(([label, text]) => (
+                  <div key={label} className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6 text-sm">
+                    <dt className="w-full sm:w-28 shrink-0 font-sans text-xs sm:text-sm text-muted font-medium">
+                      {label}
+                    </dt>
+                    <dd className="font-serif text-fg text-sm sm:text-base leading-snug flex-1 m-0">{text}</dd>
+                  </div>
+                ))}
+              </dl>
+            )}
+
             {/* Facts table: dl, hairline rows, label column ~7rem muted, value serif */}
             {meta.facts && meta.facts.length > 0 && (
               <dl className="border-t border-rule/60 divide-y divide-rule/60 list-none p-0 m-0">
@@ -184,7 +209,7 @@ export function Hero({
                 <li key={index}>
                   <a
                     href={`#section-${index}`}
-                    className="group link-wipe min-h-[40px] inline-flex items-center font-sans font-medium text-sm sm:text-base text-fg hover:text-accent transition-colors"
+                    className="group link-wipe min-h-[44px] inline-flex items-center font-sans font-medium text-sm sm:text-base text-fg hover:text-accent transition-colors"
                     style={
                       {
                         "--flag-color": flagBg,

@@ -17,19 +17,19 @@ export type WorkRef = {
 
 export const site = {
   name: "Apoorv Mahajan",
-  role: "UX Engineer",
+  role: "Senior Product Designer and UX Engineer",
   url: "https://apoorvsm01.github.io/portfolio", // GitHub Pages; update with a custom domain
   email: "apoorvsm@gmail.com",
   linkedin: "https://www.linkedin.com/in/apoorvmahajan",
   github: "https://github.com/Apoorvsm01",
-  location: "New York, NY",
+  location: "United States · Open to relocation",
 
   hero: {
     // Display line: the giant name. `headline` is the tagline under it.
     display: "I’m Apoorv",
     headline: "I study how people drive, and then I build what they need.",
     intro:
-      "From November 2025 to October 2026 I was the UX engineer behind an in-car AI driving coach at Woven by Toyota. I took it from a product brief and raw research on 100+ drivers to 22 driving scenarios, a CARLA simulator rig with real steering and pedals, and studies where 70% of drivers understood its re-timed voice instructions, a 50% improvement on the version before. I’ve been designing for cars, headsets and health apps since 2019.",
+      "From November 2025 to October 2026 I was the UX engineer behind Drive Coach, an in-car AI driving coach at Woven by Toyota, taking it from raw research on 100+ drivers to a CARLA simulator rig with real steering and pedals. In the Drive Coach real-car retest, 70% of drivers understood its re-timed voice instructions, a 50% improvement on the version before.",
     // 1200 px real JPEG (the original portrait.jpeg is a 1.7 MB PNG with the wrong extension)
     image: { src: "/me/portrait-1200.jpg", alt: "Apoorv Mahajan smiling, sitting on a swing at night", width: 1200, height: 1193 },
   },
@@ -58,13 +58,13 @@ export const site = {
       label: "I’m hiring a UX researcher",
       headline: "I let the study change the design.",
       answer:
-        "Look at how the in-car coach was validated: agency research with 100+ participants distilled into 22 driving scenarios, Wizard of Oz studies, gaze detection, and real-car tests that changed how voice instructions are timed.",
+        "Look at how the Drive Coach was validated: agency research with 100+ participants distilled into 22 driving scenarios, Wizard of Oz studies, gaze detection, and real-car tests that changed how voice instructions are timed.",
       bullets: [
-        "I turned raw agency research on 100+ drivers into 22 driving scenarios, the single source of truth for how the AI coach behaves.",
-        "In a 25-person CARLA simulator study, drivers acted on the AI\u2019s guidance 40% faster with the HMI active, and 80% of 35 participants preferred a quieter, less talkative AI.",
-        "Real-car tests showed fixed-distance voice prompts reached speeding drivers too late, so I timed them by speed instead. In the real-car retest, 70% of drivers understood them, a 50% improvement.",
+        "Drive Coach: I turned raw agency research on 100+ drivers into 22 driving scenarios, the single source of truth for how the AI coach behaves.",
+        "Drive Coach, 25-person CARLA simulator study: drivers acted on the AI\u2019s guidance 40% faster with the HMI active, and 80% of 35 participants preferred a quieter, less talkative AI.",
+        "Drive Coach, real-car tests: fixed-distance voice prompts reached speeding drivers too late, so I timed them by speed instead. In the real-car retest, 70% of drivers understood them, a 50% improvement.",
       ],
-      links: ["woven", "fleet-console"],
+      links: ["woven"],
     },
     {
       id: "curious",
@@ -172,7 +172,7 @@ export const site = {
   timelineIntro: "Researcher, designer, engineer. Newest first, back to 2019.",
   // Newest first. `flag` colours the org chip.
   timeline: [
-    { years: "2025 to 2026", role: "UX Engineer", org: "Woven by Toyota", flag: "amber", note: "In-car AI coaching, autonomous fleet tools, and a design system four Toyota companies share." },
+    { years: "2025 to 2026", role: "Senior Product Designer and UX Engineer", org: "Woven by Toyota", flag: "amber", note: "In-car AI coaching, autonomous fleet tools, and a design system four Toyota companies share." },
     { years: "2024 to 2025", role: "UI/UX Designer", org: "Omnia", flag: "violet", note: "Apple Vision Pro, Meta Quest and CarPlay." },
     { years: "2024", role: "UX Researcher and UI Designer", org: "Patched Reality", flag: "teal", note: "VR physiotherapy and AI-assisted health records." },
     { years: "2023 to 2025", role: "M.S. in Human-Computer Interaction", org: "DePaul University", flag: "blue" },

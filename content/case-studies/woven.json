@@ -23,11 +23,6 @@
       "value": "UX Engineer"
     }
   ],
-  "prototype": {
-    "embed": "https://apoorvsm01.github.io/hmi_ui/drive_coach",
-    "link": "https://apoorvsm01.github.io/hmi_ui/drive_coach",
-    "aspect": "7 / 3"
-  },
   "heroImages": [
     {
       "src": "/work/woven/01.jpg",
@@ -137,7 +132,7 @@
       "blocks": [
         {
           "type": "heading",
-          "text": "Adaptive Voice Coaching"
+          "text": "Voice timed to the moment, not to a schedule"
         },
         {
           "type": "paragraph",
@@ -159,7 +154,7 @@
       "blocks": [
         {
           "type": "heading",
-          "text": "From Teen Driving to a Coaching System"
+          "text": "One teen-driving concept became a reusable system of coaching patterns"
         },
         {
           "type": "paragraph",
@@ -197,7 +192,7 @@
         },
         {
           "type": "heading",
-          "text": "Implementation"
+          "text": "Design system widgets ship as code in SwiftUI, Flutter and Tailwind"
         },
         {
           "type": "widgets",
@@ -317,7 +312,7 @@
       "blocks": [
         {
           "type": "heading",
-          "text": "HUD & In-Vehicle Signals"
+          "text": "Coaching is grounded in live vehicle signals, not a simulated approximation"
         },
         {
           "type": "paragraph",
@@ -343,7 +338,7 @@
       "blocks": [
         {
           "type": "heading",
-          "text": "Validating in CARLA"
+          "text": "Coaching behavior was pressure-tested in CARLA before touching a real vehicle"
         },
         {
           "type": "paragraph",
@@ -365,7 +360,7 @@
       "blocks": [
         {
           "type": "heading",
-          "text": "From Figma to the Driver’s Seat"
+          "text": "Physical controls surfaced timing and tone issues a screen-only prototype missed"
         },
         {
           "type": "paragraph",
