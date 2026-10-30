@@ -4,13 +4,13 @@
 
 export const seo = {
   // Shown in search results and browser tabs. Keep the name first; roles people search for after it.
-  title: "Apoorv Mahajan — UX Engineer & Product Designer",
+  title: "Apoorv Mahajan — Senior Product Designer & UX Engineer",
   // About 155 characters, so search results show it whole.
   description:
-    "UX engineer and product designer in New York, NY. I research, design and build in-car AI, voice and spatial products, from Woven by Toyota to Apple Vision Pro.",
+    "Senior product designer and UX engineer, open to relocation in the United States. I research, design and build in-car AI, voice and spatial products, from Woven by Toyota to Apple Vision Pro.",
   // Visible under the name in the home hero, and the job title in structured data.
-  roleLine: "UX Engineer & Product Designer",
-  jobTitle: "UX Engineer",
+  roleLine: "Senior Product Designer & UX Engineer",
+  jobTitle: "Senior Product Designer and UX Engineer",
   // Titles recruiters search for, all backed by the timeline in site.ts.
   roles: ["UX Engineer", "Product Designer", "UX Designer", "UI/UX Designer", "UX Researcher", "Design Technologist"],
   // Skills and domains the case studies demonstrate.
@@ -39,11 +39,11 @@ export const seo = {
     "SwiftUI",
     "Flutter",
   ],
-  location: { locality: "New York", region: "NY", country: "US" },
+  location: { country: "US" },
   worksFor: "Woven by Toyota",
   alumniOf: ["DePaul University", "Symbiosis Centre for Media and Communication"],
   // Static share card in public/ (generated from scripts/og-card.html).
-  ogImage: { path: "/og.png", width: 1200, height: 630, alt: "Apoorv Mahajan, UX Engineer and Product Designer" },
+  ogImage: { path: "/og.png", width: 1200, height: 630, alt: "Apoorv Mahajan, Senior Product Designer and UX Engineer" },
   // Small status shown beside the name on the home page.
   status: "Looking for my next team",
 } as const;

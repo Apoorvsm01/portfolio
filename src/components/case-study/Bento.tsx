@@ -190,7 +190,7 @@ export function Bento({ items, flag = "amber" }: BentoProps) {
 
       {/* Show full notes disclosure below the grid */}
       <details className="mt-8 border border-rule rounded-[6px] bg-surface p-4 sm:p-6 group">
-        <summary className="cursor-pointer font-sans text-sm font-semibold text-fg hover:text-accent transition-colors flex items-center justify-between list-none focus-visible:outline-none">
+        <summary className="cursor-pointer min-h-[44px] font-sans text-sm font-semibold text-fg hover:text-accent transition-colors flex items-center justify-between list-none focus-visible:outline-none">
           <span>Show full notes</span>
           <span
             aria-hidden="true"

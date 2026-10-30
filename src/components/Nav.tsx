@@ -184,7 +184,7 @@ export function Nav() {
             className="relative min-h-[44px] px-3 inline-flex items-center gap-1.5 hover:text-fg transition-colors data-[current=true]:text-fg link-underline"
             data-current={isPersonal ? "true" : undefined}
           >
-            <span>Personal</span>
+            <span>Side projects</span>
             {isPersonal && <GlobalNavIndicator />}
           </Link>
 
@@ -200,6 +200,13 @@ export function Nav() {
           </Link>
 
           <ContactMenu variant="desktop" />
+
+          <a
+            href={`mailto:${site.email}`}
+            className="hidden lg:inline-flex min-h-[44px] px-3 items-center hover:text-fg transition-colors link-underline"
+          >
+            <span>Email me</span>
+          </a>
 
           <a
             href={asset(RESUME_HREF)}
@@ -358,7 +365,7 @@ export function Nav() {
               onClick={() => setIsOpen(false)}
               className="font-display text-2xl sm:text-3xl font-black tracking-tight text-fg hover:text-accent flex items-center justify-between min-h-[44px]"
             >
-              <span>Personal</span>
+              <span>Side projects</span>
               {isPersonal && (
                 <span
                   className="w-2 h-2 rounded-full bg-accent inline-block"
@@ -384,6 +391,14 @@ export function Nav() {
             </Link>
 
             <ContactMenu variant="mobile" onNavigate={() => setIsOpen(false)} />
+
+            <a
+              href={`mailto:${site.email}`}
+              onClick={() => setIsOpen(false)}
+              className="font-display text-2xl sm:text-3xl font-black tracking-tight text-fg hover:text-accent flex items-center min-h-[44px]"
+            >
+              <span>Email me</span>
+            </a>
 
             <a
               href={asset(RESUME_HREF)}

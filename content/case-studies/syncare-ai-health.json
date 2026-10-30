@@ -164,7 +164,7 @@
           "cards": [
             {
               "label": "Time to action",
-              "value": "<5 seconds to first meaningful click"
+              "value": "Target: <5 seconds to first meaningful click"
             },
             {
               "label": "Cognitive Load",
@@ -172,11 +172,11 @@
             },
             {
               "label": "Click-through Rate (CTR)",
-              "value": "Expected 65-75% with strong CTA Placement"
+              "value": "Target: 65-75% with strong CTA placement"
             },
             {
               "label": "Bounce Rate",
-              "value": "Lowered by >20% when intro carousel follows welcome"
+              "value": "Target: lowered by >20% when intro carousel follows welcome"
             }
           ]
         },
@@ -274,11 +274,11 @@
           "cards": [
             {
               "label": "Daily Check-in Time",
-              "value": "<60 seconds for complete overview"
+              "value": "Target: <60 seconds for complete overview"
             },
             {
               "label": "Cognitive Load",
-              "value": "+40% with contextual tips powered by your day across multiple services"
+              "value": "Target: +40% with contextual tips powered by your day across multiple services"
             },
             {
               "label": "Info Density",
@@ -329,11 +329,11 @@
           "cards": [
             {
               "label": "Behavioral Tip Management",
-              "value": "+35% when paired with elevated readings"
+              "value": "Target: +35% when paired with elevated readings"
             },
             {
               "label": "Cognitive Load",
-              "value": ">25% lower app abandonment after alert events"
+              "value": "Target: >25% lower app abandonment after alert events"
             }
           ]
         }
@@ -380,11 +380,11 @@
             },
             {
               "label": "Engagement Rate",
-              "value": "+50% vs standard record view"
+              "value": "Target: +50% vs standard record view"
             },
             {
               "label": "Prevents Confusion ",
-              "value": ">45% reduction in confusion caused by prescriptioins among patients"
+              "value": "Target: >45% reduction in confusion caused by prescriptions among patients"
             }
           ]
         }

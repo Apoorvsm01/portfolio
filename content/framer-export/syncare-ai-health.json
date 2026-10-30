@@ -283,7 +283,7 @@
       "name": "Text Card",
       "controls": {
         "heading": "Time to action",
-        "bodyText": "<5 seconds to first meaningful click"
+        "bodyText": "Target: <5 seconds to first meaningful click"
       }
     },
     {
@@ -299,7 +299,7 @@
       "name": "Text Card",
       "controls": {
         "heading": "Click-through Rate (CTR)",
-        "bodyText": "Expected 65-75% with strong CTA Placement"
+        "bodyText": "Target: 65-75% with strong CTA placement"
       }
     },
     {
@@ -307,7 +307,7 @@
       "name": "Text Card",
       "controls": {
         "heading": "Bounce Rate",
-        "bodyText": "Lowered by >20% when intro carousel follows welcome"
+        "bodyText": "Target: lowered by >20% when intro carousel follows welcome"
       }
     },
     {
@@ -416,7 +416,7 @@
       "name": "Text Card",
       "controls": {
         "heading": "Daily Check-in Time",
-        "bodyText": "<60 seconds for complete overview"
+        "bodyText": "Target: <60 seconds for complete overview"
       }
     },
     {
@@ -424,7 +424,7 @@
       "name": "Text Card",
       "controls": {
         "heading": "Cognitive Load",
-        "bodyText": "+40% with contextual tips powered by your day across multiple services"
+        "bodyText": "Target: +40% with contextual tips powered by your day across multiple services"
       }
     },
     {
@@ -487,7 +487,7 @@
       "name": "Text Card",
       "controls": {
         "heading": "Behavioral Tip Management",
-        "bodyText": "+35% when paired with elevated readings"
+        "bodyText": "Target: +35% when paired with elevated readings"
       }
     },
     {
@@ -495,7 +495,7 @@
       "name": "Text Card",
       "controls": {
         "heading": "Cognitive Load",
-        "bodyText": ">25% lower app abandonment after alert events"
+        "bodyText": "Target: >25% lower app abandonment after alert events"
       }
     },
     {
@@ -550,7 +550,7 @@
       "name": "Text Card",
       "controls": {
         "heading": "Engagement Rate",
-        "bodyText": "+50% vs standard record view"
+        "bodyText": "Target: +50% vs standard record view"
       }
     },
     {
@@ -558,7 +558,7 @@
       "name": "Text Card",
       "controls": {
         "heading": "Prevents Confusion ",
-        "bodyText": ">45% reduction in confusion caused by prescriptioins among patients"
+        "bodyText": "Target: >45% reduction in confusion caused by prescriptions among patients"
       }
     }
   ]
