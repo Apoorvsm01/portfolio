@@ -1,6 +1,5 @@
 import type { Block, Section } from "../../../content/types";
 import { imageDims } from "../../lib/content";
-import { Reveal } from "../Reveal";
 import { FadeImage } from "../FadeImage";
 import { Figure } from "./Figure";
 import { Metrics } from "./Metrics";
@@ -54,7 +53,7 @@ export function BlockRenderer({
         return null;
       }
       return (
-        <h3 className="font-display text-h3 font-black tracking-tight text-fg mt-10 first:mt-0 mb-4">
+        <h3 data-story-headline className="font-display text-h3 font-black tracking-tight text-fg mt-10 first:mt-0 mb-4">
           {block.text}
         </h3>
       );
@@ -87,7 +86,7 @@ export function BlockRenderer({
         const alt = img.alt?.trim() ? img.alt : imageFallbackAlt;
         const dims = imageDims(img.src);
         return (
-          <figure className="w-full rounded-[6px] overflow-hidden border border-rule bg-surface my-8 first:mt-0 last:mb-0">
+          <figure data-story-media className="w-full rounded-[6px] overflow-hidden border border-rule bg-surface my-8 first:mt-0 last:mb-0">
             <FadeImage
               src={img.src}
               alt={alt}
@@ -109,6 +108,7 @@ export function BlockRenderer({
               return (
                 <figure
                   key={i}
+                  data-story-media
                   className="rounded-[6px] overflow-hidden border border-rule bg-surface"
                 >
                   <FadeImage
@@ -134,6 +134,7 @@ export function BlockRenderer({
             return (
               <figure
                 key={i}
+                data-story-media
                 className="rounded-[6px] overflow-hidden border border-rule bg-surface"
               >
                 <FadeImage
@@ -157,6 +158,7 @@ export function BlockRenderer({
           {block.cards.map((card, i) => (
             <div
               key={i}
+              data-story-batch
               className="p-5 sm:p-6 rounded-[6px] bg-surface border border-rule flex flex-col justify-start"
             >
               <div className="font-sans font-bold text-fg text-base mb-2">
@@ -220,7 +222,7 @@ export function BlockRenderer({
         <figure
           className={`my-8 first:mt-0 last:mb-0 ${block.wide ? "w-full" : "w-full max-w-[46rem]"}`}
         >
-          <div className="rounded-[6px] overflow-hidden border border-rule bg-surface">
+          <div data-story-media className="rounded-[6px] overflow-hidden border border-rule bg-surface">
             <LoopVideo
               src={block.src}
               poster={block.poster}
@@ -285,19 +287,19 @@ export function SectionBlock({
 
   if (hasLabel) {
     return (
-      <Reveal
-        as="section"
+      <section
         id={`section-${index}`}
         aria-labelledby={`section-heading-${index}`}
         className="py-12 sm:py-16 md:py-20 border-b border-rule scroll-mt-24"
       >
         <h2
           id={`section-heading-${index}`}
+          data-story-headline
           className="font-sans text-xs sm:text-sm text-muted font-medium mb-6"
         >
           {section.label}
         </h2>
-        <div>
+        <div data-story-body>
           {section.blocks.map((b, bIdx) => (
             <BlockRenderer
               key={bIdx}
@@ -308,18 +310,17 @@ export function SectionBlock({
             />
           ))}
         </div>
-      </Reveal>
+      </section>
     );
   }
 
   // Untitled section: MUST be a <div>, not a section (SPEC S)
   return (
-    <Reveal
-      as="div"
+    <div
       id={`section-${index}`}
       className="py-12 sm:py-16 md:py-20 border-b border-rule scroll-mt-24"
     >
-      <div>
+      <div data-story-body>
         {section.blocks.map((b, bIdx) => (
           <BlockRenderer
             key={bIdx}
@@ -330,6 +331,6 @@ export function SectionBlock({
           />
         ))}
       </div>
-    </Reveal>
+    </div>
   );
 }

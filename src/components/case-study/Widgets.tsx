@@ -96,7 +96,7 @@ function SingleWidget({
   };
 
   return (
-    <article className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 rounded-[6px] bg-surface border border-rule p-5 sm:p-6 lg:p-8 my-8 first:mt-0 last:mb-0">
+    <article data-story-batch className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 rounded-[6px] bg-surface border border-rule p-5 sm:p-6 lg:p-8 my-8 first:mt-0 last:mb-0">
       {/* Left Column: Title, Subtitle, Preview Stage */}
       <div className="flex flex-col justify-between">
         <div>

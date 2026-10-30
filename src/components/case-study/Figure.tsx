@@ -19,6 +19,8 @@ export function Figure({
     : caption?.trim() || (studyTitle ? `${studyTitle} specification` : "Specification");
 
   const isPortrait = dims.height > dims.width;
+  // The IA diagram gets the signature top-row-then-bottom-row reveal instead of the generic media open.
+  const storyAttr = /\/ia\.svg$/.test(image.src) ? { "data-story-ia": "" } : { "data-story-media": "" };
 
   return (
     <figure
@@ -30,7 +32,7 @@ export function Figure({
           : "w-full max-w-[46rem]"
       }`}
     >
-      <div className="rounded-[6px] overflow-hidden border border-rule bg-surface">
+      <div {...storyAttr} className="rounded-[6px] overflow-hidden border border-rule bg-surface">
         <FadeImage
           src={image.src}
           alt={alt}

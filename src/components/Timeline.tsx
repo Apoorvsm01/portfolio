@@ -1,3 +1,8 @@
+"use client";
+
+import { useRef } from "react";
+import { motion, useReducedMotion, useScroll, useSpring } from "motion/react";
+import { SPRING_SNAP, NO_MOTION } from "./motion/global-ease";
 import { site } from "../../content/site";
 
 function renderYears(years: string) {
@@ -22,6 +27,12 @@ function renderYears(years: string) {
 }
 
 export function Timeline() {
+  const listRef = useRef<HTMLOListElement>(null);
+  const reduce = useReducedMotion();
+  // The accent rule fills as the list scrolls through the viewport.
+  const { scrollYProgress } = useScroll({ target: listRef, offset: ["start 75%", "end 55%"] });
+  const fill = useSpring(scrollYProgress, { stiffness: 140, damping: 26, mass: 0.6 });
+
   return (
     <section
       aria-labelledby="timeline-heading"
@@ -43,7 +54,15 @@ export function Timeline() {
           </p>
         </div>
 
-        <ol className="border-t border-rule divide-y divide-rule list-none p-0 m-0">
+        <ol ref={listRef} className="relative border-t border-rule divide-y divide-rule list-none m-0 p-0 pl-6 sm:pl-8">
+          {/* Left rule: a hairline track with an accent fill that scrubs with scroll (decorative). */}
+          <span aria-hidden="true" className="absolute left-0 top-0 bottom-0 w-px bg-rule" />
+          <motion.span
+            aria-hidden="true"
+            data-gm=""
+            className="absolute left-0 top-0 bottom-0 w-px bg-accent origin-top"
+            style={{ scaleY: reduce ? 1 : fill }}
+          />
           {site.timeline.map((item) => {
             const flagBg =
               site.flags[item.flag as keyof typeof site.flags]?.bg ?? "#f5a524";
@@ -51,8 +70,19 @@ export function Timeline() {
             return (
               <li
                 key={`${item.years}-${item.role}`}
-                className="py-6 sm:py-8 grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-8 items-start"
+                className="relative py-6 sm:py-8 grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-8 items-start"
               >
+                {/* Marker on the rule: pops in when scrolled to */}
+                <motion.span
+                  aria-hidden="true"
+                  data-gm=""
+                  className="absolute -left-6 sm:-left-8 top-[2.15rem] sm:top-[2.65rem] w-2.5 h-2.5 -ml-[5px] rounded-full bg-accent ring-4 ring-[var(--ground)]"
+                  initial={reduce ? false : { scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true, margin: "0px 0px -35% 0px" }}
+                  transition={reduce ? NO_MOTION : SPRING_SNAP}
+                />
+
                 {/* 1. years (muted, small, left) */}
                 <div className="md:col-span-3 font-sans text-xs sm:text-sm text-muted">
                   {renderYears(item.years)}

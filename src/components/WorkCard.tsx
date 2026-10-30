@@ -2,6 +2,7 @@ import Link from "next/link";
 import { site } from "../../content/site";
 import { studyMeta } from "../../content/study-meta";
 import { FadeImage } from "./FadeImage";
+import { HomeTilt } from "./motion/home-tilt";
 import type { NavIndexItem } from "../lib/nav-index";
 import { getNavIndex } from "../lib/nav-index";
 
@@ -40,6 +41,7 @@ export function WorkCard({
   const flagBg = site.flags[flagName]?.bg ?? "#f5a524";
 
   return (
+    <HomeTilt className="h-full">
     <article
       style={{ borderTopColor: flagBg }}
       className={`group relative flex flex-col h-full rounded-[6px] bg-surface border border-rule border-t-[3px] card-lift ${
@@ -64,7 +66,7 @@ export function WorkCard({
             loading="lazy"
             className={`w-full h-full ${
               cover.fit === "contain" ? "object-contain p-2" : "object-cover"
-            } group-hover:brightness-105 transition-[filter] duration-140`}
+            } group-hover:brightness-105 transition-[filter] duration-140 [transform:scale(var(--img-scale,1))]`}
           />
         </figure>
       )}
@@ -92,6 +94,7 @@ export function WorkCard({
         </p>
       </div>
     </article>
+    </HomeTilt>
   );
 }
 

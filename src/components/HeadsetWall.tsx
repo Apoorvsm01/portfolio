@@ -6,7 +6,7 @@ import { asset } from "@/lib/asset";
 
 // Stage px → container-query width units, so the wall keeps Framer's proportions at any width.
 const cq = (px: number) => `${((px / STAGE.width) * 100).toFixed(3)}cqw`;
-const MAX_TILT = 10; // degrees at the stage edge
+const MAX_TILT = 6; // degrees at the stage edge
 
 export function HeadsetWall() {
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -55,12 +55,37 @@ export function HeadsetWall() {
       kick();
     };
 
+    // Scroll drift: each card slides vertically a little, nearer cards (higher tz) travel further.
+    const cards = Array.from(scene.querySelectorAll<HTMLElement>(".headset-card")).map((el, i) => {
+      const tz = Number(headsetWall.cards[i]?.tz ?? 0);
+      const depth = Math.max(0, Math.min(1, (tz + 140) / 280));
+      return { el, amp: 6 + depth * 26 };
+    });
+    let scrollFrame = 0;
+    const drift = () => {
+      scrollFrame = 0;
+      const r = wrap.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > window.innerHeight) return;
+      // -1 when the wall is entering at the bottom, +1 when leaving at the top.
+      const p = Math.max(-1, Math.min(1, 1 - ((r.top + r.height / 2) / window.innerHeight) * 2));
+      for (const { el, amp } of cards) el.style.setProperty("--py", `${(-p * amp).toFixed(2)}px`);
+    };
+    const onScroll = () => {
+      if (!scrollFrame) scrollFrame = requestAnimationFrame(drift);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    drift();
+
     wrap.addEventListener("pointermove", onMove);
     wrap.addEventListener("pointerleave", onLeave);
     return () => {
       wrap.removeEventListener("pointermove", onMove);
       wrap.removeEventListener("pointerleave", onLeave);
       cancelAnimationFrame(frame);
+      cancelAnimationFrame(scrollFrame);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
     };
   }, []);
 

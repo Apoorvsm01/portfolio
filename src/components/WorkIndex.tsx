@@ -1,7 +1,10 @@
 "use client";
 
 import { useState, useRef, useLayoutEffect, useMemo } from "react";
+import { m } from "motion/react";
 import { WorkCard } from "./WorkCard";
+import { useReducedMotion } from "../lib/use-reduced-motion";
+import { HomeMotion, SPRING_PRESS } from "./motion/home-motion";
 import type { NavIndexItem } from "../lib/nav-index";
 
 const DOMAINS = ["All", "Automotive", "Spatial", "Health", "Personal"] as const;
@@ -16,6 +19,7 @@ interface ExitingCard {
 }
 
 export function WorkIndex({ items = [] }: { items?: NavIndexItem[] }) {
+  const reduced = useReducedMotion();
   const [filter, setFilter] = useState<DomainFilter>("All");
   const [exitingItems, setExitingItems] = useState<ExitingCard[]>([]);
   const containerRef = useRef<HTMLUListElement | null>(null);
@@ -171,6 +175,7 @@ export function WorkIndex({ items = [] }: { items?: NavIndexItem[] }) {
   }, [filteredProjects, exitingItems.length]);
 
   return (
+    <HomeMotion>
     <main id="main" className="container-page flex-1 py-16 md:py-24">
       {/* Header */}
       <header className="mb-10 sm:mb-12 border-b border-rule pb-8 sm:pb-12">
@@ -188,8 +193,10 @@ export function WorkIndex({ items = [] }: { items?: NavIndexItem[] }) {
             {DOMAINS.map((domain) => {
               const isActive = filter === domain;
               return (
-                <button
+                <m.button
                   key={domain}
+                  whileTap={reduced ? undefined : { scale: 0.97 }}
+                  transition={SPRING_PRESS}
                   type="button"
                   aria-pressed={isActive}
                   onClick={() => handleFilterChange(domain)}
@@ -209,7 +216,7 @@ export function WorkIndex({ items = [] }: { items?: NavIndexItem[] }) {
                   }`}
                 >
                   {domain}
-                </button>
+                </m.button>
               );
             })}
           </div>
@@ -281,5 +288,6 @@ export function WorkIndex({ items = [] }: { items?: NavIndexItem[] }) {
         ))}
       </ul>
     </main>
+    </HomeMotion>
   );
 }

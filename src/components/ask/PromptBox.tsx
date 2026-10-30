@@ -3,7 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 import type { ScopeCheck } from "../../lib/ask/types";
 import { askCopy } from "../../../content/ask";
+import { m } from "motion/react";
 import { useReducedMotion } from "../../lib/use-reduced-motion";
+import { useEnter } from "../motion/home-motion";
 
 type Props = {
   value: string;
@@ -21,6 +23,7 @@ export function PromptBox({ value, onChange, onSubmit, onFirstTouch, scope, busy
   const [ghost, setGhost] = useState("");
   const reduced = useReducedMotion();
   const sendRef = useRef<HTMLButtonElement | null>(null);
+  const enter = useEnter(0.58, 12);
 
   useEffect(() => {
     const phrases = askCopy.placeholders;
@@ -68,7 +71,7 @@ export function PromptBox({ value, onChange, onSubmit, onFirstTouch, scope, busy
 
   return (
     <>
-      <div className="glow-ring" data-scope={out ? "out" : "in"}>
+      <m.div className="glow-ring" data-scope={out ? "out" : "in"} style={{ opacity: enter.opacity, y: enter.y }}>
         <form
           className="ask-box"
           role="search"
@@ -108,7 +111,7 @@ export function PromptBox({ value, onChange, onSubmit, onFirstTouch, scope, busy
             </svg>
           </button>
         </form>
-      </div>
+      </m.div>
       <p id="ask-hint" className="ask-hint" data-tone={out ? "warn" : undefined} aria-live="polite">
         {out ? askCopy.scopeHint : ""}
       </p>
