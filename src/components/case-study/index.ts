@@ -1,14 +1,3 @@
-export { Hero } from "./Hero";
-export { Facts } from "./Facts";
-export { PrototypeEmbed } from "./PrototypeEmbed";
-export { HeroImages } from "./HeroImages";
-export { Toc } from "./Toc";
-export { ChapterBar } from "./ChapterBar";
-export { SectionBlock, BlockRenderer } from "./SectionBlock";
-export { StudyNav } from "./StudyNav";
-export { Figure } from "./Figure";
-export { Metrics } from "./Metrics";
-export { Widgets } from "./Widgets";
-export { Bento } from "./Bento";
-export { DeviceGallery } from "./DeviceGallery";
+export { Fig } from "./Fig";
 export { LoopVideo } from "./LoopVideo";
+export { BlockRenderer, NoteSection } from "./SectionBlock";

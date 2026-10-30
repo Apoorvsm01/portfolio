@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
 import { site } from "../../../content/site";
 import { WorkIndex } from "../../components/WorkIndex";
-import { getNavIndex } from "../../lib/nav-index";
+import { getIndexRows } from "../../lib/rows";
 
 export const metadata: Metadata = {
   title: "Work",
   description: "Case studies in automotive, spatial, and health UX by Apoorv Mahajan.",
-  alternates: {
-    canonical: "/work/",
-  },
+  alternates: { canonical: "/work/" },
   openGraph: {
     title: `Work — ${site.name}`,
     description: "Case studies in automotive, spatial, and health UX by Apoorv Mahajan.",
@@ -20,6 +18,15 @@ export const metadata: Metadata = {
 };
 
 export default function WorkPage() {
-  const items = getNavIndex();
-  return <WorkIndex items={items} />;
+  return (
+    <main id="main" className="flex-1 w-full">
+      <WorkIndex
+        id="work"
+        asPage
+        title="Work"
+        intro="Cars, headsets and health, newest first. The picture follows the project you are reading."
+        rows={getIndexRows()}
+      />
+    </main>
+  );
 }

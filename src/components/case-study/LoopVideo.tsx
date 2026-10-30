@@ -3,15 +3,14 @@
 import { useEffect, useRef, useState } from "react";
 import { asset } from "../../lib/asset";
 
-// Muted looping local video. Under prefers-reduced-motion it never autoplays: the poster is
-// shown with a play button instead.
+// A muted looping clip with a poster. Under reduced motion it stays on the poster until asked to play.
 export function LoopVideo({
   src,
   poster,
   label,
   width,
   height,
-  className = "w-full h-auto",
+  fill = false,
   eager = false,
 }: {
   src: string;
@@ -19,7 +18,7 @@ export function LoopVideo({
   label: string;
   width?: number;
   height?: number;
-  className?: string;
+  fill?: boolean;
   eager?: boolean;
 }) {
   const ref = useRef<HTMLVideoElement>(null);
@@ -55,7 +54,7 @@ export function LoopVideo({
   };
 
   return (
-    <div className="relative">
+    <div className={`loop${fill ? " loop--fill" : ""}`}>
       <video
         ref={ref}
         src={asset(src)}
@@ -68,22 +67,10 @@ export function LoopVideo({
         playsInline
         preload={eager ? "auto" : "metadata"}
         aria-label={label}
-        className={className}
       />
       {reduced && (
-        <button
-          type="button"
-          onClick={toggle}
-          aria-label={playing ? `Pause video: ${label}` : `Play video: ${label}`}
-          className="absolute bottom-3 left-3 min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-full bg-bg/80 text-fg border border-rule focus-visible:outline-2 focus-visible:outline-offset-2"
-        >
-          <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" fill="currentColor">
-            {playing ? (
-              <path d="M4 3h3v10H4zM9 3h3v10H9z" />
-            ) : (
-              <path d="M4 2.5v11l9-5.5z" />
-            )}
-          </svg>
+        <button type="button" className="chip loop__btn" onClick={toggle} aria-label={playing ? `Pause video: ${label}` : `Play video: ${label}`}>
+          {playing ? "Pause" : "Play"}
         </button>
       )}
     </div>

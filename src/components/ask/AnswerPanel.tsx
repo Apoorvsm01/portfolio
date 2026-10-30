@@ -6,7 +6,6 @@ import type { AskAnswer, AskRefusal, SourceRef } from "../../lib/ask/types";
 import { askCopy, type SuggestedPrompt } from "../../../content/ask";
 import { copyText } from "../../lib/copy-text";
 import { useReducedMotion } from "../../lib/use-reduced-motion";
-import { Sparkle } from "./Sparkle";
 
 const LINKISH = /^(https?:\/\/[^\s]+?|[\w.+-]+@[\w-]+\.[\w.-]+?)([.,;:)]*)(\s*)$/;
 
@@ -16,7 +15,7 @@ function CopyButton({ text }: { text: string }) {
   return (
     <button
       type="button"
-      className="ask-copy"
+      className="answer__copy"
       onClick={async () => {
         if (await copyText(text)) {
           setCopied(true);
@@ -38,7 +37,7 @@ function Token({ text }: { text: string }) {
   const href = isEmail ? `mailto:${url}` : url;
   return (
     <span className="tok">
-      <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer" className="underline underline-offset-4 decoration-[var(--ai-3)] hover:text-fg">
+      <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer" className="link">
         {url}
       </a>
       {isEmail && <CopyButton text={url} />}
@@ -48,18 +47,17 @@ function Token({ text }: { text: string }) {
   );
 }
 
-function SourceChip({ source, index }: { source: SourceRef; index: number }) {
-  const style = { "--i": index } as React.CSSProperties;
+function SourceChip({ source }: { source: SourceRef }) {
   const arrow = <span aria-hidden="true">{source.external ? "↗" : "→"}</span>;
   if (source.external) {
     return (
-      <a className="ask-source" style={style} href={source.href} target={source.href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer">
+      <a className="link" href={source.href} target={source.href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer">
         {source.label} {arrow}
       </a>
     );
   }
   return (
-    <Link className="ask-source" style={style} href={source.href}>
+    <Link className="link" href={source.href}>
       {source.label} {arrow}
     </Link>
   );
@@ -105,14 +103,11 @@ export function AnswerPanel({ result, matchCount, onPick, onStreaming, onReset }
     list.map((w, i) => (start + i < shown ? <Token key={i} text={w} /> : null));
 
   return (
-    <article className="ask-answer" aria-live="polite" aria-label="Answer">
-      <div className="ask-answer-head">
-        <Sparkle busy={!done} />
-        <span>{result.headline}</span>
-      </div>
-      <p className="ask-lead">{renderWords(lead, 0)}</p>
+    <article className="answer" aria-live="polite" aria-label="Answer">
+      <p className="answer__head small">{result.headline}</p>
+      <p className="answer__lead">{renderWords(lead, 0)}</p>
       {result.bullets.length > 0 && (
-        <ul className="ask-bullets">
+        <ul className="bullets">
           {bullets.map((b, i) => (
             <li key={i} hidden={starts[i] >= shown}>
               {renderWords(b, starts[i])}
@@ -124,16 +119,16 @@ export function AnswerPanel({ result, matchCount, onPick, onStreaming, onReset }
         <>
           {result.sources.length > 0 && (
             <>
-              <p className="ask-label">{askCopy.sourcesLabel}</p>
-              <ul className="ask-sources">
-                {result.sources.map((s, i) => (
+              <p className="answer__label small">{askCopy.sourcesLabel}</p>
+              <ul className="answer__list">
+                {result.sources.map((s) => (
                   <li key={s.href + s.label}>
-                    <SourceChip source={s} index={i} />
+                    <SourceChip source={s} />
                   </li>
                 ))}
                 {matchCount > 0 && (
                   <li>
-                    <a className="ask-source" style={{ "--i": result.sources.length } as React.CSSProperties} href="#ask-matches">
+                    <a className="link" href="#work">
                       See {matchCount} matching {matchCount === 1 ? "project" : "projects"} <span aria-hidden="true">↓</span>
                     </a>
                   </li>
@@ -143,11 +138,11 @@ export function AnswerPanel({ result, matchCount, onPick, onStreaming, onReset }
           )}
           {result.followUps.length > 0 && (
             <>
-              <p className="ask-label">{askCopy.followUpsLabel}</p>
-              <ul className="ask-followups">
-                {result.followUps.map((p, i) => (
+              <p className="answer__label small">{askCopy.followUpsLabel}</p>
+              <ul className="answer__list">
+                {result.followUps.map((p) => (
                   <li key={p.id}>
-                    <button type="button" className="ask-followup" style={{ "--i": i } as React.CSSProperties} onClick={() => onPick(p)}>
+                    <button type="button" className="chip" onClick={() => onPick(p)}>
                       {p.label}
                     </button>
                   </li>
@@ -155,7 +150,7 @@ export function AnswerPanel({ result, matchCount, onPick, onStreaming, onReset }
               </ul>
             </>
           )}
-          <button type="button" className="ask-reset" onClick={onReset}>
+          <button type="button" className="answer__reset" onClick={onReset}>
             Ask something else
           </button>
         </>
@@ -166,23 +161,20 @@ export function AnswerPanel({ result, matchCount, onPick, onStreaming, onReset }
 
 export function RefusalPanel({ result, onPick, onReset }: { result: AskRefusal; onPick: (p: SuggestedPrompt) => void; onReset: () => void }) {
   return (
-    <article className="ask-answer ask-refusal" role="status" aria-label="Out of scope">
-      <div className="ask-answer-head">
-        <Sparkle />
-        <span>{result.reason === "empty" ? "Ask me something" : "Out of scope"}</span>
-      </div>
-      <p className="ask-lead">{result.message}</p>
-      <p className="ask-label">{askCopy.refusals.tryInstead}</p>
-      <ul className="ask-followups">
-        {result.suggestions.map((p, i) => (
+    <article className="answer" role="status" aria-label="Out of scope">
+      <p className="answer__head small">{result.reason === "empty" ? "Ask me something" : "Out of scope"}</p>
+      <p className="answer__lead">{result.message}</p>
+      <p className="answer__label small">{askCopy.refusals.tryInstead}</p>
+      <ul className="answer__list">
+        {result.suggestions.map((p) => (
           <li key={p.id}>
-            <button type="button" className="ask-followup" style={{ "--i": i } as React.CSSProperties} onClick={() => onPick(p)}>
+            <button type="button" className="chip" onClick={() => onPick(p)}>
               {p.label}
             </button>
           </li>
         ))}
       </ul>
-      <button type="button" className="ask-reset" onClick={onReset}>
+      <button type="button" className="answer__reset" onClick={onReset}>
         Clear and start over
       </button>
     </article>
@@ -191,12 +183,9 @@ export function RefusalPanel({ result, onPick, onReset }: { result: AskRefusal; 
 
 export function ThinkingPanel() {
   return (
-    <article className="ask-answer" aria-live="polite" aria-busy="true" aria-label="Searching">
-      <div className="ask-answer-head">
-        <Sparkle busy />
-        <span>{askCopy.thinking}</span>
-      </div>
-      <div className="ask-skeleton">
+    <article className="answer" aria-live="polite" aria-busy="true" aria-label="Searching">
+      <p className="answer__head small">{askCopy.thinking}</p>
+      <div className="skeleton">
         <i />
         <i />
         <i />

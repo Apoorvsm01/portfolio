@@ -1,64 +1,66 @@
 import Link from "next/link";
 import { site } from "../../content/site";
-import { ContactCTA } from "./ContactCTA";
+import { asset } from "../lib/asset";
+import { Img } from "./Img";
 
+const RESUME_HREF = "/resume/Apoorv-Mahajan-Resume.pdf";
+
+// A photograph half and a menu half. The photograph is a close crop of the Drive Coach simulator rig.
 export function Footer() {
-  const currentYear = new Date().getFullYear();
-
+  const year = new Date().getFullYear();
   return (
-    <footer className="w-full bg-ground text-fg border-t border-rule mt-auto py-16 md:py-24">
-      <div className="container-page">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-          {/* Left column: ContactCTA */}
-          <div className="lg:col-span-8">
-            <ContactCTA />
+    <footer className="footer">
+      <div className="footer__photo">
+        <Img
+          src="/work/woven/03.jpg"
+          alt="A driver at the wheel of a simulator rig, with the road ahead on screen"
+          style={{ objectPosition: "72% 50%" }}
+        />
+      </div>
+      <div className="footer__side">
+        <p className="strong">{site.name}</p>
+        <nav aria-label="Footer" className="footer__menu">
+          <Link href="/work/">Work</Link>
+          <Link href="/personal/">Side projects</Link>
+          <Link href="/about/">About</Link>
+          <a href={asset(RESUME_HREF)} target="_blank" rel="noopener noreferrer">
+            Résumé<span className="sr-only"> (PDF, opens in a new tab)</span>
+          </a>
+          <a href={`mailto:${site.email}`}>Email me</a>
+        </nav>
+        <div className="footer__blocks">
+          <div>
+            <h2 className="strong small">Contact</h2>
+            <ul>
+              <li>
+                <a className="link" href={`mailto:${site.email}`}>
+                  {site.email}
+                </a>
+              </li>
+              <li className="muted">{site.location}</li>
+            </ul>
           </div>
-
-          {/* Right column: small nav list (Work, About) */}
-          <div className="lg:col-span-4 flex flex-row lg:flex-col items-center lg:items-end justify-start gap-6 lg:gap-3 pt-2">
-            <Link
-              href="/work/"
-              className="link-underline min-h-[44px] inline-flex items-center font-sans text-sm font-medium text-muted hover:text-fg transition-colors"
-            >
-              Work
-            </Link>
-            <Link
-              href="/about/"
-              className="link-underline min-h-[44px] inline-flex items-center font-sans text-sm font-medium text-muted hover:text-fg transition-colors"
-            >
-              About
-            </Link>
+          <div>
+            <h2 className="strong small">Elsewhere</h2>
+            <ul>
+              <li>
+                <a className="link" href={site.linkedin} target="_blank" rel="noopener noreferrer">
+                  LinkedIn<span className="sr-only"> (opens in a new tab)</span>
+                </a>
+              </li>
+              <li>
+                <a className="link" href={site.github} target="_blank" rel="noopener noreferrer">
+                  GitHub<span className="sr-only"> (opens in a new tab)</span>
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
-
-        {/* Hairline + Bottom row: © year · location · GitHub · disclaimer (small) */}
-        <div className="mt-12 sm:mt-16 pt-8 border-t border-rule flex flex-col gap-3 font-sans text-xs text-muted">
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-            <span>
-              © {currentYear} {site.name}
-            </span>
-            <span aria-hidden="true">·</span>
-            <span>{site.location}</span>
-            <span aria-hidden="true">·</span>
-            <a
-              href={site.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="min-h-[44px] inline-flex items-center gap-1 hover:text-fg transition-colors"
-            >
-              <span>GitHub</span>
-              <span aria-hidden="true" className="arrow-nudge-diag">
-                ↗
-              </span>
-              <span className="sr-only"> (opens in new tab)</span>
-            </a>
-          </div>
-
-          {site.disclaimer && (
-            <p className="font-sans text-[11px] sm:text-xs text-muted leading-relaxed max-w-full">
-              {site.disclaimer}
-            </p>
-          )}
+        <div className="footer__legal small">
+          <p>
+            © {year} {site.name}
+          </p>
+          {site.disclaimer && <p>{site.disclaimer}</p>}
         </div>
       </div>
     </footer>
