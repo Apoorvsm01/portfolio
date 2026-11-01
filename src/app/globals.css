@@ -2566,3 +2566,170 @@ body,
 .ask-hero {
   overflow-x: clip;
 }
+
+/* ==========================================================================
+   Per-application page (/for/...): same type pair and tokens as the Ask landing
+   ========================================================================== */
+.role-hero {
+  padding-block: clamp(3rem, 8vw, 6rem) clamp(2rem, 5vw, 3.5rem);
+  max-width: 110rem;
+}
+.role-kicker {
+  font-family: var(--ask-ui);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--fg-2);
+}
+.role-number {
+  color: var(--muted);
+  font-weight: 500;
+}
+.role-headline {
+  margin-top: 0.9rem;
+  max-width: 18ch;
+  font-family: var(--ask-serif);
+  font-weight: 400;
+  font-size: clamp(2.6rem, 1.4rem + 4.6vw, 5rem);
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+  color: var(--fg);
+}
+.role-intro {
+  margin-top: 1.25rem;
+  max-width: 46rem;
+  font-family: var(--ask-ui);
+  font-size: clamp(1.05rem, 0.98rem + 0.35vw, 1.25rem);
+  line-height: 1.6;
+  color: var(--fg-2);
+}
+.role-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+.role-button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 3rem;
+  padding: 0.55rem 1.3rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--fg);
+  font-family: var(--ask-ui);
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 520ms var(--ease-spring), border-color 200ms;
+}
+.role-button:hover,
+.role-button:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--ai-3);
+}
+.role-button-primary {
+  border-color: transparent;
+  background: var(--fg);
+  color: var(--ground);
+}
+.role-section-title {
+  font-family: var(--ask-serif);
+  font-weight: 400;
+  font-size: clamp(1.9rem, 1.3rem + 2vw, 2.8rem);
+  line-height: 1.05;
+  color: var(--fg);
+}
+.role-fit {
+  padding-block: clamp(2rem, 5vw, 3.5rem);
+  border-top: 1px solid var(--rule);
+}
+.role-fit-list {
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+}
+.role-fit-row {
+  display: grid;
+  gap: 0.75rem 2.5rem;
+  padding-block: 1.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+@media (min-width: 900px) {
+  .role-fit-row {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  }
+}
+.role-need {
+  font-family: var(--ask-serif);
+  font-style: italic;
+  font-size: clamp(1.1rem, 1rem + 0.4vw, 1.3rem);
+  line-height: 1.35;
+  color: var(--fg-2);
+}
+.role-fit-title {
+  font-family: var(--ask-ui);
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--fg);
+}
+.role-fit-body {
+  margin-top: 0.4rem;
+  max-width: 44rem;
+  font-family: var(--ask-ui);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--fg-2);
+}
+.role-fit-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 44px;
+  font-family: var(--ask-ui);
+  font-weight: 600;
+  color: var(--fg);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: var(--ai-3);
+}
+.role-platforms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.75rem 0 0.25rem;
+  padding: 0;
+  list-style: none;
+}
+.role-platforms li {
+  padding: 0.3rem 0.8rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  font-family: var(--ask-ui);
+  font-size: 0.85rem;
+  color: var(--fg);
+}
+.role-ask,
+.role-contact {
+  padding-block: clamp(2rem, 5vw, 3.5rem);
+  border-top: 1px solid var(--rule);
+}
+.role-prompts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 1.1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.role-prompts .ask-chip {
+  text-decoration: none;
+}
+.role-contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.5rem;
+  margin-top: 1rem;
+  font-family: var(--ask-ui);
+}
