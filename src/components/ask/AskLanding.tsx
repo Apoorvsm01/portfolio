@@ -163,6 +163,19 @@ export function AskLanding({ projects }: { projects: ProjectCard[] }) {
     [submit],
   );
 
+  // Deep link: /?q=... asks that question on arrival (used by the per-application pages). The text goes
+  // through the same scope gate as typed questions; the param is dropped so a refresh starts clean.
+  useEffect(() => {
+    const q = new URLSearchParams(window.location.search).get("q")?.trim().slice(0, 200);
+    if (!q) return;
+    const id = requestAnimationFrame(() => {
+      window.history.replaceState(null, "", window.location.pathname);
+      setQuery(q);
+      submit(q);
+    });
+    return () => cancelAnimationFrame(id);
+  }, [submit]);
+
   const resetState = useCallback(() => {
     clearTimeout(timer.current);
     morph(() => {
