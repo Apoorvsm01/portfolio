@@ -2,6 +2,11 @@ import type { ProjectCard } from "../components/shelves/types";
 import { getAllStudies, coverFor, studyHref, imageDims } from "./content";
 import { studyMeta } from "../../content/study-meta";
 import { site } from "../../content/site";
+import cardThumbs from "./card-thumbs.json";
+
+// Cards show a 1280px WebP copy of the cover when scripts/card-thumbs.sh has made one.
+const thumbs = new Set<string>(cardThumbs);
+const cardSrc = (src: string) => (thumbs.has(src) ? `/thumbs${src.replace(/\.[a-z]+$/, ".webp")}` : src);
 
 // Card data for every project, as the carousel and shelves show them: each case study plus The Good
 // Roommate, whose story lives on /personal rather than in a case study.
@@ -21,7 +26,7 @@ export function getProjectCards(): ProjectCard[] {
         (study.slug === site.featured.slug ? site.featured.org : ref?.domain === "Personal" ? site.personal.personalLabel : undefined),
       domain: ref?.domain ?? site.featuredDomain,
       flag: meta?.flag ?? "amber",
-      cover: cover && dims ? { src: cover.img.src, alt: study.title, width: dims.width, height: dims.height, fit: cover.fit } : undefined,
+      cover: cover && dims ? { src: cardSrc(cover.img.src), alt: study.title, width: dims.width, height: dims.height, fit: cover.fit } : undefined,
     };
   });
 
@@ -36,7 +41,7 @@ export function getProjectCards(): ProjectCard[] {
     org: site.personal.personalLabel,
     domain: "Personal",
     flag: "pink",
-    cover: { src: shot.src, alt: shot.alt, width: shotDims.width, height: shotDims.height, fit: "contain" },
+    cover: { src: cardSrc(shot.src), alt: shot.alt, width: shotDims.width, height: shotDims.height, fit: "contain" },
   });
   return projects;
 }

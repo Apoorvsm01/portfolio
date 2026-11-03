@@ -125,6 +125,12 @@ o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+
 o.onload=function(){window.trackingFunctions.onLoad({appId:"6a8470f7d78c1f000ce6626d"})},
 document.head.appendChild(o)}initApollo();`;
 
+const gaMeasurementId = "G-JGBQ9FXGN0";
+const googleTagScript = `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${gaMeasurementId}');`;
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
@@ -145,6 +151,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           }}
         />
         <JsonLd data={siteGraph()} />
+        {/* Google tag (gtag.js) */}
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`} />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: googleTagScript,
+          }}
+        />
       </head>
       <body className="min-h-full flex flex-col bg-ground text-fg">
         <a
