@@ -38,6 +38,10 @@
       "label": "How it works",
       "blocks": [
         {
+          "type": "paragraph",
+          "text": "Re-creating a design concept takes many steps, and chat history is a poor memory. I designed this pipeline of small agents and made every call at its two human gates."
+        },
+        {
           "type": "figure",
           "image": {
             "src": "/work/design-crew/pipeline.svg",
@@ -160,7 +164,7 @@
       "blocks": [
         {
           "type": "heading",
-          "text": "What it can't prove"
+          "text": "What it can’t prove"
         },
         {
           "type": "list",

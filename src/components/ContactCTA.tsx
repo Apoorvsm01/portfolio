@@ -16,7 +16,7 @@ export function ContactCTA({ className = "" }: { className?: string }) {
       <div className="flex flex-wrap items-center gap-4">
         <GlobalMagnetic
           href={`mailto:${site.email}`}
-          className="btn-primary min-h-[44px] px-6 py-2.5 rounded-[6px] bg-accent text-ground font-sans font-bold text-sm sm:text-base hover:brightness-105 active:translate-y-[1px] inline-flex items-center justify-center"
+          className="btn-primary min-h-[44px] px-6 py-2.5 rounded-[6px] bg-accent text-[var(--flag-amber-ink)] font-sans font-bold text-sm sm:text-base hover:brightness-105 active:translate-y-[1px] inline-flex items-center justify-center"
         >
           Email me
         </GlobalMagnetic>

@@ -60,12 +60,16 @@
           "wide": true
         },
         {
+          "type": "paragraph",
+          "text": "I proposed this concept at Woven by Toyota and did its UX research, design and prototyping. The data is invented, as an NDA re-creation."
+        },
+        {
           "type": "heading",
           "text": "Test fleets grow faster than their oversight"
         },
         {
           "type": "paragraph",
-          "text": "Leads can't see oversight debt, and escalation hangs on one phone call. Public reporting on AV test programs describes this; I used it as design pressure, not evidence."
+          "text": "Leads can’t see oversight debt, and escalation hangs on one phone call. Public reporting on AV test programs describes this; I used it as design pressure, not evidence."
         }
       ]
     },
@@ -155,7 +159,7 @@
       "blocks": [
         {
           "type": "heading",
-          "text": "Each surface gets the job it's best at"
+          "text": "Each surface gets the job it’s best at"
         },
         {
           "type": "figure",
@@ -220,20 +224,20 @@
         },
         {
           "type": "heading",
-          "text": "What's real, what's assumed"
+          "text": "What’s real, what’s assumed"
         },
         {
           "type": "list",
           "items": [
             "The cross-surface hand-off check passes.",
             "The 2-second glance floor is measured, not eyeballed.",
-            "Placeholders: Escalation rota timeout (5 minutes per link) and protocol wording.",
-            "No outcome metrics exist; the outcome is internal and I can't share it."
+            "Placeholders: Escalation rota timeout (5 minutes per link) and the protocol wording.",
+            "No outcome metrics exist. The outcome is internal and I can’t share it."
           ]
         },
         {
           "type": "paragraph",
-          "text": "Next: run first-click, timed-triage and debt-trust tests with real safety owners. Try the [live prototype](https://apoorvsm01.github.io/fleet-console/)."
+          "text": "In hindsight: nothing here has met a real safety owner yet. Next: run first-click, timed-triage and debt-trust tests with them. Try the [live prototype](https://apoorvsm01.github.io/fleet-console/)."
         }
       ]
     }

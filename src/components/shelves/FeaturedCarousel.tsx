@@ -4,6 +4,7 @@ import Link from "next/link";
 import { animate, m, useMotionValue, type PanInfo } from "motion/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { FadeImage } from "../FadeImage";
+import { StatusPill } from "../StatusPill";
 import { site } from "../../../content/site";
 import { shelfCopy } from "../../../content/ask";
 import { useReducedMotion } from "../../lib/use-reduced-motion";
@@ -174,6 +175,7 @@ export function FeaturedCarousel({ projects }: { projects: ProjectCard[] }) {
                     <FadeImage
                       src={p.cover.src}
                       alt=""
+                      aria-hidden="true"
                       width={p.cover.width}
                       height={p.cover.height}
                       loading={i === 0 ? "eager" : "lazy"}
@@ -183,7 +185,10 @@ export function FeaturedCarousel({ projects }: { projects: ProjectCard[] }) {
                   )}
                 </div>
                 <div className="feature-copy">
-                  <span className="feature-kicker">{p.org ?? p.domain}</span>
+                  <div className="feature-tags">
+                    <span className="feature-kicker">{p.org ?? p.domain}</span>
+                    <StatusPill slug={p.slug} />
+                  </div>
                   <h2 className="feature-title">{p.title}</h2>
                   <p className="feature-claim">{p.claim}</p>
                 </div>

@@ -39,10 +39,10 @@ export const studyMeta: Record<string, StudyMeta> = {
     outcomes: {
       title: "What the studies showed",
       items: [
-        { from: "100+", value: "22", label: "drivers’ research, sorted into driving scenarios" },
-        { value: "70%", label: "of drivers understood the re-timed voice instructions, a 50% improvement" },
-        { value: "40%", label: "faster to act on the AI’s guidance, in a 25-person simulator study" },
-        { value: "80%", label: "of 35 participants preferred a quieter, less talkative AI" },
+        { from: "100+", value: "22", label: "drivers’ agency research, sorted into driving scenarios" },
+        { value: "70%", label: "of drivers understood the re-timed voice instructions, a 50% improvement (real-car retest)" },
+        { value: "40%", label: "faster to act on the AI’s guidance with the HMI active (25-person CARLA simulator study)" },
+        { value: "80%", label: "of 35 participants preferred a quieter, less talkative AI (voice-frequency study)" },
       ],
       note: "Real-car retest, a CARLA simulator study, and A/B tests with contextual interviews at Woven by Toyota. Every alert was designed to meet the industry’s 2-second glance-to-comprehension standard.",
     },
@@ -102,7 +102,7 @@ export const studyMeta: Record<string, StudyMeta> = {
     flag: "violet",
     tldr: {
       problem: "Spatial photos, video and the web are locked in proprietary ecosystems.",
-      role: "UI design and UX research.",
+      role: "UI design and UX research, 7 months at Omnia.",
       decision: "AI summary cards and a spatial reading layout that dims all but the text in view.",
       outcome: "Interfaces for Vision Pro, Meta Quest and iOS, including a one-handed 3D model viewer.",
     },
@@ -118,13 +118,13 @@ export const studyMeta: Record<string, StudyMeta> = {
     flag: "violet",
     tldr: {
       problem: "A Tesla showroom event needed an XR demo easy enough to run for about 100 people.",
-      role: "UI design and UX research.",
+      role: "UI design and UX research, 4 months at Omnia.",
       decision: "A virtual car showroom with life-size products and colour, wheel and interior customization.",
       outcome: "Live on the visionOS App Store.",
     },
     facts: [
       { label: "My part", value: "UI design and UX research" },
-      { label: "When", value: "4 months" },
+      { label: "When", value: "4 months, at Omnia, for a Tesla showroom event on 21 Nov 2024" },
       { label: "Built on", value: "visionOS, Meta Quest and iOS" },
     ],
   },
@@ -134,9 +134,9 @@ export const studyMeta: Record<string, StudyMeta> = {
     flag: "teal",
     tldr: {
       problem: "Health records are hard to read, and patients work to make sense of them.",
-      role: "UX design and research collaborator, for 10 weeks at Patched Reality.",
+      role: "UX design and research collaborator, 10 weeks at Patched Reality.",
       decision: "An AI chat and personalized dashboard that explain records in plain, human-like language.",
-      outcome: "Targets only (not measured); no measured outcomes.",
+      outcome: "No measured outcomes. The figures in the study are design targets, not results.",
     },
     facts: [
       { label: "My part", value: "UX design and research collaborator" },
@@ -152,7 +152,7 @@ export const studyMeta: Record<string, StudyMeta> = {
     flag: "yellow",
     tldr: {
       problem: "Construction inspections need checklists and data where the work is.",
-      role: "UX design and research.",
+      role: "UX designer and researcher, 5 weeks.",
       decision: "Overlay dynamic checklists, contextual data and real-time collaboration on AR glasses.",
       outcome: "No outcome metrics stated.",
     },

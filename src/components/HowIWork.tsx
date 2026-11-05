@@ -60,7 +60,7 @@ export function HowIWork() {
                     viewport={{ once: true, margin: "0px 0px -12% 0px" }}
                     transition={reduce ? NO_MOTION : { ...SPRING_SNAP, delay: index * 0.08 + 0.1 }}
                   >
-                    <span className="text-ground font-sans font-bold text-xs">
+                    <span className="text-[var(--flag-amber-ink)] font-sans font-bold text-xs">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                   </motion.span>

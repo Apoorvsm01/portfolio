@@ -111,6 +111,48 @@
           "text": "A resume takes about 15 seconds and about 13,000 tokens, and a second document for the same job a few minutes later reuses most of that from cache. Cheap and quick enough to run on every application."
         }
       ]
+    },
+    {
+      "label": "Key decisions",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Three calls that shaped the panel"
+        },
+        {
+          "type": "cards",
+          "cards": [
+            {
+              "label": "Hand over a file",
+              "value": "Chose a panel that never submits anything, and hands you a file to read, drag or attach with notes on what it couldn’t honestly claim."
+            },
+            {
+              "label": "One instruction box",
+              "value": "Chose a free-text box for this run’s instructions over a back-and-forth chat."
+            },
+            {
+              "label": "Native in each browser",
+              "value": "Chose each browser’s own design language, Material 3 in Chrome and Liquid Glass in Safari, over one look for both."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Hindsight",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Limits"
+        },
+        {
+          "type": "list",
+          "items": [
+            "I designed it for my own job search, so the numbers come from my own workflow, not from other users.",
+            "The “about 15 steps” and the timings come from the project README. The manual loop was roughly 15 steps, four app switches and two file pickers per document."
+          ]
+        }
+      ]
     }
   ],
   "unportedComponents": [],

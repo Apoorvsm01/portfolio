@@ -1,5 +1,6 @@
 import { AskLanding } from "../components/ask/AskLanding";
 import { HowIWork } from "../components/HowIWork";
+import { Testimonials } from "../components/Testimonials";
 import { AboutTeaser } from "../components/AboutTeaser";
 import { HeadsetWall } from "../components/HeadsetWall";
 import { getProjectCards } from "../lib/projects";
@@ -12,6 +13,7 @@ export default function Home() {
       <AskLanding projects={getProjectCards()} />
       <HowIWork />
       <HeadsetWall />
+      <Testimonials />
       <AboutTeaser />
     </main>
   );

@@ -22,7 +22,7 @@ export default function NotFound() {
       </p>
       <Link
         href="/"
-        className="group min-h-[44px] min-w-[44px] inline-flex items-center gap-2 px-6 py-3 rounded-[6px] bg-accent text-ground font-sans font-bold text-sm sm:text-base hover:brightness-105 active:translate-y-[1px] transition-all"
+        className="group min-h-[44px] min-w-[44px] inline-flex items-center gap-2 px-6 py-3 rounded-[6px] bg-accent text-[var(--flag-amber-ink)] font-sans font-bold text-sm sm:text-base hover:brightness-105 active:translate-y-[1px] transition-all"
       >
         <span aria-hidden="true" className="arrow-nudge-left font-bold">
           ←

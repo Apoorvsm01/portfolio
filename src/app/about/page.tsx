@@ -31,6 +31,13 @@ export default function AboutPage() {
             <p className="font-serif text-fg-2 text-base sm:text-lg lg:text-xl leading-[1.6] max-w-[46rem] text-pretty">
               {site.hero.intro}
             </p>
+            {/* At a glance: what role he is after */}
+            <dl className="mt-8 max-w-[46rem] rounded-[6px] border border-rule bg-surface p-4 sm:p-5 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6 m-0">
+              <dt className="w-full sm:w-28 shrink-0 font-sans text-xs sm:text-sm text-muted font-medium">
+                {site.lookingFor.label}
+              </dt>
+              <dd className="font-serif text-fg text-sm sm:text-base leading-snug flex-1 m-0">{site.lookingFor.text}</dd>
+            </dl>
           </div>
           <div className="md:col-span-4">
             <HeroPortrait

@@ -109,7 +109,7 @@ export function Bento({ items, flag = "amber" }: BentoProps) {
                   </p>
 
                   <div className="text-right">
-                    <span className="font-mono text-[11px] text-paper-muted opacity-80">
+                    <span className="font-mono text-[11px] text-paper-muted">
                       Tap to flip
                     </span>
                   </div>
@@ -160,7 +160,7 @@ export function Bento({ items, flag = "amber" }: BentoProps) {
                 {/* Front face */}
                 <div className="bento-cover-front p-5 sm:p-6 flex flex-col justify-between">
                   <div className="flex items-center justify-between gap-2 mb-2">
-                    <span className="font-mono text-xs font-semibold opacity-75">
+                    <span className="font-mono text-xs font-semibold">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                   </div>
@@ -169,7 +169,7 @@ export function Bento({ items, flag = "amber" }: BentoProps) {
                     {item.title}
                   </span>
 
-                  <span className="self-end font-sans text-xs font-semibold opacity-75 flex items-center gap-1 mt-auto">
+                  <span className="self-end font-sans text-xs font-semibold flex items-center gap-1 mt-auto">
                     <span>Peek</span>
                     <span aria-hidden="true" className="text-sm">
                       ↻

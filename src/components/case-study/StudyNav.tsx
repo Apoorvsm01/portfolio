@@ -49,6 +49,7 @@ export function StudyNav({ currentSlug }: { currentSlug: string }) {
                   <FadeImage
                     src={cover.src}
                     alt=""
+                    aria-hidden="true"
                     width={dims.width}
                     height={dims.height}
                     loading="lazy"

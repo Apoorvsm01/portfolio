@@ -1,7 +1,7 @@
 {
   "slug": "woven",
   "title": "Generative Drive Coach",
-  "description": "UX case study: leading end-to-end design of Generative Drive Coach, a voice-first AI driving coach built at Woven by Toyota, from research through HMI and validation.",
+  "description": "UX case study: I was the UX engineer behind Generative Drive Coach, a voice-first AI driving coach at Woven by Toyota, and owned it from research through HMI design and validation.",
   "tags": [
     "In-Vehicle HMI",
     "Voice Interaction",
@@ -39,89 +39,75 @@
   ],
   "sections": [
     {
-      "label": "Approach & Process",
+      "label": "Role & Scope",
       "blocks": [
         {
           "type": "bento",
           "items": [
             {
-              "title": "End-to-End Ownership",
+              "title": "My role",
+              "condensed": "UX engineer, Nov 2025 to Oct 2026. I owned research, HMI and voice design, prototyping and validation.",
               "source": [
                 {
                   "type": "paragraph",
-                  "text": "Owned end-to-end UX for Generative Drive Coach, spanning research, HMI and voice interaction design, prototyping, and validation."
+                  "text": "UX engineer on Generative Drive Coach at Woven by Toyota, November 2025 to October 2026. I owned the experience end to end: research, HMI and voice interaction design, prototyping, and validation."
                 }
-              ],
-              "condensed": "I led the UX for Generative Drive Coach across research, HMI, voice interaction design, prototyping, and validation."
+              ]
             },
             {
-              "title": "Reusable Coaching Patterns",
+              "title": "Who I worked with",
+              "condensed": "I worked with AI/ML, integration and analyst teams across Woven, TRI, TMNA and TCNA, on CARLA, the Vehicle SDK and CAN signals.",
               "source": [
                 {
                   "type": "paragraph",
-                  "text": "Scaled a single teen-driving concept into a reusable coaching pattern system."
-                },
-                {
-                  "type": "paragraph",
-                  "text": "Patterns now cover parking, intersections, stop signs, turns, lane changes, and speed management, all built on the same voice-first coaching logic."
-                }
-              ],
-              "condensed": "I scaled a teen driving concept into coaching patterns covering parking, intersections, stop signs, turns, lane changes, and speed management."
-            },
-            {
-              "title": "Cross-Functional Partnership",
-              "source": [
-                {
-                  "type": "paragraph",
-                  "text": "Grounded every design decision in Woven’s engineering stack:"
+                  "text": "With AI/ML engineers, systems integration engineers and data analysts across Woven, TRI, TMNA and TCNA. I grounded every design decision in their engineering stack:"
                 },
                 {
                   "type": "list",
                   "items": [
-                    "CARLA: a proprietary driving simulator used to test coaching logic before real-world validation.",
-                    "Vehicle SDK: real steering, speed, and sensor signals piped into working prototypes.",
-                    "CAN signals: live vehicle bus data that grounded HMI behavior in actual driving state."
+                    "CARLA: Woven’s proprietary driving simulator, used to test coaching logic before real-world validation.",
+                    "Vehicle SDK: real steering, speed and sensor signals piped into working prototypes.",
+                    "CAN signals: live vehicle bus data that tied HMI behavior to actual driving state."
                   ]
                 }
-              ],
-              "condensed": "I grounded designs in CARLA simulation, Vehicle SDK signals, and CAN bus data to test coaching against live vehicle states."
+              ]
             },
             {
-              "title": "Multi-Fidelity Prototyping",
+              "title": "Prototype ladder",
+              "condensed": "Three fidelities, fastest first: voice-enabled Figma flows, CARLA scenarios, then a physical steering and pedal rig.",
               "source": [
                 {
                   "type": "paragraph",
-                  "text": "Rapidly translated feedback into working prototypes across Figma, simulator, and physical hardware:"
+                  "text": "I turned feedback into working prototypes at three fidelities:"
                 },
                 {
                   "type": "list",
                   "items": [
                     "Voice-enabled Figma flows: fast, low-fidelity concept testing.",
                     "CARLA simulator scenarios: realistic, repeatable driving conditions.",
-                    "Physical steering & pedal rig: paired with updated HUD concepts for hands-on validation."
+                    "Physical steering and pedal rig: paired with updated HUD concepts for hands-on validation."
                   ]
                 }
-              ],
-              "condensed": "I built prototypes across voice-enabled Figma flows, CARLA simulator scenarios, and a physical steering and pedal rig."
+              ]
             },
             {
-              "title": "Independent Research & Validation",
+              "title": "Studies I ran",
+              "condensed": "I sorted agency research on 100+ drivers into 22 scenarios, then ran a 25-person simulator study, a 35-participant voice-frequency study and a real-car retest.",
               "source": [
                 {
                   "type": "paragraph",
-                  "text": "Owned research and validation end to end:"
+                  "text": "I planned and ran the studies myself, start to finish:"
                 },
                 {
                   "type": "list",
                   "items": [
-                    "Study plans designed and run independently, start to finish.",
-                    "Voice-frequency studies to tune how often and how loudly the coach should speak.",
-                    "Simulated driving studies in CARLA to validate coaching behavior before road testing.",
-                    "Iterative refinement of coaching behavior based on participant feedback."
+                    "Agency research on 100+ drivers, sorted by me into 22 driving scenarios.",
+                    "A 25-person CARLA simulator study to validate coaching behavior before road testing.",
+                    "A voice-frequency study with 35 participants, to tune how often and how loudly the coach speaks.",
+                    "A real-car retest of the re-timed voice instructions."
                   ]
                 }
-              ],
-              "condensed": "I ran study plans, voice-frequency tests, and CARLA driving simulations to validate and refine coaching behavior from participant feedback."
+              ]
             }
           ]
         }
@@ -136,7 +122,7 @@
         },
         {
           "type": "paragraph",
-          "text": "I designed a voice-first coaching layer that delivers real-time, context-aware guidance without adding cognitive load, timed to the exact moment it’s needed: a stop sign, an intersection, a lane change. Voice-frequency studies shaped the interaction model, balancing how often the coach speaks against how much a new driver can actually absorb behind the wheel."
+          "text": "I designed a voice-first coaching layer that gives real-time, context-aware guidance without adding cognitive load, timed to the moment it is needed: a stop sign, an intersection, a lane change. Voice-frequency studies shaped the interaction model by balancing how often the coach speaks against how much a new driver can absorb behind the wheel."
         },
         {
           "type": "images",
@@ -158,7 +144,7 @@
         },
         {
           "type": "paragraph",
-          "text": "What began as a single concept for coaching teen drivers became a reusable pattern system I built across parking, intersections, stop signs, turns, lane changes, and speed management.\nEach pattern shares the same voice-first coaching logic, so adding a new driving scenario means composing existing building blocks, not starting from scratch. It’s a system, not a one-off feature."
+          "text": "One teen-driving concept became a reusable pattern system covering parking, intersections, stop signs, turns, lane changes and speed management.\nEvery pattern shares the same voice-first coaching logic, so a new driving scenario means composing existing building blocks, not starting over."
         },
         {
           "type": "images",
@@ -188,7 +174,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "A small token system — colors, type, spacing, and radii — kept the coaching HMI visually consistent from early dashboard mockups through CARLA test builds and the physical rig."
+          "text": "A small token system (colors, type, spacing and radii) kept the coaching HMI consistent from early dashboard mockups through CARLA test builds and the physical rig."
         },
         {
           "type": "heading",
@@ -279,7 +265,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Each live component above is a real widget from the Flutter build. Toggle between SwiftUI, Flutter, and Tailwind to see the same pattern implemented natively across platforms."
+          "text": "Each live component above is a real widget from the Flutter build. Toggle between SwiftUI, Flutter and Tailwind to see the same pattern in each."
         },
         {
           "type": "figure",
@@ -316,7 +302,7 @@
         },
         {
           "type": "paragraph",
-          "text": "To make coaching feel native to the car, I partnered with the software-integration and ML teams to ground the HMI in real vehicle state: pulling live signals from the Vehicle SDK and CAN bus into updated HUD concepts, so guidance stays synced to actual speed, position, and steering input, not a simulated approximation."
+          "text": "I partnered with the software-integration and ML teams to ground the HMI in real vehicle state. Live signals from the Vehicle SDK and CAN bus feed the updated HUD concepts, so guidance stays in sync with actual speed, position and steering input."
         },
         {
           "type": "images",
@@ -342,7 +328,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Working with the ML and research teams, I connected coaching designs to CARLA, Woven’s proprietary simulation platform, to run realistic driving scenarios and pressure-test coaching behavior before it ever touched a real vehicle."
+          "text": "With the ML and research teams, I connected coaching designs to CARLA, Woven’s proprietary simulation platform, to run realistic driving scenarios and pressure-test coaching behavior before it reached a real vehicle."
         },
         {
           "type": "images",
@@ -364,7 +350,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Feedback moved fast, so I kept prototypes moving just as fast: voice-enabled Figma flows for early concept testing, full simulator scenarios, and a physical rig with a real steering wheel and pedal controls.\n\nTesting on physical controls surfaced timing and tone issues a screen-only prototype never would catch. Coaching that feels right in Figma can feel intrusive the moment your hands are actually on the wheel."
+          "text": "Feedback moved fast, so my prototypes did too: voice-enabled Figma flows for early concept tests, full simulator scenarios, and a physical rig with a real steering wheel and pedals.\n\nPhysical controls surfaced timing and tone issues a screen-only prototype would never catch. Coaching that feels right in Figma can feel intrusive once your hands are on the wheel."
         },
         {
           "type": "images",
@@ -373,6 +359,53 @@
               "src": "/work/woven/12.jpg",
               "alt": ""
             }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Key decisions",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Four calls that shaped the coach"
+        },
+        {
+          "type": "cards",
+          "cards": [
+            {
+              "label": "Voice over screen",
+              "value": "Chose voice coaching over on-screen prompts, because gaze studies showed the screen pulled eyes off the road."
+            },
+            {
+              "label": "Timing by speed",
+              "value": "Chose to time prompts by speed over a fixed distance, because real-car tests showed fixed-distance prompts reached speeding drivers too late."
+            },
+            {
+              "label": "A quieter coach",
+              "value": "Chose a less talkative AI over a chattier one, because 80% of 35 participants preferred it."
+            },
+            {
+              "label": "Physical rig",
+              "value": "Chose to test on a physical steering and pedal rig, not only in Figma, because only the rig surfaced timing and tone problems."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Hindsight",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "What changed, and what limits the numbers"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Removed: fixed-distance prompt timing. Kept: voice-first coaching. Added: timing by speed, which the real-car retest backed (70% of drivers understood the instructions, a 50% improvement).",
+            "Lesson: a screen-only prototype missed timing and tone problems. The physical rig, and the real-car tests after it, caught them.",
+            "Limits: the simulator results come from a 25-person study (40% faster to act on the AI’s guidance with the HMI active) and a 35-participant study (80% preferred a quieter AI). Small samples, so I treat them as signals, not proof."
           ]
         }
       ]
