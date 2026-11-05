@@ -1,7 +1,7 @@
 {
   "slug": "syncare-ai-health",
   "title": "SynCare",
-  "description": "",
+  "description": "UX design and research for SynCare, an AI health app that explains personal health records in plain language, designed over 10 weeks. All figures are design targets, not measured results.",
   "tags": [
     "Mobile Design",
     "Health Tech",
@@ -30,7 +30,7 @@
   "heroImages": [
     {
       "src": "/work/syncare-ai-health/01.png",
-      "alt": "Person"
+      "alt": "SynCare AI app on a phone, with a person in the hero image"
     }
   ],
   "sections": [
@@ -40,6 +40,10 @@
         {
           "type": "heading",
           "text": "SynCare AI"
+        },
+        {
+          "type": "paragraph",
+          "text": "Health records are hard to read, and patients work to make sense of them. Over 10 weeks at Patched Reality, I was a UX design and research collaborator on SynCare: an AI chat and personalized dashboard that explain records in plain, human-like language. Every figure below labeled “Design target” is a goal set during design, not a measured result."
         }
       ]
     },
@@ -58,92 +62,19 @@
       ]
     },
     {
-      "label": "Process",
+      "label": "Research in brief",
       "blocks": [
         {
-          "type": "bento",
+          "type": "heading",
+          "text": "Seven patients, three clinicians and the literature"
+        },
+        {
+          "type": "list",
           "items": [
-            {
-              "title": "Research & Discovery",
-              "source": [
-                {
-                  "type": "list",
-                  "items": [
-                    "Conducted competitive audits of existing EHR platforms",
-                    "Interviewed 7 patients and 3 clinicians to uncover pain points in data access and coordination",
-                    "Identified high-need use cases: chronic condition management, medication adherence, preventive screening"
-                  ]
-                }
-              ],
-              "condensed": "I audited EHR platforms and interviewed seven patients and three clinicians, identifying chronic condition management, medication adherence, and preventive screening."
-            },
-            {
-              "title": "Literature Review",
-              "source": [
-                {
-                  "type": "list",
-                  "items": [
-                    "Reviewed academic sources on digital twins, personalization, and context-aware design (e.g., Katsoulakis et al., 2024).",
-                    "Explored ethical implications of AI in health systems, including transparency, bias, and user autonomy (e.g., Huang et al., 2022).",
-                    "Identified trust and psychological safety as essential UX considerations, not just ethical ones.",
-                    "Used literature findings to inform the project’s guiding principles and design decisions."
-                  ]
-                }
-              ],
-              "condensed": "I reviewed academic research on digital twins, personalization, and AI ethics, establishing trust and psychological safety as core design requirements."
-            },
-            {
-              "title": "Stakeholder Interviews",
-              "source": [
-                {
-                  "type": "paragraph",
-                  "text": "Conducted interviews to gather insights from users and stakeholders (implied by mention of stakeholder interviews)."
-                },
-                {
-                  "type": "list",
-                  "items": [
-                    "Used findings to shape project principles and design requirements.",
-                    "Informed the development of prototypes and usability evaluations.",
-                    "Helped refine goals and features based on real user needs and feedback."
-                  ]
-                }
-              ],
-              "condensed": "I interviewed stakeholders to gather requirements, shaping project principles and refining prototype features to match real patient needs."
-            },
-            {
-              "title": "Usability Evaluations",
-              "source": [
-                {
-                  "type": "paragraph",
-                  "text": "Tested prototypes with users to assess emotional support, clarity, and personalization."
-                },
-                {
-                  "type": "list",
-                  "items": [
-                    "Gathered feedback to iterate and improve the design.",
-                    "Measured how well the tool delivered on its goals of insight, emotional support, and positive reflection.",
-                    "Used evaluation results to refine the product throughout the design process."
-                  ]
-                }
-              ],
-              "condensed": "I tested prototypes with users, measuring clarity, emotional support, and personalization to iterate and refine the design."
-            },
-            {
-              "title": "Design & Prototyping",
-              "source": [
-                {
-                  "type": "list",
-                  "items": [
-                    "Developed low- and high-fidelity prototypes of the conversational interface.",
-                    "Developed a modular UI system for dashboards, health summaries, and alerts",
-                    "Prototyped features including:Health timelineAI-powered risk cardsLab result normalizerClaims-integrated treatment suggestions",
-                    "Created low- to high-fidelity prototypes for mobile-first interfaces",
-                    "Used prototypes as a tool for stakeholder feedback and usability testing."
-                  ]
-                }
-              ],
-              "condensed": "I developed modular mobile prototypes for conversational interfaces, health timelines, risk cards, and lab result normalizers for usability testing."
-            }
+            "I audited existing EHR platforms and interviewed 7 patients and 3 clinicians about data access and coordination. The high-need use cases were chronic condition management, medication adherence and preventive screening.",
+            "I reviewed academic work on digital twins, personalization and context-aware design (Katsoulakis et al., 2024) and on AI ethics in health systems (Huang et al., 2022). It made trust and psychological safety core UX requirements, not only ethical ones.",
+            "I built low- to high-fidelity mobile prototypes: the conversational interface, a modular UI system for dashboards, summaries and alerts, a health timeline, AI-powered risk cards, a lab result normalizer and claims-integrated treatment suggestions.",
+            "I used the prototypes for stakeholder feedback and for usability evaluations of clarity, emotional support and personalization. This study reports no results from them."
           ]
         }
       ]
@@ -157,26 +88,26 @@
         },
         {
           "type": "paragraph",
-          "text": "Syncare AI is designed to deliver instant clarity and trust. With a clean layout, strong brand presence, and action-driven CTAs, it sets the tone for a smooth onboarding experience. It avoids overwhelming the user, instead guiding them toward value with minimal friction—ideal for a health-focused app where trust, simplicity, and control are critical."
+          "text": "SynCare AI aims for instant clarity and trust. A clean layout, strong brand presence and action-driven CTAs set the tone for onboarding, and guide people to value with minimal friction, which matters for a health app where trust, simplicity and control are critical."
         },
         {
           "type": "cards",
           "cards": [
             {
               "label": "Time to action",
-              "value": "Target: <5 seconds to first meaningful click"
+              "value": "Design target: under 5 seconds to the first meaningful click"
             },
             {
-              "label": "Cognitive Load",
-              "value": "Low – only 3 UI elements (logo, tagline, CTA)"
+              "label": "Click-through rate",
+              "value": "Design target: 65-75% with strong CTA placement"
             },
             {
-              "label": "Click-through Rate (CTR)",
-              "value": "Target: 65-75% with strong CTA placement"
+              "label": "Bounce rate",
+              "value": "Design target: down by more than 20% when an intro carousel follows the welcome screen"
             },
             {
-              "label": "Bounce Rate",
-              "value": "Target: lowered by >20% when intro carousel follows welcome"
+              "label": "Cognitive load",
+              "value": "By design: only 3 UI elements (logo, tagline, CTA)"
             }
           ]
         },
@@ -208,15 +139,15 @@
         },
         {
           "type": "paragraph",
-          "text": "The AI Chat feature turns static health data into natural, human-like dialogue. It builds on the previous screens by offering a conversational way to recall past appointments, track medication, and understand fitness and vitals history. Users can ask follow-up questions, get summarized reports, and take quick actions, all in one thread."
+          "text": "AI Chat turns static health data into natural, human-like dialogue. It lets users recall past appointments, track medication, and review fitness and vitals history. They can ask follow-up questions, get summarized reports and take quick actions, all in one thread."
         },
         {
           "type": "heading",
-          "text": "Why this works?"
+          "text": "Design rationale"
         },
         {
           "type": "paragraph",
-          "text": "This chat interface gives users clarity without requiring clinical literacy. It reduces friction by letting users engage through questions, while still maintaining access to structured info like medication logs and appointment summaries. It also bridges context between past records and next actions."
+          "text": "The chat gives users clarity without requiring clinical literacy. Questions lower the friction, while structured information such as medication logs and appointment summaries stays within reach. It also connects past records to next actions."
         },
         {
           "type": "images",
@@ -242,19 +173,19 @@
         },
         {
           "type": "paragraph",
-          "text": "AI-driven predictions increased trust when paired with human-readable explanations"
+          "text": "Design bet: AI-driven predictions earn more trust when paired with human-readable explanations."
         },
         {
           "type": "paragraph",
-          "text": "This dashboard experience is designed to surface real-time health insights in a way that is personalized, context-rich, and actionable. Each screen adapts based on data sources, providing tailored summaries, timely medication reminders, and AI-generated insights, all while keeping the interface friendly and non-clinical."
+          "text": "The dashboard surfaces real-time health insights that are personalized, context-rich and actionable. Each screen adapts to its data sources, giving tailored summaries, timely medication reminders and AI-generated insights in a friendly, non-clinical interface."
         },
         {
           "type": "heading",
-          "text": "Why this works?"
+          "text": "Design rationale"
         },
         {
           "type": "paragraph",
-          "text": "The flow balances critical health data (e.g. blood glucose, vitals, meds) with human-centered messaging (“Hi, Lola!”). Microcopy explains why something is flagged, while AI tips and upcoming tasks create a sense of proactive care. This reduces overwhelm, builds trust, and encourages behavior change."
+          "text": "The flow balances critical health data (blood glucose, vitals, meds) with human-centered messaging (“Hi, Lola!”). Microcopy explains why something is flagged, and AI tips and upcoming tasks suggest proactive care. The aim is less overwhelm, more trust and healthier habits."
         },
         {
           "type": "images",
@@ -273,20 +204,16 @@
           "type": "cards",
           "cards": [
             {
-              "label": "Daily Check-in Time",
-              "value": "Target: <60 seconds for complete overview"
+              "label": "Daily check-in time",
+              "value": "Design target: under 60 seconds for a complete overview"
             },
             {
-              "label": "Cognitive Load",
-              "value": "Target: +40% with contextual tips powered by your day across multiple services"
+              "label": "Info density",
+              "value": "By design: 3 key data blocks per scroll, with low visual noise"
             },
             {
-              "label": "Info Density",
-              "value": "3 Key data blocks per scroll with low visual noise"
-            },
-            {
-              "label": "CTA Clarity",
-              "value": "One primary interaction path per panel"
+              "label": "CTA clarity",
+              "value": "By design: one primary interaction path per panel"
             }
           ]
         }
@@ -301,15 +228,15 @@
         },
         {
           "type": "paragraph",
-          "text": "The vitals screen gives users a quick, reassuring overview of key health stats with contextual support when something is off. When blood glucose is high, the UI responds with calm messaging and clear, actionable tips, helping users feel informed rather than alarmed. The layout maintains a consistent card structure to support habit formation and quick scanning."
+          "text": "The vitals screen gives a quick, reassuring overview of key health stats, with contextual support when something is off. When blood glucose is high, the UI responds with calm messaging and clear, actionable tips, so users feel informed rather than alarmed. A consistent card structure supports habit formation and quick scanning."
         },
         {
           "type": "heading",
-          "text": "Why this works?"
+          "text": "Design rationale"
         },
         {
           "type": "paragraph",
-          "text": "It blends medical accuracy with emotional support, using friendly language and visual clarity to encourage positive behavior. The experience is personalized and educational without being overwhelming, designed to help users build trust and stay engaged with their health data."
+          "text": "It combines medical accuracy with emotional support, using friendly language and visual clarity to encourage positive behavior. The experience is personalized and educational without being overwhelming."
         },
         {
           "type": "images",
@@ -328,12 +255,12 @@
           "type": "cards",
           "cards": [
             {
-              "label": "Behavioral Tip Management",
-              "value": "Target: +35% when paired with elevated readings"
+              "label": "Behavioral tips",
+              "value": "Design target: +35% uptake when paired with elevated readings"
             },
             {
-              "label": "Cognitive Load",
-              "value": "Target: >25% lower app abandonment after alert events"
+              "label": "App abandonment",
+              "value": "Design target: more than 25% lower after alert events"
             }
           ]
         }
@@ -348,15 +275,15 @@
         },
         {
           "type": "paragraph",
-          "text": "The fitness page provides users with daily movement insights, hydration levels, and exercise logs, paired with personalized AI-driven recommendations. Visual summaries like step count, distance, calories, and yoga time are clearly presented alongside motivational tips and daily notes."
+          "text": "The fitness page gives daily movement insights, hydration levels and exercise logs, paired with personalized AI recommendations. Step count, distance, calories and yoga time appear alongside motivational tips and daily notes."
         },
         {
           "type": "heading",
-          "text": "Why this works?"
+          "text": "Design rationale"
         },
         {
           "type": "paragraph",
-          "text": "It reinforces positive behavior through encouraging feedback, while surfacing key activity metrics in a glanceable format. The addition of user-generated daily notes supports self-reflection and accountability, creating a loop between awareness and action."
+          "text": "Encouraging feedback reinforces positive behavior, and key activity metrics stay glanceable. User-written daily notes support self-reflection and accountability, closing the loop between awareness and action."
         },
         {
           "type": "images",
@@ -375,17 +302,60 @@
           "type": "cards",
           "cards": [
             {
-              "label": "Trust Signals",
-              "value": "Human-like tone and accurate memory boosts trust and retention"
+              "label": "Trust signals",
+              "value": "Design intent: a human-like tone and accurate memory to build trust and retention"
             },
             {
-              "label": "Engagement Rate",
-              "value": "Target: +50% vs standard record view"
+              "label": "Engagement rate",
+              "value": "Design target: +50% vs a standard record view"
             },
             {
-              "label": "Prevents Confusion ",
-              "value": "Target: >45% reduction in confusion caused by prescriptions among patients"
+              "label": "Less confusion",
+              "value": "Design target: more than 45% less confusion about prescriptions among patients"
             }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Key decisions",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Three calls that shaped SynCare"
+        },
+        {
+          "type": "cards",
+          "cards": [
+            {
+              "label": "Trust as a requirement",
+              "value": "Chose to treat trust and psychological safety as core design requirements, because the literature framed them as essential UX considerations, not just ethical ones."
+            },
+            {
+              "label": "Chat with structure",
+              "value": "Chose a conversational interface that keeps structured information such as medication logs and appointment summaries within reach, because users need clarity without clinical literacy."
+            },
+            {
+              "label": "Calm explanations",
+              "value": "Chose calm messaging and microcopy that says why something is flagged, because users should feel informed rather than alarmed."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Hindsight",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Limits"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Every figure labeled “Design target” was a goal I set during design. None was measured, and this study reports no results from the usability evaluations.",
+            "Goals such as HIPAA readiness describe the direction of the design. They are not a claim of compliance.",
+            "I worked on this as a UX design and research collaborator for 10 weeks, so the study shows the research and the design, not the product’s outcomes."
           ]
         }
       ]

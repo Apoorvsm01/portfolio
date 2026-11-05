@@ -1,11 +1,11 @@
 {
   "slug": "sitelens",
   "title": "SiteLens",
-  "description": "",
+  "description": "UX design and research for SiteLens, AR-glasses overlays and a companion mobile app for construction inspectors, designed over five weeks.",
   "tags": [
-    "Mobile Design",
-    "Health Tech",
-    "Artificial Intelligence"
+    "AR Glasses",
+    "Construction",
+    "Mobile Design"
   ],
   "hmw": "empower inspectors and project managers to streamline on-site construction inspections by overlaying dynamic checklists, contextual data, and real-time collaboration tools through AR glasses, while reducing costs and ensuring compliance?",
   "facts": [
@@ -23,7 +23,7 @@
     },
     {
       "label": "Role",
-      "value": "UX Designer & Research"
+      "value": "UX Designer & Researcher"
     }
   ],
   "prototype": null,
@@ -52,6 +52,10 @@
         {
           "type": "heading",
           "text": "SiteLens AR"
+        },
+        {
+          "type": "paragraph",
+          "text": "Inspectors need role-specific checklists, before/after comparisons and cost verification while they work on site. Over five weeks, I was the UX designer and researcher on SiteLens: AR-glasses overlays and a companion mobile app for them."
         }
       ]
     },
@@ -88,7 +92,7 @@
                   ]
                 }
               ],
-              "condensed": "I audited inspection tools and interviewed inspectors, managers, and trade engineers, identifying role-specific checklists, visual comparisons, and cost verification."
+              "condensed": "I audited inspection tools and interviewed inspectors, managers and engineers, which surfaced role-specific checklists, before/after comparisons and cost verification."
             },
             {
               "title": "Literature Review",
@@ -97,7 +101,7 @@
                   "type": "list",
                   "items": [
                     "Reviewed academic and industry sources on AR in construction, wearable-assisted inspections, and spatial computing.",
-                    "Explored challenges in data compliance, law/recall notifications, and construction order finalization.",
+                    "Explored challenges in data compliance, law/recall notifications and construction order finalization.",
                     "Identified trust, accuracy, and real-time collaboration as essential UX considerations, beyond hardware specs.",
                     "Used findings to inform principles for checklist design, visual layering, and mobile–AR integration."
                   ]
@@ -110,14 +114,14 @@
               "source": [
                 {
                   "type": "paragraph",
-                  "text": "Conducted interviews to gather insights from users and stakeholders (implied by mention of stakeholder interviews)."
+                  "text": "Interviewed stakeholders to capture tool requirements."
                 },
                 {
                   "type": "list",
                   "items": [
-                    "Used insights to shape inspection templates, room-based checklists, and tailored dashboards.",
-                    "Captured requirements for role-specific “ingredient lists” (e.g., scanner, notes, tape measure).",
-                    "Helped refine the goals of cost reduction, accuracy, and real-time updates across multiple contractors."
+                    "Used insights to shape inspection templates, room-based checklists and tailored dashboards.",
+                    "Captured requirements for role-specific tool lists (e.g., scanner, notes, tape measure).",
+                    "Helped refine the goals of cost reduction, accuracy and real-time updates across multiple contractors."
                   ]
                 }
               ],
@@ -128,14 +132,14 @@
               "source": [
                 {
                   "type": "paragraph",
-                  "text": "Tested prototypes with users to assess emotional support, clarity, and personalization."
+                  "text": "Tested prototypes with users to assess readability, voice and gesture commands, and efficiency."
                 },
                 {
                   "type": "list",
                   "items": [
-                    "Gathered feedback on AR checklist readability, voice/gesture commands, and navigation triggers.",
-                    "Measured efficiency: time saved compared to manual inspections and paper-based workflows.",
-                    "Used findings to refine visual hierarchy, session summaries, and integration with maps + reminders."
+                    "Gathered feedback on AR checklist readability, voice/gesture commands and navigation triggers.",
+                    "Measured efficiency: time saved compared with manual inspections and paper-based workflows.",
+                    "Used findings to refine visual hierarchy, session summaries and integration with maps and reminders."
                   ]
                 }
               ],
@@ -149,7 +153,7 @@
                   "items": [
                     "Developed low- and high-fidelity prototypes for mobile and AR glasses.",
                     "Designed a modular UI system for uploading inspection checklists, attaching before/after photos, and role-based task lists.",
-                    "Prototyped AR overlays including:Room-wise task listsVideo-assisted inspection referencesLaw/recall notificationsCost/order verification prompts",
+                    "Prototyped AR overlays including: room-wise task lists, video-assisted inspection references, law/recall notifications, and cost/order verification prompts.",
                     "Created interactive flows simulating site inspections with Even Realities G1 glasses.",
                     "Iterated prototypes with stakeholders for validation and alignment with real-world workflows."
                   ]
@@ -256,6 +260,48 @@
               "label": "Popular Content Grid",
               "value": "Visual-first layout with thumbnails, titles, and quick delete (X) actions."
             }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Key decisions",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Three calls that shaped the home screen"
+        },
+        {
+          "type": "cards",
+          "cards": [
+            {
+              "label": "Productivity first",
+              "value": "Chose a home built around utility and tools over a media-first one."
+            },
+            {
+              "label": "Active, inactive, suggested",
+              "value": "Chose clear segments for active, inactive and suggested apps, because they keep the system extensible."
+            },
+            {
+              "label": "Mirror the glasses",
+              "value": "Chose a mobile UI that mirrors the AR glasses (simple toggles, spatial task context), so the two feel like one system, with an Omni-AI status that builds confidence by showing clarity upfront."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Hindsight",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Limits"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The usability sessions measured time saved against paper workflows, but this study states no figure, so I make no efficiency claim.",
+            "The glasses flows were interactive prototypes simulating site inspections on Even Realities G1 glasses, not a deployed tool."
           ]
         }
       ]

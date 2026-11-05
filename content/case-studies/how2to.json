@@ -1,7 +1,7 @@
 {
   "slug": "how2to",
   "title": "How2To",
-  "description": "",
+  "description": "UI design and UX research for How2To, step-by-step spatial tutorials for Vision Pro, Meta Quest and iOS, designed over four months at Omnia.",
   "tags": [
     "VisionOS",
     "Spatial Design",
@@ -29,6 +29,10 @@
     {
       "label": "",
       "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Tutorials on a flat screen make people stop and switch between the content and the task. Over four months at Omnia, I was UI designer and UX researcher on How2To: step-by-step tutorials that sit in the room with you on Vision Pro, Meta Quest and iOS."
+        },
         {
           "type": "video",
           "vimeoId": "1095788946"
@@ -110,7 +114,7 @@
                   ]
                 }
               ],
-              "condensed": "I interviewed nine participants who used online tutorials, finding most struggled to switch between tasks and wanted hands-free instruction."
+              "condensed": "I interviewed nine people aged 20 to 45: seven struggled to switch between content and task, and six wanted hands-free visual instruction."
             },
             {
               "title": "Persona Building",
@@ -158,11 +162,11 @@
       "blocks": [
         {
           "type": "heading",
-          "text": "Unobtrusive Design"
+          "text": "Voice that stays out of the way"
         },
         {
           "type": "paragraph",
-          "text": "I designed a voice-first interaction model that eliminates cognitive overload by streamlining commands to only the most contextually relevant actions. On Vision Pro, this voice layer acts as a spatial tutorial generation assistant, intelligently creating steps enriched with videos and images that are task-specific, enabling users to focus entirely on hands-on activity. The design follows Minimalism principles and prioritizes flow continuity in 3D space."
+          "text": "I designed a voice-first interaction model that avoids cognitive overload by keeping only the most contextually relevant commands. On Vision Pro, the voice layer acts as a spatial tutorial assistant: it generates steps enriched with task-specific videos and images, so users can focus on the hands-on activity. The design follows minimalism and keeps the flow continuous in 3D space."
         }
       ]
     },
@@ -175,7 +179,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Once the AI generates a tutorial, this page allows the user to go over the results, sources, and ingredients. Once everything is in order, they can proceed to the immersive viewer.\nThis page enables options and a means of knowing if they have all the right tools/ingredients to perform the task they asked for. If they don't approve of the tutorial, they can head to the 'Browse' page for others, 'See More', or the Voice search to regenerate with a prompt, or 'Continue' to proceed to completing the task."
+          "text": "Once the AI generates a tutorial, this page lets the user review the results, sources and ingredients, and check they have the right tools before starting.\nIf they don’t approve, they can open “Browse” or “See More”, or use voice search to regenerate with a new prompt. “Continue” opens the immersive viewer."
         }
       ]
     },
@@ -188,7 +192,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Designed two tutorial viewer sizes to suit all user needs. They can choose to be fully immersed to stay focused on a single task or take a better look at the step. The condensed view would allow more information and multi-app usage. From user testing, we found that users who are accustomed to spatial interfaces tend to have 3-4 applications running in their view, and the condensed view is best catered to them. Similarly, it is highly demanded in B2B settings where worker efficiency is preferred over content immersion."
+          "text": "I designed two viewer sizes. The immersive view keeps users focused on a single task. The condensed view shows more information and leaves room for other apps. In user testing, we found people used to spatial interfaces keep 3-4 applications in view, and the condensed view suits them. It is also in demand in B2B settings, where worker efficiency matters more than immersion."
         }
       ]
     },
@@ -201,7 +205,7 @@
         },
         {
           "type": "paragraph",
-          "text": "My work focused on creating an intuitive and aesthetically pleasing user experience. I prioritized clarity and accessibility by organizing content into easily navigable sections, such as “Food”, \"DIY\", \"Technology\", etc., using distinct, colorful cards to highlight generated tutorials. This design not only enhances user engagement but also ensures that information is both discoverable and enjoyable to browse."
+          "text": "I organized generated tutorials into easy-to-navigate sections such as “Food”, “DIY” and “Technology”, using distinct, colorful cards so each tutorial is easy to find and pleasant to browse."
         }
       ]
     },
@@ -214,7 +218,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Due to the extensive functionalities of How2, I redesigned the native media controls. Now we have Steps, access to tutorials, a toggle to change the viewer mode, show or hide ingredients, and even information sources (described from left to right).\n\nThis design maintains a small footprint and ensures spatial efficiency without sacrificing functionality."
+          "text": "How2To does more than the native media controls allow, so I redesigned them. From left to right: Steps, access to tutorials, a toggle for the viewer mode, show or hide ingredients, and information sources.\n\nThe controls keep a small footprint, so they save space without losing functionality."
         },
         {
           "type": "images",
@@ -223,6 +227,48 @@
               "src": "/work/how2to/07.png",
               "alt": ""
             }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Key decisions",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Three calls that shaped How2To"
+        },
+        {
+          "type": "cards",
+          "cards": [
+            {
+              "label": "Fewer voice commands",
+              "value": "Chose a voice model that keeps only the most contextually relevant commands, because it avoids cognitive overload during hands-on work."
+            },
+            {
+              "label": "Two viewer sizes",
+              "value": "Chose an immersive and a condensed viewer over one size, because focused tasks need immersion, while people running 3-4 apps and B2B workers need room for more."
+            },
+            {
+              "label": "Custom media controls",
+              "value": "Chose redesigned controls over the native ones, because How2To needed Steps, viewer mode, ingredients and sources in a small footprint."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Hindsight",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "What this study can and can’t show"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The research is nine interviews. The 7 of 9, 6 of 9 and 5 of 9 counts are directional, not statistics.",
+            "I have no outcome metrics for How2To, such as task completion or time on task. What I can show is the design and the research behind it."
           ]
         }
       ]

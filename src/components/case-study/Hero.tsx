@@ -4,6 +4,7 @@ import type { StudyMeta } from "../../../content/study-meta";
 import { site } from "../../../content/site";
 import { imageDims } from "../../lib/content";
 import { FadeImage } from "../FadeImage";
+import { StatusPill } from "../StatusPill";
 import { LoopVideo } from "./LoopVideo";
 
 export interface CaseStudyHeroProps {
@@ -55,6 +56,7 @@ export function Hero({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
           {/* Left Column: Title, Claim tagline, Facts table */}
           <div className="lg:col-span-7 xl:col-span-7 flex flex-col justify-start">
+            <StatusPill slug={study.slug} className="mb-4 self-start" />
             <h1 className="font-display font-black text-h1 text-fg leading-[1.05] tracking-[-0.025em] mb-4">
               {study.title}
             </h1>

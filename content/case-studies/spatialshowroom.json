@@ -1,7 +1,7 @@
 {
   "slug": "spatialshowroom",
   "title": "Spatial Showroom",
-  "description": "",
+  "description": "UI design and UX research for the Omnia Virtual Showroom, a Vision Pro car showroom built for a Tesla event in four months and now live on the visionOS App Store.",
   "tags": [
     "VisionOS",
     "Spatial Design",
@@ -48,11 +48,15 @@
       ]
     },
     {
-      "label": "Live on the AppStore",
+      "label": "Live on the App Store",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Proud to announce that the Omnia Virtual Showroom is live on the VisionOS App Store!"
+          "text": "A Tesla showroom event needed an XR demo that was easy enough to run for about 100 people. Over four months at Omnia, I was UI designer and UX researcher on the app."
+        },
+        {
+          "type": "paragraph",
+          "text": "The Omnia Virtual Showroom is live on the visionOS App Store."
         },
         {
           "type": "images",
@@ -66,62 +70,15 @@
       ]
     },
     {
-      "label": "Research Methods",
+      "label": "Research in brief",
       "blocks": [
         {
-          "type": "bento",
-          "items": [
-            {
-              "title": "Brainstorming Sessions",
-              "source": [
-                {
-                  "type": "paragraph",
-                  "text": "Organized a full-stack team to go over all aspects of developing such an app. Addressed development issues, backend, and 3D model implementation to manage content uploads, delivery, recommendations, and more. Prototyped in Figma and further in development"
-                }
-              ],
-              "condensed": "I organized a full-stack team to address development, backend requirements, 3D model delivery, and prototyping in Figma and code."
-            },
-            {
-              "title": "Competitor Analysis",
-              "source": [
-                {
-                  "type": "paragraph",
-                  "text": "Identified web-based car configurators from name brands that prioritize functionality and configuration options over augmented reality features. Took functional inspiration and applied it to a Vision Pro application with more features."
-                }
-              ],
-              "condensed": "I evaluated web car configurators to borrow functional configuration features and translated those mechanics into a Vision Pro app."
-            },
-            {
-              "title": "User Interviews",
-              "source": [
-                {
-                  "type": "paragraph",
-                  "text": "Conducted 25+ interviews with users of traditional media outlets, creators looking to publish spatial content, headset owners, and even company founders to evaluate business use cases."
-                }
-              ],
-              "condensed": "I conducted over 25 interviews with traditional media users, spatial content creators, headset owners, and founders on use cases."
-            },
-            {
-              "title": "Persona Building",
-              "source": [
-                {
-                  "type": "paragraph",
-                  "text": "We developed user personas representing car buyers, including those who are tech-savvy and those who need to view their car in real life, ensuring our platform addressed their needs. These profiles provided insights into motivations, constraints, and expectations, guiding feature prioritization and user-centric design."
-                }
-              ],
-              "condensed": "We created personas for tech-savvy buyers and shoppers who needed real-life views, using their constraints to prioritize showroom features."
-            },
-            {
-              "title": "Affinity Mapping",
-              "source": [
-                {
-                  "type": "paragraph",
-                  "text": "We synthesized insights from user interviews, competitor analysis, and team brainstorming sessions through affinity mapping. This process enabled structured categorization of user pain points, core needs, and prioritized features. As a result, all design decisions were grounded in validated, user-centered insights."
-                }
-              ],
-              "condensed": "We organized insights from interviews, competitor audits, and brainstorming sessions into categorized pain points, needs, and prioritized features."
-            }
-          ]
+          "type": "heading",
+          "text": "Twenty-five interviews and a configurator review"
+        },
+        {
+          "type": "paragraph",
+          "text": "I conducted 25+ interviews with traditional media users, creators looking to publish spatial content, headset owners and company founders, who spoke to business use cases. I evaluated name-brand web car configurators, which put functionality and configuration options ahead of AR features, and took their functional ideas into a Vision Pro app with more features. I organized a full-stack team around development, backend and 3D model delivery, and prototyped in Figma and then in code. With the team, I turned the findings into personas for tech-savvy buyers and for people who need to see a car in real life, and into affinity maps of pain points and prioritized features."
         },
         {
           "type": "images",
@@ -139,7 +96,7 @@
       ]
     },
     {
-      "label": "How it Started?",
+      "label": "How it started",
       "blocks": [
         {
           "type": "heading",
@@ -147,7 +104,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Tesla of River North approached our company intending to create and showcase an XR-based app at their showroom event on November 21st, 2024. After a few discussions, we set our minds on a virtual car showroom with customization options and fun, quirky features to get people interested.  Using our specialties in VisionOS and MobileXR development, we got to work. Sketches on paper turned to FigJam mockups. These focused on the landing page and the UI for viewing the car. It was important for users to go through a step to place their car, which also allowed the program to load the heavy 3D model in the background."
+          "text": "Tesla of River North approached our company to create an XR app for their showroom event on November 21st, 2024. After a few discussions, we settled on a virtual car showroom with customization options and fun, quirky features to draw people in. Using our strengths in visionOS and mobile XR development, we got to work. Paper sketches became FigJam mockups of the landing page and the car-viewing UI. Users go through a step to place their car, which also lets the app load the heavy 3D model in the background."
         },
         {
           "type": "images",
@@ -161,28 +118,15 @@
       ]
     },
     {
-      "label": "Feature #1",
+      "label": "Car viewer",
       "blocks": [
         {
           "type": "heading",
-          "text": "Realistic Car Viewer"
+          "text": "A realistic, immersive car viewer"
         },
         {
           "type": "paragraph",
-          "text": "A Tesla showroom in the comfort of your home. You have the ability to view all their products life-size and interact with them as if you own them! Customize the colors, wheel designs, and interior features to your liking before placing your order for your very own car."
-        }
-      ]
-    },
-    {
-      "label": "Feature #2",
-      "blocks": [
-        {
-          "type": "heading",
-          "text": "Immersive Viewer"
-        },
-        {
-          "type": "paragraph",
-          "text": "A Tesla showroom in the comfort of your home. You have the ability to view all their products life-size and interact with them as if you own them! Customize the colors, wheel designs, and interior features to your liking before placing your order for your very own car."
+          "text": "A Tesla showroom in your own home. You can view the products life-size and interact with them as if you owned them, and customize the colors, wheel designs and interior features before placing an order."
         }
       ]
     },
@@ -199,7 +143,45 @@
         },
         {
           "type": "paragraph",
-          "text": "The Tesla showroom event aimed to lure potential buyers and people interested in futuristic technology. This meant people needed to be exposed to Tesla's car and their appeal, along with new tech that would leave them in awe. The app had to be easy enough to demo to about 100 people in a matter of minutes per person. A quick plug-and-play solution where the setup time had to be minimal."
+          "text": "The Tesla showroom event aimed to draw potential buyers and people curious about futuristic tech. Visitors needed to see Tesla’s cars and their appeal, along with new tech that would leave them in awe. The app had to be easy to demo to about 100 people, a few minutes each, as a quick plug-and-play setup with minimal setup time."
+        }
+      ]
+    },
+    {
+      "label": "Key decisions",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Two calls that shaped the showroom"
+        },
+        {
+          "type": "cards",
+          "cards": [
+            {
+              "label": "Place-your-car step",
+              "value": "The team chose a place-your-car step before the viewer, because it let the app load the heavy 3D model in the background."
+            },
+            {
+              "label": "Configurator depth",
+              "value": "Chose to borrow the configuration depth of web car configurators, which put functionality ahead of AR features, and extend it on Vision Pro."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Hindsight",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Limits"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The proof is that the app is live on the App Store and was built for the event. I have no recorded results from the event itself.",
+            "“Demo to about 100 people” was the requirement the design had to meet, not a result I measured."
+          ]
         }
       ]
     }

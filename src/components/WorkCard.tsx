@@ -61,6 +61,7 @@ export function WorkCard({
           <FadeImage
             src={cover.src}
             alt=""
+            aria-hidden="true"
             width={cover.width}
             height={cover.height}
             loading="lazy"

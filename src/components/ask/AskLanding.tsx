@@ -100,6 +100,7 @@ export function AskLanding({ projects }: { projects: ProjectCard[] }) {
   const [ready, setReady] = useState(false);
   const [pulse, setPulse] = useState(0);
   const [asked, setAsked] = useState(0);
+  const [question, setQuestion] = useState("");
   const heroRef = useScrollBlur<HTMLElement>("out", 14);
   const engine = useRef<AskEngine | null>(null);
   const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
@@ -143,6 +144,7 @@ export function AskLanding({ projects }: { projects: ProjectCard[] }) {
       setPhase("thinking");
       setResult(null);
     });
+    setQuestion(q);
     setPulse((n) => n + 1);
     setAsked((n) => n + 1);
     const e = await loadEngine();
@@ -261,6 +263,12 @@ export function AskLanding({ projects }: { projects: ProjectCard[] }) {
         <m.p className="ask-helper" style={{ opacity: helperEnter.opacity, y: helperEnter.y }}>
           {askCopy.helper}
         </m.p>
+        {/* Three real facts, so the first screen shows proof as well as the box. Fixed height: no layout shift. */}
+        <m.ul className="ask-proof" aria-label="At a glance" style={{ opacity: helperEnter.opacity, y: helperEnter.y }}>
+          {site.hero.proof.map((fact) => (
+            <li key={fact}>{fact}</li>
+          ))}
+        </m.ul>
         <PromptBox
           value={query}
           onChange={setQuery}
@@ -271,6 +279,11 @@ export function AskLanding({ projects }: { projects: ProjectCard[] }) {
         />
         <HomeChips prompts={suggestedPrompts} onPick={choose} disabled={phase === "thinking"} selectedId={selectedChip} />
 
+        {phase !== "idle" && question && (
+          <p className="ask-question">
+            <span className="ask-question-label">{site.askEchoLabel}</span> {question}
+          </p>
+        )}
         {phase === "thinking" && <ThinkingPanel />}
         {phase === "answered" && answer && (
           <AnswerPanel key={asked} result={answer} matchCount={matches.length} onPick={choose} onStreaming={setStreaming} onReset={reset} />

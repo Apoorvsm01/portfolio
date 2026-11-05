@@ -5,8 +5,12 @@
 // Voice (v4): first person, plain words, short sentences. Every claim carries a number or a named
 // thing from the resume. Headlines state a point ("…, so drivers don't have to look"), not a topic.
 
+// How far a project got: shown as a small pill on cards and in each case study header.
+export type WorkStatus = "Shipped" | "Built" | "Prototype" | "Study" | "Concept" | "In progress";
+
 export type WorkRef = {
   slug: string;
+  status: WorkStatus;
   org?: string; // only set where the employer is confirmed
   blurb: string;
   cover?: string; // card image override (public path)
@@ -30,6 +34,8 @@ export const site = {
     headline: "I study how people drive, and then I build what they need.",
     intro:
       "From November 2025 to October 2026 I was the UX engineer behind Drive Coach, an in-car AI driving coach at Woven by Toyota, taking it from raw research on 100+ drivers to a CARLA simulator rig with real steering and pedals. In the Drive Coach real-car retest, 70% of drivers understood its re-timed voice instructions, a 50% improvement on the version before.",
+    // One-line proof strip under the home greeting: three real facts, in order.
+    proof: ["Ex-Woven by Toyota", "100+ drivers → 22 scenarios", "Shipped on the visionOS App Store"],
     // 1200 px real JPEG (the original portrait.jpeg is a 1.7 MB PNG with the wrong extension)
     image: { src: "/me/portrait-1200.jpg", alt: "Apoorv Mahajan smiling, sitting on a swing at night", width: 1200, height: 1193 },
   },
@@ -84,6 +90,7 @@ export const site = {
 
   featured: {
     slug: "woven",
+    status: "Prototype" as WorkStatus,
     org: "Woven by Toyota",
     headline: "From a product brief to a coach in the car.",
     summary:
@@ -108,6 +115,7 @@ export const site = {
     personalLabel: "Personal project",
     lead: {
       title: "The Good Roommate",
+      status: "In progress" as WorkStatus,
       claim: "A chore app built around a phone that unfolds.",
       // Newest captures, in Apple's Duo bezel (see /personal).
       shots: [
@@ -137,15 +145,15 @@ export const site = {
   featuredDomain: "Automotive" as const,
 
   work: [
-    { slug: "fleet-console", domain: "Automotive", cover: "/work/fleet-console/02.jpg", org: "Woven by Toyota", blurb: "A concept console that puts coverage gaps and open incidents on the first screen.", link: { label: "Code on GitHub", href: "https://github.com/Apoorvsm01/fleet-console" } },
-    { slug: "how2to", domain: "Spatial", cover: "/work/how2to/03.png", org: "Omnia", blurb: "AI-powered, step-by-step spatial tutorials on visionOS." },
-    { slug: "omniabrowser", domain: "Spatial", cover: "/work/omniabrowser/02.png", org: "Omnia", blurb: "A spatial browser for Apple Vision Pro." },
-    { slug: "spatialshowroom", domain: "Spatial", cover: "/work/spatialshowroom/01.png", blurb: "A spatial showroom experience for Vision Pro." },
-    { slug: "syncare-ai-health", domain: "Health", cover: "/work/syncare-ai-health/01.png", org: "Patched Reality", blurb: "Making AI-integrated health records easier to read." },
-    { slug: "sitelens", domain: "Spatial", cover: "/work/sitelens/02.png", org: "Omnia", blurb: "AR glasses for on-site construction inspections." },
+    { slug: "fleet-console", status: "Concept", domain: "Automotive", cover: "/work/fleet-console/02.jpg", org: "Woven by Toyota", blurb: "A concept console that puts coverage gaps and open incidents on the first screen.", link: { label: "Code on GitHub", href: "https://github.com/Apoorvsm01/fleet-console" } },
+    { slug: "how2to", status: "Prototype", domain: "Spatial", cover: "/work/how2to/03.png", org: "Omnia", blurb: "AI-powered, step-by-step spatial tutorials on visionOS." },
+    { slug: "omniabrowser", status: "Shipped", domain: "Spatial", cover: "/work/omniabrowser/02.png", org: "Omnia", blurb: "A spatial browser for Apple Vision Pro." },
+    { slug: "spatialshowroom", status: "Shipped", domain: "Spatial", cover: "/work/spatialshowroom/01.png", blurb: "A spatial showroom experience for Vision Pro." },
+    { slug: "syncare-ai-health", status: "Study", domain: "Health", cover: "/work/syncare-ai-health/01.png", org: "Patched Reality", blurb: "Making AI-integrated health records easier to read." },
+    { slug: "sitelens", status: "Concept", domain: "Spatial", cover: "/work/sitelens/02.png", org: "Omnia", blurb: "AR glasses for on-site construction inspections." },
     // Personal projects: listed after employer work; shown in their own band under the Woven feature.
-    { slug: "design-crew", domain: "Personal", cover: "/work/design-crew/pipeline.svg", coverFit: "contain", blurb: "An agent pipeline I built to re-create the Fleet Console concept, with human gates and a logged decision at every step.", link: { label: "Code on GitHub", href: "https://github.com/Apoorvsm01/fleet-console" } },
-    { slug: "just-fill-it", domain: "Personal", cover: "/work/just-fill-it/panel-glass-done-light.png", blurb: "A Chrome and Safari extension that tailors a resume to the job page you're on.", link: { label: "Code on GitHub", href: "https://github.com/Apoorvsm01/just-fill-it" } },
+    { slug: "design-crew", status: "Built", domain: "Personal", cover: "/work/design-crew/pipeline.svg", coverFit: "contain", blurb: "An agent pipeline I built to re-create the Fleet Console concept, with human gates and a logged decision at every step.", link: { label: "Code on GitHub", href: "https://github.com/Apoorvsm01/fleet-console" } },
+    { slug: "just-fill-it", status: "Built", domain: "Personal", cover: "/work/just-fill-it/panel-glass-done-light.png", blurb: "A Chrome and Safari extension that tailors a resume to the job page you're on.", link: { label: "Code on GitHub", href: "https://github.com/Apoorvsm01/just-fill-it" } },
   ] satisfies WorkRef[],
 
   howIWorkIntro:
@@ -168,6 +176,35 @@ export const site = {
       body: "Engineers get working React, Flutter, SwiftUI or Tailwind, a shared design system, and a written log of every decision.",
     },
   ],
+
+  // At a glance, top of /about/.
+  lookingFor: {
+    label: "Looking for",
+    text: "Senior Product Designer or UX Engineer — automotive HMI, spatial computing and AI products.",
+  },
+
+  // Pull quotes from LinkedIn recommendations, shown on the home page.
+  testimonials: {
+    heading: "What teammates say",
+    items: [
+      {
+        quote:
+          "He is quick to turn ideas into tangible designs, bringing concepts to life in the appropriate tools and sharing them with the team for feedback as early as possible.",
+        name: "Emily Lerner",
+        role: "Manager, Woven by Toyota",
+      },
+      {
+        quote:
+          "He definitely learned a lot of tools and methods in a short period of time, and would go above and beyond to get his work done in excellence.",
+        name: "Aladdin Hijaz",
+        role: "Teammate, Woven by Toyota",
+      },
+    ],
+    source: "From LinkedIn recommendations",
+  },
+
+  // Shown with the question on the Ask answer panels, so a long question is never cut off.
+  askEchoLabel: "You asked",
 
   timelineIntro: "Researcher, designer, engineer. Newest first, back to 2019.",
   // Newest first. `flag` colours the org chip.
@@ -218,3 +255,12 @@ export const site = {
   disclaimer:
     "Woven by Toyota logo is a copyright of Woven by Toyota, Inc. ©2026. I did not design or create the logo in any capacity. All Woven by Toyota projects are inspired by the work I did, not true copies.",
 };
+
+const statuses: Record<string, WorkStatus> = {
+  ...Object.fromEntries(site.work.map((w) => [w.slug, w.status])),
+  [site.featured.slug]: site.featured.status,
+  "good-roommate": site.personal.lead.status,
+};
+
+// Status pill label for a project slug (undefined for slugs with no entry).
+export const statusFor = (slug: string): WorkStatus | undefined => statuses[slug];

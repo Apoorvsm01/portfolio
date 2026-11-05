@@ -5,6 +5,7 @@ import { m } from "motion/react";
 import { useRef } from "react";
 import { useReveal, useTilt } from "../motion/home-motion";
 import { FadeImage } from "../FadeImage";
+import { StatusPill } from "../StatusPill";
 import { site } from "../../../content/site";
 import type { ProjectCard } from "./types";
 
@@ -48,6 +49,7 @@ export function ShelfCard({ project, index }: { project: ProjectCard; index: num
             <FadeImage
               src={cover.src}
               alt=""
+              aria-hidden="true"
               width={cover.width}
               height={cover.height}
               loading="lazy"
@@ -57,7 +59,10 @@ export function ShelfCard({ project, index }: { project: ProjectCard; index: num
           )}
         </m.div>
         <div className="shelf-meta">
-          <h3 className="shelf-name">{project.title}</h3>
+          <div className="shelf-title-row">
+            <h3 className="shelf-name">{project.title}</h3>
+            <StatusPill slug={project.slug} />
+          </div>
           <p className="shelf-claim">{project.claim}</p>
         </div>
       </Link>

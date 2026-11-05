@@ -1,7 +1,7 @@
 {
   "slug": "omniabrowser",
   "title": "Omnia Browser",
-  "description": "",
+  "description": "UI design and UX research for Omnia Browser, a spatial browser and media app for Vision Pro, Meta Quest and iOS, built over seven months at Omnia.",
   "tags": [
     "VisionOS",
     "Spatial Design",
@@ -36,66 +36,23 @@
         {
           "type": "heading",
           "text": "Spatial Browser"
+        },
+        {
+          "type": "paragraph",
+          "text": "Spatial photos, video and the web are locked inside proprietary ecosystems. Over seven months at Omnia, I was UI designer and UX researcher on a browser for Vision Pro, Meta Quest and iOS that opens them up."
         }
       ]
     },
     {
-      "label": "Research Methods",
+      "label": "Research in brief",
       "blocks": [
         {
-          "type": "bento",
-          "items": [
-            {
-              "title": "Brainstorming Sessions",
-              "source": [
-                {
-                  "type": "paragraph",
-                  "text": "Organized a full-stack team to go over all aspects of developing such an app. Addressed development issues, backend, and AI implementation to manage content uploads, delivery, recommendations, and more. Prototyped in Figma and further in development"
-                }
-              ],
-              "condensed": "I coordinated with a full-stack team on development, backend systems, AI recommendations, and interactive Figma and code prototypes."
-            },
-            {
-              "title": "Competitor Analysis",
-              "source": [
-                {
-                  "type": "paragraph",
-                  "text": "Identified multiple media sharing applications on Apple Vision Pro and Meta Quest platforms. Some were native apps while most were third-party. Each competitor tackled and faced a unique problem."
-                }
-              ],
-              "condensed": "I reviewed media sharing applications across Apple Vision Pro and Meta Quest, comparing native and third-party solutions to evaluate gaps."
-            },
-            {
-              "title": "User Interviews",
-              "source": [
-                {
-                  "type": "paragraph",
-                  "text": "Conducted 15+ interviews with users of traditional media outlets, creators looking to publish spatial content, headset owners and even company founders to evaluate business use cases."
-                }
-              ],
-              "condensed": "I conducted over fifteen interviews with traditional media users, spatial content creators, headset owners, and company founders on use cases."
-            },
-            {
-              "title": "Persona Building",
-              "source": [
-                {
-                  "type": "paragraph",
-                  "text": "We developed user personas representing spatial content viewers and creators, ensuring our platform addressed their real-world needs. These profiles provided insights into motivations, constraints, and expectations, guiding feature prioritization and user-centric design."
-                }
-              ],
-              "condensed": "We developed user personas for spatial content viewers and creators to capture their motivations, constraints, expectations, and feature priorities."
-            },
-            {
-              "title": "Affinity Mapping",
-              "source": [
-                {
-                  "type": "paragraph",
-                  "text": "We synthesized insights from user interviews, competitor analysis, and team brainstorming sessions through affinity mapping. This process enabled structured categorization of user pain points, core needs, and prioritized features. As a result, all design decisions were grounded in validated, user-centered insights."
-                }
-              ],
-              "condensed": "We synthesized interview, competitor, and brainstorming data through affinity mapping to categorize user pain points, core needs, and prioritized features."
-            }
-          ]
+          "type": "heading",
+          "text": "Fifteen interviews and a competitor review"
+        },
+        {
+          "type": "paragraph",
+          "text": "I conducted 15+ interviews with traditional media users, creators looking to publish spatial content, headset owners and company founders, who spoke to business use cases. I reviewed the media-sharing apps on Apple Vision Pro and Meta Quest, native and third-party, to find the gaps. I also coordinated with a full-stack team on development, backend and AI recommendations, and prototyped in Figma and then in code. With the team, I turned the findings into personas for viewers and creators and into affinity maps of pain points, core needs and prioritized features."
         }
       ]
     },
@@ -108,7 +65,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Omnia pioneers the future of immersive media by enabling the upload and exploration of Spatial Photos, Panoramas, Videos, and Gaussian Splats formats traditionally locked within proprietary ecosystems. I designed a community-powered gallery experience, purpose-built for VR/AR headsets, that transforms spatial content into a collective, explorable dimension."
+          "text": "Omnia lets people upload and explore Spatial Photos, Panoramas, Videos and Gaussian Splats, formats usually locked inside proprietary ecosystems. I designed a community-powered gallery for VR/AR headsets that turns spatial content into a shared, explorable space."
         }
       ]
     },
@@ -125,15 +82,15 @@
         },
         {
           "type": "paragraph",
-          "text": "Flipping through summary cards is efficient, spatial, and works well alongside other apps. User research proved that people read more content generated by AI Summaries, and now they can do so in Augmented Reality."
+          "text": "Flipping through summary cards is efficient, spatial and works alongside other apps. User research showed that people read more of the content AI summaries generate, and now they can do it in augmented reality."
         },
         {
           "type": "paragraph",
-          "text": "Spatial web-browsing is the next step in Augmented Reality interfaces. All images on a page appear in a top carousel for immediate access, followed by the text. Only the text in view is bright, the rest is dimmed to avoid visual distraction. Scrolling brings it in view. The Ai summaries can be accessed in a side panel if desired. Easy access to an AI assistant was key for the future of browisng as well, and lives in the Safari-inspired bottom tab bar."
+          "text": "On a page, all images sit in a top carousel for immediate access, followed by the text. Only the text in view is bright and the rest is dimmed to avoid visual distraction; scrolling brings the next text into view. The AI summaries are available in a side panel if you want them. Easy access to an AI assistant mattered for the future of browsing, so it lives in the Safari-inspired bottom tab bar."
         },
         {
           "type": "paragraph",
-          "text": "These design elements predate Apple's spatial web browsing update with VisionOS 26."
+          "text": "These design elements predate Apple’s spatial web browsing update in visionOS 26."
         },
         {
           "type": "images",
@@ -159,15 +116,15 @@
         },
         {
           "type": "paragraph",
-          "text": "WebXR games promise immersive play but fragmentation across VR/AR devices has limited their reach."
+          "text": "WebXR games promise immersive play, but fragmentation across VR/AR devices has limited their reach."
         },
         {
           "type": "paragraph",
-          "text": "Omnia revolutionizes this by making spatial games instantly cross-compatible, no developer intervention required. I designed the Adaptable Game UI to elevate this breakthrough—interfaces now morph to match the hardware in real time."
+          "text": "Omnia makes spatial games cross-compatible with no developer intervention. I designed the Adaptable Game UI so interfaces morph to match the hardware in real time."
         },
         {
           "type": "paragraph",
-          "text": "Imagine gripping a virtual steering wheel rendered precisely to your device, without a single line of extra code. That’s the power of Omnia’s adaptive runtime."
+          "text": "Picture gripping a virtual steering wheel rendered for your device, without a line of extra code. That is Omnia’s adaptive runtime."
         },
         {
           "type": "images",
@@ -193,7 +150,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Designed brand new zoom sliders and rotation controls for 3D models. Allowing users to interact with and view the model with a single hand instead of having to rely on two-handed gestures that are native to the OS. This was a highly requested feature by factory workers due to the nature of their work."
+          "text": "I designed new zoom sliders and rotation controls for 3D models. They let users view and move a model with one hand, instead of the two-handed gestures native to the OS. Factory workers asked for this most, because of the nature of their work."
         },
         {
           "type": "images",
@@ -215,11 +172,11 @@
         },
         {
           "type": "paragraph",
-          "text": "I modified the designs of the 3D model viewer to accommodate e-commerce requirements. Users can view product listings, see all related content like videos, models, and photos, along with the description, price, and more!"
+          "text": "I adapted the 3D model viewer for e-commerce. Users can see a product listing with its related videos, models and photos, plus the description, price and more."
         },
         {
           "type": "paragraph",
-          "text": "Using \"Apple Pay\", users will authenticate using the built-in Face ID without any added steps."
+          "text": "Checkout uses Apple Pay, so users authenticate with the built-in Face ID without added steps."
         },
         {
           "type": "images",
@@ -232,6 +189,49 @@
               "src": "/work/omniabrowser/07.png",
               "alt": ""
             }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Key decisions",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Three calls that shaped the browser"
+        },
+        {
+          "type": "cards",
+          "cards": [
+            {
+              "label": "Dimmed reading layer",
+              "value": "Chose to dim all but the text in view, because it avoids visual distraction while reading in a headset."
+            },
+            {
+              "label": "One-handed 3D controls",
+              "value": "Chose zoom sliders and rotation controls over the OS’s native two-handed gestures, because factory workers asked for one-handed use."
+            },
+            {
+              "label": "Adaptive game UI",
+              "value": "Chose interfaces that morph to the hardware in real time over per-device work, because fragmentation across VR/AR devices had limited WebXR games."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Hindsight",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Limits"
+        },
+        {
+          "type": "list",
+          "items": [
+            "There are no outcome metrics for Omnia Browser. What I can show is the research and the designs.",
+            "The one-handed 3D controls came from factory workers’ requests. I have no measured result for them.",
+            "The personas and affinity maps were shared work with the team, so the study says “we” for them."
           ]
         }
       ]

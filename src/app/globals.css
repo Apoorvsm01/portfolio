@@ -8,13 +8,13 @@
   --rule: #2b2823;
   --fg: #f1ece3;
   --fg-2: #c9c2b5;
-  --muted: #a39c8f;
+  --muted: #b3ac9f;
   --focus: #9ad0ff;
 
   /* Paper band tokens */
   --paper: #ede7db;
   --paper-ink: #171513;
-  --paper-muted: #5c564c;
+  --paper-muted: #554f45;
   --paper-rule: #d6cfc1;
 
   /* Accent (flags.amber) */
@@ -68,13 +68,13 @@
   --rule: #d6cfc1;
   --fg: #171513;
   --fg-2: #38342e;
-  --muted: #5c564c;
+  --muted: #554f45;
   --focus: #1d68bd;
 
   /* Paper band tokens stay consistent */
   --paper: #ede7db;
   --paper-ink: #171513;
-  --paper-muted: #5c564c;
+  --paper-muted: #554f45;
   --paper-rule: #d6cfc1;
 
   --accent: #f5a524;
@@ -93,12 +93,12 @@
   --rule: #2b2823;
   --fg: #f1ece3;
   --fg-2: #c9c2b5;
-  --muted: #a39c8f;
+  --muted: #b3ac9f;
   --focus: #9ad0ff;
 
   --paper: #ede7db;
   --paper-ink: #171513;
-  --paper-muted: #5c564c;
+  --paper-muted: #554f45;
   --paper-rule: #d6cfc1;
 
   --accent: #f5a524;
@@ -817,7 +817,7 @@ html:not([data-js]) .fade-image {
   --rule: rgb(241 236 227 / 0.14);
   --fg: #f1ece3;
   --fg-2: #c9c2b5;
-  --muted: #a39c8f;
+  --muted: #b3ac9f;
   --text: var(--fg);
   --line: var(--rule);
   color: var(--fg);
@@ -2736,4 +2736,119 @@ body,
   gap: 0.75rem 1.5rem;
   margin-top: 1rem;
   font-family: var(--ask-ui);
+}
+
+/* ==========================================================================
+   Review fixes: proof strip, status pills, question echo, testimonials
+   ========================================================================== */
+
+/* Proof strip under the hero greeting: three facts on one line (wraps on phones, fixed in the flow). */
+.ask-proof {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-width: 40rem;
+  font-family: var(--ask-ui);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--fg-2);
+}
+.ask-proof li {
+  display: inline-flex;
+  align-items: center;
+}
+.ask-proof li + li::before {
+  content: "·";
+  margin-inline: 0.6rem;
+  color: var(--muted);
+}
+.ask-hero[data-docked="true"] .ask-proof {
+  display: none;
+}
+
+/* Peek: the hero stops short of the full viewport so the first project card shows below the fold line.
+   Static sizes only, so nothing moves when the page loads. */
+.ask-hero:not([data-docked="true"]) {
+  min-height: calc(100svh - var(--nav-h) - clamp(5.5rem, 15svh, 9rem));
+  padding-bottom: clamp(0.5rem, 1vw, 1rem);
+}
+
+/* The question as asked, wrapped in full above the answer (the input only shows one line of it). */
+.ask-question {
+  width: min(100%, 44rem);
+  margin: 0;
+  text-align: left;
+  font-family: var(--ask-ui);
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--fg);
+  overflow-wrap: anywhere;
+}
+.ask-question-label {
+  color: var(--muted);
+  font-weight: 600;
+  margin-right: 0.35rem;
+}
+
+/* Status pill: solid surface and body ink, so contrast holds on any card in both themes. */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+  padding: 0.12rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--fg) 28%, transparent);
+  background: var(--surface-2);
+  color: var(--fg);
+  font-family: var(--ask-ui);
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+.shelf-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+}
+.feature-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+.feature-tags .status-pill {
+  background: #1b1916;
+  color: #f1ece3;
+  border-color: rgb(241 236 227 / 0.35);
+}
+@media (max-width: 640px) {
+  .ask-proof {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.1rem;
+    font-size: 0.82rem;
+  }
+  .ask-proof li + li::before {
+    display: none;
+  }
+}
+
+/* Short desktop viewports: scale the orb and greeting by height and let the chips run wider, so the
+   first project card still peeks above the fold. */
+@media (min-width: 641px) {
+  .ask-hero:not([data-docked="true"]) .ask-orb {
+    --orb: clamp(6rem, min(17vw, 14svh), 11rem);
+  }
+  .ask-hero:not([data-docked="true"]) .ask-greeting {
+    font-size: clamp(2.4rem, 1.1rem + 4vw, min(4.6rem, 7.4svh));
+  }
+  .ask-hero:not([data-docked="true"]) .ask-chips {
+    width: min(100%, 80rem);
+  }
 }
