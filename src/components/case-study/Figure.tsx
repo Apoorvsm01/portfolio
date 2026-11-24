@@ -1,5 +1,6 @@
 import type { Img } from "../../../content/types";
 import { imageDims } from "../../lib/content";
+import { isTallDuo, TALL_CAP } from "../../lib/media-fit";
 import { FadeImage } from "../FadeImage";
 
 export function Figure({
@@ -19,6 +20,7 @@ export function Figure({
     : caption?.trim() || (studyTitle ? `${studyTitle} specification` : "Specification");
 
   const isPortrait = dims.height > dims.width;
+  const tall = isTallDuo(image.src);
   // The IA diagram gets the signature top-row-then-bottom-row reveal instead of the generic media open.
   const storyAttr = /\/ia\.svg$/.test(image.src) ? { "data-story-ia": "" } : { "data-story-media": "" };
 
@@ -28,18 +30,23 @@ export function Figure({
         isPortrait
           ? "w-full max-w-[22rem] mx-auto"
           : wide
-          ? "w-full"
+          ? image.src.includes("/duo/")
+            ? "w-full max-w-[1100px]"
+            : "w-full"
           : "w-full max-w-[46rem]"
       }`}
     >
-      <div {...storyAttr} className="rounded-[6px] overflow-hidden border border-rule bg-surface">
+      <div
+        {...storyAttr}
+        className={`rounded-[6px] overflow-hidden border border-rule bg-surface ${tall ? "w-fit max-w-full mx-auto" : ""}`}
+      >
         <FadeImage
           src={image.src}
           alt={alt}
           width={dims.width}
           height={dims.height}
           loading="lazy"
-          className="w-full h-auto object-cover rounded-[6px]"
+          className={tall ? `${TALL_CAP} h-auto rounded-[6px]` : "w-full h-auto object-cover rounded-[6px]"}
         />
       </div>
       {caption && caption.trim() !== "" && (

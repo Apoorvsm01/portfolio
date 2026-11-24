@@ -420,6 +420,46 @@
       ]
     },
     {
+      "label": "The body stage",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "A twin that reads as light, not anatomy"
+        },
+        {
+          "type": "paragraph",
+          "text": "The research said avoid clinical visuals, and that the figure should read at any age. So the body is a translucent teal glass shell: rim light at the silhouette, almost clear facing you, a slow turn and a six-second breathing glow. No organs, no skeleton. You can drag to rotate."
+        },
+        {
+          "type": "paragraph",
+          "text": "At most three callouts: a dot on the body, a thin line, then the number, unit, label and source, for example “67 BPM, Resting heart rate, Apple Health”. The reading furthest from your usual gets the one soft-red dot. The others are teal. Tap a callout and its detail opens in the other pane."
+        },
+        {
+          "type": "paragraph",
+          "text": "With Reduce Motion on, the turn and the breathing stop and the figure holds a static three-quarter pose."
+        },
+        {
+          "type": "paragraph",
+          "text": "I built it twice: first as a three.js prototype to approve the look in Figma, then in Metal inside the app, restyled from an earlier organ-based HUD. Review notes caught the detail that was off: faint eye and mouth rings on the head, fixed with a mask."
+        },
+        {
+          "type": "loop",
+          "src": "/work/syncare-ai-health/duo/body-stage.mp4",
+          "poster": "/work/syncare-ai-health/duo/body-stage-poster.jpg",
+          "caption": "The body stage in the web prototype: idle glow and three reading callouts for sleep, resting heart rate and glucose. Gentle idle motion only, not a full turn."
+        },
+        {
+          "type": "figure",
+          "image": {
+            "src": "/work/syncare-ai-health/duo/body-stage-three-sizes.png",
+            "alt": "The prototype body stage at three sizes: a compact phone card with the figure above a list of three readings, a tall card with the figure and three callouts, and a wide card with the same callouts. The glass-like teal figure has one soft-red dot for the reading furthest from usual."
+          },
+          "caption": "The same body stage at three sizes, from the prototype. Reading values and sources are sample data.",
+          "wide": true
+        }
+      ]
+    },
+    {
       "label": "Research to requirements",
       "blocks": [
         {
@@ -612,46 +652,6 @@
         {
           "type": "paragraph",
           "text": "A note on honesty: the simulator can only fold to the outer display from a script, so the inner postures were checked through the app's own debug harness at each posture's true size. A real fold test is still to do."
-        }
-      ]
-    },
-    {
-      "label": "The body stage",
-      "blocks": [
-        {
-          "type": "heading",
-          "text": "A twin that reads as light, not anatomy"
-        },
-        {
-          "type": "paragraph",
-          "text": "The research said avoid clinical visuals, and that the figure should read at any age. So the body is a translucent teal glass shell: rim light at the silhouette, almost clear facing you, a slow turn and a six-second breathing glow. No organs, no skeleton. You can drag to rotate."
-        },
-        {
-          "type": "paragraph",
-          "text": "At most three callouts: a dot on the body, a thin line, then the number, unit, label and source, for example “67 BPM, Resting heart rate, Apple Health”. The reading furthest from your usual gets the one soft-red dot. The others are teal. Tap a callout and its detail opens in the other pane."
-        },
-        {
-          "type": "paragraph",
-          "text": "With Reduce Motion on, the turn and the breathing stop and the figure holds a static three-quarter pose."
-        },
-        {
-          "type": "paragraph",
-          "text": "I built it twice: first as a three.js prototype to approve the look in Figma, then in Metal inside the app, restyled from an earlier organ-based HUD. Review notes caught the detail that was off: faint eye and mouth rings on the head, fixed with a mask."
-        },
-        {
-          "type": "loop",
-          "src": "/work/syncare-ai-health/duo/body-stage.mp4",
-          "poster": "/work/syncare-ai-health/duo/body-stage-poster.jpg",
-          "caption": "The body stage in the web prototype: idle glow and three reading callouts for sleep, resting heart rate and glucose. Gentle idle motion only, not a full turn."
-        },
-        {
-          "type": "figure",
-          "image": {
-            "src": "/work/syncare-ai-health/duo/body-stage-three-sizes.png",
-            "alt": "The prototype body stage at three sizes: a compact phone card with the figure above a list of three readings, a tall card with the figure and three callouts, and a wide card with the same callouts. The glass-like teal figure has one soft-red dot for the reading furthest from usual."
-          },
-          "caption": "The same body stage at three sizes, from the prototype. Reading values and sources are sample data.",
-          "wide": true
         }
       ]
     },
