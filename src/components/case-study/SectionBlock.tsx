@@ -1,5 +1,6 @@
 import type { Block, Section } from "../../../content/types";
 import { imageDims } from "../../lib/content";
+import { isTallDuo, TALL_CAP } from "../../lib/media-fit";
 import { FadeImage } from "../FadeImage";
 import { Figure } from "./Figure";
 import { Metrics } from "./Metrics";
@@ -80,6 +81,42 @@ export function BlockRenderer({
     case "images": {
       const { images } = block;
       if (!images || images.length === 0) return null;
+
+      if (images.every((im) => isTallDuo(im.src))) {
+        const n = images.length;
+        const cols =
+          n === 1
+            ? "grid-cols-1"
+            : n === 2
+            ? "grid-cols-2"
+            : n === 3
+            ? "grid-cols-2 sm:grid-cols-3"
+            : "grid-cols-2 lg:grid-cols-4";
+        return (
+          <div className={`grid ${cols} gap-4 sm:gap-6 items-start justify-items-center my-8 first:mt-0 last:mb-0`}>
+            {images.map((img, i) => {
+              const alt = img.alt?.trim() ? img.alt : imageFallbackAlt;
+              const dims = imageDims(img.src);
+              return (
+                <figure
+                  key={i}
+                  data-story-media
+                  className="min-w-0 max-w-full rounded-[6px] overflow-hidden border border-rule bg-surface"
+                >
+                  <FadeImage
+                    src={img.src}
+                    alt={alt}
+                    width={dims.width}
+                    height={dims.height}
+                    className={`${TALL_CAP} h-auto rounded-[6px]`}
+                    loading="lazy"
+                  />
+                </figure>
+              );
+            })}
+          </div>
+        );
+      }
 
       if (images.length === 1) {
         const img = images[0];
@@ -212,6 +249,7 @@ export function BlockRenderer({
 
     case "loop": {
       const dims = imageDims(block.poster);
+      const tall = isTallDuo(block.poster);
       const hasCaption = Boolean(block.caption?.trim());
       const label = hasCaption
         ? block.caption!
@@ -220,20 +258,29 @@ export function BlockRenderer({
         : "Looping demo";
       return (
         <figure
-          className={`my-8 first:mt-0 last:mb-0 ${block.wide ? "w-full" : "w-full max-w-[46rem]"}`}
+          className={`my-8 first:mt-0 last:mb-0 ${
+            tall ? "w-full max-w-[46rem]" : block.wide ? "w-full" : "w-full max-w-[46rem]"
+          }`}
         >
-          <div data-story-media className="rounded-[6px] overflow-hidden border border-rule bg-surface">
+          <div
+            data-story-media
+            className={`rounded-[6px] overflow-hidden border border-rule bg-surface ${tall ? "w-fit max-w-full mx-auto" : ""}`}
+          >
             <LoopVideo
               src={block.src}
               poster={block.poster}
               label={label}
               width={dims.width}
               height={dims.height}
-              className="w-full h-auto object-cover rounded-[6px] block"
+              className={
+                tall
+                  ? `${TALL_CAP} h-auto rounded-[6px]`
+                  : "w-full h-auto object-cover rounded-[6px] block"
+              }
             />
           </div>
           {hasCaption && (
-            <figcaption className="mt-3 max-w-[46rem] font-sans text-xs sm:text-sm text-muted leading-relaxed">
+            <figcaption className={`mt-3 max-w-[46rem] font-sans text-xs sm:text-sm text-muted leading-relaxed ${tall ? "mx-auto" : ""}`}>
               {block.caption}
             </figcaption>
           )}
