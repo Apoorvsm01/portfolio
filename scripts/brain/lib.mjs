@@ -32,3 +32,27 @@ export function renderIndex(files) {
     "",
   ].join("\n");
 }
+
+// ---- bundle file classification -------------------------------------------------------------
+export const MAX_FILE_CHARS = 150000;
+const EXCLUDE = [
+  /libgen/, /books and reading/, /reading/, /lecture/, /slides/, /previous_examples/, /example/, /template/, /sample/,
+  /ref /, /ref%/, /\/ref\d/, /references/, /consent form/, /syllabus/, /rubric/, /peer review/, /with .*comments/,
+  /copy(\.[a-z0-9]+)?$/,
+];
+const OWN = /apoorv|mahajan|apurva/;
+const DELIVERABLE = /assignment|deliverable|report|project|presentation|proposal|final|protocol|survey|persona|prototype|evaluation|research|writing|analysis|portfolio|resume|\bcv\b|cover letter|case study/;
+
+// Returns "own" | "deliverable" | null (drop). `relPath` is relative to brain-inbox/text; `ownFolder` marks his own folders.
+export function classifyFile(relPath, chars, { ownFolder = false } = {}) {
+  const p = relPath.toLowerCase();
+  if (chars > MAX_FILE_CHARS) return null;
+  if (EXCLUDE.some((re) => re.test(p))) return null;
+  if (ownFolder || OWN.test(p)) return "own";
+  return DELIVERABLE.test(p) ? "deliverable" : null;
+}
+
+export const OWN_FOLDER_SLUGS = new Set([
+  "depaul-resume", "depaul-omnia", "depaul-patched-reality", "depaul-apoorvsm01-github-io", "depaul-car-dashboard",
+  "depaul-air-quality-impact-project-2024", "depaul-mymodel-jordan", "depaul-unity-tutorials", "depaul-misc",
+]);

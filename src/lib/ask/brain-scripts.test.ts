@@ -6,6 +6,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { validateDirs } from "../../../scripts/brain/validate.mjs";
 import { genIndex } from "../../../scripts/brain/gen-index.mjs";
+import { classifyFile } from "../../../scripts/brain/lib.mjs";
 
 const good = {
   id: "t-usability-test",
@@ -77,4 +78,21 @@ test("gen-index: reproduces the committed index for the real evidence folder", (
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }
+});
+
+test("classifyFile: include, exclude and tier rules", () => {
+
+  const c = (p: string, n = 5000, o = false) => classifyFile(p, n, { ownFolder: o });
+  assert.equal(c("Root/HCI 999/Apoorv Mahajan Final Report.txt"), "own");
+  assert.equal(c("Root/HCI 999/Team Persona Deliverable.txt"), "deliverable");
+  assert.equal(c("Root/HCI 999/Week 3 Notes.txt"), null); // no tier match
+  assert.equal(c("Root/HCI 999/Lecture 4 slides.txt"), null);
+  assert.equal(c("Root/HCI 999/Books and reading/Apoorv report.txt"), null);
+  assert.equal(c("Root/HCI 999/Report Template.txt"), null);
+  assert.equal(c("Root/HCI 999/previous_examples/Final report.txt"), null);
+  assert.equal(c("Root/HCI 999/Project proposal copy.txt"), null);
+  assert.equal(c("Root/HCI 999/Project proposal with Jo comments.txt"), null);
+  assert.equal(c("Root/HCI 999/Apoorv final report.txt", 150001), null);
+  assert.equal(c("Root/Omnia/Meeting notes.txt", 5000, true), "own");
+  assert.equal(c("Root/Omnia/Sample notes.txt", 5000, true), null);
 });

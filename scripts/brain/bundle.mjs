@@ -3,6 +3,7 @@
 import { readdirSync, readFileSync, statSync, writeFileSync, mkdirSync, rmSync, existsSync } from "node:fs";
 import { join, relative, basename, dirname, extname } from "node:path";
 import { homedir } from "node:os";
+import { classifyFile, OWN_FOLDER_SLUGS } from "./lib.mjs";
 
 const ROOT = new URL("../../", import.meta.url).pathname;
 const TEXT = join(ROOT, "brain-inbox/text");
@@ -12,6 +13,8 @@ const MIN_CHARS = 200;
 const MAX_PART = 60000;
 const SHINGLE = 5;
 const DUP_RATIO = 0.8;
+const MAX_PARTS = 3;
+const TIER_ORDER = { own: 0, deliverable: 1 };
 
 const rootShort = (name) => name.replace(/^OneDrive-/, "").replace(/UniversityInternational|International/g, "").replace(/University$/, "").toLowerCase().replace(/[^a-z0-9]+/g, "") || "root";
 const kebab = (s) => s.toLowerCase().replace(/&/g, " and ").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
@@ -83,12 +86,16 @@ const index = [];
 
 for (const u of [...units.values()].sort((a, b) => a.slug.localeCompare(b.slug))) {
   const cands = [];
+  let filtered = 0;
   for (const f of u.files) {
     const text = clean(readFileSync(f, "utf8"));
     if (text.length < MIN_CHARS) continue;
-    cands.push({ rel: relative(TEXT, f), text, mtime: sourceMtime(f) });
+    const rel = relative(TEXT, f);
+    const tier = classifyFile(rel, text.length, { ownFolder: OWN_FOLDER_SLUGS.has(u.slug) });
+    if (!tier) { filtered++; continue; }
+    cands.push({ rel, text, tier, mtime: sourceMtime(f) });
   }
-  cands.sort((a, b) => b.mtime - a.mtime || a.rel.localeCompare(b.rel));
+  cands.sort((a, b) => TIER_ORDER[a.tier] - TIER_ORDER[b.tier] || b.mtime - a.mtime || a.rel.localeCompare(b.rel));
   const kept = [];
   let dropped = 0;
   for (const c of cands) {
@@ -104,7 +111,7 @@ for (const u of [...units.values()].sort((a, b) => a.slug.localeCompare(b.slug))
     const date = k.mtime.toISOString().slice(0, 7);
     for (let i = 0, n = 1; i < k.text.length; i += MAX_PART - 2000, n++) {
       const body = k.text.slice(i, i + MAX_PART - 2000);
-      pieces.push({ rel: k.rel, date, body, label: k.text.length > MAX_PART - 2000 ? `${k.rel} (piece ${n})` : k.rel });
+      pieces.push({ rel: k.rel, date, tier: k.tier, body, label: k.text.length > MAX_PART - 2000 ? `${k.rel} (piece ${n})` : k.rel });
     }
   }
   const parts = [];
@@ -112,6 +119,12 @@ for (const u of [...units.values()].sort((a, b) => a.slug.localeCompare(b.slug))
     const cur = parts[parts.length - 1];
     if (cur && cur.chars + p.body.length <= MAX_PART - 2000) { cur.items.push(p); cur.chars += p.body.length; }
     else parts.push({ items: [p], chars: p.body.length });
+  }
+  let capped = 0;
+  if (parts.length > MAX_PARTS) {
+    capped = new Set(parts.slice(MAX_PARTS).flatMap((p) => p.items.map((i) => i.rel))).size;
+    parts.length = MAX_PARTS;
+    console.log(`capped ${u.slug}: dropped ${capped} lowest-tier/oldest file(s) beyond ${MAX_PARTS} parts`);
   }
   let total = 0;
   parts.forEach((part, i) => {
@@ -121,19 +134,19 @@ for (const u of [...units.values()].sort((a, b) => a.slug.localeCompare(b.slug))
       `SLUG: ${u.slug}${i ? `.part${i + 1}` : ""}`,
       `PART: ${i + 1} of ${parts.length}`,
       `FILES (${part.items.length}):`,
-      ...part.items.map((p) => `- ${p.label} [${p.date}]`),
+      ...part.items.map((p) => `- [${p.tier}] ${p.label} [${p.date}]`),
       "",
     ].join("\n");
-    const body = part.items.map((p) => `=== FILE: ${p.label} [${p.date}] ===\n${p.body}`).join("\n\n");
+    const body = part.items.map((p) => `=== FILE: [${p.tier}] ${p.label} [${p.date}] ===\n${p.body}`).join("\n\n");
     const out = `${head}\n${body}\n`;
     total += out.length;
     writeFileSync(join(OUT, file), out);
   });
-  index.push({ unit: u.name, slug: u.slug, parts: parts.length, files: kept.length, chars: total, droppedDuplicates: dropped });
+  index.push({ unit: u.name, slug: u.slug, parts: parts.length, files: parts.reduce((a, p) => a + new Set(p.items.map((i) => i.rel)).size, 0), chars: total, droppedDuplicates: dropped, filteredOut: filtered, capped });
 }
 
 writeFileSync(join(OUT, "index.json"), JSON.stringify(index, null, 2) + "\n");
 const pad = (s, n) => String(s).padEnd(n);
-console.log(`${pad("slug", 48)}${pad("parts", 6)}${pad("files", 6)}${pad("chars", 9)}dupes`);
-for (const r of index) console.log(`${pad(r.slug, 48)}${pad(r.parts, 6)}${pad(r.files, 6)}${pad(r.chars, 9)}${r.droppedDuplicates}`);
-console.log(`\n${index.length} units, ${index.reduce((a, r) => a + r.parts, 0)} bundle files, ${index.reduce((a, r) => a + r.droppedDuplicates, 0)} duplicates dropped`);
+console.log(`${pad("slug", 48)}${pad("parts", 6)}${pad("files", 6)}${pad("chars", 9)}dupes  filtered  capped`);
+for (const r of index) console.log(`${pad(r.slug, 48)}${pad(r.parts, 6)}${pad(r.files, 6)}${pad(r.chars, 9)}${pad(r.droppedDuplicates, 7)}${pad(r.filteredOut, 10)}${r.capped}`);
+console.log(`\n${index.length} units, ${index.reduce((a, r) => a + r.parts, 0)} bundle files, ${index.reduce((a, r) => a + r.droppedDuplicates, 0)} duplicates dropped, ${index.reduce((a, r) => a + r.chars, 0)} chars total`);
