@@ -1,0 +1,490 @@
+[
+  {
+    "id": "depaul-hci-445-aeiou-field-observation",
+    "claim": "Conducted a 45-minute AEIOU contextual observation of a participant preparing a meal to map activities, tools, and workflow breakdowns.",
+    "detail": "Logged timestamped interactions across 10 kitchen objects in a two-counter layout and identified breakdowns involving a missing towel and rinsed produce.",
+    "strength": "built",
+    "date": "2024-10",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": [
+        "field-observation"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 445 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-445-caqdas-game-therapy-analysis",
+    "claim": "Analyzed qualitative therapist interview data using CAQDAS coding and an Excel affinity diagram on game-based patient rehabilitation.",
+    "detail": "Synthesized themes across physical, cognitive, and speech therapy workflows, documenting how clinicians tailor Wii Sports and iPad games by patient age.",
+    "strength": "built",
+    "date": "2024-10",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research"
+      ],
+      "domains": [
+        "healthcare"
+      ],
+      "platforms": [],
+      "methods": [
+        "affinity-mapping",
+        "qualitative-coding"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 445 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-445-part2-hybrid-design-implications",
+    "claim": "On a team of three, synthesized findings from 12 participants into design implications for integrated hybrid-work tools.",
+    "detail": "Found disconnected-tool inefficiencies in all six participants and unstructured-meeting frustration in four of six, recommending cross-tool integration, automation, and flexible video options.",
+    "strength": "built",
+    "date": "2024-11",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research",
+        "user-centered-design"
+      ],
+      "domains": [
+        "productivity",
+        "future-of-work"
+      ],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 445 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-445-part2-hybrid-work-interviews",
+    "claim": "On a team of three, conducted two weeks of interviews with six hybrid and remote professionals on scheduling and meeting engagement.",
+    "detail": "Explored daily routines, communication habits, tool shortcomings, and ideal workflow solutions across task management, scheduling, and meetings.",
+    "strength": "built",
+    "date": "2024-11",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research",
+        "user-centered-design"
+      ],
+      "domains": [
+        "productivity"
+      ],
+      "platforms": [],
+      "methods": [
+        "user-interviews"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 445 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-445-part2-hybrid-work-observation",
+    "claim": "On a team of three, ran a three-week observation study with six hybrid and remote professionals on task and meeting workflows.",
+    "detail": "Observed six professionals across two tasks: daily task management and meeting scheduling, and delivering information in a video scrum.",
+    "strength": "built",
+    "date": "2024-11",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research",
+        "user-centered-design"
+      ],
+      "domains": [
+        "productivity"
+      ],
+      "platforms": [],
+      "methods": [
+        "field-observation"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 445 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-445-part2-hybrid-work-personas",
+    "claim": "On a team of three, developed personas and a persona spectrum from interview findings on hybrid-work workflows.",
+    "detail": "Synthesized interview data from six professionals into user archetypes capturing task prioritization, scheduling, and meeting engagement patterns.",
+    "strength": "built",
+    "date": "2024-11",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research",
+        "user-centered-design"
+      ],
+      "domains": [
+        "productivity",
+        "future-of-work"
+      ],
+      "platforms": [],
+      "methods": [
+        "personas-journeys",
+        "user-interviews"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 445 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-445-part2-screener-and-lit-review",
+    "claim": "On a team of three, reviewed Zoom fatigue literature and created a screener survey to recruit hybrid-work participants.",
+    "detail": "Set eligibility criteria requiring three or more years of remote or hybrid work experience and use of Zoom, Microsoft Teams, or Slack.",
+    "strength": "studied",
+    "date": "2024-11",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research"
+      ],
+      "domains": [
+        "productivity",
+        "future-of-work"
+      ],
+      "platforms": [],
+      "methods": [
+        "surveys"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 445 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-445-part3-interview-study",
+    "claim": "Ran 30–45 minute semi-structured interviews with six remote and hybrid professionals on a three-person team to investigate meeting overload and tool switching.",
+    "detail": "Authored a screener and interview protocol covering daily routines, camera-off habits, task reprioritization, and AI note-taking across Zoom, Teams, and Slack.",
+    "strength": "built",
+    "date": "2024-11",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research",
+        "user-centered-design"
+      ],
+      "domains": [
+        "productivity",
+        "education"
+      ],
+      "platforms": [],
+      "methods": [
+        "user-interviews"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 445 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-445-part3-observation-study",
+    "claim": "Conducted structured observations with six remote and hybrid professionals as part of a three-person team to study daily task scheduling and Zoom fatigue.",
+    "detail": "Split 30-minute sessions equally between in-person and Zoom, having participants build a daily schedule and write a brief after a six-minute mock scrum call.",
+    "strength": "built",
+    "date": "2024-11",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research",
+        "user-centered-design"
+      ],
+      "domains": [
+        "productivity",
+        "education"
+      ],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 445 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-445-part3-qualitative-coding",
+    "claim": "Synthesized observation and interview data as part of a three-person team using affinity diagramming and a structured interview codebook.",
+    "detail": "Identified three themes—meeting fatigue and engagement, task prioritization across disconnected tools, and scheduling optimization—across 12 total participants.",
+    "strength": "built",
+    "date": "2024-11",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research",
+        "systems-thinking"
+      ],
+      "domains": [
+        "productivity",
+        "education"
+      ],
+      "platforms": [],
+      "methods": [
+        "affinity-mapping",
+        "qualitative-coding"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 445 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-445-part3-workday-scenarios",
+    "claim": "Authored remote workday scenarios as part of a three-person team mapping cross-tool scheduling, focus-time blocking, and follow-up workflows.",
+    "detail": "Documented end-to-end tool switching across Slack, Zoom, Google Calendar, Trello, Outlook Calendar, and Microsoft Teams for project and engineering workflows.",
+    "strength": "built",
+    "date": "2024-11",
+    "facets": {
+      "roles": [
+        "ux-researcher",
+        "ux-designer"
+      ],
+      "skills": [
+        "user-centered-design",
+        "systems-thinking",
+        "storytelling"
+      ],
+      "domains": [
+        "productivity",
+        "education"
+      ],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 445 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-445-part3-zoom-fatigue-lit-review",
+    "claim": "Reviewed peer-reviewed studies on Zoom fatigue with a three-person team to frame cognitive load, non-verbal cue strain, and remote burnout.",
+    "detail": "Synthesized five 2022–2024 publications linking prolonged videoconferencing and meeting overload to stress, reduced focus, and depressive symptoms.",
+    "strength": "studied",
+    "date": "2024-11",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research"
+      ],
+      "domains": [
+        "education"
+      ],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 445 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-445-part3-zoom-fatigue-report",
+    "claim": "Co-authored a UX research report on a three-person team proposing integrated scheduling, AI meeting summaries, and interactive controls to curb Zoom fatigue.",
+    "detail": "Recommended unifying calendar, chat, and task apps with manual time-blocking overrides, polls, whiteboards, and flexible camera-off modes for passive attendees.",
+    "strength": "built",
+    "date": "2024-11",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research",
+        "user-centered-design",
+        "ai-llm-design",
+        "systems-thinking"
+      ],
+      "domains": [
+        "productivity",
+        "education"
+      ],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 445 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-445-remote-work-competitive-analysis",
+    "claim": "Conducted a competitive analysis of Zoom, Microsoft Teams, and Slack on meeting-fatigue mitigation and async workflows.",
+    "detail": "Evaluated AI summarization, notification controls, and SharePoint integrations, noting adoption barriers from extra licensing and hardware requirements.",
+    "strength": "built",
+    "date": "2024-10",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": [
+        "competitive-analysis"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 445 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-445-remote-work-interview-protocol",
+    "claim": "Authored a 30-45 minute semi-structured interview protocol studying task management and Zoom fatigue across six remote and hybrid professionals.",
+    "detail": "Included screener criteria for Zoom, Microsoft Teams, and Slack users, informed consent scripts, and questions on meeting load and tool gaps.",
+    "strength": "built",
+    "date": "2024-11",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": [
+        "user-interviews"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 445 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-445-remote-work-literature-review",
+    "claim": "Synthesized five academic and industry sources on remote-work fatigue, boundary control, and self-efficacy into a research report.",
+    "detail": "Reviewed regression and path-analysis studies alongside a meta-analysis of 108 remote-work-intensity studies to frame research questions and recruitment.",
+    "strength": "studied",
+    "date": "2024-10",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research"
+      ],
+      "domains": [
+        "future-of-work"
+      ],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 445 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-445-survey-error-mitigation",
+    "claim": "Evaluated four survey error sources and designed sampling and pilot-testing mitigations for a UX practitioner survey.",
+    "detail": "Addressed coverage, nonresponse, sample size, and measurement errors using stratified sampling, multi-channel outreach, and interviewer standardization.",
+    "strength": "studied",
+    "date": "2024-11",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": [
+        "surveys"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 445 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-445-survey-question-critique",
+    "claim": "Critiqued flawed survey items for precision, double-barreled wording, clarity, and double negatives, rewriting each with neutral options.",
+    "detail": "Replaced vague frequency labels with quantifiable time intervals and split compound questions to reduce respondent confusion and bias.",
+    "strength": "studied",
+    "date": "2024-11",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": [
+        "surveys"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 445 · DePaul"
+    },
+    "status": "approved"
+  }
+]

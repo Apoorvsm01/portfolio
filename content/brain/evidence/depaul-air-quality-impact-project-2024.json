@@ -1,0 +1,153 @@
+[
+  {
+    "id": "depaul-air-quality-impact-project-2024-aqi-deployment-timeline",
+    "claim": "Mapped a 10-week AQI coaching delivery timeline spanning Raspberry Pi integration, bi-weekly deployments, and two weeks of UAT.",
+    "detail": "Sequenced requirement gathering, metadata preparation, custom UI design, API integration, and iterative end-to-end system testing.",
+    "strength": "built",
+    "date": "2024-05",
+    "facets": {
+      "roles": [
+        "ux-designer"
+      ],
+      "skills": [
+        "ui-design",
+        "systems-thinking"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "project",
+      "label": "Air Quality Impact Project 2024"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-air-quality-impact-project-2024-budget-and-bom",
+    "claim": "Scoped a $500 proposal budget on a four-person team across Arduino Pro Mini, Raspberry Pi 4, sensors, hosting, and tester incentives.",
+    "detail": "Allocated $200 for hardware including PMS5003, MH-Z19, MQ-131, MP503, and DHT22 sensors, $150 for app setup, $50 for journals, and $100 for testing.",
+    "strength": "built",
+    "date": "2024-06",
+    "facets": {
+      "roles": [],
+      "skills": [],
+      "domains": [],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "project",
+      "label": "Air Quality Impact Project 2024"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-air-quality-impact-project-2024-data-algorithm-spec",
+    "claim": "Specified a pollution-to-detox analytics plan using time series, trend, and regression analysis with Tableau dashboards.",
+    "detail": "Outlined real-time Bluetooth or Wi-Fi sensor transmission, R Studio and Python workflows, and personalized recommendations refined by logged health feedback.",
+    "strength": "built",
+    "date": "2024-06",
+    "facets": {
+      "roles": [],
+      "skills": [
+        "statistics-data-analysis",
+        "python",
+        "data-visualization"
+      ],
+      "domains": [
+        "healthcare"
+      ],
+      "platforms": [],
+      "methods": [
+        "quant-analysis"
+      ]
+    },
+    "source": {
+      "kind": "project",
+      "label": "Air Quality Impact Project 2024"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-air-quality-impact-project-2024-impact-proposal",
+    "claim": "Co-authored an IMPACT project proposal on a four-person team for an Arduino air quality monitor and detox coaching app.",
+    "detail": "Defined three research questions and an integrated system pairing real-time CO2, PM2.5, and VOC monitoring with personalized breathing and fitness advice.",
+    "strength": "built",
+    "date": "2024-06",
+    "facets": {
+      "roles": [
+        "ux-designer"
+      ],
+      "skills": [
+        "user-centered-design",
+        "systems-thinking"
+      ],
+      "domains": [
+        "healthcare",
+        "environmental"
+      ],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "project",
+      "label": "Air Quality Impact Project 2024"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-air-quality-impact-project-2024-project-management-plan",
+    "claim": "Structured a 10-week collaboration plan as project manager for a four-person cross-disciplinary team.",
+    "detail": "Coordinated milestones across HCI and business analytics members using Notion, GitHub, Figma, Slack or Microsoft Teams, and VSCode.",
+    "strength": "built",
+    "date": "2024-06",
+    "facets": {
+      "roles": [],
+      "skills": [
+        "figma"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "project",
+      "label": "Air Quality Impact Project 2024"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-air-quality-impact-project-2024-ux-evaluation-plan",
+    "claim": "Defined non-invasive UX principles and a multi-stage testing plan using heuristic evaluation, beta testing, and usability sessions.",
+    "detail": "Targeted accessible dashboards and gamified progress badges in Figma, with UserTesting planned for iterative feedback across weeks 2 to 9.",
+    "strength": "built",
+    "date": "2024-06",
+    "facets": {
+      "roles": [
+        "ux-designer",
+        "ux-researcher"
+      ],
+      "skills": [
+        "ui-design",
+        "ux-research",
+        "figma",
+        "accessibility",
+        "data-visualization"
+      ],
+      "domains": [
+        "healthcare"
+      ],
+      "platforms": [],
+      "methods": [
+        "heuristic-evaluation",
+        "usability-testing"
+      ]
+    },
+    "source": {
+      "kind": "project",
+      "label": "Air Quality Impact Project 2024"
+    },
+    "status": "approved"
+  }
+]

@@ -1,0 +1,84 @@
+[
+  {
+    "id": "depaul-unity-tutorials-architectour-design-doc",
+    "claim": "Authored a Unity Creative Core design document for ArchitecTour, a web and AR tool for previewing architectural construction proposals.",
+    "detail": "Scoped a brutalist modern building showcase enabling architects and real estate developers to inspect interiors, exteriors, materials, and colors at construction sites.",
+    "strength": "studied",
+    "date": "2024-08",
+    "facets": {
+      "roles": [
+        "spatial-designer"
+      ],
+      "skills": [
+        "unity"
+      ],
+      "domains": [
+        "spatial",
+        "construction"
+      ],
+      "platforms": [
+        "web"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "Unity Tutorials · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-unity-tutorials-camera-audio-ui-spec",
+    "claim": "Defined multi-angle camera presets, audio elements, and UI interaction controls for a Unity 3D visualization scene.",
+    "detail": "Included wide-angle, mid-range, and close-up camera views, camera-switching UI buttons, exterior nature audio, calming music, and an audio controls menu.",
+    "strength": "studied",
+    "date": "2024-08",
+    "facets": {
+      "roles": [
+        "ux-designer",
+        "spatial-designer"
+      ],
+      "skills": [
+        "ui-design",
+        "interaction-design",
+        "unity"
+      ],
+      "domains": [
+        "spatial"
+      ],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "Unity Tutorials · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-unity-tutorials-scene-rendering-spec",
+    "claim": "Specified Unity 3D rendering requirements covering custom shaders, baked lighting, animation, particle VFX, and post-processing.",
+    "detail": "Planned realistic surface materials, a custom TV screen shader, dynamic sunlight time-of-day, idling cutout figures, animated sculpture, dust and firefly VFX, bloom, and vignette.",
+    "strength": "studied",
+    "date": "2024-08",
+    "facets": {
+      "roles": [
+        "spatial-designer"
+      ],
+      "skills": [
+        "unity",
+        "animation"
+      ],
+      "domains": [
+        "spatial"
+      ],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "Unity Tutorials · DePaul"
+    },
+    "status": "approved"
+  }
+]

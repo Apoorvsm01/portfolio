@@ -1,0 +1,149 @@
+[
+  {
+    "id": "depaul-hcd-422-futuring-methods",
+    "claim": "Studied futuring methods including speculative design, design fiction, and anticipatory ethnography for society-centered technology design.",
+    "detail": "Analyzed case studies spanning an IKEA and IDEO kitchen concept, an autonomous vehicle remote-supervision study, and corporate scenario planning.",
+    "strength": "studied",
+    "date": "2025-02",
+    "facets": {
+      "roles": [],
+      "skills": [
+        "user-centered-design",
+        "ux-research"
+      ],
+      "domains": [
+        "education"
+      ],
+      "platforms": [],
+      "methods": [
+        "field-observation",
+        "speculative-design"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCD 422 Design and Human Experience · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hcd-422-rhetoric-of-inevitability",
+    "claim": "Analyzed how speculative and participatory design challenge technological determinism and surface socio-technical trade-offs in emerging systems.",
+    "detail": "Applied the Information Ecologies framework to examine smart-city monitoring, bike-sharing failures, and autonomous vehicle adoption.",
+    "strength": "studied",
+    "date": "2025-02",
+    "facets": {
+      "roles": [],
+      "skills": [
+        "user-centered-design",
+        "systems-thinking"
+      ],
+      "domains": [
+        "education"
+      ],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCD 422 Design and Human Experience · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hcd-422-visionos-content-browser",
+    "claim": "Prototyped a high-fidelity spatial content browser for Apple Vision Pro to evaluate navigation, features, and investor pitch narratives.",
+    "detail": "Encountered evaluation limits of 2D tools like Paper and Figma when trying to test eye-tracking efficiency and unrestricted window placement.",
+    "strength": "built",
+    "date": "2025-02",
+    "facets": {
+      "roles": [
+        "ux-designer",
+        "spatial-designer"
+      ],
+      "skills": [
+        "prototyping",
+        "ui-design",
+        "interaction-design",
+        "eye-tracking"
+      ],
+      "domains": [
+        "spatial"
+      ],
+      "platforms": [
+        "visionos"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCD 422 Design and Human Experience · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hcd-422-visionos-contextual-flow",
+    "claim": "Mapped a happy-path user flow for a startup's Apple Vision Pro content browser and refined it after early contextual inquiries.",
+    "detail": "Visualized the user flow through rapid prototyping to align product requirements before building high-fidelity iterations.",
+    "strength": "built",
+    "date": "2025-02",
+    "facets": {
+      "roles": [
+        "ux-designer",
+        "spatial-designer"
+      ],
+      "skills": [
+        "user-centered-design",
+        "ux-research",
+        "prototyping",
+        "interaction-design"
+      ],
+      "domains": [
+        "spatial"
+      ],
+      "platforms": [
+        "visionos"
+      ],
+      "methods": [
+        "user-interviews",
+        "rapid-prototyping"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCD 422 Design and Human Experience · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hcd-422-visionos-design-library",
+    "claim": "Adapted Apple's visionOS design library components to align typography, iconography, and layout between design graphics and developer code.",
+    "detail": "Followed digital prototyping guidelines for a startup's spatial content browser to maintain asset consistency and support developer comprehension.",
+    "strength": "built",
+    "date": "2025-02",
+    "facets": {
+      "roles": [
+        "ux-designer",
+        "spatial-designer"
+      ],
+      "skills": [
+        "design-systems",
+        "ui-design",
+        "prototyping",
+        "typography"
+      ],
+      "domains": [
+        "spatial"
+      ],
+      "platforms": [
+        "visionos"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCD 422 Design and Human Experience · DePaul"
+    },
+    "status": "approved"
+  }
+]

@@ -1,0 +1,182 @@
+[
+  {
+    "id": "depaul-patched-reality-ai-tool-evaluation",
+    "claim": "Evaluated generative AI tools for VR skyboxes, 3D assets, voiceovers, and Figma-to-Unity prototyping.",
+    "detail": "Assessed usability, efficiency, and cost-effectiveness across tools including Gaussian splat generators; several recommended tools were adopted to cut development time and cost.",
+    "strength": "built",
+    "date": "2024-08",
+    "facets": {
+      "roles": [
+        "spatial-designer",
+        "ux-designer"
+      ],
+      "skills": [
+        "ai-llm-design",
+        "figma",
+        "unity",
+        "prototyping"
+      ],
+      "domains": [
+        "spatial"
+      ],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "project",
+      "label": "Patched Reality"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-patched-reality-art-school-fight-club-ui",
+    "claim": "Redesigned the multi-speed controller UI and action graphics for the web 3D game Art School Fight Club.",
+    "detail": "Mapped combat events like punches and kicks to sender and receiver character expressions and sound effects, and tested features including the NFT creator and design contests.",
+    "strength": "built",
+    "date": "2024-08",
+    "facets": {
+      "roles": [
+        "ux-designer"
+      ],
+      "skills": [
+        "ui-design",
+        "interaction-design"
+      ],
+      "domains": [],
+      "platforms": [
+        "web"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "project",
+      "label": "Patched Reality"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-patched-reality-chicago-xr-demos",
+    "claim": "Demonstrated the deployed Reach: Shoulder Health VR app at three VRAR Chicago events and Tech Chicago.",
+    "detail": "Presented the application live to investors, developers, and the general public to showcase the product.",
+    "strength": "shipped",
+    "date": "2024-08",
+    "facets": {
+      "roles": [
+        "spatial-designer",
+        "ux-designer"
+      ],
+      "skills": [],
+      "domains": [
+        "spatial",
+        "healthcare"
+      ],
+      "platforms": [
+        "meta-quest"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "project",
+      "label": "Patched Reality"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-patched-reality-level-progression-map",
+    "claim": "Designed a level progression map for two Reach Shoulder Health subgames across 10+ Figma iterations.",
+    "detail": "Implemented the UI in Unity for Meta Quest 2 and 3 from a client-approved outline, optimizing layers, colors, blur effects, and export frame sizes for performance.",
+    "strength": "shipped",
+    "date": "2024-08",
+    "facets": {
+      "roles": [
+        "spatial-designer",
+        "ux-designer"
+      ],
+      "skills": [
+        "ui-design",
+        "interaction-design",
+        "prototyping",
+        "figma",
+        "unity"
+      ],
+      "domains": [
+        "spatial",
+        "healthcare"
+      ],
+      "platforms": [
+        "meta-quest"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "project",
+      "label": "Patched Reality"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-patched-reality-spatial-design-system",
+    "claim": "Designed and implemented a spatial design system in Figma and Unity for Reach Shoulder Health.",
+    "detail": "Created large, accessible buttons, badges, and progression lines tailored to a target audience with a median age of 50, adapting visual effects for Meta Quest 2 and 3.",
+    "strength": "shipped",
+    "date": "2024-08",
+    "facets": {
+      "roles": [
+        "spatial-designer",
+        "design-systems-designer",
+        "ux-designer"
+      ],
+      "skills": [
+        "design-systems",
+        "ui-design",
+        "figma",
+        "unity",
+        "accessibility",
+        "user-centered-design"
+      ],
+      "domains": [
+        "spatial",
+        "healthcare"
+      ],
+      "platforms": [
+        "meta-quest"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "project",
+      "label": "Patched Reality"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-patched-reality-xr-qa-testing",
+    "claim": "Tested daily alpha and beta builds for two XR and 3D games, logging UI and functional bugs in Trello.",
+    "detail": "Monitored device logs via Meta Quest Developer Hub and Unity cloud distribution across roughly two builds per day, partnering with developers on UX-performance trade-offs.",
+    "strength": "built",
+    "date": "2024-08",
+    "facets": {
+      "roles": [
+        "ux-designer",
+        "spatial-designer"
+      ],
+      "skills": [
+        "ui-design",
+        "unity"
+      ],
+      "domains": [
+        "spatial"
+      ],
+      "platforms": [
+        "meta-quest",
+        "web"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "project",
+      "label": "Patched Reality"
+    },
+    "status": "approved"
+  }
+]

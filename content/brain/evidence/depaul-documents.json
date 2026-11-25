@@ -1,0 +1,97 @@
+[
+  {
+    "id": "depaul-documents-hci-masters",
+    "claim": "Pursued a Master's degree in Human-Computer Interaction at DePaul University.",
+    "strength": "studied",
+    "date": "2024-04",
+    "facets": {
+      "roles": [],
+      "skills": [
+        "user-centered-design"
+      ],
+      "domains": [
+        "education"
+      ],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-documents-media-agency",
+    "claim": "Operated a media agency, delivering graphic design, layout, typography, and visual hierarchy work.",
+    "strength": "shipped",
+    "date": "2024-04",
+    "facets": {
+      "roles": [
+        "media-producer"
+      ],
+      "skills": [
+        "typography"
+      ],
+      "domains": [
+        "film-media"
+      ],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-documents-usability-testing",
+    "claim": "Conducted usability tests and organized user data using UX research methods in prior roles.",
+    "strength": "built",
+    "date": "2024-04",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": [
+        "usability-testing"
+      ]
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-documents-xd-miro-prototyping",
+    "claim": "Practiced wireframing, prototyping, and collaboration in coursework using Adobe XD and Miro.",
+    "strength": "studied",
+    "date": "2024-04",
+    "facets": {
+      "roles": [],
+      "skills": [
+        "prototyping",
+        "user-centered-design",
+        "wireframing",
+        "miro"
+      ],
+      "domains": [
+        "education"
+      ],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  }
+]

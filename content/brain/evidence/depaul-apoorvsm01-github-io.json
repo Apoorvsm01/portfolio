@@ -1,0 +1,173 @@
+[
+  {
+    "id": "depaul-apoorvsm01-github-io-design-tokens-theming",
+    "claim": "Built a CSS custom-property design token system with persistent light and dark mode theming across a 940-line stylesheet.",
+    "detail": "Applied an 8px spacing scale, SF Pro typography tokens, frosted glass navigation blur, and a localStorage-backed theme toggle.",
+    "strength": "built",
+    "date": "2025-10",
+    "facets": {
+      "roles": [
+        "design-systems-designer",
+        "ux-designer",
+        "front-end-engineer"
+      ],
+      "skills": [
+        "design-systems",
+        "html-css",
+        "ui-design",
+        "javascript",
+        "typography"
+      ],
+      "domains": [],
+      "platforms": [
+        "web"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "project",
+      "label": "Apoorvsm01.github.io"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-apoorvsm01-github-io-micro-interactions",
+    "claim": "Engineered a 60fps requestAnimationFrame custom cursor and Intersection Observer scroll-reveal animations in vanilla JavaScript.",
+    "detail": "Disabled the custom cursor on touch devices and removed parallax scroll transforms to eliminate scrolling jank and section overlap.",
+    "strength": "built",
+    "date": "2025-10",
+    "facets": {
+      "roles": [
+        "ux-engineer",
+        "front-end-engineer"
+      ],
+      "skills": [
+        "interaction-design",
+        "javascript",
+        "html-css"
+      ],
+      "domains": [],
+      "platforms": [
+        "web"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "project",
+      "label": "Apoorvsm01.github.io"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-apoorvsm01-github-io-portfolio-site",
+    "claim": "Built a responsive personal portfolio website in vanilla HTML, CSS, and JavaScript with dynamic GitHub API project loading.",
+    "detail": "Fetched 3 GitHub repositories and 3 custom Framer projects with fallback descriptions for API rate limits and responsive 1-to-3-column grid layouts.",
+    "strength": "built",
+    "date": "2025-10",
+    "facets": {
+      "roles": [
+        "front-end-engineer",
+        "ux-engineer"
+      ],
+      "skills": [
+        "html-css",
+        "javascript"
+      ],
+      "domains": [],
+      "platforms": [
+        "web"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "project",
+      "label": "Apoorvsm01.github.io"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-apoorvsm01-github-io-semantic-accessibility",
+    "claim": "Refactored portfolio markup to semantic HTML5 landmarks, ARIA labels, and live regions for screen-reader accessibility.",
+    "detail": "Replaced generic div containers with nav, main, section, aside, and footer elements, aria-labelledby bindings, and WCAG AA color contrast.",
+    "strength": "built",
+    "date": "2025-10",
+    "facets": {
+      "roles": [
+        "front-end-engineer",
+        "ux-engineer"
+      ],
+      "skills": [
+        "accessibility",
+        "html-css"
+      ],
+      "domains": [],
+      "platforms": [
+        "web"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "project",
+      "label": "Apoorvsm01.github.io"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-apoorvsm01-github-io-threejs-headset",
+    "claim": "Constructed an interactive Three.js Apple Vision Pro 3D scene with cursor-tracked rotation and 200 animated particles.",
+    "detail": "Modeled the curved glass dome, aluminum frame, Digital Crown, Light Seal, and EyeSight displays with Three.js geometries and smooth interpolation.",
+    "strength": "built",
+    "date": "2025-10",
+    "facets": {
+      "roles": [
+        "ux-engineer",
+        "spatial-designer"
+      ],
+      "skills": [
+        "javascript",
+        "interaction-design"
+      ],
+      "domains": [
+        "spatial"
+      ],
+      "platforms": [
+        "web"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "project",
+      "label": "Apoorvsm01.github.io"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-apoorvsm01-github-io-vision-pro-3d",
+    "claim": "Implemented a 3D Apple Vision Pro showcase on the web using GLB format, model-viewer auto-rotation, and iOS AR support.",
+    "detail": "Replaced a non-working USDZ asset with a GLB model rendered via model-viewer with a 7-second rotation cycle.",
+    "strength": "built",
+    "date": "2025-10",
+    "facets": {
+      "roles": [
+        "ux-engineer",
+        "front-end-engineer"
+      ],
+      "skills": [
+        "javascript"
+      ],
+      "domains": [
+        "spatial"
+      ],
+      "platforms": [
+        "web",
+        "ios"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "project",
+      "label": "Apoorvsm01.github.io"
+    },
+    "status": "approved"
+  }
+]

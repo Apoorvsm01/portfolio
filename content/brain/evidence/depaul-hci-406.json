@@ -1,0 +1,84 @@
+[
+  {
+    "id": "depaul-hci-406-bootstrap-grid",
+    "claim": "Studied responsive web layouts with Bootstrap's 12-column grid, six screen-width breakpoints, and CSS media queries.",
+    "detail": "Assignment specified laying out an 18-stanza poem and fluid images across xs to xxl breakpoints using Bootstrap CSS and JS, media queries, and @font-face typography.",
+    "strength": "studied",
+    "date": "2025-03",
+    "facets": {
+      "roles": [
+        "front-end-engineer"
+      ],
+      "skills": [
+        "html-css",
+        "ui-design",
+        "typography"
+      ],
+      "domains": [],
+      "platforms": [
+        "web"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 406: Web Site Design for HCI · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-406-html-forms",
+    "claim": "Studied accessible HTML form design using semantic fieldsets, legends, labels, and input controls in HCI 406 coursework.",
+    "detail": "Coursework covered structuring forms with form, fieldset, legend, select, textarea, and multiple input types paired to labels via matching for and id attributes.",
+    "strength": "studied",
+    "date": "2025-01",
+    "facets": {
+      "roles": [
+        "front-end-engineer"
+      ],
+      "skills": [
+        "html-css",
+        "accessibility"
+      ],
+      "domains": [],
+      "platforms": [
+        "web"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 406: Web Site Design for HCI · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-406-multipage-website",
+    "claim": "Studied multi-page responsive website design with HTML, external CSS stylesheets, and interactive navigation states.",
+    "detail": "Project specifications required at least five pages, three responsive screen widths, hover and active link states, credited responsive images, and justified color schemes.",
+    "strength": "studied",
+    "date": "2025-03",
+    "facets": {
+      "roles": [
+        "front-end-engineer",
+        "ux-designer"
+      ],
+      "skills": [
+        "html-css",
+        "ui-design",
+        "interaction-design",
+        "information-architecture"
+      ],
+      "domains": [],
+      "platforms": [
+        "web"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 406: Web Site Design for HCI · DePaul"
+    },
+    "status": "approved"
+  }
+]

@@ -1,0 +1,175 @@
+[
+  {
+    "id": "depaul-it-403-statistics-and-data-analysis-error-matrix-probability",
+    "claim": "As part of a team, modeled Type I and Type II errors across 12,000 tumor-test cases alongside expected-value and sample-space analyses.",
+    "detail": "Constructed a confusion matrix for an 80%-accurate test at 5% prevalence (17.391% positive predictive value) and compared empirical vs. theoretical probabilities.",
+    "strength": "studied",
+    "date": "2023-10",
+    "facets": {
+      "roles": [],
+      "skills": [
+        "statistics-data-analysis"
+      ],
+      "domains": [
+        "education"
+      ],
+      "platforms": [],
+      "methods": [
+        "quant-analysis"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "IT 403 Statistics and Data Analysis · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-it-403-statistics-and-data-analysis-hypothesis-testing-rct",
+    "claim": "Executed z-tests, p-value hypothesis evaluations in Excel, and a randomized controlled experiment design across sample sizes from 10 to 500.",
+    "detail": "Tested null hypotheses at 0.01 and 0.05 significance levels, verified 95% confidence interval overlap across 50- and 100-unit samples, and specified treatment vs. control groups to isolate confounders.",
+    "strength": "studied",
+    "date": "2023-11",
+    "facets": {
+      "roles": [],
+      "skills": [
+        "statistics-data-analysis"
+      ],
+      "domains": [
+        "education"
+      ],
+      "platforms": [],
+      "methods": [
+        "quant-analysis"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "IT 403 Statistics and Data Analysis · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-it-403-statistics-and-data-analysis-part2-email-sex-normality",
+    "claim": "Evaluated weekly email usage across 239 male and 336 female respondents using descriptive statistics and normality tests in SPSS.",
+    "detail": "Interpreted right-skewed distributions via Q-Q plots and Kolmogorov-Smirnov and Shapiro-Wilk tests, selecting the 2-hour median over the mean.",
+    "strength": "studied",
+    "date": "2023-09",
+    "facets": {
+      "roles": [],
+      "skills": [
+        "statistics-data-analysis"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": [
+        "quant-analysis"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "IT 403 Statistics and Data Analysis · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-it-403-statistics-and-data-analysis-part2-spss-eda-gss",
+    "claim": "Performed exploratory data analysis in SPSS on 575 observations from the 2004 General Social Survey.",
+    "detail": "Generated histograms, boxplots, percentiles, skewness, kurtosis, and 95% confidence intervals for weekly web and email hours.",
+    "strength": "studied",
+    "date": "2023-09",
+    "facets": {
+      "roles": [],
+      "skills": [
+        "statistics-data-analysis"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": [
+        "quant-analysis"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "IT 403 Statistics and Data Analysis · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-it-403-statistics-and-data-analysis-probability-in-hci-autonomy",
+    "claim": "Authored an analytical paper mapping simple, compound, and conditional probability and expected value to HCI design and autonomous navigation.",
+    "detail": "Synthesized probabilistic risk frameworks across genomics false-discovery control, autonomous-vehicle SLAM, and UX decision modeling for feature placement and conversion.",
+    "strength": "studied",
+    "date": "2023-10",
+    "facets": {
+      "roles": [],
+      "skills": [
+        "statistics-data-analysis",
+        "user-centered-design"
+      ],
+      "domains": [
+        "automotive",
+        "education"
+      ],
+      "platforms": [],
+      "methods": [
+        "quant-analysis"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "IT 403 Statistics and Data Analysis · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-it-403-statistics-and-data-analysis-spss-linear-regression",
+    "claim": "Fit a linear regression model in SPSS across 19 countries to quantify correlation, R-squared variance, and standardized residuals.",
+    "detail": "Modeled heart disease death rate against annual wine consumption (r = -0.843, R² = 0.710), checked residual plots within ±2 for constant variance, and bounded predictions against extrapolation.",
+    "strength": "studied",
+    "date": "2023-10",
+    "facets": {
+      "roles": [],
+      "skills": [
+        "statistics-data-analysis"
+      ],
+      "domains": [
+        "education"
+      ],
+      "platforms": [],
+      "methods": [
+        "quant-analysis"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "IT 403 Statistics and Data Analysis · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-it-403-statistics-and-data-analysis-spss-normality-analysis",
+    "claim": "Analyzed 77 daily Dow Jones utilities index records in SPSS to evaluate distribution symmetry, outliers, and normality.",
+    "detail": "Computed descriptive statistics, boxplots, histograms, Q-Q plots, and Shapiro-Wilk and Kolmogorov-Smirnov tests, comparing SPSS quartiles against Excel normal approximations.",
+    "strength": "studied",
+    "date": "2023-09",
+    "facets": {
+      "roles": [],
+      "skills": [
+        "statistics-data-analysis"
+      ],
+      "domains": [
+        "education"
+      ],
+      "platforms": [],
+      "methods": [
+        "quant-analysis"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "IT 403 Statistics and Data Analysis · DePaul"
+    },
+    "status": "approved"
+  }
+]
