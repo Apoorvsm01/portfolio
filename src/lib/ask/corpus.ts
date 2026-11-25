@@ -2,13 +2,18 @@ import type { Block, CaseStudy } from "../../../content/types";
 import type { site as Site } from "../../../content/site";
 import type { StudyMeta } from "../../../content/study-meta";
 import type { personal as Personal } from "../../../content/personal";
-import type { Chunk } from "./types";
+import type { FacetGroup, Taxonomy } from "../../../content/brain/taxonomy";
+import type { Chunk, Evidence, Facets, Strength } from "./types";
 
 export type CorpusInput = {
   site: typeof Site;
   studies: CaseStudy[];
   studyMeta: Record<string, StudyMeta>;
   personal: typeof Personal;
+  // When given, case-study chunks get facets and a strength so they can be filtered alongside evidence.
+  taxonomy?: Taxonomy;
+  // Topic ids that equal a taxonomy id add that id to every study in `slugs`, so hand-curated mappings count too.
+  topics?: { id: string; slugs: string[] }[];
 };
 
 const clean = (s: string) => s.replace(/\[([^\]]+)\]\([^)\s]+\)/g, "$1").replace(/\s+/g, " ").trim();
@@ -50,7 +55,7 @@ function blockText(block: Block): string {
   }
 }
 
-export function buildCorpus({ site, studies, studyMeta, personal }: CorpusInput): Chunk[] {
+export function buildCorpus({ site, studies, studyMeta, personal, taxonomy, topics }: CorpusInput): Chunk[] {
   const chunks: Chunk[] = [];
   const add = (chunk: Chunk) => {
     const text = clean(chunk.text);
@@ -91,6 +96,7 @@ export function buildCorpus({ site, studies, studyMeta, personal }: CorpusInput)
         kind: "summary",
         title,
         label: `${title} · Summary`,
+        claim: clean(meta.claim),
         text: [meta.claim, metaFacts, outcomes].filter(Boolean).join(" "),
       });
     }
@@ -203,5 +209,102 @@ export function buildCorpus({ site, studies, studyMeta, personal }: CorpusInput)
     flush();
   }
 
+  if (taxonomy) {
+    const byStudy = new Map(studies.map((study) => [study.slug, studyFilterProfile(study, site, studyMeta[study.slug], taxonomy)]));
+    for (const topic of topics ?? []) {
+      const group = FACET_GROUPS.find((g) => taxonomy[g].some((e) => e.id === topic.id));
+      if (!group) continue;
+      for (const slug of topic.slugs) {
+        const profile = byStudy.get(slug);
+        if (!profile) continue;
+        const have = profile.facets[group] ?? [];
+        if (!have.includes(topic.id)) profile.facets[group] = [...have, topic.id];
+      }
+    }
+    for (const chunk of chunks) {
+      const profile = chunk.slug ? byStudy.get(chunk.slug) : undefined;
+      if (!profile) continue;
+      Object.assign(chunk, { ...profile, facets: { ...profile.facets } });
+    }
+  }
+
   return chunks;
+}
+
+// ---------- facets ----------
+
+const FACET_GROUPS: FacetGroup[] = ["roles", "skills", "domains", "platforms", "methods"];
+
+const plain = (s: string) => ` ${s.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim()} `;
+
+// Taxonomy ids whose aliases appear (on word boundaries) in the text. Ids and labels count as aliases too.
+export function matchFacets(text: string, taxonomy: Taxonomy): Facets {
+  const haystack = plain(text);
+  const out: Facets = {};
+  for (const group of FACET_GROUPS) {
+    const hits = taxonomy[group]
+      .filter((entry) => [entry.id.replace(/-/g, " "), entry.label, ...entry.aliases].some((a) => haystack.includes(plain(a))))
+      .map((entry) => entry.id);
+    if (hits.length) out[group] = hits;
+  }
+  return out;
+}
+
+// The site files each project under a coarse domain; the taxonomy is finer, so map one onto the other.
+const WORK_DOMAIN_TERMS: Record<string, string> = { Automotive: "automotive", Spatial: "spatial", Health: "healthcare" };
+
+// Strength rule for case studies: a project is "shipped" when the site's own status for it is "Shipped", or it
+// is listed in SHIPPED_OVERRIDES; everything else is "built" (prototypes, concepts, studies, personal work).
+// Empty by default: the site's status is the source of truth, so recruiters never see a stronger label than the
+// case study itself claims.
+const SHIPPED_OVERRIDES = new Set<string>();
+
+export function studyStrength(slug: string, status: string | undefined): Strength {
+  return status === "Shipped" || SHIPPED_OVERRIDES.has(slug) ? "shipped" : "built";
+}
+
+function studyFilterProfile(
+  study: CaseStudy,
+  site: CorpusInput["site"],
+  meta: StudyMeta | undefined,
+  taxonomy: Taxonomy,
+): { facets: Facets; strength: Strength; date?: string } {
+  const work = site.work.find((w) => w.slug === study.slug);
+  const featured = site.featured.slug === study.slug;
+  const status = work?.status ?? (featured ? site.featured.status : undefined);
+  const org = work?.org ?? (featured ? site.featured.org : "");
+  const domain = work ? WORK_DOMAIN_TERMS[work.domain] : featured ? WORK_DOMAIN_TERMS.Automotive : undefined;
+  // Tags, title, facts and claim only. Body copy mentions too many things in passing to tag from.
+  const text = [
+    study.title,
+    study.tags.join(" "),
+    study.facts.map((f) => `${f.label} ${f.value}`).join(" "),
+    meta?.claim ?? "",
+    meta?.facts.map((f) => `${f.label} ${f.value}`).join(" ") ?? "",
+    org,
+    domain ?? "",
+  ].join(" ");
+  const when = [...study.facts, ...(meta?.facts ?? [])].find((f) => /^(when|project duration)$/i.test(f.label));
+  const year = (when?.value ?? "").match(/20\d\d/)?.[0];
+  return { facets: matchFacets(text, taxonomy), strength: studyStrength(study.slug, status), date: year };
+}
+
+// Approved evidence only: drafts never reach the index. Facet labels go into `tags` so free text can find them.
+export function buildEvidenceChunks(evidence: Evidence[], taxonomy?: Taxonomy): Chunk[] {
+  const labelOf = (group: FacetGroup, id: string) => taxonomy?.[group].find((e) => e.id === id)?.label ?? id;
+  return evidence
+    .filter((item) => item.status === "approved")
+    .map((item) => ({
+      id: `evidence:${item.id}`,
+      kind: "evidence" as const,
+      title: item.claim,
+      label: item.source.label,
+      href: item.source.href ?? (item.slug ? `/work/${item.slug}/` : "/"),
+      slug: item.slug,
+      text: [item.claim, item.detail ?? ""].filter(Boolean).join(" "),
+      tags: FACET_GROUPS.flatMap((g) => (item.facets[g] ?? []).map((id) => labelOf(g, id))),
+      facets: item.facets,
+      strength: item.strength,
+      date: item.date,
+    }));
 }

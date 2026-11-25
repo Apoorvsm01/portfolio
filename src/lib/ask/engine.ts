@@ -1,8 +1,32 @@
 import type { SuggestedPrompt, Topic } from "../../../content/ask";
-import { buildCorpus, type CorpusInput } from "./corpus.ts";
-import type { AskAnswer, AskBullet, AskConfig, AskRefusal, AskResult, Chunk, RefusalReason, ScopeCheck, SourceRef } from "./types";
+import { buildCorpus, buildEvidenceChunks, type CorpusInput } from "./corpus.ts";
+import { facetGroups, strengths as strengthOrder } from "../../../content/brain/taxonomy.ts";
+import type {
+  AskAnswer,
+  AskBullet,
+  AskConfig,
+  AskRefusal,
+  AskResult,
+  Chunk,
+  Evidence,
+  FacetCount,
+  FacetGroup,
+  Facets,
+  FilterItem,
+  FilterResult,
+  FilterState,
+  RefusalReason,
+  ScopeCheck,
+  SourceRef,
+  Strength,
+} from "./types";
 
-export type AskEngineInput = CorpusInput & { config: AskConfig };
+export type AskEngineInput = CorpusInput & { config: AskConfig; evidence?: Evidence[] };
+
+// The filter view shows this many top results with the diversity cap applied.
+const TOP_N = 12;
+const PER_SOURCE_CAP = 2;
+const strengthRank = (s: Strength | undefined) => (s ? strengthOrder.length - strengthOrder.indexOf(s) : 0);
 
 // ---------- text ----------
 
@@ -70,8 +94,8 @@ type Doc = { chunk: Chunk; tf: Map<string, number>; len: number; owner: Set<stri
 const OWNER_BOOST = 1.6;
 
 export function createAsk(input: AskEngineInput) {
-  const { config, site } = input;
-  const chunks = buildCorpus(input);
+  const { config, site, taxonomy } = input;
+  const chunks = buildCorpus({ ...input, topics: input.topics ?? config.topics });
 
   // Index. Title words count three times and tags once more, so a heading beats a passing mention.
   const docs: Doc[] = chunks.map((chunk) => {
@@ -397,7 +421,140 @@ export function createAsk(input: AskEngineInput) {
     };
   }
 
-  return { ask, scope, explain, size: chunks.length, chunks };
+  // ---------- evidence filter ----------
+  // Filtering has its own small index (case-study claims plus approved evidence) so that adding evidence never
+  // shifts the BM25 statistics ask() relies on. Same tokenizer, stemmer and constants.
+
+  // One item per case study: its summary chunk, or the overview when the study has no summary. The source label
+  // is the study title.
+  const studyChunks = chunks.filter((c) => c.facets && c.strength && (c.kind === "summary" || c.id.endsWith(":overview")));
+  const hasSummary = new Set(studyChunks.filter((c) => c.kind === "summary").map((c) => c.slug));
+  const filterable: Chunk[] = [
+    ...studyChunks.filter((c) => c.kind === "summary" || !hasSummary.has(c.slug)).map((c) => ({ ...c, label: c.title })),
+    ...buildEvidenceChunks(input.evidence ?? [], taxonomy),
+  ];
+  const fdocs = filterable.map((chunk) => {
+    const tokens = [...stems(chunk.text), ...stems(chunk.title), ...stems(chunk.title), ...stems(chunk.tags.join(" "))];
+    const tf = new Map<string, number>();
+    for (const t of tokens) tf.set(t, (tf.get(t) ?? 0) + 1);
+    return { chunk, tf, len: tokens.length };
+  });
+  const fdocByChunk = new Map(fdocs.map((d) => [d.chunk, d]));
+  const favg = fdocs.reduce((n, d) => n + d.len, 0) / Math.max(fdocs.length, 1);
+  const fdf = new Map<string, number>();
+  for (const d of fdocs) for (const t of d.tf.keys()) fdf.set(t, (fdf.get(t) ?? 0) + 1);
+  const fidf = (t: string) => Math.log(1 + (fdocs.length - (fdf.get(t) ?? 0) + 0.5) / ((fdf.get(t) ?? 0) + 0.5));
+
+  // Query terms, or null when the text has nothing searchable (empty or all stopwords).
+  function queryTerms(q: string | undefined): Map<string, number> | null {
+    const terms = stems(q ?? "").filter((t) => !stopSet.has(t) && t.length > 1);
+    return terms.length ? weightedTerms(terms) : null;
+  }
+
+  function bm25(chunk: Chunk, terms: Map<string, number>): number {
+    const d = fdocByChunk.get(chunk);
+    if (!d) return 0;
+    let score = 0;
+    for (const [term, weight] of terms) {
+      const f = d.tf.get(term);
+      if (f) score += weight * fidf(term) * ((f * (K1 + 1)) / (f + K1 * (1 - B + (B * d.len) / favg)));
+    }
+    return score;
+  }
+
+  const selectedOf = (state: FilterState, group: FacetGroup) => state[group] ?? [];
+
+  // AND across groups, OR within one. Returns the facet ids each item shares with the selection, or null on a miss.
+  function matchedFacets(chunk: Chunk, state: FilterState): Facets | null {
+    const matched: Facets = {};
+    for (const group of facetGroups) {
+      const wanted = selectedOf(state, group);
+      if (!wanted.length) continue;
+      const have = chunk.facets?.[group] ?? [];
+      const hit = wanted.filter((id) => have.includes(id));
+      if (!hit.length) return null;
+      matched[group] = hit;
+    }
+    return matched;
+  }
+
+  // "any" mode: every selected facet the item carries, in any group; null when it carries none.
+  function matchedAny(chunk: Chunk, state: FilterState): Facets | null {
+    const matched: Facets = {};
+    let n = 0;
+    for (const group of facetGroups) {
+      const hit = selectedOf(state, group).filter((id) => (chunk.facets?.[group] ?? []).includes(id));
+      if (hit.length) {
+        matched[group] = hit;
+        n += hit.length;
+      }
+    }
+    return n ? matched : null;
+  }
+
+  const matchedCount = (m: Facets) => facetGroups.reduce((n, g) => n + (m[g]?.length ?? 0), 0);
+
+  // All items that pass the filters, ranked, with no diversity cap. With q set, items with no word in common with
+  // it are dropped and the rest are ranked by BM25; without q they rank by strength, matched facets, then recency.
+  function matching(state: FilterState, terms: Map<string, number> | null = queryTerms(state.q)): FilterItem[] {
+    const floor = state.minStrength ? strengthRank(state.minStrength) : 0;
+    const anyMode = state.match === "any" && facetGroups.some((g) => selectedOf(state, g).length > 0);
+    const out: FilterItem[] = [];
+    for (const chunk of filterable) {
+      if (strengthRank(chunk.strength) < floor) continue;
+      const matched = anyMode ? matchedAny(chunk, state) : matchedFacets(chunk, state);
+      if (!matched) continue;
+      const score = terms ? bm25(chunk, terms) : 0;
+      if (terms && !anyMode && score <= 0) continue;
+      out.push({ chunk, score, matched });
+    }
+    const byStrength = (a: FilterItem, b: FilterItem) => strengthRank(b.chunk.strength) - strengthRank(a.chunk.strength);
+    const tail = (a: FilterItem, b: FilterItem) => (b.chunk.date ?? "").localeCompare(a.chunk.date ?? "") || a.chunk.id.localeCompare(b.chunk.id);
+    return out.sort((a, b) =>
+      anyMode
+        ? matchedCount(b.matched) - matchedCount(a.matched) || byStrength(a, b) || b.score - a.score || tail(a, b)
+        : terms
+          ? b.score - a.score || byStrength(a, b)
+          : byStrength(a, b) || matchedCount(b.matched) - matchedCount(a.matched) || tail(a, b),
+    );
+  }
+
+  function filter(state: FilterState): FilterResult {
+    const ranked = matching(state);
+    const perSource = new Map<string, number>();
+    const top: FilterItem[] = [];
+    const rest: FilterItem[] = [];
+    for (const item of ranked) {
+      const key = item.chunk.slug ?? item.chunk.label;
+      if (top.length < TOP_N && (perSource.get(key) ?? 0) < PER_SOURCE_CAP) {
+        perSource.set(key, (perSource.get(key) ?? 0) + 1);
+        top.push(item);
+      } else rest.push(item);
+    }
+    return { items: [...top, ...rest], total: ranked.length };
+  }
+
+  // For every taxonomy entry: how many items would match if it were added to the current selection, and the
+  // strongest strength among them. Entries already selected report the current result.
+  function facetCounts(state: FilterState): FacetCount[] {
+    const terms = queryTerms(state.q);
+    const out: FacetCount[] = [];
+    for (const group of facetGroups) {
+      for (const entry of taxonomy?.[group] ?? []) {
+        const selected = selectedOf(state, group);
+        const next = selected.includes(entry.id) ? state : { ...state, [group]: [...selected, entry.id] };
+        const items = matching(next, terms);
+        const strongest = items.reduce<Strength | undefined>(
+          (best, i) => (strengthRank(i.chunk.strength) > strengthRank(best) ? i.chunk.strength : best),
+          undefined,
+        );
+        out.push({ group, id: entry.id, count: items.length, strongest });
+      }
+    }
+    return out;
+  }
+
+  return { ask, scope, explain, filter, facetCounts, size: chunks.length, chunks, filterable };
 }
 
 export type AskEngine = ReturnType<typeof createAsk>;

@@ -1,0 +1,344 @@
+[
+  {
+    "id": "depaul-hci-594-bias-detection-workshop",
+    "claim": "Evaluated an AI news-bias aggregator in a workshop by comparing manual bias scoring and quote extraction against the tool's output.",
+    "detail": "Selected one of five articles, summarized it in three bullets, rated bias before viewing the AI report, and recommended adding input examples to clarify expected analysis depth.",
+    "strength": "studied",
+    "date": "2025-05",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research",
+        "user-centered-design",
+        "ai-llm-design"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": [
+        "usability-testing",
+        "design-critique"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 594 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-594-part3-capstone-plan",
+    "claim": "On a team of five, scoped a capstone plan for an interactive twin prototype, system flow diagrams, and HIPAA and IRB ethics.",
+    "detail": "Selected Figma, Adobe XD, Miro, Maze, Lookback, Otter, and Google Forms for planned prototyping and qualitative user testing.",
+    "strength": "studied",
+    "date": "2025-04",
+    "facets": {
+      "roles": [
+        "ux-designer",
+        "ux-researcher"
+      ],
+      "skills": [
+        "user-centered-design",
+        "ux-research",
+        "miro"
+      ],
+      "domains": [
+        "healthcare"
+      ],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 594 Capstone · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-594-part3-competitive-analysis",
+    "claim": "On a team of five, analyzed 12 competing health, symptom, mood, AI coaching, and food apps to position Human API.",
+    "detail": "Reviewed Apple Health, Fitbit, Whoop, Lively, WebMD, Bearable, Daylio, Noom, MyFitnessPal, Lark, Nike Training, and Yuka for contextual gaps.",
+    "strength": "studied",
+    "date": "2025-04",
+    "facets": {
+      "roles": [
+        "ux-researcher",
+        "ux-designer"
+      ],
+      "skills": [
+        "ux-research"
+      ],
+      "domains": [
+        "healthcare"
+      ],
+      "platforms": [],
+      "methods": [
+        "competitive-analysis"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 594 Capstone · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-594-part3-digital-twin-lit-review",
+    "claim": "On a team of five, compiled an eight-paper literature review on healthcare digital twins, EHR integration, and patient ethics.",
+    "detail": "Surveyed scoping reviews, precision medicine frameworks, networking architectures, and qualitative mHealth user studies.",
+    "strength": "studied",
+    "date": "2025-04",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research"
+      ],
+      "domains": [
+        "healthcare"
+      ],
+      "platforms": [],
+      "methods": [
+        "literature-review"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 594 Capstone · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-594-part3-human-api-features",
+    "claim": "On a team of five, specified a conversational health twin interface with EHR grounding, cycle syncing, and ingredient-level food flagging.",
+    "detail": "Designed the concept to surface triggers like maltodextrin, gums, and seed oils without gamification or motivational nudges.",
+    "strength": "studied",
+    "date": "2025-04",
+    "facets": {
+      "roles": [
+        "ux-designer",
+        "ai-product-designer"
+      ],
+      "skills": [
+        "user-centered-design",
+        "interaction-design"
+      ],
+      "domains": [
+        "healthcare"
+      ],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 594 Capstone · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-594-part3-human-api-vision",
+    "claim": "On a team of five, defined the product vision for Human API, a reflective digital twin uniting EHR, biometric, cycle, and food data.",
+    "detail": "Scoped for adults aged 18 to 45 using wearables to manage ongoing conditions and clinicians needing concise patient summaries.",
+    "strength": "studied",
+    "date": "2025-04",
+    "facets": {
+      "roles": [
+        "ux-designer"
+      ],
+      "skills": [
+        "user-centered-design",
+        "systems-thinking"
+      ],
+      "domains": [
+        "healthcare"
+      ],
+      "platforms": [
+        "watchos"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 594 Capstone · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-594-roommate-proposal-review",
+    "claim": "Peer-reviewed a biometric roommate-matching app proposal, evaluating its mixed-methods research plan and compatibility dashboard MVP.",
+    "detail": "Recommended concrete competitive examples, clearer biometric data visualizations, explicit user privacy controls, and phone-versus-smartwatch experience comparisons.",
+    "strength": "studied",
+    "date": "2025-04",
+    "facets": {
+      "roles": [
+        "ux-researcher",
+        "ux-designer"
+      ],
+      "skills": [
+        "ux-research",
+        "user-centered-design"
+      ],
+      "domains": [],
+      "platforms": [
+        "watchos"
+      ],
+      "methods": [
+        "design-critique"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 594 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-594-roommate-survey-critique",
+    "claim": "Critiqued a roommate-matching survey and joined an in-class debrief on screener flow and biometric data-sharing context.",
+    "detail": "Completed all survey sections including two screener items, recommending upfront explanations of what biometric data is collected, how it is used, and how it improves matching.",
+    "strength": "studied",
+    "date": "2025-05",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research",
+        "user-centered-design"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": [
+        "surveys",
+        "design-critique"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 594 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-594-travel-app-usability-participation",
+    "claim": "Evaluated a mobile and desktop group-travel prototype across five usability tasks and wrote structured UX feedback.",
+    "detail": "Completed pre- and post-test questions covering voting, finance, mood check-in, and suggested activities, noting missing feature onboarding and discouraging task-skipping cues.",
+    "strength": "studied",
+    "date": "2025-05",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research",
+        "user-centered-design"
+      ],
+      "domains": [],
+      "platforms": [
+        "desktop"
+      ],
+      "methods": [
+        "usability-testing",
+        "design-critique"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 594 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-594-travel-final-review",
+    "claim": "Reviewed a final UCD presentation for a desktop and mobile group-travel app, assessing how iterative usability testing drove redesigns.",
+    "detail": "Evaluated alignment between competitor analysis, user interviews, journey maps, heat-map click tracking, and remediation of budgeting and voting flows.",
+    "strength": "studied",
+    "date": "2025-06",
+    "facets": {
+      "roles": [
+        "ux-researcher",
+        "ux-designer"
+      ],
+      "skills": [
+        "ux-research",
+        "user-centered-design"
+      ],
+      "domains": [],
+      "platforms": [
+        "desktop"
+      ],
+      "methods": [
+        "design-critique"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 594 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-594-wearable-final-review",
+    "claim": "Reviewed a final UCD presentation for a screenless haptic wearable, evaluating how iterative testing refined its gesture and nudge design.",
+    "detail": "Assessed the chronological progression from surveys, interviews, and storyboards to class usability testing that reshaped vibration patterns and accidental-trigger prevention.",
+    "strength": "studied",
+    "date": "2025-06",
+    "facets": {
+      "roles": [
+        "ux-researcher",
+        "ux-designer"
+      ],
+      "skills": [
+        "ux-research",
+        "user-centered-design"
+      ],
+      "domains": [],
+      "platforms": [
+        "watchos"
+      ],
+      "methods": [
+        "design-critique",
+        "storyboarding"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 594 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-594-wearable-proposal-review",
+    "claim": "Peer-reviewed a screenless wearable habit-nudging proposal, assessing its Fogg Behavior Model framing, personas, and research plan.",
+    "detail": "Recommended prioritizing core MVP features, defining cognitive-load and distraction metrics, and testing scenarios under realistic environmental distractions.",
+    "strength": "studied",
+    "date": "2025-04",
+    "facets": {
+      "roles": [
+        "ux-researcher",
+        "ux-designer"
+      ],
+      "skills": [
+        "ux-research",
+        "user-centered-design"
+      ],
+      "domains": [
+        "healthcare",
+        "environmental"
+      ],
+      "platforms": [
+        "watchos"
+      ],
+      "methods": [
+        "design-critique"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 594 · DePaul"
+    },
+    "status": "approved"
+  }
+]

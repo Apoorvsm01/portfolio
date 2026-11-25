@@ -7,6 +7,9 @@ import { askCopy, type SuggestedPrompt } from "../../../content/ask";
 import { copyText } from "../../lib/copy-text";
 import { useReducedMotion } from "../../lib/use-reduced-motion";
 import { Sparkle } from "./Sparkle";
+import { brainCopy } from "../../../content/brain/copy";
+import { facets as taxonomy } from "../../../content/brain/taxonomy";
+import { brainSearchFor } from "../brain/state";
 
 const LINKISH = /^(https?:\/\/[^\s]+?|[\w.+-]+@[\w-]+\.[\w.-]+?)([.,;:)]*)(\s*)$/;
 
@@ -155,6 +158,9 @@ export function AnswerPanel({ result, matchCount, onPick, onStreaming, onReset }
               </ul>
             </>
           )}
+          <Link className="ask-brain-link" href={`/brain/${brainSearchFor(result.query, result.topicId, taxonomy)}`}>
+            {brainCopy.fromAnswer} →
+          </Link>
           <button type="button" className="ask-reset" onClick={onReset}>
             Ask something else
           </button>

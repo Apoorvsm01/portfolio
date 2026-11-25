@@ -1,0 +1,26 @@
+[
+  {
+    "id": "youtube-t85rs8qhpyu",
+    "claim": "Edited “World Motorcycle Day – Rush In Leh”, an 8-minute ride film for WhatteRush featuring the Yezdi Scrambler.",
+    "strength": "shipped",
+    "date": "2023-06",
+    "facets": {
+      "roles": [
+        "media-producer"
+      ],
+      "skills": [
+        "video-editing",
+        "storytelling"
+      ],
+      "domains": [
+        "film-media"
+      ]
+    },
+    "source": {
+      "kind": "video",
+      "label": "World Motorcycle Day – Rush In Leh · WhatteRush",
+      "href": "https://youtu.be/t85rS8QHPYU"
+    },
+    "status": "approved"
+  }
+]

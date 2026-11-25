@@ -1,0 +1,117 @@
+[
+  {
+    "id": "depaul-car-dashboard-global-search",
+    "claim": "Designed an Apple Spotlight-style global search UI to query vehicles, orders, and customers in real time.",
+    "detail": "Connected global search across all dashboard entities with live image loading and Pixabay photographer attribution.",
+    "strength": "built",
+    "date": "2025-08",
+    "facets": {
+      "roles": [
+        "ux-designer",
+        "front-end-engineer"
+      ],
+      "skills": [
+        "ui-design",
+        "interaction-design"
+      ],
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "web"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "project",
+      "label": "Car Dashboard"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-car-dashboard-map-calendar",
+    "claim": "Implemented interactive vehicle mapping with Leaflet.js and scheduling calendars with FullCalendar.js in modular JavaScript.",
+    "detail": "Built MapComponent.js and OrdersComponent.js to connect six vehicle entries with order management and customer records.",
+    "strength": "built",
+    "date": "2025-08",
+    "facets": {
+      "roles": [
+        "front-end-engineer"
+      ],
+      "skills": [
+        "javascript",
+        "interaction-design"
+      ],
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "web"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "project",
+      "label": "Car Dashboard"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-car-dashboard-pixabay-service",
+    "claim": "Built a JavaScript Pixabay API service with automatic vehicle brand detection, 24-hour caching, and Unsplash fallbacks.",
+    "detail": "Created PixabayService.js and api-config.js to fetch 400x300 vehicle images by brand (Toyota, Honda, BMW) and 200x200 customer avatars within a 100-requests-per-60-seconds free tier.",
+    "strength": "built",
+    "date": "2025-08",
+    "facets": {
+      "roles": [
+        "front-end-engineer"
+      ],
+      "skills": [
+        "javascript"
+      ],
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "web"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "project",
+      "label": "Car Dashboard"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-car-dashboard-web-dashboard",
+    "claim": "Built a responsive, dark-themed car dashboard with six vehicles, order management, customer avatars, and accessible HTML navigation.",
+    "detail": "Structured vehicles.html, orders.html, and modular JavaScript files with semantic HTML, meta tags, and GitHub Pages deployment across mobile, tablet, and desktop views.",
+    "strength": "built",
+    "date": "2025-08",
+    "facets": {
+      "roles": [
+        "front-end-engineer",
+        "ux-designer"
+      ],
+      "skills": [
+        "html-css",
+        "javascript",
+        "ui-design",
+        "accessibility"
+      ],
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "web"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "project",
+      "label": "Car Dashboard"
+    },
+    "status": "approved"
+  }
+]

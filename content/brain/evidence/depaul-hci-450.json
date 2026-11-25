@@ -1,0 +1,344 @@
+[
+  {
+    "id": "depaul-hci-450-adas-gaze-prediction",
+    "claim": "Reviewed supervised learning approaches for ADAS driver-intent prediction using eye-tracking gaze data sampled at 5-second intervals.",
+    "detail": "Examined how Artificial Neural Networks, Bayesian Networks, and Naive Bayes Classifiers balance maneuver prediction accuracy against false-alarm cognitive load.",
+    "strength": "studied",
+    "date": "2024-03",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research",
+        "eye-tracking"
+      ],
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 450 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-450-annotated-bibliography",
+    "claim": "Compiled a thematic outline and annotated bibliography of nine peer-reviewed studies on cognitive load, working memory, and driving safety.",
+    "detail": "Reviewed experimental research using lane change tests, eye tracking, closed-course driving tracks, and Apple CarPlay and Android Auto interfaces.",
+    "strength": "studied",
+    "date": "2024-03",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research",
+        "eye-tracking"
+      ],
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "carplay",
+        "in-vehicle-hud"
+      ],
+      "methods": [
+        "literature-review"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 450 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-450-cognitive-load-theory",
+    "claim": "Studied how Cognitive Load Theory, the modality effect, and automaticity govern dual-task visual and auditory distraction while driving.",
+    "detail": "Examined working memory processes of updating, shifting, and inhibition alongside age-related visual perception factors in older drivers.",
+    "strength": "studied",
+    "date": "2024-03",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "user-centered-design",
+        "ux-research"
+      ],
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 450 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-450-illusion-sequence-analysis",
+    "claim": "Analyzed response times across four participants to evaluate whether illusion presentation order or fatigue influenced pattern recognition.",
+    "detail": "Results supported the null hypothesis on sequence order, with three participants recognizing patterns in 5 to 8 seconds and one fatigued participant in 10 to 12 seconds.",
+    "strength": "built",
+    "date": "2024-03",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 450 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-450-infotainment-ui-guidelines",
+    "claim": "Analyzed screen-size and context-aware infotainment studies to formulate cognitive load reduction guidelines for in-car UI.",
+    "detail": "Compared findings from a 48-participant Carrio 7-inch vs. 4.5-inch phone study and Volvo Intelligent News to recommend haptic, minimal-step HMI flows.",
+    "strength": "studied",
+    "date": "2024-03",
+    "facets": {
+      "roles": [
+        "hmi-designer"
+      ],
+      "skills": [
+        "ui-design",
+        "interaction-design",
+        "user-centered-design"
+      ],
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "in-vehicle-hud"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 450 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-450-infotainment-working-memory-paper",
+    "claim": "Authored a research paper analyzing how in-car infotainment systems affect driver working memory, cognitive load, and road safety.",
+    "detail": "Synthesized empirical studies on full-touch HMIs, context-aware infotainment, screen size, and gaze-based ADAS to propose interface safety guidelines.",
+    "strength": "built",
+    "date": "2024-03",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research",
+        "user-centered-design"
+      ],
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "in-vehicle-hud"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 450 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-450-part2-classical-hci-cognitive-models",
+    "claim": "Analyzed classical HCI laws and cognitive models—including Fitts' Law, Hick-Hyman Law, GOMS, and mental models—for UI design.",
+    "detail": "Evaluated predictive model limits against heuristic evaluation and cognitive walkthroughs across interface execution and evaluation gulfs.",
+    "strength": "studied",
+    "date": "2024-01",
+    "facets": {
+      "roles": [],
+      "skills": [
+        "user-centered-design",
+        "ui-design"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": [
+        "heuristic-evaluation"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 450 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-450-part2-embodied-interaction-accessibility",
+    "claim": "Explored contemporary HCI theories—embodied interaction, tangible manipulation, and in-the-wild research—and their accessibility implications.",
+    "detail": "Connected theoretical frameworks to steering-wheel hand controls for drivers with disabilities and abstract artifacts in brain-computer interfaces.",
+    "strength": "studied",
+    "date": "2024-01",
+    "facets": {
+      "roles": [],
+      "skills": [
+        "user-centered-design",
+        "accessibility",
+        "interaction-design"
+      ],
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 450 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-450-part2-infotainment-cognitive-load",
+    "claim": "Researched how in-car infotainment systems impact driver working memory and cause distraction through cognitive overload.",
+    "detail": "Reviewed in-vehicle platforms including Apple CarPlay, Android Auto, Carrio, and Volvo Intelligent News across task management and planning demands.",
+    "strength": "studied",
+    "date": "2024-06",
+    "facets": {
+      "roles": [],
+      "skills": [
+        "ux-research",
+        "user-centered-design"
+      ],
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "carplay",
+        "in-vehicle-hud"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 450 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-450-part2-infotainment-safety-strategies",
+    "claim": "Evaluated cognitive-load reduction strategies for in-car infotainment using simplified task flows, UI design, error prevention, and ADAS.",
+    "detail": "Examined gaze detection methods—Artificial Neural Networks, Bayesian Networks, and Naive Bayes Classifiers—alongside hardware and software design.",
+    "strength": "studied",
+    "date": "2024-06",
+    "facets": {
+      "roles": [],
+      "skills": [
+        "ui-design",
+        "user-centered-design"
+      ],
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "in-vehicle-hud"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 450 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-450-part2-modern-hci-research-frameworks",
+    "claim": "Studied modern HCI frameworks including distributed cognition, contextual design, situated action, ethnography, and grounded theory.",
+    "detail": "Examined how external cognition, activity theory, and open, axial, and selective coding uncover workplace context and social coordination.",
+    "strength": "studied",
+    "date": "2024-01",
+    "facets": {
+      "roles": [],
+      "skills": [
+        "user-centered-design",
+        "ux-research"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": [
+        "field-observation"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 450 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-450-touch-vs-physical-hmi",
+    "claim": "Evaluated closed-circuit studies comparing full-touch in-vehicle HMIs against physical buttons across 50, 80, and 130 kmph speeds.",
+    "detail": "Documented how full-touch controls increase saccades and pupil dilation, whereas physical controls leverage muscle memory to reduce visual distraction.",
+    "strength": "studied",
+    "date": "2024-03",
+    "facets": {
+      "roles": [
+        "ux-researcher",
+        "hmi-designer"
+      ],
+      "skills": [
+        "ux-research",
+        "interaction-design"
+      ],
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "in-vehicle-hud"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 450 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-450-visual-perception-study",
+    "claim": "Ran a controlled visual perception study with four participants testing Gestalt closure and optical illusions on a 1920x1080 display.",
+    "detail": "Presented Hermann, Ehrenstein, and Coffer illusions in varied sequences at 250 nits in one-on-one sessions to test presentation-order effects.",
+    "strength": "built",
+    "date": "2024-03",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research",
+        "user-centered-design"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 450 · DePaul"
+    },
+    "status": "approved"
+  }
+]

@@ -1,0 +1,151 @@
+[
+  {
+    "id": "depaul-hci-472-animation-critique",
+    "claim": "On a team of two, critiqued motion principles across an Apple MacBook Air clip and a 3D comic animation in a video presentation.",
+    "detail": "Evaluated squash and stretch, ease-in and ease-out timing variation, anticipation, follow-through, and scene cohesion against the 12 principles of animation.",
+    "strength": "studied",
+    "date": "2025-05",
+    "facets": {
+      "roles": [
+        "ux-designer"
+      ],
+      "skills": [
+        "animation",
+        "interaction-design"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": [
+        "design-critique"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 472 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-472-color-schemes",
+    "claim": "Created monochromatic, analogous, complementary, and triadic color-chip palettes and matched two schemes to reference artwork.",
+    "strength": "studied",
+    "date": "2025-04",
+    "facets": {
+      "roles": [
+        "ux-designer"
+      ],
+      "skills": [
+        "ui-design"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 472 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-472-info-viz-critique",
+    "claim": "On a team of two, critiqued a medication-error Pareto chart and an employee radar chart in a video presentation.",
+    "detail": "Evaluated nominal and ratio encodings, dual axes, an 80% threshold rule, red-green colorblindness risks, overplotting, and radial area distortion, recommending grouped bar or parallel-coordinates charts.",
+    "strength": "studied",
+    "date": "2025-06",
+    "facets": {
+      "roles": [
+        "ux-designer"
+      ],
+      "skills": [
+        "ui-design",
+        "accessibility",
+        "data-visualization"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": [
+        "design-critique"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 472 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-472-linear-perspective",
+    "claim": "Mapped the horizon line and vanishing points on a building photograph to analyze classic two-point linear perspective.",
+    "detail": "Estimated viewer eye level at 4 to 5 feet above ground based on the constructed horizon line.",
+    "strength": "studied",
+    "date": "2025-04",
+    "facets": {
+      "roles": [
+        "ux-designer"
+      ],
+      "skills": [
+        "ui-design"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 472 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-472-type-hierarchies",
+    "claim": "Built a webpage demonstrating three typographic hierarchy combinations using modular type scales from a 16px base size.",
+    "detail": "Implemented one- and two-typeface pairings across 1.200 Minor Third, 1.333 Perfect Fourth, and 1.141 Augmented Fourth scales.",
+    "strength": "built",
+    "date": "2025-04",
+    "facets": {
+      "roles": [
+        "ux-designer",
+        "front-end-engineer"
+      ],
+      "skills": [
+        "ui-design",
+        "html-css",
+        "typography"
+      ],
+      "domains": [],
+      "platforms": [
+        "web"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 472 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-472-visual-principles",
+    "claim": "Analyzed unity, emphasis, balance, and rhythm across architectural and nature photography compositions.",
+    "detail": "Examined visual hierarchy, radial and asymmetrical equilibrium, color contrast, and progressive repetition, alongside the 1.6 golden ratio.",
+    "strength": "studied",
+    "date": "2025-04",
+    "facets": {
+      "roles": [
+        "ux-designer"
+      ],
+      "skills": [
+        "ui-design"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 472 · DePaul"
+    },
+    "status": "approved"
+  }
+]

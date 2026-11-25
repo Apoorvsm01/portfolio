@@ -1,0 +1,202 @@
+[
+  {
+    "id": "depaul-hci-460-cognitive-walkthrough",
+    "claim": "On a team of four, conducted a severity-rated cognitive walkthrough of the Illinois Secretary of State DMV user flows.",
+    "detail": "Evaluated dropdown selection, custom license plate entry, appointment confirmation saving, and service discovery actions.",
+    "strength": "built",
+    "date": "2024-06",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research"
+      ],
+      "domains": [],
+      "platforms": [
+        "web"
+      ],
+      "methods": [
+        "heuristic-evaluation"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 460 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-460-ilsos-redesign-recommendations",
+    "claim": "On a team of four, proposed information architecture and UI redesigns for the Illinois Secretary of State portal.",
+    "detail": "Recommended explicit Standard (DL) and Commercial (CDL) labels, Health and Administrative Changes categories, consistent CTAs, and smaller banners.",
+    "strength": "built",
+    "date": "2024-06",
+    "facets": {
+      "roles": [
+        "ux-designer",
+        "ux-researcher"
+      ],
+      "skills": [
+        "information-architecture",
+        "ui-design",
+        "user-centered-design"
+      ],
+      "domains": [],
+      "platforms": [
+        "web"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 460 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-460-remote-testing-critique",
+    "claim": "Critiqued remote moderated think-aloud testing and navigation feedback as a participant on an e-commerce gift site.",
+    "detail": "Evaluated task realism, facilitator prompting, and missing error recovery and visual feedback during online purchase tasks.",
+    "strength": "studied",
+    "date": "2024-06",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research"
+      ],
+      "domains": [
+        "e-commerce"
+      ],
+      "platforms": [
+        "web"
+      ],
+      "methods": [
+        "usability-testing",
+        "surveys",
+        "think-aloud"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 460 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-460-sus-umux-benchmarking",
+    "claim": "On a team of four, benchmarked Illinois Secretary of State website usability using SUS, UMUX, NPS, and satisfaction surveys.",
+    "detail": "Collected post-test ratings from five participants across three tasks, recording an average SUS score of 61.",
+    "strength": "built",
+    "date": "2024-06",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research"
+      ],
+      "domains": [],
+      "platforms": [
+        "web"
+      ],
+      "methods": [
+        "surveys",
+        "usability-testing",
+        "quant-analysis"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 460 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-460-usability-report-findings",
+    "claim": "On a team of four, analyzed survey and observational data from five Illinois residents to diagnose DMV navigation bottlenecks.",
+    "detail": "Found 80% rated the site complicated and inconsistent, 60% felt expert help was needed, and hidden filters under Misc. blocked organ donor discovery.",
+    "strength": "built",
+    "date": "2024-05",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research",
+        "information-architecture"
+      ],
+      "domains": [],
+      "platforms": [
+        "web"
+      ],
+      "methods": [
+        "usability-testing",
+        "surveys",
+        "quant-analysis"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 460 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-460-usability-test-plan",
+    "claim": "On a team of four, authored a summative usability test plan for the Illinois Secretary of State DMV website.",
+    "detail": "Defined participant screening criteria, consent procedures, moderator script, three task scenarios with happy paths, and pre- and post-test questionnaires.",
+    "strength": "built",
+    "date": "2024-05",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research"
+      ],
+      "domains": [],
+      "platforms": [
+        "web"
+      ],
+      "methods": [
+        "usability-testing",
+        "surveys"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 460 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-460-zoom-usability-tests",
+    "claim": "On a team of four, ran five moderated Zoom usability sessions testing DMV appointment, organ donor, and license plate flows.",
+    "detail": "Rotated moderator, evaluator, and two observer roles while logging task success, error, abandonment, and completion times.",
+    "strength": "built",
+    "date": "2024-05",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research"
+      ],
+      "domains": [],
+      "platforms": [
+        "web"
+      ],
+      "methods": [
+        "usability-testing"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 460 · DePaul"
+    },
+    "status": "approved"
+  }
+]

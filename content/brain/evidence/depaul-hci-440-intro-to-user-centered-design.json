@@ -1,0 +1,535 @@
+[
+  {
+    "id": "depaul-hci-440-intro-to-user-centered-design-lost-found-concept",
+    "claim": "Scoped a university-wide lost-and-found app concept grounded in campus user interviews and university privacy needs.",
+    "detail": "Specified photo and location reporting, university database cross-referencing, searchable feeds, D2L integration, and ID-verified pickup requests.",
+    "strength": "studied",
+    "date": "2023-09",
+    "facets": {
+      "roles": [
+        "ux-designer"
+      ],
+      "skills": [
+        "user-centered-design"
+      ],
+      "domains": [
+        "education"
+      ],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 440 Intro to User Centered Design · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-440-intro-to-user-centered-design-lost-found-research",
+    "claim": "Interviewed two graduate students and audited campus lost-and-found channels to identify recovery pain points.",
+    "detail": "Reviewed ad-hoc WhatsApp and D2L posts after five Ventra passes were lost in two weeks, alongside Student Center and departmental channels.",
+    "strength": "built",
+    "date": "2023-09",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research",
+        "user-centered-design"
+      ],
+      "domains": [
+        "education"
+      ],
+      "platforms": [],
+      "methods": [
+        "user-interviews"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 440 Intro to User Centered Design · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-440-intro-to-user-centered-design-mr-tourism-proposal",
+    "claim": "Authored a mixed-methods research proposal studying how Meta Quest 3 mixed reality tours affect destination choice.",
+    "detail": "Designed a protocol combining pre/post surveys, biometric emotion and gaze logging in SmartPLS 3.3, contextual inquiries, and a pilot study.",
+    "strength": "studied",
+    "date": "2023-10",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research",
+        "user-centered-design"
+      ],
+      "domains": [
+        "spatial",
+        "education"
+      ],
+      "platforms": [
+        "meta-quest"
+      ],
+      "methods": [
+        "surveys",
+        "user-interviews"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 440 Intro to User Centered Design · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-440-intro-to-user-centered-design-part2-meowmate-flow-consolidation",
+    "claim": "On a team of three, prioritized MeowMate features and consolidated individual wireframes into unified mobile user flows.",
+    "detail": "Eliminated redundant screens and streamlined onboarding, diet monitoring, automatic feeder setup, and pet-supply shopping flows.",
+    "strength": "built",
+    "date": "2023-11",
+    "facets": {
+      "roles": [
+        "ux-designer"
+      ],
+      "skills": [
+        "user-centered-design",
+        "information-architecture",
+        "interaction-design",
+        "prototyping",
+        "wireframing"
+      ],
+      "domains": [
+        "e-commerce",
+        "education"
+      ],
+      "platforms": [],
+      "methods": [
+        "design-critique",
+        "personas-journeys"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 440 Intro to User Centered Design · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-440-intro-to-user-centered-design-part2-meowmate-high-fidelity",
+    "claim": "Converted mid-fidelity MeowMate wireframes into high-fidelity designs and redesigned login, input, shop, and navigation.",
+    "detail": "Built high-fidelity screens in Figma and documented before-and-after wireframe comparisons for the e-commerce shop experience.",
+    "strength": "built",
+    "date": "2023-11",
+    "facets": {
+      "roles": [
+        "ux-designer"
+      ],
+      "skills": [
+        "figma",
+        "ui-design",
+        "prototyping",
+        "information-architecture",
+        "interaction-design",
+        "wireframing"
+      ],
+      "domains": [
+        "e-commerce",
+        "education"
+      ],
+      "platforms": [
+        "web"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 440 Intro to User Centered Design · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-440-intro-to-user-centered-design-part2-meowmate-mood-board",
+    "claim": "Created the visual mood board for the MeowMate mobile app using a warm autumn palette and flat iconography.",
+    "detail": "Established visual direction to evoke care and positivity across multi-cat household workflows before consolidating team wireframes.",
+    "strength": "built",
+    "date": "2023-11",
+    "facets": {
+      "roles": [
+        "ux-designer"
+      ],
+      "skills": [
+        "ui-design",
+        "user-centered-design",
+        "wireframing"
+      ],
+      "domains": [
+        "education"
+      ],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 440 Intro to User Centered Design · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-440-intro-to-user-centered-design-part2-meowmate-usability-redesign",
+    "claim": "On a team of three, synthesized four usability tests into five redesign fixes for the MeowMate pet-feeder prototype.",
+    "detail": "Added universal confirmation screens, prominent low-food alerts, interactive feeder graphics, clearer microcopy, and checkout visibility.",
+    "strength": "built",
+    "date": "2023-11",
+    "facets": {
+      "roles": [
+        "ux-researcher",
+        "ux-designer"
+      ],
+      "skills": [
+        "ux-research",
+        "user-centered-design",
+        "ui-design",
+        "interaction-design",
+        "prototyping"
+      ],
+      "domains": [
+        "e-commerce",
+        "education"
+      ],
+      "platforms": [
+        "web"
+      ],
+      "methods": [
+        "usability-testing"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 440 Intro to User Centered Design · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-440-intro-to-user-centered-design-part2-meowmate-usability-test",
+    "claim": "Moderated a scripted think-aloud usability test with four tasks on the MeowMate web prototype.",
+    "detail": "Collected verbal informed consent, observed task completion on a shared prototype, and recorded post-test debriefing notes.",
+    "strength": "built",
+    "date": "2023-11",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research",
+        "user-centered-design"
+      ],
+      "domains": [
+        "education"
+      ],
+      "platforms": [
+        "web"
+      ],
+      "methods": [
+        "usability-testing",
+        "think-aloud"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 440 Intro to User Centered Design · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-440-intro-to-user-centered-design-part2-meowmate-wireframes",
+    "claim": "Designed initial wireframes for onboarding, diet monitoring, feeding schedules, and pet profiles in the MeowMate mobile app.",
+    "detail": "Built wireframes in Figma and Miro, then collaborated on two design iterations for the automatic feeder setup flow.",
+    "strength": "built",
+    "date": "2023-11",
+    "facets": {
+      "roles": [
+        "ux-designer"
+      ],
+      "skills": [
+        "user-centered-design",
+        "prototyping",
+        "ui-design",
+        "interaction-design",
+        "figma",
+        "wireframing",
+        "miro"
+      ],
+      "domains": [
+        "education"
+      ],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 440 Intro to User Centered Design · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-440-intro-to-user-centered-design-part2-whisker-connect-analysis",
+    "claim": "On a team of three, analyzed the Whisker Connect iOS and Android app across onboarding, navigation, and shopping flows.",
+    "detail": "Evaluated visual hierarchy, three-tab navigation, and web-view performance issues in the shop tab to inform MeowMate design requirements.",
+    "strength": "built",
+    "date": "2023-11",
+    "facets": {
+      "roles": [
+        "ux-researcher",
+        "ux-designer"
+      ],
+      "skills": [
+        "ux-research",
+        "ui-design",
+        "information-architecture"
+      ],
+      "domains": [
+        "e-commerce",
+        "education"
+      ],
+      "platforms": [
+        "ios",
+        "android"
+      ],
+      "methods": [
+        "competitive-analysis"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 440 Intro to User Centered Design · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-440-intro-to-user-centered-design-part3-campus-lost-found-interviews",
+    "claim": "Conducted recorded user interviews with two graduate students to study campus lost-and-found workflows.",
+    "detail": "Collected informed consent and analyzed ad-hoc WhatsApp and D2L posts, including five lost $50 transit passes in two weeks, to surface pain points.",
+    "strength": "built",
+    "date": "2023-09",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research",
+        "user-centered-design"
+      ],
+      "domains": [
+        "education"
+      ],
+      "platforms": [],
+      "methods": [
+        "user-interviews"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 440 Intro to User Centered Design · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-440-intro-to-user-centered-design-part3-lost-found-concept-scope",
+    "claim": "Scoped a university-wide lost-and-found app concept based on student interviews and campus observation.",
+    "detail": "Defined flows for photo-based item reporting, searchable feeds, D2L-integrated alerts, and proof-of-identity pickup requests for high-value items.",
+    "strength": "studied",
+    "date": "2023-09",
+    "facets": {
+      "roles": [
+        "ux-designer"
+      ],
+      "skills": [
+        "user-centered-design"
+      ],
+      "domains": [
+        "education"
+      ],
+      "platforms": [],
+      "methods": [
+        "user-interviews"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 440 Intro to User Centered Design · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-440-intro-to-user-centered-design-part3-petconnect-competitive-analysis",
+    "claim": "As part of a team, ran competitive analysis to differentiate the PetConnect cat-owner app concept.",
+    "detail": "Identified differentiating features including local pet-sitter connections and playdates for nearby cat owners.",
+    "strength": "studied",
+    "date": "2023-11",
+    "facets": {
+      "roles": [
+        "ux-researcher",
+        "ux-designer"
+      ],
+      "skills": [
+        "ux-research",
+        "user-centered-design"
+      ],
+      "domains": [
+        "education"
+      ],
+      "platforms": [],
+      "methods": [
+        "competitive-analysis"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 440 Intro to User Centered Design · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-440-intro-to-user-centered-design-part3-petconnect-metrics-risk",
+    "claim": "Defined engagement metrics and adoption risk mitigation plans for the PetConnect cat-owner app concept.",
+    "detail": "Specified tracking for remote interaction frequency, feeding schedule completions, and health-monitoring satisfaction alongside in-app tutorials and beta testing.",
+    "strength": "studied",
+    "date": "2023-11",
+    "facets": {
+      "roles": [
+        "ux-designer"
+      ],
+      "skills": [
+        "user-centered-design"
+      ],
+      "domains": [
+        "education"
+      ],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 440 Intro to User Centered Design · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-440-intro-to-user-centered-design-part3-team-interviews-personas",
+    "claim": "On a three-person team, conducted user research and authored two personas, activity concepts, and interview analysis.",
+    "detail": "Conducted an interview within a six-interview team study and synthesized findings into personas and activity concepts for the report.",
+    "strength": "built",
+    "date": "2023-10",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research",
+        "user-centered-design"
+      ],
+      "domains": [
+        "education"
+      ],
+      "platforms": [],
+      "methods": [
+        "user-interviews",
+        "personas-journeys"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 440 Intro to User Centered Design · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-440-intro-to-user-centered-design-pet-feeder-walkthrough",
+    "claim": "Conducted a cognitive walkthrough of an automatic pet feeder storefront and feeding-schedule setup flow.",
+    "detail": "Documented usability gaps including missing add-to-cart affordances, absent deals tabs, multi-cat setup blockers, and missing feeding history.",
+    "strength": "studied",
+    "date": "2023-11",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research",
+        "user-centered-design"
+      ],
+      "domains": [
+        "e-commerce",
+        "education"
+      ],
+      "platforms": [],
+      "methods": [
+        "heuristic-evaluation"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 440 Intro to User Centered Design · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-440-intro-to-user-centered-design-spotify-walkthrough",
+    "claim": "Evaluated the Spotify web player through a cognitive walkthrough of playlist creation and track-addition flows.",
+    "detail": "Assessed action visibility, goal alignment, and system feedback across login, library browsing, search, and playlist management steps.",
+    "strength": "studied",
+    "date": "2023-11",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research",
+        "user-centered-design"
+      ],
+      "domains": [
+        "education"
+      ],
+      "platforms": [
+        "web"
+      ],
+      "methods": [
+        "heuristic-evaluation"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 440 Intro to User Centered Design · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-440-intro-to-user-centered-design-xr-tourism-review",
+    "claim": "Analyzed and critiqued three peer-reviewed studies on AR, VR, and Mixed Reality applications in tourism.",
+    "detail": "Evaluated a 65-study meta-analysis (N=16,559) using TAM and UTAUT, an S-O-R and PLS-SEM VR study (N=240), and a Second Chance Tourism model.",
+    "strength": "studied",
+    "date": "2023-10",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research",
+        "user-centered-design"
+      ],
+      "domains": [
+        "spatial",
+        "education"
+      ],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 440 Intro to User Centered Design · DePaul"
+    },
+    "status": "approved"
+  }
+]

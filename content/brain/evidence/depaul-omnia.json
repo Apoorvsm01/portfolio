@@ -1,0 +1,112 @@
+[
+  {
+    "id": "depaul-omnia-openai-vision-video-loop",
+    "claim": "Evaluated simulating live video analysis with OpenAI's Vision API using a JavaScript frame-capture loop.",
+    "detail": "Documented GPT-4 Vision's lack of native live video support and outlined capturing webcam or mobile camera frames as base64 or blob payloads every few seconds.",
+    "strength": "studied",
+    "date": "2025-04",
+    "facets": {
+      "roles": [],
+      "skills": [
+        "javascript",
+        "ai-llm-design"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "project",
+      "label": "Omnia"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-omnia-part2-how2to-spatial-pipeline",
+    "claim": "Specified an AI-to-AR processing pipeline for how2TO combining NLP agents, 3D scene reconstruction, and object detection into AR overlays.",
+    "detail": "Proposed architecture connects YouTube and iFixit APIs plus local 3D uploads up to 20GB to frame extraction, spatial video conversion, and vision-utils markers.",
+    "strength": "built",
+    "date": "2025-04",
+    "facets": {
+      "roles": [
+        "spatial-designer",
+        "ai-product-designer"
+      ],
+      "skills": [
+        "ai-llm-design",
+        "ui-design",
+        "systems-thinking"
+      ],
+      "domains": [
+        "spatial"
+      ],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "project",
+      "label": "Omnia"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-omnia-part2-how2to-templates-ecosystem",
+    "claim": "Defined initial how2TO XR tutorial templates for cooking, DIY, and tech repairs alongside creator and brand monetization models.",
+    "detail": "Mapped AR-first content use cases for content creators, influencers, advertisers, and brands building culinary, tech, and real-time finance tutorials.",
+    "strength": "built",
+    "date": "2025-04",
+    "facets": {
+      "roles": [
+        "spatial-designer",
+        "ux-designer"
+      ],
+      "skills": [
+        "ui-design",
+        "systems-thinking"
+      ],
+      "domains": [
+        "spatial",
+        "education"
+      ],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "project",
+      "label": "Omnia"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-omnia-part2-how2to-xr-product-deck",
+    "claim": "Created a product deck for Omnia's how2TO, an Apple Vision Pro-focused XR tutorial app turning queries into AI-assisted AR guides.",
+    "detail": "Outlines a query-driven flow where users ask how-to questions, choose an immersive source, and enter an AI-assisted spatial tutorial.",
+    "strength": "built",
+    "date": "2025-04",
+    "facets": {
+      "roles": [
+        "spatial-designer",
+        "ai-product-designer",
+        "ux-designer"
+      ],
+      "skills": [
+        "user-centered-design",
+        "ui-design",
+        "ai-llm-design"
+      ],
+      "domains": [
+        "spatial",
+        "education"
+      ],
+      "platforms": [
+        "visionos"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "project",
+      "label": "Omnia"
+    },
+    "status": "approved"
+  }
+]

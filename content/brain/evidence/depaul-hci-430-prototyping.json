@@ -1,0 +1,356 @@
+[
+  {
+    "id": "depaul-hci-430-prototyping-chipark-carplay-prototype",
+    "claim": "Built mid- and high-fidelity Apple CarPlay prototypes in Figma for a Chicago parking and ticket app on a four-person team.",
+    "detail": "Replaced bottom-bar payment buttons with PIN-protected flows, added voice command support, and adjusted spacing for narrow displays.",
+    "strength": "built",
+    "date": "2024-03",
+    "facets": {
+      "roles": [
+        "ux-designer"
+      ],
+      "skills": [
+        "prototyping",
+        "ui-design",
+        "interaction-design",
+        "figma",
+        "voice-ai"
+      ],
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "carplay"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 430 Prototyping & Implementation · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-430-prototyping-chipark-hifi-iteration",
+    "claim": "On a four-person team, iterated a multi-channel parking prototype from mid- to high-fidelity in Figma based on usability test findings.",
+    "detail": "Replaced error-like red CTAs with Chicago flag blue, added search filters and sticky street headers on mobile, and aligned desktop navigation.",
+    "strength": "built",
+    "date": "2024-03",
+    "facets": {
+      "roles": [
+        "ux-designer"
+      ],
+      "skills": [
+        "prototyping",
+        "ui-design",
+        "interaction-design",
+        "figma"
+      ],
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "carplay",
+        "desktop"
+      ],
+      "methods": [
+        "usability-testing"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 430 Prototyping & Implementation · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-430-prototyping-chipark-lofi-sketches",
+    "claim": "Created low-fidelity UI sketches and CarPlay wireframes for a multi-channel parking app spanning mobile, smartwatch, and in-car displays.",
+    "detail": "Participated in a design charette on a four-person team to map core flows across mobile, Apple Watch, and CarPlay before digital prototyping.",
+    "strength": "built",
+    "date": "2024-02",
+    "facets": {
+      "roles": [
+        "ux-designer"
+      ],
+      "skills": [
+        "prototyping",
+        "interaction-design",
+        "user-centered-design",
+        "wireframing"
+      ],
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "carplay",
+        "watchos"
+      ],
+      "methods": [
+        "rapid-prototyping"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 430 Prototyping & Implementation · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-430-prototyping-chipark-personas-research",
+    "claim": "On a four-person team, defined user personas, scenarios, and a competitive analysis for an all-in-one Chicago parking and ticket app.",
+    "detail": "Benchmarked ParkChicago and the City of Chicago Ticket Portal to unify parking discovery, meter extension, and fine payment across channels.",
+    "strength": "studied",
+    "date": "2024-03",
+    "facets": {
+      "roles": [
+        "ux-researcher",
+        "ux-designer"
+      ],
+      "skills": [
+        "user-centered-design",
+        "ux-research"
+      ],
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [],
+      "methods": [
+        "personas-journeys",
+        "competitive-analysis"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 430 Prototyping & Implementation · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-430-prototyping-chipark-usability-study",
+    "claim": "On a four-person team, ran moderated usability tests with five participants on mid-fidelity Figma prototypes across mobile, desktop, and CarPlay.",
+    "detail": "Evaluated parking booking, fine payment, and in-car navigation tasks, producing a report that drove security, color, and navigation fixes.",
+    "strength": "built",
+    "date": "2024-03",
+    "facets": {
+      "roles": [
+        "ux-researcher",
+        "ux-designer"
+      ],
+      "skills": [
+        "ux-research",
+        "prototyping",
+        "figma"
+      ],
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "carplay",
+        "desktop"
+      ],
+      "methods": [
+        "usability-testing"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 430 Prototyping & Implementation · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-430-prototyping-fidelity-analysis",
+    "claim": "Analyzed low- and high-fidelity prototyping tradeoffs in a design literature review, contrasting paper mockups with interactive prototypes.",
+    "detail": "Evaluated how hand-drawn storyboards uncover interaction issues earlier than polished demos, drawing on a prior tax tool video prototype.",
+    "strength": "studied",
+    "date": "2024-01",
+    "facets": {
+      "roles": [
+        "ux-designer"
+      ],
+      "skills": [
+        "prototyping",
+        "user-centered-design"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": [
+        "rapid-prototyping",
+        "literature-review",
+        "storyboarding"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 430 Prototyping & Implementation · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-430-prototyping-part2-chipark-competitive",
+    "claim": "On a team of four, conducted a SWOT competitive analysis of three Chicago parking and ticket-payment apps and web portals.",
+    "detail": "Audited Park Chicago mobile and web experiences alongside the city ticket portal, surfacing disjointed map apps, PIN friction, and siloed workflows.",
+    "strength": "studied",
+    "date": "2024-02",
+    "facets": {
+      "roles": [
+        "ux-researcher",
+        "ux-designer"
+      ],
+      "skills": [
+        "ux-research",
+        "information-architecture"
+      ],
+      "domains": [],
+      "platforms": [
+        "web"
+      ],
+      "methods": [
+        "competitive-analysis"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 430 Prototyping · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-430-prototyping-part2-chipark-narrative",
+    "claim": "On a team of four, created a narrative prototype and eight-slide script for ChiPark across mobile, web, smartwatch, CarPlay, and Android Auto.",
+    "detail": "Mapped GPS and offline Bluetooth parking lookup on Lower Wacker, automated payments, smartwatch expiry reminders, and in-car fine payment.",
+    "strength": "studied",
+    "date": "2024-02",
+    "facets": {
+      "roles": [
+        "ux-designer"
+      ],
+      "skills": [
+        "prototyping",
+        "storytelling",
+        "user-centered-design"
+      ],
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "carplay",
+        "web",
+        "desktop",
+        "watchos"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 430 Prototyping · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-430-prototyping-part2-chipark-personas",
+    "claim": "On a team of four, developed three user personas and six usage scenarios for ChiPark across mobile, desktop web, smartwatch, and CarPlay.",
+    "detail": "Balanced pragmatic quick-task flows for paying citations and extending parking against persistent trip-planning workflows for advance reservations.",
+    "strength": "studied",
+    "date": "2024-02",
+    "facets": {
+      "roles": [
+        "ux-researcher",
+        "ux-designer"
+      ],
+      "skills": [
+        "user-centered-design",
+        "interaction-design"
+      ],
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "carplay",
+        "web",
+        "desktop",
+        "watchos"
+      ],
+      "methods": [
+        "personas-journeys"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 430 Prototyping · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-430-prototyping-part2-chipark-sketches",
+    "claim": "Sketched low-fidelity mobile and Apple CarPlay interfaces for ChiPark, a multi-device Chicago parking and ticket-payment concept.",
+    "detail": "Produced on a four-person team alongside desktop and smartwatch flows covering spot lookup, navigation, and fine settlement.",
+    "strength": "studied",
+    "date": "2024-02",
+    "facets": {
+      "roles": [
+        "ux-designer"
+      ],
+      "skills": [
+        "prototyping",
+        "interaction-design",
+        "ui-design",
+        "wireframing"
+      ],
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "carplay",
+        "watchos"
+      ],
+      "methods": [
+        "rapid-prototyping"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 430 Prototyping · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-430-prototyping-rfp-plan",
+    "claim": "Authored a prototyping proposal for a multi-channel Chicago parking platform spanning CarPlay, Android Auto, iOS, Android, and Web.",
+    "detail": "Specified WCAG accessibility, user interviews, card sorting, usability testing, and FigJam, Figma, and Axure workflows across lo- to hi-fi phases.",
+    "strength": "studied",
+    "date": "2024-03",
+    "facets": {
+      "roles": [
+        "ux-designer"
+      ],
+      "skills": [
+        "prototyping",
+        "accessibility",
+        "figma",
+        "information-architecture",
+        "user-centered-design",
+        "axure"
+      ],
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "carplay",
+        "ios",
+        "android",
+        "web"
+      ],
+      "methods": [
+        "user-interviews",
+        "usability-testing"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 430 Prototyping & Implementation · DePaul"
+    },
+    "status": "approved"
+  }
+]

@@ -1,0 +1,158 @@
+[
+  {
+    "id": "depaul-hcd-421-futuring-methods-analysis",
+    "claim": "Analyzed speculative design, design fiction, and anticipatory ethnography methods for shaping preferred socio-technical futures.",
+    "detail": "Synthesized case studies including autonomous vehicle remote supervision, IKEA Concept Kitchen 2025, and scenario planning in coursework.",
+    "strength": "studied",
+    "date": "2025-02",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research",
+        "user-centered-design"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": [
+        "field-observation",
+        "speculative-design"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCD 421: Design and Human Experience · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hcd-421-smart-home-hcd-plan",
+    "claim": "Designed an empathy-driven human-centered design plan to improve usability and reduce cognitive load in smart home control interfaces.",
+    "detail": "Proposed multi-modal consistency across visual, voice, and gesture controls using interviews, surveys, empathy maps, user journeys, and interactive mockups.",
+    "strength": "studied",
+    "date": "2025-03",
+    "facets": {
+      "roles": [
+        "ux-designer",
+        "ux-researcher"
+      ],
+      "skills": [
+        "user-centered-design",
+        "ux-research",
+        "interaction-design",
+        "prototyping",
+        "voice-ai"
+      ],
+      "domains": [
+        "smart-home-iot"
+      ],
+      "platforms": [],
+      "methods": [
+        "user-interviews",
+        "surveys",
+        "personas-journeys",
+        "usability-testing"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCD 421: Design and Human Experience · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hcd-421-technological-inevitability",
+    "claim": "Evaluated how speculative and participatory design challenge technological determinism and surface socio-technical trade-offs.",
+    "detail": "Examined regulatory, social, and market dynamics using Information Ecologies and urban mobility and autonomous vehicle case readings.",
+    "strength": "studied",
+    "date": "2025-02",
+    "facets": {
+      "roles": [
+        "ux-researcher",
+        "ux-designer"
+      ],
+      "skills": [
+        "user-centered-design",
+        "systems-thinking",
+        "ux-research"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCD 421: Design and Human Experience · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hcd-421-vision-pro-spatial-browser",
+    "claim": "Prototyped a high-fidelity spatial content browser for Apple Vision Pro and evaluated user navigation.",
+    "detail": "Documented a happy path from startup requirements, iterated via contextual inquiries and rapid prototyping, and supported investor pitch meetings.",
+    "strength": "built",
+    "date": "2025-02",
+    "facets": {
+      "roles": [
+        "ux-designer",
+        "spatial-designer"
+      ],
+      "skills": [
+        "prototyping",
+        "ui-design",
+        "interaction-design",
+        "user-centered-design"
+      ],
+      "domains": [
+        "spatial"
+      ],
+      "platforms": [
+        "visionos"
+      ],
+      "methods": [
+        "rapid-prototyping",
+        "user-interviews",
+        "usability-testing"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCD 421: Design and Human Experience · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hcd-421-visionos-library-alignment",
+    "claim": "Customized Apple VisionOS design library components to align graphics and developer code across typography, iconography, and layout.",
+    "detail": "Identified spatial evaluation gaps in 2D tools like Paper and Figma, including eye-tracking efficiency and unrestricted window placement.",
+    "strength": "built",
+    "date": "2025-02",
+    "facets": {
+      "roles": [
+        "ux-designer",
+        "design-systems-designer",
+        "spatial-designer"
+      ],
+      "skills": [
+        "design-systems",
+        "ui-design",
+        "prototyping",
+        "typography",
+        "eye-tracking"
+      ],
+      "domains": [
+        "spatial"
+      ],
+      "platforms": [
+        "visionos"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCD 421: Design and Human Experience · DePaul"
+    },
+    "status": "approved"
+  }
+]

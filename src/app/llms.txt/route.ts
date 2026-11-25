@@ -1,6 +1,7 @@
 import { site } from "../../../content/site";
 import { seo } from "../../../content/seo";
 import { studyMeta } from "../../../content/study-meta";
+import { brainCopy } from "../../../content/brain/copy";
 import { getAllStudies } from "../../lib/content";
 
 // llms.txt (https://llmstxt.org): a plain-language summary that AI assistants and crawlers can read
@@ -35,6 +36,9 @@ function body(): string {
     }
   }
   lines.push(`- [${site.personal.lead.title}](${site.url}/personal/): ${site.personal.lead.claim} (Personal project)`, "");
+
+  lines.push("## Pages", "");
+  lines.push(`- [${brainCopy.navLabel}](${site.url}/brain/): ${brainCopy.llms}`, "");
 
   lines.push("## How I work", "", site.howIWorkIntro, "");
   for (const step of site.howIWork) lines.push(`- ${step.title}: ${step.body}`);

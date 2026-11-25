@@ -1,0 +1,134 @@
+[
+  {
+    "id": "depaul-mymodel-jordan-competitive-matrix",
+    "claim": "Analyzed the competitive landscape for myModel across C2B data apps, survey panels, walled gardens, and legacy data brokers.",
+    "detail": "Evaluated competitors across consent strength, behavioral signal type, scope, accuracy, verifiability, and insight timeliness.",
+    "strength": "built",
+    "date": "2025-10",
+    "facets": {
+      "roles": [],
+      "skills": [],
+      "domains": [],
+      "platforms": [],
+      "methods": [
+        "competitive-analysis"
+      ]
+    },
+    "source": {
+      "kind": "project",
+      "label": "myModel"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-mymodel-jordan-dashboard-ia",
+    "claim": "Structured the myModel consumer dashboard around a Stats Card, live offers Home feed, direct-deposit Wallet, and transparent FAQ.",
+    "detail": "Organized core navigation so users could inspect their behavioral model, configure payouts, and review privacy terms in one place.",
+    "strength": "built",
+    "date": "2025-10",
+    "facets": {
+      "roles": [
+        "ux-designer"
+      ],
+      "skills": [
+        "information-architecture",
+        "user-centered-design"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "project",
+      "label": "myModel"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-mymodel-jordan-explainer-script",
+    "claim": "Scripted a consumer explainer video concept and consent-themed ad narrative contrasting hidden data brokering with direct user payouts.",
+    "detail": "Used plain-language analogies and collective framing to communicate data ownership without technical or partisan language.",
+    "strength": "built",
+    "date": "2025-10",
+    "facets": {
+      "roles": [],
+      "skills": [
+        "scriptwriting",
+        "storytelling"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "project",
+      "label": "myModel"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-mymodel-jordan-marketplace-model",
+    "claim": "Mapped a two-sided C2B data marketplace workflow pairing verified user Stats Cards with 24-hour brand cohort matching and chat queries.",
+    "detail": "Contrasted the real-time consented flow against a 5-month, $70k traditional stack spanning market research, data brokers, CDPs, and paid ads.",
+    "strength": "built",
+    "date": "2025-10",
+    "facets": {
+      "roles": [],
+      "skills": [
+        "systems-thinking"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "project",
+      "label": "myModel"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-mymodel-jordan-onboarding-flow",
+    "claim": "Designed a 10-step consumer onboarding flow for myModel covering Gmail OAuth read-access consent, OTP verification, and permission prompts.",
+    "detail": "Specified non-sharing data disclosures, demographic form fields, a dashboard countdown with an explainer video, and a sample $12 brand offer notification.",
+    "strength": "built",
+    "date": "2025-10",
+    "facets": {
+      "roles": [
+        "ux-designer"
+      ],
+      "skills": [
+        "user-centered-design",
+        "ui-design",
+        "interaction-design"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "project",
+      "label": "myModel"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-mymodel-jordan-segment-messaging",
+    "claim": "Created a three-segment messaging playbook for myModel targeting Gen Z and Millennial consumers, D2C and enterprise brands, and pre-seed investors.",
+    "detail": "Defined brand voice rules, vocabulary dos and don'ts avoiding technical jargon, buyer ICPs focused on CAC and ROAS, and discovery questions.",
+    "strength": "built",
+    "date": "2025-10",
+    "facets": {
+      "roles": [],
+      "skills": [],
+      "domains": [],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "project",
+      "label": "myModel"
+    },
+    "status": "approved"
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "depaul-hci-457-restaurant-swimlane",
+    "claim": "Mapped a restaurant customer experience swimlane flow covering customer, waiter, and cashier steps from entry to payment.",
+    "detail": "Covered customer decisions from entry to payment alongside waiter steps for customer experience and cashier order recording and accounting.",
+    "strength": "studied",
+    "date": "2024-04",
+    "facets": {
+      "roles": [],
+      "skills": [
+        "systems-thinking"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 457 · DePaul"
+    },
+    "status": "approved"
+  }
+]

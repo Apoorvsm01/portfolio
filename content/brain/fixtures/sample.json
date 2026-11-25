@@ -1,0 +1,51 @@
+[
+  {
+    "id": "sample-course-usability-test",
+    "claim": "Ran a moderated usability test with five participants and reported task success and time-on-task.",
+    "detail": "SAMPLE item for tests only. Not a real claim.",
+    "strength": "studied",
+    "date": "2024-03",
+    "facets": { "roles": ["ux-researcher"], "skills": ["ux-research"], "methods": ["usability-testing", "user-interviews"] },
+    "source": { "kind": "course", "label": "SAMPLE HCI course, usability testing project" },
+    "status": "approved"
+  },
+  {
+    "id": "sample-course-heuristic-eval",
+    "claim": "Applied Nielsen's heuristics to a transit app and ranked findings by severity.",
+    "detail": "SAMPLE item for tests only. Not a real claim.",
+    "strength": "studied",
+    "date": "2023-11",
+    "facets": { "roles": ["ux-designer", "ux-researcher"], "skills": ["accessibility"], "methods": ["heuristic-evaluation"], "platforms": ["ios"] },
+    "source": { "kind": "course", "label": "SAMPLE HCI course, heuristic evaluation" },
+    "status": "approved"
+  },
+  {
+    "id": "sample-resume-react-dashboard",
+    "claim": "Built a React and TypeScript dashboard for fleet incidents with a shared component library.",
+    "detail": "SAMPLE item for tests only. Not a real claim.",
+    "strength": "built",
+    "date": "2025-06",
+    "facets": { "roles": ["ux-engineer", "front-end-engineer"], "skills": ["react", "typescript", "design-systems"], "domains": ["fleet-operations", "automotive"], "platforms": ["web"] },
+    "source": { "kind": "resume", "label": "SAMPLE resume, front-end role", "href": "https://example.com/sample-resume" },
+    "status": "approved"
+  },
+  {
+    "id": "sample-video-short-film",
+    "claim": "Directed and edited a six-minute short film, from script through sound mix.",
+    "detail": "SAMPLE item for tests only. Not a real claim.",
+    "strength": "shipped",
+    "date": "2021",
+    "facets": { "roles": ["media-producer"], "skills": ["scriptwriting", "direction", "video-editing"], "domains": ["film-media"] },
+    "source": { "kind": "video", "label": "SAMPLE playlist, short film", "href": "https://example.com/sample-playlist" },
+    "status": "approved"
+  },
+  {
+    "id": "sample-draft-unreviewed",
+    "claim": "Draft item that must never appear in results until it is approved.",
+    "strength": "built",
+    "date": "2024",
+    "facets": { "roles": ["ux-designer"], "skills": ["figma"], "domains": ["healthcare"] },
+    "source": { "kind": "repo", "label": "SAMPLE repo, unreviewed draft" },
+    "status": "draft"
+  }
+]

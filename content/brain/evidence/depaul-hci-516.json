@@ -1,0 +1,201 @@
+[
+  {
+    "id": "depaul-hci-516-behavioral-appraisal",
+    "claim": "Conducted and transcribed a qualitative user interview exploring dietary lapses, sugar cravings, and habit-building strategies.",
+    "detail": "Analyzed the transcript across motivation, mental models, agency, coping, and social norms to identify incremental goal-setting as a coping strategy.",
+    "strength": "built",
+    "date": "2025-02",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research"
+      ],
+      "domains": [
+        "healthcare"
+      ],
+      "platforms": [],
+      "methods": [
+        "user-interviews"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 516 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-516-design-tool",
+    "claim": "Designed survey questions and an interactive research tool to capture participants' daily emotions around healthy habits.",
+    "detail": "Iterated on the tool after an initial misalignment so participants could complete it with minimal explanation during interviews.",
+    "strength": "built",
+    "date": "2025-03",
+    "facets": {
+      "roles": [
+        "ux-researcher",
+        "ux-designer"
+      ],
+      "skills": [
+        "ux-research",
+        "user-centered-design"
+      ],
+      "domains": [
+        "healthcare"
+      ],
+      "platforms": [],
+      "methods": [
+        "surveys",
+        "user-interviews"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 516 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-516-fit-anywhere-prototype",
+    "claim": "On a team of five, prototyped Fit Anywhere, a lo-fi fitness app using incremental goal-setting, prompts, and feedback loops.",
+    "detail": "Prioritized affordability, accountability, and motivation with progress tracking to support habit formation for adults aged 21–35.",
+    "strength": "built",
+    "date": "2025-03",
+    "facets": {
+      "roles": [
+        "ux-designer"
+      ],
+      "skills": [
+        "prototyping",
+        "interaction-design",
+        "user-centered-design",
+        "wireframing"
+      ],
+      "domains": [
+        "healthcare"
+      ],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 516 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-516-journey-map",
+    "claim": "Designed a five-stage user journey map incorporating an empathy map to model motivations and barriers in healthy habit formation.",
+    "detail": "Revisited interview data and repeated affinity mapping on a team of five to map stages from dedication through reflection on effort.",
+    "strength": "built",
+    "date": "2025-03",
+    "facets": {
+      "roles": [
+        "ux-designer",
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research",
+        "systems-thinking",
+        "user-centered-design"
+      ],
+      "domains": [
+        "healthcare"
+      ],
+      "platforms": [],
+      "methods": [
+        "personas-journeys",
+        "user-interviews",
+        "affinity-mapping"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 516 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-516-literature-review",
+    "claim": "Synthesized three peer-reviewed public health studies on how social and home environments shape diet and activity.",
+    "detail": "Derived research questions and interview objectives examining workplace norms, financial barriers, food insecurity, and cultural traditions.",
+    "strength": "studied",
+    "date": "2025-02",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research"
+      ],
+      "domains": [
+        "healthcare"
+      ],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 516 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-516-research-plan",
+    "claim": "On a team of five, authored a UX research plan with six hypotheses and a 45-minute interview guide for young adults.",
+    "detail": "Mapped four stakeholder groups, targeted participants aged 21–35, and defined consent, privacy, and bias-mitigation protocols for food-insecurity interviews.",
+    "strength": "built",
+    "date": "2025-03",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research",
+        "user-centered-design"
+      ],
+      "domains": [
+        "healthcare"
+      ],
+      "platforms": [],
+      "methods": [
+        "user-interviews"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 516 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-516-research-synthesis",
+    "claim": "On a team of five, synthesized interviews and surveys into behavioral themes covering social validation and self-perception.",
+    "detail": "Defined a growth-mindset behavioral archetype and identified barriers including food costs, food deserts, impulsive snacking, and household influence.",
+    "strength": "built",
+    "date": "2025-03",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research"
+      ],
+      "domains": [
+        "healthcare"
+      ],
+      "platforms": [],
+      "methods": [
+        "user-interviews",
+        "surveys",
+        "personas-journeys"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 516 · DePaul"
+    },
+    "status": "approved"
+  }
+]

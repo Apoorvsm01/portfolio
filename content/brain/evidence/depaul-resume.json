@@ -1,0 +1,1455 @@
+[
+  {
+    "id": "depaul-resume-14-east-research",
+    "claim": "Synthesized audience user research with a sample size of 200 for 14 East Magazine across three teams.",
+    "detail": "Provided design consultation to identify relevant audience segments for future editorial content.",
+    "strength": "built",
+    "date": "2025-08",
+    "facets": {
+      "roles": [
+        "ux-researcher",
+        "ux-designer"
+      ],
+      "skills": [
+        "ux-research"
+      ],
+      "domains": [
+        "film-media"
+      ],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-222-motion",
+    "claim": "Designed and coded assets for 2D motion graphic videos at 222 Productions, increasing retention by 30%.",
+    "detail": "Developed social media strategies boosting engagement by 45% and mentored STEAM teams on UX research.",
+    "strength": "shipped",
+    "date": "2025-08",
+    "facets": {
+      "roles": [
+        "media-producer",
+        "ux-designer"
+      ],
+      "skills": [
+        "animation",
+        "ux-research"
+      ],
+      "domains": [
+        "film-media"
+      ],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-carvo-fleet",
+    "claim": "Designed and built Carvo, a GPS car rental dashboard that raised dispatch monitoring efficiency by 15% and grew users by 20%.",
+    "detail": "Combined Apple native design with Omnia's design system and prototyped Vision Pro fleet management views in Figma.",
+    "strength": "shipped",
+    "date": "2025-09",
+    "facets": {
+      "roles": [
+        "ux-designer",
+        "spatial-designer"
+      ],
+      "skills": [
+        "figma",
+        "design-systems",
+        "prototyping",
+        "ui-design"
+      ],
+      "domains": [
+        "automotive",
+        "fleet-operations"
+      ],
+      "platforms": [
+        "visionos"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-chipark-carplay",
+    "claim": "Designed and built ChiPark for CarPlay, mobile, and desktop, cutting downtown Chicago parking search time by 15%.",
+    "detail": "Used user testing, real-time government API data, Apple HIG, WCAG 2.0, and DMV safety rules, increasing payment speed by 30%.",
+    "strength": "built",
+    "date": "2025-09",
+    "facets": {
+      "roles": [
+        "hmi-designer",
+        "ux-designer",
+        "ux-engineer"
+      ],
+      "skills": [
+        "accessibility",
+        "ui-design"
+      ],
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "carplay",
+        "desktop"
+      ],
+      "methods": [
+        "usability-testing"
+      ]
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-crazy-minds",
+    "claim": "Delivered 25+ UX/UI projects across fintech, healthcare, and e-commerce as founder of Crazy Minds.",
+    "detail": "Built iOS, Android, and web component libraries cutting iteration cycles by 40%, and ran WCAG 2.1 audits lifting usability scores by 35%.",
+    "strength": "shipped",
+    "date": "2025-08",
+    "facets": {
+      "roles": [
+        "ux-designer",
+        "design-systems-designer"
+      ],
+      "skills": [
+        "design-systems",
+        "accessibility",
+        "ui-design"
+      ],
+      "domains": [
+        "fintech",
+        "healthcare",
+        "e-commerce"
+      ],
+      "platforms": [
+        "ios",
+        "android",
+        "web"
+      ],
+      "methods": [
+        "accessibility-audit"
+      ]
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-omnia-cms-upload",
+    "claim": "Redesigned Omnia's cross-platform content upload flow, increasing efficiency by 30% and cutting AWS hosting costs by 60%.",
+    "detail": "Grounded the CMS redesign in contextual interviews, affinity mapping, and journey analysis across diverse user groups.",
+    "strength": "shipped",
+    "date": "2025-09",
+    "facets": {
+      "roles": [
+        "ux-designer",
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": [
+        "user-interviews",
+        "affinity-mapping"
+      ]
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-omnia-design-system",
+    "claim": "Established a 100+ component Figma design system at Omnia, cutting design-to-dev handoff time by 30% and QA defects by 25%.",
+    "detail": "Standardized Apple HIG and spatial interface patterns across 2D and 3D product workflows using Figma and Axure.",
+    "strength": "shipped",
+    "date": "2025-09",
+    "facets": {
+      "roles": [
+        "design-systems-designer",
+        "ux-designer"
+      ],
+      "skills": [
+        "figma",
+        "design-systems",
+        "axure"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-omnia-multiplatform-apps",
+    "claim": "Directed UX strategy and execution for three multi-platform apps across iOS, macOS, and Web serving 70K+ monthly users at Omnia.",
+    "detail": "Aligned onboarding and interaction flows across consumer and enterprise applications while collaborating with engineering and product teams.",
+    "strength": "shipped",
+    "date": "2025-09",
+    "facets": {
+      "roles": [
+        "ux-designer"
+      ],
+      "skills": [
+        "interaction-design"
+      ],
+      "domains": [],
+      "platforms": [
+        "ios",
+        "desktop",
+        "web"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-omnia-spatial-browser",
+    "claim": "Designed and tested AR interaction models for Omnia's spatial browser on VisionOS and Meta Quest, raising retention by 25%.",
+    "detail": "Ran usability testing and rapid prototyping to refine control schemes and visual hierarchy, cutting customer confusion by 13%.",
+    "strength": "shipped",
+    "date": "2025-09",
+    "facets": {
+      "roles": [
+        "spatial-designer",
+        "ux-designer"
+      ],
+      "skills": [
+        "prototyping",
+        "interaction-design",
+        "ux-research"
+      ],
+      "domains": [
+        "spatial"
+      ],
+      "platforms": [
+        "visionos",
+        "meta-quest"
+      ],
+      "methods": [
+        "usability-testing",
+        "rapid-prototyping"
+      ]
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-omnia-voice-tutorials",
+    "claim": "Designed and launched a voice-enabled AI tutorial generator for Vision Pro, cutting content creation time by 80%.",
+    "detail": "Enabled hands-free industrial training that reduced manufacturing operator onboarding duration by 28%.",
+    "strength": "shipped",
+    "date": "2025-08",
+    "facets": {
+      "roles": [
+        "spatial-designer",
+        "ai-product-designer",
+        "ux-designer"
+      ],
+      "skills": [
+        "voice-ai",
+        "ai-llm-design"
+      ],
+      "domains": [
+        "spatial",
+        "education"
+      ],
+      "platforms": [
+        "visionos"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-part2-chipark-carplay-payments",
+    "claim": "Designed ChiPark across CarPlay, iOS, and web for 20K+ monthly commuters, reducing parking booking and ticket resolution time by 48%.",
+    "detail": "Simplified navigation from five to three screens, integrated Apple Pay error-handling flows, and ran Useberry usability tests yielding four UI updates.",
+    "strength": "built",
+    "date": "2025-07",
+    "facets": {
+      "roles": [
+        "ux-designer",
+        "hmi-designer"
+      ],
+      "skills": [
+        "information-architecture",
+        "interaction-design",
+        "figma",
+        "prototyping"
+      ],
+      "domains": [
+        "automotive",
+        "fintech"
+      ],
+      "platforms": [
+        "carplay",
+        "ios",
+        "web"
+      ],
+      "methods": [
+        "usability-testing",
+        "surveys"
+      ]
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-part2-crazyminds-consultancy-wcag",
+    "claim": "Delivered 25+ UX/UI projects across fintech, healthtech, and edtech clients at Crazy Minds with a 4.9/5 CSAT score.",
+    "detail": "Built iOS, Android, and web component libraries cutting iteration cycles by 40%, and ran WCAG 2.1 audits that raised usability scores by 35%.",
+    "strength": "shipped",
+    "date": "2025-08",
+    "facets": {
+      "roles": [
+        "ux-designer",
+        "design-systems-designer"
+      ],
+      "skills": [
+        "design-systems",
+        "accessibility",
+        "ui-design"
+      ],
+      "domains": [
+        "fintech",
+        "healthcare",
+        "education"
+      ],
+      "platforms": [
+        "ios",
+        "android",
+        "web"
+      ],
+      "methods": [
+        "accessibility-audit"
+      ]
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-part2-crazyminds-motion-demos",
+    "claim": "Produced After Effects motion-design prototypes and UI animation videos at Crazy Minds for mobile, desktop, and game clients.",
+    "detail": "Created interactive state demonstrations and animated product walkthroughs to communicate design rationale to stakeholders.",
+    "strength": "shipped",
+    "date": "2025-06",
+    "facets": {
+      "roles": [
+        "ux-designer",
+        "media-producer"
+      ],
+      "skills": [
+        "animation",
+        "prototyping",
+        "interaction-design"
+      ],
+      "domains": [
+        "film-media"
+      ],
+      "platforms": [
+        "desktop"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-part2-fintech-explainer-campaigns",
+    "claim": "Produced financial literacy video campaigns and UI explainers for Wint Wealth and LXME Finance using Figma and Adobe Creative Suite.",
+    "detail": "Translated bonds, digital payments, and investment concepts through storyboarding, motion graphics, and lightweight user testing for novice investors.",
+    "strength": "shipped",
+    "date": "2025-07",
+    "facets": {
+      "roles": [
+        "media-producer",
+        "ux-designer"
+      ],
+      "skills": [
+        "animation",
+        "storytelling",
+        "figma",
+        "ui-design"
+      ],
+      "domains": [
+        "fintech",
+        "film-media",
+        "education"
+      ],
+      "platforms": [],
+      "methods": [
+        "usability-testing",
+        "storyboarding"
+      ]
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-part2-omnia-accessibility-research",
+    "claim": "Ran diary studies, heuristic evaluations, and think-aloud usability tests with 12 participants at Omnia, cutting task failure by 18%.",
+    "detail": "Partnered with four engineers to add voice control, screen-reader UI, and WCAG color contrast, reducing accessibility errors by 16%.",
+    "strength": "shipped",
+    "date": "2025-05",
+    "facets": {
+      "roles": [
+        "ux-researcher",
+        "ux-designer"
+      ],
+      "skills": [
+        "ux-research",
+        "accessibility",
+        "voice-ai"
+      ],
+      "domains": [
+        "spatial"
+      ],
+      "platforms": [
+        "visionos",
+        "ios",
+        "desktop"
+      ],
+      "methods": [
+        "usability-testing",
+        "heuristic-evaluation",
+        "accessibility-audit",
+        "think-aloud"
+      ]
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-part2-omnia-design-system",
+    "claim": "Defined a unified Figma design system with 100+ reusable components at Omnia, boosting developer velocity by 30% and cutting QA bugs by 25%.",
+    "detail": "Standardized interactive prototypes and Jira and Confluence documentation across VisionOS, iOS, macOS, and web squads.",
+    "strength": "shipped",
+    "date": "2025-08",
+    "facets": {
+      "roles": [
+        "design-systems-designer",
+        "ux-designer"
+      ],
+      "skills": [
+        "design-systems",
+        "figma",
+        "prototyping"
+      ],
+      "domains": [
+        "spatial"
+      ],
+      "platforms": [
+        "visionos",
+        "ios",
+        "desktop",
+        "web"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-part2-omnia-frontend-cicd",
+    "claim": "Built a GitHub Actions CI/CD pipeline with Jest and Cypress tests at Omnia, cutting regression escapes by 40%.",
+    "detail": "Integrated OpenAI and REST APIs via load-balanced Firebase Cloud Functions handling roughly 10K daily requests for React and VisionOS apps.",
+    "strength": "shipped",
+    "date": "2025-07",
+    "facets": {
+      "roles": [
+        "front-end-engineer",
+        "ux-engineer"
+      ],
+      "skills": [
+        "react",
+        "javascript",
+        "ai-llm-design"
+      ],
+      "domains": [
+        "spatial"
+      ],
+      "platforms": [
+        "web",
+        "visionos"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-part2-omnia-multiplatform-apps",
+    "claim": "Designed and launched three multi-platform applications across VisionOS, iOS, macOS, and web at Omnia, reaching 70K+ monthly users.",
+    "detail": "Collaborated with engineers, 3D artists, and animators to ship enterprise and consumer apps with real-time environmental triggers and motion transitions.",
+    "strength": "shipped",
+    "date": "2025-08",
+    "facets": {
+      "roles": [
+        "ux-designer",
+        "spatial-designer"
+      ],
+      "skills": [
+        "ui-design",
+        "interaction-design"
+      ],
+      "domains": [
+        "spatial",
+        "environmental"
+      ],
+      "platforms": [
+        "visionos",
+        "ios",
+        "desktop",
+        "web"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-part2-omnia-spatial-browser",
+    "claim": "Designed ecommerce-inspired filtering, sorting, and browsing flows for the Omnia spatial content browser, lifting item discovery by 35%.",
+    "detail": "Aligned the web-based spatial content browser with merchandising logic and responsive web best practices.",
+    "strength": "shipped",
+    "date": "2025-08",
+    "facets": {
+      "roles": [
+        "ux-designer",
+        "spatial-designer"
+      ],
+      "skills": [
+        "information-architecture",
+        "interaction-design",
+        "ui-design"
+      ],
+      "domains": [
+        "e-commerce",
+        "spatial"
+      ],
+      "platforms": [
+        "web"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-part2-omnia-spatial-showroom",
+    "claim": "Led UI engineering and user research for a virtual car-configurator showroom launched on the iOS and VisionOS App Store.",
+    "detail": "Conducted 25+ user interviews to validate spatial showroom flows across mobile and Vision Pro.",
+    "strength": "shipped",
+    "date": "2025-07",
+    "facets": {
+      "roles": [
+        "ux-engineer",
+        "spatial-designer"
+      ],
+      "skills": [
+        "ux-research",
+        "ui-design"
+      ],
+      "domains": [
+        "automotive",
+        "e-commerce",
+        "spatial"
+      ],
+      "platforms": [
+        "ios",
+        "visionos"
+      ],
+      "methods": [
+        "user-interviews"
+      ]
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-part2-omnia-transparent-display-rd",
+    "claim": "Directed R&D prototypes for transparent display interactions at Omnia using AI speech, Gaussian Splat LiDAR, and object detection.",
+    "detail": "Integrated real-time environmental triggers and computer vision inputs to improve spatial interaction precision by 25%.",
+    "strength": "built",
+    "date": "2025-08",
+    "facets": {
+      "roles": [
+        "spatial-designer",
+        "ux-engineer"
+      ],
+      "skills": [
+        "prototyping",
+        "voice-ai",
+        "ai-llm-design",
+        "interaction-design"
+      ],
+      "domains": [
+        "spatial",
+        "environmental"
+      ],
+      "platforms": [],
+      "methods": [
+        "rapid-prototyping"
+      ]
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-part2-omnia-voice-tutorials",
+    "claim": "Led design of a voice-enabled Apple Vision Pro tutorial system at Omnia, cutting content creation time by 80% and operator onboarding by 28%.",
+    "detail": "Deployed the training platform across manufacturing and pharmaceutical production lines with instructional flows, tooltips, and error states.",
+    "strength": "shipped",
+    "date": "2025-08",
+    "facets": {
+      "roles": [
+        "ux-designer",
+        "spatial-designer",
+        "ai-product-designer"
+      ],
+      "skills": [
+        "voice-ai",
+        "ai-llm-design",
+        "interaction-design"
+      ],
+      "domains": [
+        "spatial"
+      ],
+      "platforms": [
+        "visionos"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-part2-patched-reality-vr-rehab",
+    "claim": "Redesigned the Reach Shoulder Health VR rehabilitation game for Meta Quest, raising task success from 72% to 91% and daily retention by 18%.",
+    "detail": "Conducted heuristic evaluations and gaze-input A/B tests with Meta HIG interface updates, lifting senior gameplay understanding by 23%.",
+    "strength": "shipped",
+    "date": "2025-07",
+    "facets": {
+      "roles": [
+        "ux-researcher",
+        "ux-designer",
+        "spatial-designer"
+      ],
+      "skills": [
+        "ux-research",
+        "ui-design",
+        "interaction-design",
+        "accessibility"
+      ],
+      "domains": [
+        "healthcare",
+        "spatial"
+      ],
+      "platforms": [
+        "meta-quest"
+      ],
+      "methods": [
+        "heuristic-evaluation",
+        "ab-testing",
+        "usability-testing"
+      ]
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-part2-syncare-elder-health",
+    "claim": "On a four-designer team, designed the SynCare AI health platform integrating EHR, pharmacy, insurance, and Apple Health data, cutting cognitive load by 40%.",
+    "detail": "Delivered 25+ responsive Figma screens and digital twin prototypes validated through contextual interviews and usability tests with 10+ older adults and caregivers.",
+    "strength": "built",
+    "date": "2025-07",
+    "facets": {
+      "roles": [
+        "ux-designer",
+        "ux-researcher",
+        "ai-product-designer"
+      ],
+      "skills": [
+        "figma",
+        "prototyping",
+        "accessibility",
+        "ai-llm-design",
+        "ux-research"
+      ],
+      "domains": [
+        "healthcare"
+      ],
+      "platforms": [
+        "web",
+        "desktop"
+      ],
+      "methods": [
+        "user-interviews",
+        "usability-testing",
+        "personas-journeys"
+      ]
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-part2-ux-writing-regulated-flows",
+    "claim": "Authored UX microcopy, error states, disclaimers, and instructional flows across Vision Pro, Meta Quest, iOS, and macOS for regulated products.",
+    "detail": "Aligned voice, tone, and caregiver-tested notifications with legal, compliance, and design system teams in pharma, manufacturing, and healthcare.",
+    "strength": "shipped",
+    "date": "2025-08",
+    "facets": {
+      "roles": [
+        "ux-designer"
+      ],
+      "skills": [
+        "accessibility",
+        "design-systems"
+      ],
+      "domains": [
+        "spatial",
+        "healthcare"
+      ],
+      "platforms": [
+        "visionos",
+        "meta-quest",
+        "ios",
+        "desktop"
+      ],
+      "methods": [
+        "usability-testing"
+      ]
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-part3-crazy-minds-motion-accessibility",
+    "claim": "Produced WCAG-compliant motion graphics, UI animations, and competitive audits across 25+ Crazy Minds projects.",
+    "detail": "Managed a three-person motion graphics team and ran accessibility benchmarking for education and tech clients.",
+    "strength": "shipped",
+    "date": "2025-05",
+    "facets": {
+      "roles": [
+        "media-producer",
+        "ux-designer",
+        "ux-researcher"
+      ],
+      "skills": [
+        "animation",
+        "accessibility",
+        "ui-design"
+      ],
+      "domains": [
+        "film-media",
+        "education"
+      ],
+      "platforms": [
+        "web"
+      ],
+      "methods": [
+        "competitive-analysis",
+        "accessibility-audit"
+      ]
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-part3-crazy-minds-web-design-system",
+    "claim": "Delivered 25+ production web apps and a shared React component library as founder of Crazy Minds.",
+    "detail": "Built HTML, CSS, JavaScript, and React apps deployed on AWS S3/CloudFront, cutting new-feature design time by 40% and defect leakage by 20%.",
+    "strength": "shipped",
+    "date": "2025-04",
+    "facets": {
+      "roles": [
+        "front-end-engineer",
+        "ux-designer",
+        "design-systems-designer"
+      ],
+      "skills": [
+        "figma",
+        "html-css",
+        "javascript",
+        "react",
+        "design-systems",
+        "accessibility"
+      ],
+      "domains": [
+        "education",
+        "healthcare"
+      ],
+      "platforms": [
+        "web"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-part3-depaul-uxa-workshops",
+    "claim": "Organized AI/ML and UX Design workshops for 200+ students as Vice President of the DePaul User Experience Association.",
+    "detail": "Managed a 10-person organizing team to execute events and connect students with industry practitioners.",
+    "strength": "built",
+    "date": "2025-04",
+    "facets": {
+      "roles": [],
+      "skills": [
+        "ai-llm-design"
+      ],
+      "domains": [
+        "education"
+      ],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-part3-human-digital-twin-system",
+    "claim": "Built an independent Human Digital Twin system ingesting Apple Health, CGM, and ECG data into Python and React.",
+    "detail": "Processed biometric data through Python and R pipelines to surface anomalies via LSTM models on a React dashboard.",
+    "strength": "built",
+    "date": "2025-04",
+    "facets": {
+      "roles": [
+        "ux-engineer",
+        "front-end-engineer"
+      ],
+      "skills": [
+        "python",
+        "react",
+        "ai-llm-design"
+      ],
+      "domains": [
+        "healthcare"
+      ],
+      "platforms": [
+        "web",
+        "ios"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-part3-omnia-3d-haptic-tutorials",
+    "claim": "Prototyped real-time 3D overlays and contextual haptics for Omnia tutorials, lowering user confusion by 22%.",
+    "detail": "Validated multi-step onboarding flows with 12 think-aloud usability tests and A/B lab protocols.",
+    "strength": "built",
+    "date": "2025-05",
+    "facets": {
+      "roles": [
+        "ux-designer",
+        "spatial-designer"
+      ],
+      "skills": [
+        "prototyping",
+        "interaction-design"
+      ],
+      "domains": [
+        "spatial"
+      ],
+      "platforms": [
+        "visionos",
+        "ios"
+      ],
+      "methods": [
+        "usability-testing",
+        "ab-testing",
+        "rapid-prototyping",
+        "think-aloud"
+      ]
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-part3-omnia-ar-accessibility",
+    "claim": "Integrated voice control, screen-reader support, and WCAG contrast standards at Omnia, cutting accessibility errors by 16%.",
+    "detail": "Collaborated with four engineers on VisionOS, iOS, and Android AR interfaces aligned with Apple HIG and Material Design guidelines.",
+    "strength": "shipped",
+    "date": "2025-05",
+    "facets": {
+      "roles": [
+        "ux-designer",
+        "spatial-designer"
+      ],
+      "skills": [
+        "accessibility",
+        "voice-ai"
+      ],
+      "domains": [
+        "spatial"
+      ],
+      "platforms": [
+        "visionos",
+        "ios",
+        "android"
+      ],
+      "methods": [
+        "accessibility-audit"
+      ]
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-part3-omnia-handoff-workflow",
+    "claim": "Established a tokenized design-to-engineering handoff workflow at Omnia, cutting iteration cycles by 30%.",
+    "detail": "Delivered Storybook documentation and Code Sandbox POCs while validating Figma and Framer prototypes in React, Next.js, and Unity.",
+    "strength": "built",
+    "date": "2025-04",
+    "facets": {
+      "roles": [
+        "ux-engineer",
+        "design-systems-designer"
+      ],
+      "skills": [
+        "design-systems",
+        "figma",
+        "prototyping",
+        "react",
+        "nextjs",
+        "unity"
+      ],
+      "domains": [
+        "spatial"
+      ],
+      "platforms": [
+        "visionos",
+        "ios",
+        "android",
+        "web"
+      ],
+      "methods": [
+        "rapid-prototyping"
+      ]
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-part3-omnia-navigation-research",
+    "claim": "Led mixed-method UX research across VisionOS, macOS, and iOS at Omnia, reducing navigation task failure by 18%.",
+    "detail": "Combined diary studies, heuristic evaluations, and 12-participant think-aloud usability tests to refine spatial multi-panel navigation.",
+    "strength": "shipped",
+    "date": "2025-05",
+    "facets": {
+      "roles": [
+        "ux-researcher",
+        "spatial-designer"
+      ],
+      "skills": [
+        "ux-research",
+        "information-architecture"
+      ],
+      "domains": [
+        "spatial"
+      ],
+      "platforms": [
+        "visionos",
+        "ios",
+        "desktop"
+      ],
+      "methods": [
+        "usability-testing",
+        "heuristic-evaluation",
+        "think-aloud"
+      ]
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-part3-omnia-react-ui-pod",
+    "claim": "Guided an eight-person UI pod at Omnia building React, Tailwind CSS, and JavaScript interfaces.",
+    "detail": "Implemented cross-browser hooks, REST and GraphQL API integration, sprint code reviews, and Jest and Cypress validation.",
+    "strength": "shipped",
+    "date": "2025-04",
+    "facets": {
+      "roles": [
+        "front-end-engineer",
+        "ux-engineer"
+      ],
+      "skills": [
+        "react",
+        "html-css",
+        "javascript"
+      ],
+      "domains": [],
+      "platforms": [
+        "web",
+        "visionos",
+        "ios",
+        "android"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-part3-omnia-tesla-3d-showroom",
+    "claim": "Led generative UX research and 3D prototyping for Omnia X Tesla's deployed showroom, improving paid subscription conversion.",
+    "detail": "Ran user interviews and competitive analyses to test environment scaling, movement controls, and customization features.",
+    "strength": "shipped",
+    "date": "2025-03",
+    "facets": {
+      "roles": [
+        "ux-researcher",
+        "spatial-designer"
+      ],
+      "skills": [
+        "ux-research",
+        "prototyping",
+        "interaction-design"
+      ],
+      "domains": [
+        "spatial",
+        "e-commerce",
+        "automotive"
+      ],
+      "platforms": [
+        "visionos"
+      ],
+      "methods": [
+        "user-interviews",
+        "competitive-analysis"
+      ]
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-part3-omnia-visionos-design-system",
+    "claim": "Built a spatial UI design system spanning five VisionOS applications at Omnia.",
+    "detail": "Created conceptual diagrams, wireframes, visual mockups, and click-through prototypes in Figma.",
+    "strength": "built",
+    "date": "2025-05",
+    "facets": {
+      "roles": [
+        "design-systems-designer",
+        "spatial-designer",
+        "ux-designer"
+      ],
+      "skills": [
+        "design-systems",
+        "ui-design",
+        "figma",
+        "prototyping",
+        "wireframing"
+      ],
+      "domains": [
+        "spatial"
+      ],
+      "platforms": [
+        "visionos"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-part3-patched-reality-clinician-dashboards",
+    "claim": "Shipped clinician telemetry dashboards and a reusable React component kit at Patched Reality, cutting task time by 35%.",
+    "detail": "Built tables, graph panels, and modals from real telemetry data, ran heuristic evaluations, and increased feature reuse by 30%.",
+    "strength": "shipped",
+    "date": "2025-04",
+    "facets": {
+      "roles": [
+        "ux-engineer",
+        "ux-designer",
+        "front-end-engineer",
+        "design-systems-designer"
+      ],
+      "skills": [
+        "react",
+        "design-systems",
+        "ui-design",
+        "prototyping",
+        "data-visualization"
+      ],
+      "domains": [
+        "healthcare"
+      ],
+      "platforms": [
+        "web"
+      ],
+      "methods": [
+        "usability-testing",
+        "heuristic-evaluation"
+      ]
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-part3-patched-reality-vr-game-testing",
+    "claim": "Refined interaction flows and tutorials for Patched Reality's deployed multiplayer VR game through usability testing.",
+    "detail": "Synthesized player feedback from multiple test sessions and documented engagement metrics for investor presentations.",
+    "strength": "shipped",
+    "date": "2025-03",
+    "facets": {
+      "roles": [
+        "ux-researcher",
+        "ux-designer",
+        "spatial-designer"
+      ],
+      "skills": [
+        "ux-research",
+        "interaction-design"
+      ],
+      "domains": [
+        "spatial"
+      ],
+      "platforms": [
+        "meta-quest"
+      ],
+      "methods": [
+        "usability-testing"
+      ]
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-part3-patched-reality-vr-onboarding",
+    "claim": "Redesigned VR onboarding for Patched Reality's Reach Shoulder Health app, boosting patient completion by 35%.",
+    "detail": "Combined A/B testing, usability scores, think-aloud sessions, and physiotherapist interviews on Meta Quest 2 and 3.",
+    "strength": "shipped",
+    "date": "2025-03",
+    "facets": {
+      "roles": [
+        "ux-researcher",
+        "ux-designer",
+        "spatial-designer"
+      ],
+      "skills": [
+        "ux-research",
+        "interaction-design"
+      ],
+      "domains": [
+        "healthcare",
+        "spatial"
+      ],
+      "platforms": [
+        "meta-quest"
+      ],
+      "methods": [
+        "usability-testing",
+        "ab-testing",
+        "user-interviews",
+        "think-aloud"
+      ]
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-part3-xr-accessibility-volunteer",
+    "claim": "Audited XR educational tools for accessibility and demoed Cleansheet Soccer VR to 100+ Chicago Public School students.",
+    "detail": "Identified usability barriers for users with disabilities and presented inclusive XR findings at TechChicago and AWE Nite.",
+    "strength": "built",
+    "date": "2025-05",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "accessibility",
+        "ux-research"
+      ],
+      "domains": [
+        "spatial",
+        "education"
+      ],
+      "platforms": [],
+      "methods": [
+        "accessibility-audit"
+      ]
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-patched-reach-vr",
+    "claim": "Redesigned Reach Shoulder Health VR rehab UI for Meta Quest, lifting task success from 72% to 91% across 10+ clinics.",
+    "detail": "Ran heuristic evaluations and gaze-input A/B testing, adding a level progression map that raised senior gameplay understanding by 23%.",
+    "strength": "shipped",
+    "date": "2025-08",
+    "facets": {
+      "roles": [
+        "spatial-designer",
+        "ux-researcher",
+        "ux-designer"
+      ],
+      "skills": [
+        "ui-design",
+        "ux-research"
+      ],
+      "domains": [
+        "spatial",
+        "healthcare"
+      ],
+      "platforms": [
+        "meta-quest"
+      ],
+      "methods": [
+        "heuristic-evaluation",
+        "ab-testing"
+      ]
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-patched-syncare",
+    "claim": "Conducted user research for SynCare, an AI EHR and wearable health platform, cutting medical workflow cognitive load by 25%.",
+    "detail": "Concluded that motivational dietary messaging increased healthy habits by 35% across EHR and pharmaceutical app flows.",
+    "strength": "built",
+    "date": "2025-09",
+    "facets": {
+      "roles": [
+        "ux-researcher",
+        "ai-product-designer"
+      ],
+      "skills": [
+        "ux-research",
+        "ai-llm-design"
+      ],
+      "domains": [
+        "healthcare"
+      ],
+      "platforms": [
+        "watchos"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-transparent-display-rd",
+    "claim": "Prototyped transparent display interactions integrating AI speech, LiDAR Gaussian Splats, and object detection.",
+    "detail": "Directed R&D prototypes that improved spatial interaction precision by 25%.",
+    "strength": "built",
+    "date": "2025-08",
+    "facets": {
+      "roles": [
+        "spatial-designer",
+        "ai-product-designer"
+      ],
+      "skills": [
+        "prototyping",
+        "voice-ai",
+        "ai-llm-design"
+      ],
+      "domains": [
+        "spatial"
+      ],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-visionos-3d-viewer",
+    "claim": "Built a 3D model viewer from scratch in SwiftUI, RealityKit, and Unity supporting material swaps and lighting controls.",
+    "detail": "Integrated a Blender asset pipeline with native SwiftUI interfaces for Apple Vision Pro workflows at Omnia.",
+    "strength": "built",
+    "date": "2025-08",
+    "facets": {
+      "roles": [
+        "ux-engineer",
+        "spatial-designer"
+      ],
+      "skills": [
+        "swift-swiftui",
+        "unity"
+      ],
+      "domains": [
+        "spatial"
+      ],
+      "platforms": [
+        "visionos"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-resume-woven-in-car-ai",
+    "claim": "Owned UX and UI for an in-car AI product at Woven by Toyota, entering the production pipeline in 10 months instead of 3 years.",
+    "detail": "Drove end-to-end design for an automotive AI experience originally projected to take three years to reach production.",
+    "strength": "built",
+    "date": "2026-10",
+    "facets": {
+      "roles": [
+        "ux-designer",
+        "hmi-designer",
+        "ai-product-designer"
+      ],
+      "skills": [
+        "ui-design",
+        "ai-llm-design"
+      ],
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  }
+]

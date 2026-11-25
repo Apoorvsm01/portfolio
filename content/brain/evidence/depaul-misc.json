@@ -1,0 +1,690 @@
+[
+  {
+    "id": "depaul-misc-career-sail-ui",
+    "claim": "Designed the Career Sail mentoring UI, reducing the steps needed to connect with mentors by 60%.",
+    "strength": "built",
+    "date": "2024-04",
+    "facets": {
+      "roles": [
+        "ux-designer"
+      ],
+      "skills": [
+        "ui-design",
+        "interaction-design"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-misc-chipark-flow",
+    "claim": "Prototyped and optimized ChiPark's multi-platform IA and checkout payment flow across mobile, desktop, and CarPlay, cutting completion time by 48%.",
+    "detail": "Unified booking workflows for Chicago parking across CarPlay, mobile, and desktop interfaces.",
+    "strength": "built",
+    "date": "2025-08",
+    "facets": {
+      "roles": [
+        "ux-designer",
+        "hmi-designer"
+      ],
+      "skills": [
+        "information-architecture",
+        "prototyping",
+        "interaction-design"
+      ],
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "carplay",
+        "desktop"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-misc-crazy-minds-ux",
+    "claim": "Delivered 25+ UX/UI projects across ecommerce, fintech, and health-tech verticals as founder and UX consultant at Crazy Minds.",
+    "detail": "Built modular web and mobile design systems, conducted usability testing and analytics reviews, and drove 40% client retention and 29% YoY revenue growth.",
+    "strength": "shipped",
+    "date": "2025-08",
+    "facets": {
+      "roles": [
+        "ux-designer",
+        "design-systems-designer",
+        "ux-researcher"
+      ],
+      "skills": [
+        "ui-design",
+        "design-systems",
+        "ux-research",
+        "statistics-data-analysis"
+      ],
+      "domains": [
+        "e-commerce",
+        "fintech",
+        "healthcare"
+      ],
+      "platforms": [
+        "web"
+      ],
+      "methods": [
+        "usability-testing"
+      ]
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-misc-csc697-ai-tools",
+    "claim": "Evaluated AI tools for 3D asset generation, Gaussian splats, and prototyping to improve creative production efficiency.",
+    "detail": "Assessed usability, cost-effectiveness, and voiceover capabilities, resulting in team adoption that reduced development time and costs.",
+    "strength": "built",
+    "date": "2024-11",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ai-llm-design",
+        "ux-research"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": [
+        "competitive-analysis"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "CSC 697 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-misc-csc697-ar-showroom",
+    "claim": "Designed a mobile AR car showroom experience featuring four vehicle models, color options, and interior-exterior views.",
+    "detail": "Built clean mobile navigation inside a Gaussian splat digital showroom twin with interactive door-opening controls.",
+    "strength": "built",
+    "date": "2024-11",
+    "facets": {
+      "roles": [
+        "spatial-designer",
+        "ux-designer"
+      ],
+      "skills": [
+        "ui-design",
+        "interaction-design",
+        "prototyping"
+      ],
+      "domains": [
+        "spatial",
+        "automotive",
+        "e-commerce"
+      ],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "CSC 697 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-misc-csc697-visionos-research",
+    "claim": "Conducted a three-week VisionOS research study with 12 participants using observation and contextual interviews.",
+    "detail": "Authored the research plan and screener across developers, creatives, and novices, and logged Xcode device errors in Trello across two builds daily.",
+    "strength": "built",
+    "date": "2024-11",
+    "facets": {
+      "roles": [
+        "ux-researcher",
+        "spatial-designer"
+      ],
+      "skills": [
+        "ux-research",
+        "user-centered-design"
+      ],
+      "domains": [
+        "spatial"
+      ],
+      "platforms": [
+        "visionos"
+      ],
+      "methods": [
+        "user-interviews"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "CSC 697 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-misc-csc697-visionos-system",
+    "claim": "Developed a VisionOS spatial design system in Figma and implemented UI assets in Reality Composer for Apple Vision Pro.",
+    "detail": "Refined panels, buttons, and badges across 10+ Figma iterations to support 3D files and Gaussian splats within Vision Pro rendering limits.",
+    "strength": "built",
+    "date": "2024-11",
+    "facets": {
+      "roles": [
+        "spatial-designer",
+        "design-systems-designer",
+        "ux-designer"
+      ],
+      "skills": [
+        "figma",
+        "design-systems",
+        "prototyping",
+        "ui-design"
+      ],
+      "domains": [
+        "spatial"
+      ],
+      "platforms": [
+        "visionos"
+      ],
+      "methods": [
+        "rapid-prototyping"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "CSC 697 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-misc-hci440-meowmate",
+    "claim": "Conducted remote think-aloud usability testing and redesigned login, shop, and navigation flows for MeowMate on a three-person team.",
+    "detail": "Converted mid-fidelity wireframes to high-fidelity prototypes and added confirmation screens, clearer scheduling copy, and low-food alerts.",
+    "strength": "built",
+    "date": "2023-11",
+    "facets": {
+      "roles": [
+        "ux-researcher",
+        "ux-designer"
+      ],
+      "skills": [
+        "user-centered-design",
+        "ux-research",
+        "ui-design",
+        "prototyping",
+        "wireframing"
+      ],
+      "domains": [
+        "e-commerce"
+      ],
+      "platforms": [
+        "web"
+      ],
+      "methods": [
+        "usability-testing",
+        "think-aloud"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 440 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-misc-mixed-reality-tourism",
+    "claim": "Led mixed reality research exploring how immersive demonstrations influence tourist destination choice and business viability.",
+    "detail": "Proposed a follow-up experimental study for Second Chance Tourism Research.",
+    "strength": "built",
+    "date": "2024-04",
+    "facets": {
+      "roles": [
+        "ux-researcher",
+        "spatial-designer"
+      ],
+      "skills": [
+        "ux-research"
+      ],
+      "domains": [
+        "spatial"
+      ],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-misc-omnia-design-system",
+    "claim": "Directed UX strategy for three Omnia apps serving 70K+ monthly users and built a 100+ component Figma design system.",
+    "detail": "Standardized reusable components across iOS, macOS, and Web, cutting design-to-development handoff time by 30% and QA defects by 25%.",
+    "strength": "shipped",
+    "date": "2025-08",
+    "facets": {
+      "roles": [
+        "ux-designer",
+        "design-systems-designer"
+      ],
+      "skills": [
+        "figma",
+        "design-systems",
+        "ui-design",
+        "prototyping"
+      ],
+      "domains": [],
+      "platforms": [
+        "ios",
+        "desktop",
+        "web"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-misc-omnia-spatial-browser",
+    "claim": "Led end-to-end UX design for a web-based ecommerce-style spatial content browser, improving item discovery by 35%.",
+    "detail": "Aligned responsive filtering, sorting, and browsing flows with merchandising logic and collaborated via Jira and Confluence.",
+    "strength": "shipped",
+    "date": "2025-08",
+    "facets": {
+      "roles": [
+        "ux-designer",
+        "spatial-designer"
+      ],
+      "skills": [
+        "ui-design",
+        "interaction-design",
+        "information-architecture"
+      ],
+      "domains": [
+        "e-commerce",
+        "spatial"
+      ],
+      "platforms": [
+        "web"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-misc-part2-222-multicam-edits",
+    "claim": "Edited multi-camera videos for IMDb and Economics Times Now using Premiere Pro and After Effects at 222 Productions.",
+    "strength": "shipped",
+    "date": "2023-09",
+    "facets": {
+      "roles": [
+        "media-producer"
+      ],
+      "skills": [
+        "video-editing",
+        "animation"
+      ],
+      "domains": [
+        "film-media"
+      ],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-misc-part2-222-video-production",
+    "claim": "Produced 2D, 3D, and Vox-style video content for 8+ clients as Senior Video Producer at 222 Productions.",
+    "detail": "Managed production schedules and incorporated client feedback through Notion and Frame.io to deliver projects ahead of schedule.",
+    "strength": "shipped",
+    "date": "2023-09",
+    "facets": {
+      "roles": [
+        "media-producer"
+      ],
+      "skills": [
+        "animation"
+      ],
+      "domains": [
+        "film-media"
+      ],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-misc-part2-ba-media-projects",
+    "claim": "Produced short and mini films alongside television and print journalism projects during undergraduate audio-visual media studies.",
+    "detail": "Trained in filmmaking, scriptwriting, storyboarding, and visual design at Symbiosis Center for Media and Communication.",
+    "strength": "studied",
+    "date": "2023-09",
+    "facets": {
+      "roles": [
+        "media-producer"
+      ],
+      "skills": [
+        "scriptwriting"
+      ],
+      "domains": [
+        "film-media"
+      ],
+      "platforms": [],
+      "methods": [
+        "storyboarding"
+      ]
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-misc-part2-crazy-minds-growth",
+    "claim": "Grew an Instagram and Facebook channel to 150K+ followers in six months at Crazy Minds using Premiere Pro and After Effects motion graphics.",
+    "detail": "Led Crazy Minds from 2019 to 2023, collaborating with 50+ designers, editors, and marketing teams across 10+ client industries including software, healthcare, and finance.",
+    "strength": "shipped",
+    "date": "2023-09",
+    "facets": {
+      "roles": [
+        "media-producer"
+      ],
+      "skills": [
+        "animation",
+        "video-editing"
+      ],
+      "domains": [
+        "film-media"
+      ],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-misc-part2-leh-short-film",
+    "claim": "Edited a Leh adventure motorcycling short film from 5 TB of footage and 500+ clips in under 10 days, reaching 2,500+ YouTube views.",
+    "detail": "Integrated multiple voiceover versions to shape a narrative about a traveler interacting with locals in Leh, India.",
+    "strength": "shipped",
+    "date": "2023-09",
+    "facets": {
+      "roles": [
+        "media-producer"
+      ],
+      "skills": [
+        "video-editing",
+        "storytelling"
+      ],
+      "domains": [
+        "film-media"
+      ],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-misc-part2-meowmate-wireframes",
+    "claim": "Designed wireframes and user flows on a three-person team for MeowMate, a mobile app managing cat diets and automatic feeders.",
+    "detail": "Consolidated individual team wireframes into streamlined onboarding, diet-tracking, feeder-setup, and pet-supply shopping flows alongside a warm-toned mood board.",
+    "strength": "built",
+    "date": "2023-11",
+    "facets": {
+      "roles": [
+        "ux-designer"
+      ],
+      "skills": [
+        "user-centered-design",
+        "prototyping",
+        "ui-design",
+        "interaction-design",
+        "wireframing"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": [
+        "rapid-prototyping"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 440 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-misc-part2-short-film-scripts",
+    "claim": "Scripted two short films in Final Draft 12 and designed storyboards grounded in shot analysis.",
+    "strength": "built",
+    "date": "2023-09",
+    "facets": {
+      "roles": [
+        "media-producer"
+      ],
+      "skills": [
+        "scriptwriting",
+        "storytelling"
+      ],
+      "domains": [
+        "film-media"
+      ],
+      "platforms": [],
+      "methods": [
+        "storyboarding"
+      ]
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-misc-part2-spss-email-eda",
+    "claim": "Analyzed weekly email hours across 575 respondents in SPSS using descriptive statistics, normality tests, and 1.5xIQR outlier rules.",
+    "detail": "Compared male (n=239) and female (n=336) distributions using histograms, boxplots, Q-Q plots, and Kolmogorov-Smirnov and Shapiro-Wilk tests.",
+    "strength": "studied",
+    "date": "2023-09",
+    "facets": {
+      "roles": [],
+      "skills": [
+        "statistics-data-analysis"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": [
+        "quant-analysis"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "IT 403 Statistics and Data Analysis · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-misc-part2-student-film-dop",
+    "claim": "Served as Director of Photography for a 15-minute student short film, operating a Sony A7III, DJI Ronin S, and Zeiss lenses.",
+    "detail": "Executed pre-production planning and on-set camera and gimbal operation throughout production.",
+    "strength": "built",
+    "date": "2023-09",
+    "facets": {
+      "roles": [
+        "media-producer"
+      ],
+      "skills": [],
+      "domains": [
+        "film-media"
+      ],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-misc-part2-whisker-competitive-analysis",
+    "claim": "Conducted a competitive UI and UX analysis of the Whisker Connect app on a three-person team to inform a pet-care mobile concept.",
+    "detail": "Evaluated the iOS and Android app's onboarding, three-tab navigation, feeder alerts, and a web-wrapped shop tab with scrolling stutters.",
+    "strength": "built",
+    "date": "2023-11",
+    "facets": {
+      "roles": [
+        "ux-researcher",
+        "ux-designer"
+      ],
+      "skills": [
+        "ux-research",
+        "ui-design",
+        "information-architecture"
+      ],
+      "domains": [],
+      "platforms": [
+        "ios",
+        "android"
+      ],
+      "methods": [
+        "competitive-analysis"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 440 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-misc-patched-reality-vr",
+    "claim": "Redesigned a VR healthcare product with accessible interaction models, raising task success from 72% to 91%.",
+    "detail": "Built a WCAG 2.1-compliant Figma UI kit and ran cross-disciplinary workshops whose insights shipped across three product sprints.",
+    "strength": "shipped",
+    "date": "2025-08",
+    "facets": {
+      "roles": [
+        "ux-researcher",
+        "ux-designer",
+        "spatial-designer"
+      ],
+      "skills": [
+        "ui-design",
+        "interaction-design",
+        "figma",
+        "accessibility",
+        "ux-research"
+      ],
+      "domains": [
+        "healthcare",
+        "spatial"
+      ],
+      "platforms": [],
+      "methods": [
+        "co-design"
+      ]
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-misc-saic-aiga-talk",
+    "claim": "Presented on spatial UI design principles and XR prototyping workflows at an SAIC AIGA event.",
+    "detail": "Covered VisionOS ergonomics, spatial audio, and cross-platform prototyping methods for VisionOS, Horizon OS, Spectacles, and Even Realities G2.",
+    "strength": "built",
+    "date": "2025-11",
+    "facets": {
+      "roles": [
+        "spatial-designer",
+        "ux-designer"
+      ],
+      "skills": [
+        "prototyping",
+        "accessibility"
+      ],
+      "domains": [
+        "spatial"
+      ],
+      "platforms": [
+        "visionos",
+        "meta-quest",
+        "ar-glasses"
+      ],
+      "methods": []
+    },
+    "source": {
+      "kind": "project",
+      "label": "SAIC AIGA Spatial UI Talk"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-misc-video-production",
+    "claim": "Produced custom 2D, 3D, and multi-camera video deliverables for 8+ clients ahead of schedule as Senior Video Producer at 222 Productions.",
+    "detail": "Managed client reviews in Notion and Frame.io using Premiere Pro and After Effects, and scripted two short films in Final Draft 12.",
+    "strength": "shipped",
+    "date": "2024-01",
+    "facets": {
+      "roles": [
+        "media-producer"
+      ],
+      "skills": [
+        "video-editing",
+        "animation",
+        "scriptwriting"
+      ],
+      "domains": [
+        "film-media"
+      ],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "resume",
+      "label": "Resume"
+    },
+    "status": "approved"
+  }
+]

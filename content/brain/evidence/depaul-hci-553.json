@@ -1,0 +1,188 @@
+[
+  {
+    "id": "depaul-hci-553-budds-hifi-prototype",
+    "claim": "Built a high-fidelity Figma prototype for Budds, a community-driven app connecting people through local events.",
+    "detail": "Completed the high-fidelity screens over two weeks following low-fidelity wireframes, featuring an interactive event map, attendee profiles, and group chats.",
+    "strength": "built",
+    "date": "2024-11",
+    "facets": {
+      "roles": [
+        "ux-designer"
+      ],
+      "skills": [
+        "user-centered-design",
+        "prototyping",
+        "ui-design",
+        "interaction-design",
+        "figma",
+        "wireframing"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 553 Social Interaction Design · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-553-budds-lofi-prototype",
+    "claim": "Prototyped a low-fidelity interactive concept for Budds with annotated sketches and interaction pattern rationales.",
+    "detail": "Applied affordance, feedback, proximity, and social proof patterns across a local event map, scrollable feed, event creation flow, and group chat screens.",
+    "strength": "built",
+    "date": "2024-10",
+    "facets": {
+      "roles": [
+        "ux-designer"
+      ],
+      "skills": [
+        "user-centered-design",
+        "prototyping",
+        "interaction-design",
+        "wireframing"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": [
+        "rapid-prototyping"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 553 Social Interaction Design · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-553-budds-personas",
+    "claim": "Developed user personas and scenario-based use cases to guide event discovery and attendee-matching features.",
+    "detail": "Modeled social networking and event-hosting behaviors for target users seeking local friendships based on shared interests and professions.",
+    "strength": "studied",
+    "date": "2024-10",
+    "facets": {
+      "roles": [
+        "ux-researcher",
+        "ux-designer"
+      ],
+      "skills": [
+        "user-centered-design",
+        "ux-research"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": [
+        "personas-journeys"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 553 Social Interaction Design · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-553-card-sorting-usability",
+    "claim": "Ran card sorting and usability testing on Budds wireframes to refine map discovery, event joining, and chat flows.",
+    "detail": "Findings drove visual priority for nearby events, one-tap join and share buttons, attended-event counts on profiles, and message timestamps in group chats.",
+    "strength": "built",
+    "date": "2024-10",
+    "facets": {
+      "roles": [
+        "ux-researcher",
+        "ux-designer"
+      ],
+      "skills": [
+        "ux-research",
+        "information-architecture",
+        "interaction-design",
+        "wireframing"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": [
+        "usability-testing"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 553 Social Interaction Design · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-553-final-presentation",
+    "claim": "Presented the Budds product concept, research-backed UI iterations, and key screens in a final course presentation.",
+    "detail": "Framed the design around social isolation statistics among Americans and showcased event map filtering, attendee interest profiles, event hosting, and group chat flows.",
+    "strength": "studied",
+    "date": "2024-11",
+    "facets": {
+      "roles": [
+        "ux-designer"
+      ],
+      "skills": [
+        "user-centered-design",
+        "ui-design"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 553 Social Interaction Design · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-553-profile-discovery-testing",
+    "claim": "Evaluated attendee profile discovery in user testing using Figma, Atlas.ti, Voice Recorder, and Google Forms.",
+    "detail": "Observed that participants skipped checking every attendee profile, uncovering a risk of missed shared interests and motivating suggested-content concepts.",
+    "strength": "built",
+    "date": "2024-11",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research",
+        "figma"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": [
+        "usability-testing",
+        "surveys"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 553 Social Interaction Design · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-553-trust-safety-analysis",
+    "claim": "Analyzed privacy and public-safety risks for stranger meetups, identifying identity verification and accountability gaps.",
+    "detail": "Documented the difficulty of visually representing system-level privacy architectures and noted competitive analysis as a priority for future iterations.",
+    "strength": "studied",
+    "date": "2024-11",
+    "facets": {
+      "roles": [
+        "ux-designer"
+      ],
+      "skills": [
+        "user-centered-design"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 553 Social Interaction Design · DePaul"
+    },
+    "status": "approved"
+  }
+]
