@@ -117,6 +117,31 @@
     "status": "approved"
   },
   {
+    "id": "depaul-hci-516-literature-review",
+    "claim": "Synthesized three peer-reviewed public health studies on how social and home environments shape diet and activity.",
+    "detail": "Derived research questions and interview objectives examining workplace norms, financial barriers, food insecurity, and cultural traditions.",
+    "strength": "studied",
+    "date": "2025-02",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research"
+      ],
+      "domains": [
+        "healthcare"
+      ],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 516 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
     "id": "depaul-hci-516-research-plan",
     "claim": "On a team of five, authored a UX research plan with six hypotheses and a 45-minute interview guide for young adults.",
     "detail": "Mapped four stakeholder groups, targeted participants aged 21–35, and defined consent, privacy, and bias-mitigation protocols for food-insecurity interviews.",
@@ -136,6 +161,35 @@
       "platforms": [],
       "methods": [
         "user-interviews"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "HCI 516 · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-hci-516-research-synthesis",
+    "claim": "On a team of five, synthesized interviews and surveys into behavioral themes covering social validation and self-perception.",
+    "detail": "Defined a growth-mindset behavioral archetype and identified barriers including food costs, food deserts, impulsive snacking, and household influence.",
+    "strength": "built",
+    "date": "2025-03",
+    "facets": {
+      "roles": [
+        "ux-researcher"
+      ],
+      "skills": [
+        "ux-research"
+      ],
+      "domains": [
+        "healthcare"
+      ],
+      "platforms": [],
+      "methods": [
+        "user-interviews",
+        "surveys",
+        "personas-journeys"
       ]
     },
     "source": {

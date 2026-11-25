@@ -1,5 +1,30 @@
 [
   {
+    "id": "depaul-it-403-statistics-and-data-analysis-confidence-interval-estimation",
+    "claim": "Computed 90%, 95%, and 99% confidence intervals across retail, compensation, and credit-card samples to evaluate margin-of-error tradeoffs.",
+    "detail": "Calculated standard errors across sample sizes of 80 and 500 and analyzed how confidence levels and sample size narrow interval estimates.",
+    "strength": "studied",
+    "date": "2023-11",
+    "facets": {
+      "roles": [],
+      "skills": [
+        "statistics-data-analysis"
+      ],
+      "domains": [
+        "education"
+      ],
+      "platforms": [],
+      "methods": [
+        "quant-analysis"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "IT 403 Statistics and Data Analysis · DePaul"
+    },
+    "status": "approved"
+  },
+  {
     "id": "depaul-it-403-statistics-and-data-analysis-error-matrix-probability",
     "claim": "As part of a team, modeled Type I and Type II errors across 12,000 tumor-test cases alongside expected-value and sample-space analyses.",
     "detail": "Constructed a confusion matrix for an 80%-accurate test at 5% prevalence (17.391% positive predictive value) and compared empirical vs. theoretical probabilities.",
@@ -53,6 +78,29 @@
     "id": "depaul-it-403-statistics-and-data-analysis-part2-email-sex-normality",
     "claim": "Evaluated weekly email usage across 239 male and 336 female respondents using descriptive statistics and normality tests in SPSS.",
     "detail": "Interpreted right-skewed distributions via Q-Q plots and Kolmogorov-Smirnov and Shapiro-Wilk tests, selecting the 2-hour median over the mean.",
+    "strength": "studied",
+    "date": "2023-09",
+    "facets": {
+      "roles": [],
+      "skills": [
+        "statistics-data-analysis"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": [
+        "quant-analysis"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "IT 403 Statistics and Data Analysis · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-it-403-statistics-and-data-analysis-part2-iqr-outlier-analysis",
+    "claim": "Applied the 1.5xIQR rule and boxplot analysis in SPSS to find outliers in weekly email hours across respondent groups.",
+    "detail": "Calculated group-specific upper outlier thresholds of 18.5 and 16 hours across a 0 to 50-hour range.",
     "strength": "studied",
     "date": "2023-09",
     "facets": {
@@ -163,6 +211,33 @@
       ],
       "platforms": [],
       "methods": [
+        "quant-analysis"
+      ]
+    },
+    "source": {
+      "kind": "course",
+      "label": "IT 403 Statistics and Data Analysis · DePaul"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "depaul-it-403-statistics-and-data-analysis-spss-survey-crosstabs",
+    "claim": "Built SPSS crosstabulations and clustered bar charts on 187 survey responses to compare satisfaction and conflict by duration.",
+    "detail": "Evaluated row, column, and grand-total percentages across recoded survey categories to compare satisfaction and conflict levels by duration.",
+    "strength": "studied",
+    "date": "2023-10",
+    "facets": {
+      "roles": [],
+      "skills": [
+        "statistics-data-analysis",
+        "data-visualization"
+      ],
+      "domains": [
+        "education"
+      ],
+      "platforms": [],
+      "methods": [
+        "surveys",
         "quant-analysis"
       ]
     },

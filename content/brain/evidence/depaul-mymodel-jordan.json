@@ -45,6 +45,28 @@
     "status": "approved"
   },
   {
+    "id": "depaul-mymodel-jordan-explainer-script",
+    "claim": "Scripted a consumer explainer video concept and consent-themed ad narrative contrasting hidden data brokering with direct user payouts.",
+    "detail": "Used plain-language analogies and collective framing to communicate data ownership without technical or partisan language.",
+    "strength": "built",
+    "date": "2025-10",
+    "facets": {
+      "roles": [],
+      "skills": [
+        "scriptwriting",
+        "storytelling"
+      ],
+      "domains": [],
+      "platforms": [],
+      "methods": []
+    },
+    "source": {
+      "kind": "project",
+      "label": "myModel"
+    },
+    "status": "approved"
+  },
+  {
     "id": "depaul-mymodel-jordan-marketplace-model",
     "claim": "Mapped a two-sided C2B data marketplace workflow pairing verified user Stats Cards with 24-hour brand cohort matching and chat queries.",
     "detail": "Contrasted the real-time consented flow against a 5-month, $70k traditional stack spanning market research, data brokers, CDPs, and paid ads.",
