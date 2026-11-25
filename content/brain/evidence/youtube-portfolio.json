@@ -1,0 +1,432 @@
+[
+  {
+    "id": "youtube-52x1aupgo6y",
+    "claim": "Made a 40-second promo video for Crazy Minds’ digital marketing services.",
+    "strength": "built",
+    "date": "2022-11",
+    "facets": {
+      "roles": [
+        "media-producer"
+      ],
+      "skills": [
+        "video-editing",
+        "storytelling"
+      ],
+      "domains": [
+        "film-media"
+      ]
+    },
+    "source": {
+      "kind": "video",
+      "label": "Crazy Minds Digital Marketing Services",
+      "href": "https://youtu.be/52x1AuPGo6Y"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "youtube-7168sxks0-c",
+    "claim": "Studied “7 Portfolio Websites designers NEED to see” by Andres The Designer.",
+    "strength": "watched",
+    "date": "2024-02",
+    "facets": {
+      "platforms": [
+        "web"
+      ]
+    },
+    "source": {
+      "kind": "video",
+      "label": "7 Portfolio Websites designers NEED to see · Andres The Designer",
+      "href": "https://youtu.be/7168SXKS0_c"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "youtube-7hinvovzqjc",
+    "claim": "Studied “Making developer's live's easier as a UX Designer” by Nolan Perkins.",
+    "strength": "watched",
+    "date": "2024-08",
+    "facets": {},
+    "source": {
+      "kind": "video",
+      "label": "Making developer's live's easier as a UX Designer · Nolan Perkins",
+      "href": "https://youtu.be/7hINVovzQjc"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "youtube-ewi-a3sqxeo",
+    "claim": "Made a 9-minute explainer video for Wint Wealth.",
+    "strength": "built",
+    "date": "2022-11",
+    "facets": {
+      "roles": [
+        "media-producer"
+      ],
+      "skills": [
+        "video-editing",
+        "storytelling",
+        "scriptwriting"
+      ],
+      "domains": [
+        "fintech",
+        "film-media"
+      ]
+    },
+    "source": {
+      "kind": "video",
+      "label": "Wint Wealth Explainer",
+      "href": "https://youtu.be/EwI-A3sqXeo"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "youtube-mn8ptsxdqow",
+    "claim": "Made a 6-minute sports information video.",
+    "strength": "built",
+    "date": "2022-11",
+    "facets": {
+      "roles": [
+        "media-producer"
+      ],
+      "skills": [
+        "video-editing",
+        "storytelling"
+      ],
+      "domains": [
+        "film-media"
+      ]
+    },
+    "source": {
+      "kind": "video",
+      "label": "Sports Info",
+      "href": "https://youtu.be/MN8pTSxDqow"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "youtube-p7tfum08mta",
+    "claim": "Made a 2-minute short film, “Zubin at 5”.",
+    "strength": "built",
+    "date": "2022-11",
+    "facets": {
+      "roles": [
+        "media-producer"
+      ],
+      "skills": [
+        "video-editing",
+        "storytelling",
+        "direction"
+      ],
+      "domains": [
+        "film-media"
+      ]
+    },
+    "source": {
+      "kind": "video",
+      "label": "Zubin at 5",
+      "href": "https://youtu.be/P7tFum08mTA"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "youtube-pbhxkz4mxgq",
+    "claim": "Made a 7-minute explainer video on online gambling.",
+    "strength": "built",
+    "date": "2022-11",
+    "facets": {
+      "roles": [
+        "media-producer"
+      ],
+      "skills": [
+        "video-editing",
+        "storytelling"
+      ],
+      "domains": [
+        "film-media"
+      ]
+    },
+    "source": {
+      "kind": "video",
+      "label": "Online Gambling",
+      "href": "https://youtu.be/PBhXkZ4mxGQ"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "youtube-ra9xylyanom",
+    "claim": "Made a 2-minute video for LXME, a women’s finance platform.",
+    "strength": "built",
+    "date": "2022-11",
+    "facets": {
+      "roles": [
+        "media-producer"
+      ],
+      "skills": [
+        "video-editing",
+        "storytelling"
+      ],
+      "domains": [
+        "fintech",
+        "film-media"
+      ]
+    },
+    "source": {
+      "kind": "video",
+      "label": "LXME Finance",
+      "href": "https://youtu.be/RA9XylyAnoM"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "youtube-rchxnuzv6m0",
+    "claim": "Studied “you won't believe this was created without any code...” by Tinkerdom.",
+    "strength": "watched",
+    "date": "2024-12",
+    "facets": {
+      "skills": [
+        "animation"
+      ],
+      "platforms": [
+        "web"
+      ]
+    },
+    "source": {
+      "kind": "video",
+      "label": "you won't believe this was created without any code... · Tinkerdom",
+      "href": "https://youtu.be/RcHxnuZV6m0"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "youtube-rlgrqbyznfq",
+    "claim": "Made an 8-minute explainer video on how bonds work.",
+    "strength": "built",
+    "date": "2022-11",
+    "facets": {
+      "roles": [
+        "media-producer"
+      ],
+      "skills": [
+        "video-editing",
+        "storytelling",
+        "scriptwriting"
+      ],
+      "domains": [
+        "fintech",
+        "film-media"
+      ]
+    },
+    "source": {
+      "kind": "video",
+      "label": "What are Bonds Explainer",
+      "href": "https://youtu.be/RlGRQbyZNfQ"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "youtube-souqh5i3a-g",
+    "claim": "Made a 51-second Eiffel Tower social reel.",
+    "strength": "built",
+    "date": "2022-11",
+    "facets": {
+      "roles": [
+        "media-producer"
+      ],
+      "skills": [
+        "video-editing"
+      ],
+      "domains": [
+        "film-media"
+      ]
+    },
+    "source": {
+      "kind": "video",
+      "label": "Eiffel Tower Reel",
+      "href": "https://youtu.be/SoUqh5I3A-g"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "youtube--nmkk5ygyym",
+    "claim": "Made a 52-second brand video for Crazy Minds, a UX and marketing studio.",
+    "strength": "built",
+    "date": "2022-11",
+    "facets": {
+      "roles": [
+        "media-producer"
+      ],
+      "skills": [
+        "video-editing",
+        "storytelling"
+      ],
+      "domains": [
+        "film-media"
+      ]
+    },
+    "source": {
+      "kind": "video",
+      "label": "Crazy Minds Video",
+      "href": "https://youtu.be/_nMKk5ygyYM"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "youtube-cqx1mhiwd6a",
+    "claim": "Made a 60-second personal showreel.",
+    "strength": "built",
+    "date": "2023-01",
+    "facets": {
+      "roles": [
+        "media-producer"
+      ],
+      "skills": [
+        "video-editing",
+        "storytelling"
+      ],
+      "domains": [
+        "film-media"
+      ]
+    },
+    "source": {
+      "kind": "video",
+      "label": "Apple Showreel Apoorv Mahajan",
+      "href": "https://youtu.be/cQx1MHIwd6A"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "youtube-eozrzvautde",
+    "claim": "Studied “AI Designer shows his Figma File Structure” by Sneak Peek.",
+    "strength": "watched",
+    "date": "2025-03",
+    "facets": {
+      "skills": [
+        "figma",
+        "ai-llm-design"
+      ]
+    },
+    "source": {
+      "kind": "video",
+      "label": "AI Designer shows his Figma File Structure · Sneak Peek",
+      "href": "https://youtu.be/eoZrzVAUtdE"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "youtube-fn4rp20u2um",
+    "claim": "Studied “Figma Tutorial: Use Figma Variables Like a Pro (+ Practice File)” by DesignWithArash.",
+    "strength": "watched",
+    "date": "2023-07",
+    "facets": {
+      "skills": [
+        "ui-design",
+        "figma"
+      ],
+      "platforms": [
+        "web"
+      ]
+    },
+    "source": {
+      "kind": "video",
+      "label": "Figma Tutorial: Use Figma Variables Like a Pro (+ Practice File) · DesignWithArash",
+      "href": "https://youtu.be/fn4rP20U2UM"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "youtube-jbtw-rf1ksg",
+    "claim": "Made a 6-minute Instagram cut of a sports information video.",
+    "strength": "built",
+    "date": "2022-11",
+    "facets": {
+      "roles": [
+        "media-producer"
+      ],
+      "skills": [
+        "video-editing"
+      ],
+      "domains": [
+        "film-media"
+      ]
+    },
+    "source": {
+      "kind": "video",
+      "label": "Sports Info Instagram",
+      "href": "https://youtu.be/jBtw-rF1Ksg"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "youtube-krunae0lo4g",
+    "claim": "Made a 45-second video ad for Wint Wealth.",
+    "strength": "built",
+    "date": "2022-11",
+    "facets": {
+      "roles": [
+        "media-producer"
+      ],
+      "skills": [
+        "video-editing",
+        "storytelling"
+      ],
+      "domains": [
+        "fintech",
+        "film-media"
+      ]
+    },
+    "source": {
+      "kind": "video",
+      "label": "Wint Wealth Ad 1",
+      "href": "https://youtu.be/krUnae0Lo4g"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "youtube-sebpmnfjgkc",
+    "claim": "Made a second 40-second video ad for Wint Wealth.",
+    "strength": "built",
+    "date": "2022-11",
+    "facets": {
+      "roles": [
+        "media-producer"
+      ],
+      "skills": [
+        "video-editing",
+        "storytelling"
+      ],
+      "domains": [
+        "fintech",
+        "film-media"
+      ]
+    },
+    "source": {
+      "kind": "video",
+      "label": "Wint Wealth Ad 2",
+      "href": "https://youtu.be/sEbpmNFjGkc"
+    },
+    "status": "approved"
+  },
+  {
+    "id": "youtube-svzijtssoqs",
+    "claim": "Made a 32-second Pantheon social reel.",
+    "strength": "built",
+    "date": "2022-11",
+    "facets": {
+      "roles": [
+        "media-producer"
+      ],
+      "skills": [
+        "video-editing"
+      ],
+      "domains": [
+        "film-media"
+      ]
+    },
+    "source": {
+      "kind": "video",
+      "label": "Pantheon Reel",
+      "href": "https://youtu.be/sVZiJtsSOQs"
+    },
+    "status": "approved"
+  }
+]
