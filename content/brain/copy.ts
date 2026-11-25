@@ -4,6 +4,9 @@ import type { Strength } from "../../src/lib/ask/types";
 
 export const brainCopy = {
   navLabel: "Second brain",
+  // Links from the home Ask box into /brain.
+  fromAnswer: "See every matching point",
+  fromHome: "Or filter everything I’ve worked on",
   meta: {
     title: "Second brain",
     description:

@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import { m } from "motion/react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { flushSync } from "react-dom";
@@ -19,6 +21,7 @@ import { Orb, type OrbState } from "./Orb";
 import { ScrollBlur } from "./ScrollBlur";
 import { useScrollBlur } from "../../lib/use-scroll-blur";
 import { PromptBox } from "./PromptBox";
+import { brainCopy } from "../../../content/brain/copy";
 
 type Phase = "idle" | "thinking" | "answered" | "refused";
 
@@ -278,6 +281,9 @@ export function AskLanding({ projects }: { projects: ProjectCard[] }) {
           busy={phase === "thinking"}
         />
         <HomeChips prompts={suggestedPrompts} onPick={choose} disabled={phase === "thinking"} selectedId={selectedChip} />
+        <Link className="ask-brain-link ask-brain-link--home" href="/brain/">
+          {brainCopy.fromHome} →
+        </Link>
 
         {phase !== "idle" && question && (
           <p className="ask-question">

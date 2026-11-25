@@ -1,4 +1,5 @@
-import { facetGroups, strengths, type FacetGroup } from "../../../content/brain/taxonomy";
+import { facetGroups, strengths, type FacetGroup, type Taxonomy } from "../../../content/brain/taxonomy";
+import { matchFacets } from "../../lib/ask/corpus";
 import type { FilterState, Strength } from "../../lib/ask/types";
 
 // Everything the visitor can set. `added` remembers the order facets were picked in so the empty state can
@@ -74,3 +75,19 @@ export type Token =
   | { kind: "facet"; group: FacetGroup; id: string; label: string }
   | { kind: "min"; label: string }
   | { kind: "q"; label: string };
+
+// /brain link for a free-text question (used by the home Ask box): the question's topics as facets, plus the
+// answer's own topic when it is also a taxonomy id. No topics → fall back to a text search.
+export function brainSearchFor(question: string, topicId: string | undefined, taxonomy: Taxonomy): string {
+  const s = emptyState();
+  const found = matchFacets(question, taxonomy);
+  for (const group of facetGroups) {
+    const ids = new Set(found[group] ?? []);
+    if (topicId && taxonomy[group].some((e) => e.id === topicId)) ids.add(topicId);
+    s.selected[group] = [...ids];
+  }
+  const count = facetGroups.reduce((n, g) => n + s.selected[g].length, 0);
+  if (count === 0) s.q = question.slice(0, Q_MAX);
+  if (count > 1) s.match = "any";
+  return toSearch(s);
+}

@@ -3420,3 +3420,21 @@ header[data-nav][data-hidden="true"]:not(:focus-within) ~ div .brain-bar {
 .brain-share-panel .brain-match {
   margin: 0.25rem;
 }
+
+/* Links from the home Ask box into /brain: quiet text links, accent underline like prose links (SPEC T). */
+.ask-brain-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-block: .5rem;
+  font-family: var(--ask-ui, var(--font-sans));
+  font-size: .9375rem;
+  color: var(--fg);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: .08em;
+  text-underline-offset: .18em;
+  transition: text-decoration-thickness var(--dur-hover) var(--ease-settle);
+}
+.ask-brain-link:hover { text-decoration-thickness: .22em; }
+.ask-brain-link--home { color: var(--muted); }
