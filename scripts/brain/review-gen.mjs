@@ -84,7 +84,7 @@ export function renderReview(groups, approved, blocked) {
     "Tick `[x]` to approve an item. Leave `[ ]` to reject it.",
     "Edit the claim text after the `· ` on the same line freely.",
     `To change the strength, replace the word in **bold** with one of: ${strengths.join(", ")}.`,
-    "Then run `npm run brain:apply`. Re-running `npm run brain:review` overwrites this file.",
+    "Then run `npm run brain:apply`. Re-running `npm run brain:review` refuses to overwrite ticks until you apply them (or pass --force).",
     "",
   ];
 
