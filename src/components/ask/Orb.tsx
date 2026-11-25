@@ -75,7 +75,7 @@ void main(){
 }`;
 
 const FLAG_VARS = ["--flag-amber", "--flag-pink", "--flag-violet", "--flag-blue", "--flag-teal"] as const;
-const FALLBACK = ["#f5a524", "#ee5c96", "#a98cf5", "#4aa3ff", "#3cc8b4"];
+const FALLBACK = ["#7C9CFF", "#ee5c96", "#a98cf5", "#4aa3ff", "#3cc8b4"];
 
 function hexToRgb(hex: string): [number, number, number] {
   const h = hex.trim().replace("#", "");

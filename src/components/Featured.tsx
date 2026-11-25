@@ -89,7 +89,7 @@ export function Featured() {
               </ul>
             )}
 
-            {/* Buttons: solid amber button + text link "All projects" */}
+            {/* Buttons: solid accent button + text link "All projects" */}
             <div className="flex flex-wrap items-center gap-6">
               <Link
                 href={studyHref(site.featured.slug)}

@@ -38,7 +38,7 @@ export function WorkCard({
   const href = `/work/${work.slug}/`;
 
   const flagName = meta?.flag ?? "amber";
-  const flagBg = site.flags[flagName]?.bg ?? "#f5a524";
+  const flagBg = site.flags[flagName]?.bg ?? "#7C9CFF";
 
   return (
     <HomeTilt className="h-full">
