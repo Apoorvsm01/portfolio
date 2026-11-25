@@ -52,8 +52,8 @@ const fontAskUi = Geist({
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#12110f" },
-    { media: "(prefers-color-scheme: light)", color: "#ede7db" },
+    { media: "(prefers-color-scheme: dark)", color: "#0A0C10" },
+    { media: "(prefers-color-scheme: light)", color: "#F6F7F9" },
   ],
   colorScheme: "dark light",
 };

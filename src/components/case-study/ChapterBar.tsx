@@ -10,7 +10,7 @@ export interface ChapterBarProps {
 
 export function ChapterBar({
   sections,
-  flagColor = "#f5a524",
+  flagColor = "#7C9CFF",
 }: ChapterBarProps) {
   const [activeId, setActiveId] = useState<string>("");
   const [isDisclosureOpen, setIsDisclosureOpen] = useState(false);

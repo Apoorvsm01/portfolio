@@ -1,40 +1,52 @@
 @import "tailwindcss";
 
 :root {
-  /* v4 Palette: Ink / Dark is default */
-  --ground: #12110f;
-  --surface: #1b1916;
-  --surface-2: #26231f;
-  --rule: #2b2823;
-  --fg: #f1ece3;
-  --fg-2: #c9c2b5;
-  --muted: #b3ac9f;
+  /* v4 Palette: cool ink / dark is default */
+  --ground: #0A0C10;
+  --surface: #12151B;
+  --surface-2: #1A1E26;
+  --rule: #232833;
+  --fg: #EEF1F6;
+  --fg-2: #B8C0CC;
+  --muted: #8A93A3;
   --focus: #9ad0ff;
 
   /* Paper band tokens */
-  --paper: #ede7db;
-  --paper-ink: #171513;
-  --paper-muted: #554f45;
-  --paper-rule: #d6cfc1;
+  --paper: #F6F7F9;
+  --paper-ink: #0E1116;
+  --paper-muted: #4A5260;
+  --paper-rule: #DCE0E6;
 
-  /* Accent (flags.amber) */
-  --accent: #f5a524;
+  /* Accent (periwinkle) and glow (mint) */
+  --accent: #7C9CFF;
+  --accent-ink: #0A0C10;
+  --glow: #5EEAD4;
 
-  /* Flags from site.flags (CSS custom properties) */
-  --flag-amber: #f5a524;
-  --flag-amber-ink: #12110f;
+  /* Strength tokens (brain pills) */
+  --strength-shipped: var(--glow);
+  --strength-shipped-ink: #0A0C10;
+  --strength-built: var(--accent);
+  --strength-built-ink: #0A0C10;
+  --strength-studied: #C4B5FD;
+  --strength-studied-ink: #0A0C10;
+  --strength-watched: #64748B;
+  --strength-watched-ink: #FFFFFF;
+
+  /* Flags from site.flags (CSS custom properties). "amber" is the periwinkle accent family. */
+  --flag-amber: #7C9CFF;
+  --flag-amber-ink: #0A0C10;
   --flag-blue: #4aa3ff;
   --flag-blue-ink: #0b1420;
   --flag-lime: #b6e05a;
-  --flag-lime-ink: #12110f;
+  --flag-lime-ink: #0A0C10;
   --flag-pink: #ee5c96;
-  --flag-pink-ink: #12110f;
+  --flag-pink-ink: #0A0C10;
   --flag-teal: #3cc8b4;
   --flag-teal-ink: #0b1a17;
   --flag-violet: #a98cf5;
-  --flag-violet-ink: #12110f;
-  --flag-yellow: #f2c94c;
-  --flag-yellow-ink: #12110f;
+  --flag-violet-ink: #0A0C10;
+  --flag-yellow: #8FD9F0;
+  --flag-yellow-ink: #0A0C10;
 
   /* Compatibility tokens for existing styles */
   --bg: var(--ground);
@@ -61,23 +73,33 @@
 }
 
 [data-theme="light"] {
-  /* Light theme uses the paper values (v4 C) */
-  --ground: #ede7db;
-  --surface: #ffffff;
-  --surface-2: #f2ece0;
-  --rule: #d6cfc1;
-  --fg: #171513;
-  --fg-2: #38342e;
-  --muted: #554f45;
+  --ground: #F6F7F9;
+  --surface: #FFFFFF;
+  --surface-2: #EEF0F4;
+  --rule: #DCE0E6;
+  --fg: #0E1116;
+  --fg-2: #2E3440;
+  --muted: #4A5260;
   --focus: #1d68bd;
 
-  /* Paper band tokens stay consistent */
-  --paper: #ede7db;
-  --paper-ink: #171513;
-  --paper-muted: #554f45;
-  --paper-rule: #d6cfc1;
+  --paper: #F6F7F9;
+  --paper-ink: #0E1116;
+  --paper-muted: #4A5260;
+  --paper-rule: #DCE0E6;
 
-  --accent: #f5a524;
+  --accent: #3B5BDB;
+  --accent-ink: #FFFFFF;
+  --glow: #0F9F8A;
+
+  --strength-shipped-ink: #0E1116;
+  --strength-built-ink: #FFFFFF;
+  --strength-studied: #6D4FD8;
+  --strength-studied-ink: #FFFFFF;
+  --strength-watched: #475569;
+  --strength-watched-ink: #FFFFFF;
+
+  --flag-amber: #3B5BDB;
+  --flag-amber-ink: #FFFFFF;
 
   --bg: var(--ground);
   --text: var(--fg);
@@ -87,21 +109,23 @@
 }
 
 [data-theme="dark"] {
-  --ground: #12110f;
-  --surface: #1b1916;
-  --surface-2: #26231f;
-  --rule: #2b2823;
-  --fg: #f1ece3;
-  --fg-2: #c9c2b5;
-  --muted: #b3ac9f;
+  --ground: #0A0C10;
+  --surface: #12151B;
+  --surface-2: #1A1E26;
+  --rule: #232833;
+  --fg: #EEF1F6;
+  --fg-2: #B8C0CC;
+  --muted: #8A93A3;
   --focus: #9ad0ff;
 
-  --paper: #ede7db;
-  --paper-ink: #171513;
-  --paper-muted: #554f45;
-  --paper-rule: #d6cfc1;
+  --paper: #F6F7F9;
+  --paper-ink: #0E1116;
+  --paper-muted: #4A5260;
+  --paper-rule: #DCE0E6;
 
-  --accent: #f5a524;
+  --accent: #7C9CFF;
+  --accent-ink: #0A0C10;
+  --glow: #5EEAD4;
 
   --bg: var(--ground);
   --text: var(--fg);
@@ -126,6 +150,8 @@
   --color-paper-rule: var(--paper-rule);
 
   --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-glow: var(--glow);
 
   --color-bg: var(--bg);
   --color-text: var(--text);
@@ -812,12 +838,12 @@ html:not([data-js]) .fade-image {
 /* Dark bands (a study's band colour on case-study heroes and the home Featured section) stay dark in
    both themes, so their text must stay light too: pin the dark-theme ink tokens inside them. */
 .band-dark {
-  --surface: #1b1916;
-  --surface-2: #26231f;
-  --rule: rgb(241 236 227 / 0.14);
-  --fg: #f1ece3;
-  --fg-2: #c9c2b5;
-  --muted: #b3ac9f;
+  --surface: #12151B;
+  --surface-2: #1A1E26;
+  --rule: rgb(238 241 246 / 0.14);
+  --fg: #EEF1F6;
+  --fg-2: #B8C0CC;
+  --muted: #8A93A3;
   --text: var(--fg);
   --line: var(--rule);
   color: var(--fg);
@@ -885,7 +911,7 @@ html:not([data-js]) .fade-image {
   height: var(--h);
   object-fit: cover;
   border-radius: var(--radius);
-  background: var(--surface, #1d1b18);
+  background: var(--surface, #12151B);
   box-shadow: 0 1.6cqw 3.6cqw -1.2cqw rgb(0 0 0 / 0.45);
 }
 .headset-card figcaption {
@@ -1110,7 +1136,7 @@ html:not([data-js]) .fade-image {
   position: relative;
   overflow: hidden;
   border-radius: 28px;
-  background: #1c1b19;
+  background: #12151B;
   border: 1px solid var(--rule);
   aspect-ratio: 16 / 9;
   filter: blur(14px);
@@ -1542,7 +1568,7 @@ html:not([data-js]) .fade-image {
   view-transition-name: ask-prompt;
 }
 [data-theme="light"] .ask-box {
-  box-shadow: 0 18px 44px -24px rgb(60 40 10 / 0.45);
+  box-shadow: 0 18px 44px -24px rgb(20 30 60 / 0.45);
 }
 .ask-field {
   position: relative;
@@ -1596,7 +1622,7 @@ html:not([data-js]) .fade-image {
   place-items: center;
   border: 0;
   border-radius: 50%;
-  color: #12110f;
+  color: #0A0C10;
   cursor: pointer;
   background: var(--ai-gradient);
   background-size: 200% 100%;
@@ -2062,7 +2088,7 @@ html:not([data-js]) .fade-image {
   overflow: hidden;
   border: 1px solid var(--rule);
   background: var(--surface-2);
-  color: #f6f1e8;
+  color: #F6F7F9;
   text-decoration: none;
   transition: transform 700ms var(--ease-spring);
 }
@@ -2088,7 +2114,7 @@ html:not([data-js]) .fade-image {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgb(10 9 8 / 0.88) 0%, rgb(10 9 8 / 0.35) 42%, transparent 70%);
+  background: linear-gradient(to top, rgb(10 12 16 / 0.88) 0%, rgb(10 12 16 / 0.35) 42%, transparent 70%);
 }
 .feature-copy {
   position: absolute;
@@ -2121,7 +2147,7 @@ html:not([data-js]) .fade-image {
   font-family: var(--ask-ui);
   font-size: clamp(0.98rem, 0.9rem + 0.35vw, 1.2rem);
   line-height: 1.4;
-  color: rgb(246 241 232 / 0.9);
+  color: rgb(246 247 249 / 0.9);
 }
 .feature-controls {
   display: flex;
@@ -2823,9 +2849,9 @@ body,
   gap: 0.4rem;
 }
 .feature-tags .status-pill {
-  background: #1b1916;
-  color: #f1ece3;
-  border-color: rgb(241 236 227 / 0.35);
+  background: #12151B;
+  color: #EEF1F6;
+  border-color: rgb(238 241 246 / 0.35);
 }
 @media (max-width: 640px) {
   .ask-proof {
@@ -3342,20 +3368,20 @@ header[data-nav][data-hidden="true"]:not(:focus-within) ~ div .brain-bar {
   line-height: 1.25rem;
 }
 .brain-pill[data-strength="shipped"] {
-  background: var(--flag-amber);
-  color: var(--flag-amber-ink);
+  background: var(--strength-shipped);
+  color: var(--strength-shipped-ink);
 }
 .brain-pill[data-strength="built"] {
-  background: var(--flag-teal);
-  color: var(--flag-teal-ink);
+  background: var(--strength-built);
+  color: var(--strength-built-ink);
 }
 .brain-pill[data-strength="studied"] {
-  background: var(--flag-blue);
-  color: var(--flag-blue-ink);
+  background: var(--strength-studied);
+  color: var(--strength-studied-ink);
 }
 .brain-pill[data-strength="watched"] {
-  background: var(--flag-violet);
-  color: var(--flag-violet-ink);
+  background: var(--strength-watched);
+  color: var(--strength-watched-ink);
 }
 .brain-detail {
   margin: 0.25rem 0 0;

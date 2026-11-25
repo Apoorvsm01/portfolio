@@ -65,7 +65,7 @@ export function Timeline() {
           />
           {site.timeline.map((item) => {
             const flagBg =
-              site.flags[item.flag as keyof typeof site.flags]?.bg ?? "#f5a524";
+              site.flags[item.flag as keyof typeof site.flags]?.bg ?? "#7C9CFF";
 
             return (
               <li

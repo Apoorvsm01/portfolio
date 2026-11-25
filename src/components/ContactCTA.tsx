@@ -12,7 +12,7 @@ export function ContactCTA({ className = "" }: { className?: string }) {
         {site.cta.body}
       </p>
 
-      {/* Buttons: solid amber "Email me" and ghost "LinkedIn" (pill) */}
+      {/* Buttons: solid accent "Email me" and ghost "LinkedIn" (pill) */}
       <div className="flex flex-wrap items-center gap-4">
         <GlobalMagnetic
           href={`mailto:${site.email}`}
