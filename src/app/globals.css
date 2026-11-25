@@ -3464,3 +3464,68 @@ header[data-nav][data-hidden="true"]:not(:focus-within) ~ div .brain-bar {
 }
 .ask-brain-link:hover { text-decoration-thickness: .22em; }
 .ask-brain-link--home { color: var(--muted); }
+
+/* Knowledge graph (home hero). Tokens only; motion is gated on prefers-reduced-motion: no-preference. */
+.kg { position: relative; width: 100%; }
+.kg-svg { display: block; width: 100%; height: auto; overflow: visible; }
+.kg-edge {
+  fill: none;
+  stroke: var(--rule);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+.kg-edge--on, .kg-edge--hover { stroke: var(--glow); stroke-width: 1.5; }
+.kg-node { outline: none; cursor: default; }
+.kg-node--domain, .kg-node--skill, .kg-link { cursor: pointer; }
+.kg-dot { fill: var(--surface-2); stroke: var(--strength-watched); stroke-width: 1.5; }
+.kg-s-shipped .kg-dot { stroke: var(--strength-shipped); }
+.kg-s-built .kg-dot { stroke: var(--strength-built); }
+.kg-s-studied .kg-dot { stroke: var(--strength-studied); }
+.kg-s-watched .kg-dot { stroke: var(--strength-watched); }
+.kg-node--center .kg-dot { fill: var(--surface); stroke: var(--accent); stroke-width: 2; }
+.kg-selected .kg-dot { fill: var(--accent); }
+.kg-hit { fill: transparent; }
+.kg-halo { fill: var(--glow); opacity: 0; }
+.kg-lit .kg-halo { opacity: 0.18; }
+.kg-breath { fill: var(--glow); opacity: 0.1; }
+.kg-focus { fill: none; stroke: var(--accent); stroke-width: 2; opacity: 0; }
+.kg-node:focus-visible .kg-focus { opacity: 1; }
+.kg-label {
+  font-family: var(--font-sans), sans-serif;
+  fill: var(--fg-2);
+  paint-order: stroke;
+  stroke: var(--ground);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+  pointer-events: none;
+  user-select: none;
+}
+.kg-node--domain .kg-label { fill: var(--fg); font-weight: 500; }
+.kg-node--center .kg-label { fill: var(--fg); font-weight: 600; stroke: none; text-anchor: middle; }
+.kg-label-collapsed .kg-label { opacity: 0; }
+.kg-label-collapsed:hover .kg-label, .kg-label-collapsed:focus-visible .kg-label, .kg-label-collapsed:focus-within .kg-label { opacity: 1; }
+.kg-dim { opacity: 0.15; }
+.kg-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .kg-node, .kg-edge, .kg-halo, .kg-label { transition: opacity 200ms var(--ease-settle); }
+  .kg-edge--on { animation: kg-draw 600ms var(--ease-settle) both; stroke-dasharray: 1; }
+  .kg-breath { animation: kg-breathe 7s ease-in-out infinite; }
+  .kg--active .kg-breath { animation: none; }
+}
+.kg--active .kg-breath { opacity: 0; }
+@keyframes kg-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes kg-breathe { 0%, 100% { opacity: 0.06; } 50% { opacity: 0.2; } }
+@media (prefers-reduced-motion: reduce) {
+  .kg-breath { opacity: 0.1; }
+}
