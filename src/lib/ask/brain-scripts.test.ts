@@ -186,3 +186,35 @@ test("flagsFor: near-duplicate claim flags the later item only", () => {
   const unrelated = item("d-third", "Designed a food delivery app for couriers.");
   assert.deepEqual(flagsFor(unrelated, [first, unrelated], []), []);
 });
+
+test("validate: near-duplicate claims are errors in evidence and warnings in drafts", () => {
+  const dir = mkdtempSync(join(tmpdir(), "brain-dup-"));
+  try {
+    const a = { ...good, id: "dup-a", claim: "Delivered 25 UX projects across fintech and health clients at Crazy Minds." };
+    const b = { ...good, id: "dup-b", claim: "Delivered 25 UX projects across fintech and health clients for Crazy Minds." };
+    writeFileSync(join(dir, "t.json"), JSON.stringify([a, b]));
+    const real = validateDirs([dir]);
+    assert.ok(real.errors.some((e: string) => e.includes("near-duplicate")));
+    const draft = validateDirs([dir], { drafts: true });
+    assert.ok(!draft.errors.some((e: string) => e.includes("near-duplicate")));
+    assert.ok(draft.warnings.some((w: string) => w.includes("near-duplicate")));
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("validate: org must be a non-empty string when present", () => {
+  assert.deepEqual(check({ ...good, org: "Omnia" }).errors, []);
+  assert.ok(check({ ...good, org: "" }).errors.some((e: string) => e.includes("org")));
+});
+
+test("withOrg: resume label and org come from the employer named in the claim", async () => {
+  const { withOrg, detectEmployer } = await import("../../../scripts/brain/lib.mjs");
+  const r = withOrg({ ...good, source: { kind: "resume", label: "Resume" }, claim: "Led design at Omnia." }, "depaul-resume");
+  assert.equal(r.org, "Omnia");
+  assert.equal(r.source.label, "Resume · Omnia");
+  assert.equal(withOrg({ ...good, source: { kind: "resume", label: "Resume" }, claim: "Knows Figma." }, "depaul-resume").source.label, "Resume");
+  assert.equal(withOrg({ ...good }, "depaul-hci-445").org, "DePaul");
+  assert.equal(withOrg({ ...good, source: { kind: "project", label: "x" } }, "depaul-patched-reality").org, "Patched Reality");
+  assert.equal(detectEmployer("Shipped at Woven by Toyota"), "Woven by Toyota");
+});

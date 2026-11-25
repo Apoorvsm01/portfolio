@@ -80,9 +80,10 @@
     },
     "source": {
       "kind": "resume",
-      "label": "Resume"
+      "label": "Resume · Omnia"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "Omnia"
   },
   {
     "id": "depaul-resume-chipark-carplay",
@@ -113,45 +114,10 @@
     },
     "source": {
       "kind": "resume",
-      "label": "Resume"
+      "label": "Resume · ChiPark"
     },
-    "status": "approved"
-  },
-  {
-    "id": "depaul-resume-crazy-minds",
-    "claim": "Delivered 25+ UX/UI projects across fintech, healthcare, and e-commerce as founder of Crazy Minds.",
-    "detail": "Built iOS, Android, and web component libraries cutting iteration cycles by 40%, and ran WCAG 2.1 audits lifting usability scores by 35%.",
-    "strength": "shipped",
-    "date": "2025-08",
-    "facets": {
-      "roles": [
-        "ux-designer",
-        "design-systems-designer"
-      ],
-      "skills": [
-        "design-systems",
-        "accessibility",
-        "ui-design"
-      ],
-      "domains": [
-        "fintech",
-        "healthcare",
-        "e-commerce"
-      ],
-      "platforms": [
-        "ios",
-        "android",
-        "web"
-      ],
-      "methods": [
-        "accessibility-audit"
-      ]
-    },
-    "source": {
-      "kind": "resume",
-      "label": "Resume"
-    },
-    "status": "approved"
+    "status": "approved",
+    "org": "ChiPark"
   },
   {
     "id": "depaul-resume-omnia-cms-upload",
@@ -176,62 +142,10 @@
     },
     "source": {
       "kind": "resume",
-      "label": "Resume"
+      "label": "Resume · Omnia"
     },
-    "status": "approved"
-  },
-  {
-    "id": "depaul-resume-omnia-design-system",
-    "claim": "Established a 100+ component Figma design system at Omnia, cutting design-to-dev handoff time by 30% and QA defects by 25%.",
-    "detail": "Standardized Apple HIG and spatial interface patterns across 2D and 3D product workflows using Figma and Axure.",
-    "strength": "shipped",
-    "date": "2025-09",
-    "facets": {
-      "roles": [
-        "design-systems-designer",
-        "ux-designer"
-      ],
-      "skills": [
-        "figma",
-        "design-systems",
-        "axure"
-      ],
-      "domains": [],
-      "platforms": [],
-      "methods": []
-    },
-    "source": {
-      "kind": "resume",
-      "label": "Resume"
-    },
-    "status": "approved"
-  },
-  {
-    "id": "depaul-resume-omnia-multiplatform-apps",
-    "claim": "Directed UX strategy and execution for three multi-platform apps across iOS, macOS, and Web serving 70K+ monthly users at Omnia.",
-    "detail": "Aligned onboarding and interaction flows across consumer and enterprise applications while collaborating with engineering and product teams.",
-    "strength": "shipped",
-    "date": "2025-09",
-    "facets": {
-      "roles": [
-        "ux-designer"
-      ],
-      "skills": [
-        "interaction-design"
-      ],
-      "domains": [],
-      "platforms": [
-        "ios",
-        "desktop",
-        "web"
-      ],
-      "methods": []
-    },
-    "source": {
-      "kind": "resume",
-      "label": "Resume"
-    },
-    "status": "approved"
+    "status": "approved",
+    "org": "Omnia"
   },
   {
     "id": "depaul-resume-omnia-spatial-browser",
@@ -263,9 +177,10 @@
     },
     "source": {
       "kind": "resume",
-      "label": "Resume"
+      "label": "Resume · Omnia"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "Omnia"
   },
   {
     "id": "depaul-resume-omnia-voice-tutorials",
@@ -331,9 +246,10 @@
     },
     "source": {
       "kind": "resume",
-      "label": "Resume"
+      "label": "Resume · ChiPark"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "ChiPark"
   },
   {
     "id": "depaul-resume-part2-crazyminds-consultancy-wcag",
@@ -344,17 +260,21 @@
     "facets": {
       "roles": [
         "ux-designer",
-        "design-systems-designer"
+        "design-systems-designer",
+        "ux-researcher"
       ],
       "skills": [
         "design-systems",
         "accessibility",
-        "ui-design"
+        "ui-design",
+        "ux-research",
+        "statistics-data-analysis"
       ],
       "domains": [
         "fintech",
         "healthcare",
-        "education"
+        "education",
+        "e-commerce"
       ],
       "platforms": [
         "ios",
@@ -362,14 +282,16 @@
         "web"
       ],
       "methods": [
-        "accessibility-audit"
+        "accessibility-audit",
+        "usability-testing"
       ]
     },
     "source": {
       "kind": "resume",
-      "label": "Resume"
+      "label": "Resume · Crazy Minds"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "Crazy Minds"
   },
   {
     "id": "depaul-resume-part2-crazyminds-motion-demos",
@@ -397,9 +319,10 @@
     },
     "source": {
       "kind": "resume",
-      "label": "Resume"
+      "label": "Resume · Crazy Minds"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "Crazy Minds"
   },
   {
     "id": "depaul-resume-part2-fintech-explainer-campaigns",
@@ -468,9 +391,10 @@
     },
     "source": {
       "kind": "resume",
-      "label": "Resume"
+      "label": "Resume · Omnia"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "Omnia"
   },
   {
     "id": "depaul-resume-part2-omnia-design-system",
@@ -481,12 +405,17 @@
     "facets": {
       "roles": [
         "design-systems-designer",
-        "ux-designer"
+        "ux-designer",
+        "ux-engineer"
       ],
       "skills": [
         "design-systems",
         "figma",
-        "prototyping"
+        "prototyping",
+        "axure",
+        "react",
+        "nextjs",
+        "unity"
       ],
       "domains": [
         "spatial"
@@ -495,15 +424,19 @@
         "visionos",
         "ios",
         "desktop",
-        "web"
+        "web",
+        "android"
       ],
-      "methods": []
+      "methods": [
+        "rapid-prototyping"
+      ]
     },
     "source": {
       "kind": "resume",
-      "label": "Resume"
+      "label": "Resume · Omnia"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "Omnia"
   },
   {
     "id": "depaul-resume-part2-omnia-frontend-cicd",
@@ -532,42 +465,10 @@
     },
     "source": {
       "kind": "resume",
-      "label": "Resume"
+      "label": "Resume · Omnia"
     },
-    "status": "approved"
-  },
-  {
-    "id": "depaul-resume-part2-omnia-multiplatform-apps",
-    "claim": "Designed and launched three multi-platform applications across VisionOS, iOS, macOS, and web at Omnia, reaching 70K+ monthly users.",
-    "detail": "Collaborated with engineers, 3D artists, and animators to ship enterprise and consumer apps with real-time environmental triggers and motion transitions.",
-    "strength": "shipped",
-    "date": "2025-08",
-    "facets": {
-      "roles": [
-        "ux-designer",
-        "spatial-designer"
-      ],
-      "skills": [
-        "ui-design",
-        "interaction-design"
-      ],
-      "domains": [
-        "spatial",
-        "environmental"
-      ],
-      "platforms": [
-        "visionos",
-        "ios",
-        "desktop",
-        "web"
-      ],
-      "methods": []
-    },
-    "source": {
-      "kind": "resume",
-      "label": "Resume"
-    },
-    "status": "approved"
+    "status": "approved",
+    "org": "Omnia"
   },
   {
     "id": "depaul-resume-part2-omnia-spatial-browser",
@@ -596,9 +497,10 @@
     },
     "source": {
       "kind": "resume",
-      "label": "Resume"
+      "label": "Resume · Omnia"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "Omnia"
   },
   {
     "id": "depaul-resume-part2-omnia-spatial-showroom",
@@ -643,7 +545,8 @@
     "facets": {
       "roles": [
         "spatial-designer",
-        "ux-engineer"
+        "ux-engineer",
+        "ai-product-designer"
       ],
       "skills": [
         "prototyping",
@@ -662,9 +565,10 @@
     },
     "source": {
       "kind": "resume",
-      "label": "Resume"
+      "label": "Resume · Omnia"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "Omnia"
   },
   {
     "id": "depaul-resume-part2-omnia-voice-tutorials",
@@ -693,46 +597,10 @@
     },
     "source": {
       "kind": "resume",
-      "label": "Resume"
+      "label": "Resume · Omnia"
     },
-    "status": "approved"
-  },
-  {
-    "id": "depaul-resume-part2-patched-reality-vr-rehab",
-    "claim": "Redesigned the Reach Shoulder Health VR rehabilitation game for Meta Quest, raising task success from 72% to 91% and daily retention by 18%.",
-    "detail": "Conducted heuristic evaluations and gaze-input A/B tests with Meta HIG interface updates, lifting senior gameplay understanding by 23%.",
-    "strength": "shipped",
-    "date": "2025-07",
-    "facets": {
-      "roles": [
-        "ux-researcher",
-        "ux-designer",
-        "spatial-designer"
-      ],
-      "skills": [
-        "ux-research",
-        "ui-design",
-        "interaction-design",
-        "accessibility"
-      ],
-      "domains": [
-        "healthcare",
-        "spatial"
-      ],
-      "platforms": [
-        "meta-quest"
-      ],
-      "methods": [
-        "heuristic-evaluation",
-        "ab-testing",
-        "usability-testing"
-      ]
-    },
-    "source": {
-      "kind": "resume",
-      "label": "Resume"
-    },
-    "status": "approved"
+    "status": "approved",
+    "org": "Omnia"
   },
   {
     "id": "depaul-resume-part2-syncare-elder-health",
@@ -837,9 +705,10 @@
     },
     "source": {
       "kind": "resume",
-      "label": "Resume"
+      "label": "Resume · Crazy Minds"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "Crazy Minds"
   },
   {
     "id": "depaul-resume-part3-crazy-minds-web-design-system",
@@ -872,9 +741,10 @@
     },
     "source": {
       "kind": "resume",
-      "label": "Resume"
+      "label": "Resume · Crazy Minds"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "Crazy Minds"
   },
   {
     "id": "depaul-resume-part3-depaul-uxa-workshops",
@@ -895,9 +765,10 @@
     },
     "source": {
       "kind": "resume",
-      "label": "Resume"
+      "label": "Resume · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-resume-part3-human-digital-twin-system",
@@ -961,9 +832,10 @@
     },
     "source": {
       "kind": "resume",
-      "label": "Resume"
+      "label": "Resume · Omnia"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "Omnia"
   },
   {
     "id": "depaul-resume-part3-omnia-ar-accessibility",
@@ -994,47 +866,10 @@
     },
     "source": {
       "kind": "resume",
-      "label": "Resume"
+      "label": "Resume · Omnia"
     },
-    "status": "approved"
-  },
-  {
-    "id": "depaul-resume-part3-omnia-handoff-workflow",
-    "claim": "Established a tokenized design-to-engineering handoff workflow at Omnia, cutting iteration cycles by 30%.",
-    "detail": "Delivered Storybook documentation and Code Sandbox POCs while validating Figma and Framer prototypes in React, Next.js, and Unity.",
-    "strength": "built",
-    "date": "2025-04",
-    "facets": {
-      "roles": [
-        "ux-engineer",
-        "design-systems-designer"
-      ],
-      "skills": [
-        "design-systems",
-        "figma",
-        "prototyping",
-        "react",
-        "nextjs",
-        "unity"
-      ],
-      "domains": [
-        "spatial"
-      ],
-      "platforms": [
-        "visionos",
-        "ios",
-        "android",
-        "web"
-      ],
-      "methods": [
-        "rapid-prototyping"
-      ]
-    },
-    "source": {
-      "kind": "resume",
-      "label": "Resume"
-    },
-    "status": "approved"
+    "status": "approved",
+    "org": "Omnia"
   },
   {
     "id": "depaul-resume-part3-omnia-navigation-research",
@@ -1067,9 +902,10 @@
     },
     "source": {
       "kind": "resume",
-      "label": "Resume"
+      "label": "Resume · Omnia"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "Omnia"
   },
   {
     "id": "depaul-resume-part3-omnia-react-ui-pod",
@@ -1098,9 +934,10 @@
     },
     "source": {
       "kind": "resume",
-      "label": "Resume"
+      "label": "Resume · Omnia"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "Omnia"
   },
   {
     "id": "depaul-resume-part3-omnia-tesla-3d-showroom",
@@ -1133,9 +970,10 @@
     },
     "source": {
       "kind": "resume",
-      "label": "Resume"
+      "label": "Resume · Omnia"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "Omnia"
   },
   {
     "id": "depaul-resume-part3-omnia-visionos-design-system",
@@ -1166,9 +1004,10 @@
     },
     "source": {
       "kind": "resume",
-      "label": "Resume"
+      "label": "Resume · Omnia"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "Omnia"
   },
   {
     "id": "depaul-resume-part3-patched-reality-clinician-dashboards",
@@ -1203,9 +1042,10 @@
     },
     "source": {
       "kind": "resume",
-      "label": "Resume"
+      "label": "Resume · Patched Reality"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "Patched Reality"
   },
   {
     "id": "depaul-resume-part3-patched-reality-vr-game-testing",
@@ -1235,9 +1075,10 @@
     },
     "source": {
       "kind": "resume",
-      "label": "Resume"
+      "label": "Resume · Patched Reality"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "Patched Reality"
   },
   {
     "id": "depaul-resume-part3-patched-reality-vr-onboarding",
@@ -1271,9 +1112,10 @@
     },
     "source": {
       "kind": "resume",
-      "label": "Resume"
+      "label": "Resume · Patched Reality"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "Patched Reality"
   },
   {
     "id": "depaul-resume-part3-xr-accessibility-volunteer",
@@ -1318,7 +1160,9 @@
       ],
       "skills": [
         "ui-design",
-        "ux-research"
+        "ux-research",
+        "interaction-design",
+        "accessibility"
       ],
       "domains": [
         "spatial",
@@ -1329,7 +1173,8 @@
       ],
       "methods": [
         "heuristic-evaluation",
-        "ab-testing"
+        "ab-testing",
+        "usability-testing"
       ]
     },
     "source": {
@@ -1368,34 +1213,6 @@
     "status": "approved"
   },
   {
-    "id": "depaul-resume-transparent-display-rd",
-    "claim": "Prototyped transparent display interactions integrating AI speech, LiDAR Gaussian Splats, and object detection.",
-    "detail": "Directed R&D prototypes that improved spatial interaction precision by 25%.",
-    "strength": "built",
-    "date": "2025-08",
-    "facets": {
-      "roles": [
-        "spatial-designer",
-        "ai-product-designer"
-      ],
-      "skills": [
-        "prototyping",
-        "voice-ai",
-        "ai-llm-design"
-      ],
-      "domains": [
-        "spatial"
-      ],
-      "platforms": [],
-      "methods": []
-    },
-    "source": {
-      "kind": "resume",
-      "label": "Resume"
-    },
-    "status": "approved"
-  },
-  {
     "id": "depaul-resume-visionos-3d-viewer",
     "claim": "Built a 3D model viewer from scratch in SwiftUI, RealityKit, and Unity supporting material swaps and lighting controls.",
     "detail": "Integrated a Blender asset pipeline with native SwiftUI interfaces for Apple Vision Pro workflows at Omnia.",
@@ -1420,9 +1237,10 @@
     },
     "source": {
       "kind": "resume",
-      "label": "Resume"
+      "label": "Resume · Omnia"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "Omnia"
   },
   {
     "id": "depaul-resume-woven-in-car-ai",
@@ -1448,8 +1266,9 @@
     },
     "source": {
       "kind": "resume",
-      "label": "Resume"
+      "label": "Resume · Woven by Toyota"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "Woven by Toyota"
   }
 ]

@@ -14,6 +14,7 @@ export type Chunk = {
   label: string; // shown on source chips
   href: string; // internal path, or an external/mailto link
   slug?: string;
+  org?: string; // organisation behind the item; part of the per-source diversity key
   claim?: string; // on case-study summary chunks: the one-line claim, shown as the main line in the filter view
   tags: string[];
   // Set on passages that can be filtered (case-study chunks and approved evidence).
@@ -82,6 +83,7 @@ export type Evidence = {
   facets: Facets;
   source: { kind: "project" | "course" | "resume" | "video" | "repo"; label: string; href?: string };
   slug?: string; // a case study this item backs up
+  org?: string; // the organisation this came from (employer or school), when known
   status: "draft" | "approved";
 };
 
@@ -106,6 +108,17 @@ export type FilterItem = {
 export type FilterResult = {
   items: FilterItem[]; // all matches; the first 12 respect the diversity cap
   total: number;
+};
+
+// Filter results grouped by source (case study, else organisation, else label), in rank order.
+export type SourceGroup = {
+  key: string;
+  label: string;
+  org?: string;
+  slug?: string;
+  href?: string;
+  strongest?: Strength;
+  items: FilterItem[];
 };
 
 export type FacetCount = { group: FacetGroup; id: string; count: number; strongest?: Strength };

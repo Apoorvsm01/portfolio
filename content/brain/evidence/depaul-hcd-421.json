@@ -24,7 +24,8 @@
       "kind": "course",
       "label": "HCD 421: Design and Human Experience · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hcd-421-smart-home-hcd-plan",
@@ -59,68 +60,8 @@
       "kind": "course",
       "label": "HCD 421: Design and Human Experience · DePaul"
     },
-    "status": "approved"
-  },
-  {
-    "id": "depaul-hcd-421-technological-inevitability",
-    "claim": "Evaluated how speculative and participatory design challenge technological determinism and surface socio-technical trade-offs.",
-    "detail": "Examined regulatory, social, and market dynamics using Information Ecologies and urban mobility and autonomous vehicle case readings.",
-    "strength": "studied",
-    "date": "2025-02",
-    "facets": {
-      "roles": [
-        "ux-researcher",
-        "ux-designer"
-      ],
-      "skills": [
-        "user-centered-design",
-        "systems-thinking",
-        "ux-research"
-      ],
-      "domains": [],
-      "platforms": [],
-      "methods": []
-    },
-    "source": {
-      "kind": "course",
-      "label": "HCD 421: Design and Human Experience · DePaul"
-    },
-    "status": "approved"
-  },
-  {
-    "id": "depaul-hcd-421-vision-pro-spatial-browser",
-    "claim": "Prototyped a high-fidelity spatial content browser for Apple Vision Pro and evaluated user navigation.",
-    "detail": "Documented a happy path from startup requirements, iterated via contextual inquiries and rapid prototyping, and supported investor pitch meetings.",
-    "strength": "built",
-    "date": "2025-02",
-    "facets": {
-      "roles": [
-        "ux-designer",
-        "spatial-designer"
-      ],
-      "skills": [
-        "prototyping",
-        "ui-design",
-        "interaction-design",
-        "user-centered-design"
-      ],
-      "domains": [
-        "spatial"
-      ],
-      "platforms": [
-        "visionos"
-      ],
-      "methods": [
-        "rapid-prototyping",
-        "user-interviews",
-        "usability-testing"
-      ]
-    },
-    "source": {
-      "kind": "course",
-      "label": "HCD 421: Design and Human Experience · DePaul"
-    },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hcd-421-visionos-library-alignment",
@@ -153,6 +94,7 @@
       "kind": "course",
       "label": "HCD 421: Design and Human Experience · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   }
 ]

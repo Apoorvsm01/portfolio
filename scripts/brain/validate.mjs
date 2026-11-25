@@ -8,6 +8,7 @@ import { EVIDENCE_DIR, DRAFTS_DIR, jsonFiles, readJson } from "./lib.mjs";
 const KINDS = ["project", "course", "resume", "video", "repo"];
 const STATUSES = ["draft", "approved"];
 const MAX_CLAIM = 160;
+const NEAR_DUPLICATE = 0.6; // Jaccard on claim word sets
 
 const norm = (s) => s.toLowerCase().replace(/[^\p{L}\p{N}\s]/gu, " ").replace(/\s+/g, " ").trim();
 const words = (s) => new Set(norm(s).split(" ").filter(Boolean));
@@ -50,6 +51,7 @@ export function checkItem(it, where) {
     if (it.source.href !== undefined && !isStr(it.source.href)) e("source.href must be a string");
   }
   if (it.slug !== undefined && !isStr(it.slug)) e("slug must be a string");
+  if (it.org !== undefined && (!isStr(it.org) || !it.org.trim())) e("org must be a non-empty string");
   if (!it.facets || typeof it.facets !== "object" || Array.isArray(it.facets)) e("facets missing");
   else {
     for (const [group, ids] of Object.entries(it.facets)) {
@@ -92,7 +94,10 @@ export function validateDirs(dirs, { drafts = false } = {}) {
   for (let i = 0; i < claims.length; i++)
     for (let j = i + 1; j < claims.length; j++) {
       const a = claims[i], b = claims[j];
-      if (a.n === b.n || jaccard(a.w, b.w) >= 0.8) warnings.push(`near-duplicate claims: "${a.id}" (${a.f}) and "${b.id}" (${b.f})`);
+      if (a.n === b.n || jaccard(a.w, b.w) >= NEAR_DUPLICATE) {
+        // Real evidence must be deduplicated (run scripts/brain/dedupe.mjs); drafts only warn.
+        (drafts ? warnings : errors).push(`near-duplicate claims: "${a.id}" (${a.f}) and "${b.id}" (${b.f})`);
+      }
     }
   return { errors, warnings, items: all.length, files: fileCount };
 }

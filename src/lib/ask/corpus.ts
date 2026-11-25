@@ -66,7 +66,7 @@ export function buildCorpus({ site, studies, studyMeta, personal, taxonomy, topi
     const { slug, title, tags } = study;
     const href = `/work/${slug}/`;
     const org = site.work.find((w) => w.slug === slug)?.org;
-    const base = { slug, tags, href };
+    const base = { slug, tags, href, ...(org ? { org } : {}) };
 
     add({
       ...base,
@@ -301,6 +301,7 @@ export function buildEvidenceChunks(evidence: Evidence[], taxonomy?: Taxonomy): 
       label: item.source.label,
       href: item.source.href ?? (item.slug ? `/work/${item.slug}/` : "/"),
       slug: item.slug,
+      ...(item.org ? { org: item.org } : {}),
       text: [item.claim, item.detail ?? ""].filter(Boolean).join(" "),
       tags: FACET_GROUPS.flatMap((g) => (item.facets[g] ?? []).map((id) => labelOf(g, id))),
       facets: item.facets,

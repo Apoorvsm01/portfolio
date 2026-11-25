@@ -22,7 +22,8 @@
       "kind": "course",
       "label": "HCI 445 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-445-caqdas-game-therapy-analysis",
@@ -50,7 +51,8 @@
       "kind": "course",
       "label": "HCI 445 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-445-part2-hybrid-design-implications",
@@ -77,7 +79,8 @@
       "kind": "course",
       "label": "HCI 445 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-445-part2-hybrid-work-interviews",
@@ -105,7 +108,8 @@
       "kind": "course",
       "label": "HCI 445 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-445-part2-hybrid-work-observation",
@@ -133,7 +137,8 @@
       "kind": "course",
       "label": "HCI 445 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-445-part2-hybrid-work-personas",
@@ -163,7 +168,8 @@
       "kind": "course",
       "label": "HCI 445 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-445-part2-screener-and-lit-review",
@@ -191,36 +197,8 @@
       "kind": "course",
       "label": "HCI 445 · DePaul"
     },
-    "status": "approved"
-  },
-  {
-    "id": "depaul-hci-445-part3-interview-study",
-    "claim": "Ran 30–45 minute semi-structured interviews with six remote and hybrid professionals on a three-person team to investigate meeting overload and tool switching.",
-    "detail": "Authored a screener and interview protocol covering daily routines, camera-off habits, task reprioritization, and AI note-taking across Zoom, Teams, and Slack.",
-    "strength": "built",
-    "date": "2024-11",
-    "facets": {
-      "roles": [
-        "ux-researcher"
-      ],
-      "skills": [
-        "ux-research",
-        "user-centered-design"
-      ],
-      "domains": [
-        "productivity",
-        "education"
-      ],
-      "platforms": [],
-      "methods": [
-        "user-interviews"
-      ]
-    },
-    "source": {
-      "kind": "course",
-      "label": "HCI 445 · DePaul"
-    },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-445-part3-observation-study",
@@ -247,7 +225,8 @@
       "kind": "course",
       "label": "HCI 445 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-445-part3-qualitative-coding",
@@ -277,7 +256,8 @@
       "kind": "course",
       "label": "HCI 445 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-445-part3-workday-scenarios",
@@ -306,7 +286,8 @@
       "kind": "course",
       "label": "HCI 445 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-445-part3-zoom-fatigue-lit-review",
@@ -331,7 +312,8 @@
       "kind": "course",
       "label": "HCI 445 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-445-part3-zoom-fatigue-report",
@@ -360,7 +342,8 @@
       "kind": "course",
       "label": "HCI 445 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-445-remote-work-competitive-analysis",
@@ -385,7 +368,8 @@
       "kind": "course",
       "label": "HCI 445 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-445-remote-work-interview-protocol",
@@ -398,9 +382,13 @@
         "ux-researcher"
       ],
       "skills": [
-        "ux-research"
+        "ux-research",
+        "user-centered-design"
       ],
-      "domains": [],
+      "domains": [
+        "productivity",
+        "education"
+      ],
       "platforms": [],
       "methods": [
         "user-interviews"
@@ -410,7 +398,8 @@
       "kind": "course",
       "label": "HCI 445 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-445-remote-work-literature-review",
@@ -435,7 +424,8 @@
       "kind": "course",
       "label": "HCI 445 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-445-survey-error-mitigation",
@@ -460,7 +450,8 @@
       "kind": "course",
       "label": "HCI 445 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-445-survey-question-critique",
@@ -485,6 +476,7 @@
       "kind": "course",
       "label": "HCI 445 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   }
 ]

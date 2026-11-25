@@ -19,7 +19,8 @@
       "kind": "project",
       "label": "Omnia"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "Omnia"
   },
   {
     "id": "depaul-omnia-part2-how2to-spatial-pipeline",
@@ -47,7 +48,8 @@
       "kind": "project",
       "label": "Omnia"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "Omnia"
   },
   {
     "id": "depaul-omnia-part2-how2to-templates-ecosystem",
@@ -75,7 +77,8 @@
       "kind": "project",
       "label": "Omnia"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "Omnia"
   },
   {
     "id": "depaul-omnia-part2-how2to-xr-product-deck",
@@ -107,6 +110,7 @@
       "kind": "project",
       "label": "Omnia"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "Omnia"
   }
 ]

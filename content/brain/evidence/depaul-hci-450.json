@@ -23,7 +23,8 @@
       "kind": "course",
       "label": "HCI 450 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-450-annotated-bibliography",
@@ -54,7 +55,8 @@
       "kind": "course",
       "label": "HCI 450 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-450-cognitive-load-theory",
@@ -80,7 +82,8 @@
       "kind": "course",
       "label": "HCI 450 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-450-illusion-sequence-analysis",
@@ -103,7 +106,8 @@
       "kind": "course",
       "label": "HCI 450 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-450-infotainment-ui-guidelines",
@@ -132,7 +136,8 @@
       "kind": "course",
       "label": "HCI 450 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-450-infotainment-working-memory-paper",
@@ -160,7 +165,8 @@
       "kind": "course",
       "label": "HCI 450 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-450-part2-classical-hci-cognitive-models",
@@ -184,7 +190,8 @@
       "kind": "course",
       "label": "HCI 450 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-450-part2-embodied-interaction-accessibility",
@@ -209,7 +216,8 @@
       "kind": "course",
       "label": "HCI 450 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-450-part2-infotainment-cognitive-load",
@@ -236,7 +244,8 @@
       "kind": "course",
       "label": "HCI 450 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-450-part2-infotainment-safety-strategies",
@@ -262,7 +271,8 @@
       "kind": "course",
       "label": "HCI 450 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-450-part2-modern-hci-research-frameworks",
@@ -286,7 +296,8 @@
       "kind": "course",
       "label": "HCI 450 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-450-touch-vs-physical-hmi",
@@ -315,7 +326,8 @@
       "kind": "course",
       "label": "HCI 450 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-450-visual-perception-study",
@@ -339,6 +351,7 @@
       "kind": "course",
       "label": "HCI 450 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   }
 ]

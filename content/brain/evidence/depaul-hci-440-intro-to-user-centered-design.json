@@ -16,13 +16,16 @@
         "education"
       ],
       "platforms": [],
-      "methods": []
+      "methods": [
+        "user-interviews"
+      ]
     },
     "source": {
       "kind": "course",
       "label": "HCI 440 Intro to User Centered Design · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-440-intro-to-user-centered-design-lost-found-research",
@@ -50,7 +53,8 @@
       "kind": "course",
       "label": "HCI 440 Intro to User Centered Design · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-440-intro-to-user-centered-design-mr-tourism-proposal",
@@ -82,7 +86,8 @@
       "kind": "course",
       "label": "HCI 440 Intro to User Centered Design · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-440-intro-to-user-centered-design-part2-meowmate-flow-consolidation",
@@ -115,7 +120,8 @@
       "kind": "course",
       "label": "HCI 440 Intro to User Centered Design · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-440-intro-to-user-centered-design-part2-meowmate-high-fidelity",
@@ -148,7 +154,8 @@
       "kind": "course",
       "label": "HCI 440 Intro to User Centered Design · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-440-intro-to-user-centered-design-part2-meowmate-mood-board",
@@ -175,7 +182,8 @@
       "kind": "course",
       "label": "HCI 440 Intro to User Centered Design · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-440-intro-to-user-centered-design-part2-meowmate-usability-redesign",
@@ -210,7 +218,8 @@
       "kind": "course",
       "label": "HCI 440 Intro to User Centered Design · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-440-intro-to-user-centered-design-part2-meowmate-usability-test",
@@ -241,7 +250,8 @@
       "kind": "course",
       "label": "HCI 440 Intro to User Centered Design · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-440-intro-to-user-centered-design-part2-meowmate-wireframes",
@@ -272,7 +282,8 @@
       "kind": "course",
       "label": "HCI 440 Intro to User Centered Design · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-440-intro-to-user-centered-design-part2-whisker-connect-analysis",
@@ -306,7 +317,8 @@
       "kind": "course",
       "label": "HCI 440 Intro to User Centered Design · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-440-intro-to-user-centered-design-part3-campus-lost-found-interviews",
@@ -334,34 +346,8 @@
       "kind": "course",
       "label": "HCI 440 Intro to User Centered Design · DePaul"
     },
-    "status": "approved"
-  },
-  {
-    "id": "depaul-hci-440-intro-to-user-centered-design-part3-lost-found-concept-scope",
-    "claim": "Scoped a university-wide lost-and-found app concept based on student interviews and campus observation.",
-    "detail": "Defined flows for photo-based item reporting, searchable feeds, D2L-integrated alerts, and proof-of-identity pickup requests for high-value items.",
-    "strength": "studied",
-    "date": "2023-09",
-    "facets": {
-      "roles": [
-        "ux-designer"
-      ],
-      "skills": [
-        "user-centered-design"
-      ],
-      "domains": [
-        "education"
-      ],
-      "platforms": [],
-      "methods": [
-        "user-interviews"
-      ]
-    },
-    "source": {
-      "kind": "course",
-      "label": "HCI 440 Intro to User Centered Design · DePaul"
-    },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-440-intro-to-user-centered-design-part3-petconnect-competitive-analysis",
@@ -390,7 +376,8 @@
       "kind": "course",
       "label": "HCI 440 Intro to User Centered Design · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-440-intro-to-user-centered-design-part3-petconnect-metrics-risk",
@@ -415,7 +402,8 @@
       "kind": "course",
       "label": "HCI 440 Intro to User Centered Design · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-440-intro-to-user-centered-design-part3-team-interviews-personas",
@@ -444,7 +432,8 @@
       "kind": "course",
       "label": "HCI 440 Intro to User Centered Design · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-440-intro-to-user-centered-design-pet-feeder-walkthrough",
@@ -473,7 +462,8 @@
       "kind": "course",
       "label": "HCI 440 Intro to User Centered Design · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-440-intro-to-user-centered-design-spotify-walkthrough",
@@ -503,7 +493,8 @@
       "kind": "course",
       "label": "HCI 440 Intro to User Centered Design · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-440-intro-to-user-centered-design-xr-tourism-review",
@@ -530,6 +521,7 @@
       "kind": "course",
       "label": "HCI 440 Intro to User Centered Design · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   }
 ]

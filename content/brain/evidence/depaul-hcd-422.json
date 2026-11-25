@@ -24,7 +24,8 @@
       "kind": "course",
       "label": "HCD 422 Design and Human Experience · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hcd-422-rhetoric-of-inevitability",
@@ -33,10 +34,14 @@
     "strength": "studied",
     "date": "2025-02",
     "facets": {
-      "roles": [],
+      "roles": [
+        "ux-researcher",
+        "ux-designer"
+      ],
       "skills": [
         "user-centered-design",
-        "systems-thinking"
+        "systems-thinking",
+        "ux-research"
       ],
       "domains": [
         "education"
@@ -48,7 +53,8 @@
       "kind": "course",
       "label": "HCD 422 Design and Human Experience · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hcd-422-visionos-content-browser",
@@ -65,7 +71,8 @@
         "prototyping",
         "ui-design",
         "interaction-design",
-        "eye-tracking"
+        "eye-tracking",
+        "user-centered-design"
       ],
       "domains": [
         "spatial"
@@ -73,13 +80,18 @@
       "platforms": [
         "visionos"
       ],
-      "methods": []
+      "methods": [
+        "rapid-prototyping",
+        "user-interviews",
+        "usability-testing"
+      ]
     },
     "source": {
       "kind": "course",
       "label": "HCD 422 Design and Human Experience · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hcd-422-visionos-contextual-flow",
@@ -113,37 +125,7 @@
       "kind": "course",
       "label": "HCD 422 Design and Human Experience · DePaul"
     },
-    "status": "approved"
-  },
-  {
-    "id": "depaul-hcd-422-visionos-design-library",
-    "claim": "Adapted Apple's visionOS design library components to align typography, iconography, and layout between design graphics and developer code.",
-    "detail": "Followed digital prototyping guidelines for a startup's spatial content browser to maintain asset consistency and support developer comprehension.",
-    "strength": "built",
-    "date": "2025-02",
-    "facets": {
-      "roles": [
-        "ux-designer",
-        "spatial-designer"
-      ],
-      "skills": [
-        "design-systems",
-        "ui-design",
-        "prototyping",
-        "typography"
-      ],
-      "domains": [
-        "spatial"
-      ],
-      "platforms": [
-        "visionos"
-      ],
-      "methods": []
-    },
-    "source": {
-      "kind": "course",
-      "label": "HCD 422 Design and Human Experience · DePaul"
-    },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   }
 ]

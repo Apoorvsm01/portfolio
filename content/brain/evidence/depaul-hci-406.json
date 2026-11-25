@@ -24,7 +24,8 @@
       "kind": "course",
       "label": "HCI 406: Web Site Design for HCI · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-406-html-forms",
@@ -50,7 +51,8 @@
       "kind": "course",
       "label": "HCI 406: Web Site Design for HCI · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-406-multipage-website",
@@ -79,6 +81,7 @@
       "kind": "course",
       "label": "HCI 406: Web Site Design for HCI · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   }
 ]

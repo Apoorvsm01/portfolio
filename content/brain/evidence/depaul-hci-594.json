@@ -25,7 +25,8 @@
       "kind": "course",
       "label": "HCI 594 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-594-part3-capstone-plan",
@@ -53,7 +54,8 @@
       "kind": "course",
       "label": "HCI 594 Capstone · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-594-part3-competitive-analysis",
@@ -81,7 +83,8 @@
       "kind": "course",
       "label": "HCI 594 Capstone · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-594-part3-digital-twin-lit-review",
@@ -108,7 +111,8 @@
       "kind": "course",
       "label": "HCI 594 Capstone · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-594-part3-human-api-features",
@@ -135,7 +139,8 @@
       "kind": "course",
       "label": "HCI 594 Capstone · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-594-part3-human-api-vision",
@@ -163,7 +168,8 @@
       "kind": "course",
       "label": "HCI 594 Capstone · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-594-roommate-proposal-review",
@@ -192,7 +198,8 @@
       "kind": "course",
       "label": "HCI 594 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-594-roommate-survey-critique",
@@ -219,7 +226,8 @@
       "kind": "course",
       "label": "HCI 594 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-594-travel-app-usability-participation",
@@ -248,7 +256,8 @@
       "kind": "course",
       "label": "HCI 594 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-594-travel-final-review",
@@ -277,7 +286,8 @@
       "kind": "course",
       "label": "HCI 594 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-594-wearable-final-review",
@@ -307,7 +317,8 @@
       "kind": "course",
       "label": "HCI 594 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-594-wearable-proposal-review",
@@ -339,6 +350,7 @@
       "kind": "course",
       "label": "HCI 594 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   }
 ]

@@ -60,3 +60,44 @@ export const OWN_FOLDER_SLUGS = new Set([
   "depaul-resume", "depaul-omnia", "depaul-patched-reality", "depaul-apoorvsm01-github-io", "depaul-car-dashboard",
   "depaul-air-quality-impact-project-2024", "depaul-mymodel-jordan", "depaul-unity-tutorials", "depaul-misc",
 ]);
+
+// ---- employers / orgs ------------------------------------------------------------------------
+// Order matters: the first pattern found in the text wins when several employers are mentioned.
+const EMPLOYERS = [
+  ["Woven by Toyota", /\bwoven\b/i],
+  ["Omnia", /\bomnia\b/i],
+  ["Crazy Minds", /\bcrazy minds\b/i],
+  ["Patched Reality", /\bpatched reality\b/i],
+  ["ChiPark", /\bchi\s?park\b/i],
+  ["DePaul", /\bdepaul\b/i],
+];
+
+// The employer named earliest in the text, or undefined.
+export function detectEmployer(text) {
+  let best;
+  for (const [name, re] of EMPLOYERS) {
+    const m = re.exec(text ?? "");
+    if (m && (!best || m.index < best.index)) best = { name, index: m.index };
+  }
+  return best?.name;
+}
+
+// Sets `org` (and, for resume items, source.label "Resume · <Employer>") on an item. `unit` is the evidence/draft
+// file unit, used for project and course items whose employer is implied by where they live.
+export function withOrg(item, unit = "") {
+  const text = `${item.claim ?? ""} ${item.detail ?? ""}`;
+  const kind = item.source?.kind;
+  let org;
+  if (kind === "resume") {
+    org = detectEmployer(item.claim) ?? detectEmployer(text);
+    const label = org ? `Resume · ${org}` : "Resume";
+    return { ...item, ...(org ? { org } : {}), source: { ...item.source, label } };
+  }
+  if (/omnia/.test(unit)) org = "Omnia";
+  else if (/patched-reality/.test(unit)) org = "Patched Reality";
+  else if (kind === "course" && /^depaul-/.test(unit)) org = "DePaul";
+  else if (kind === "video") org = detectEmployer(item.claim);
+  else org = undefined;
+  if (!org) return item;
+  return { ...item, org };
+}

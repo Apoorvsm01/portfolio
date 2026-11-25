@@ -49,45 +49,10 @@
     },
     "source": {
       "kind": "resume",
-      "label": "Resume"
+      "label": "Resume · ChiPark"
     },
-    "status": "approved"
-  },
-  {
-    "id": "depaul-misc-crazy-minds-ux",
-    "claim": "Delivered 25+ UX/UI projects across ecommerce, fintech, and health-tech verticals as founder and UX consultant at Crazy Minds.",
-    "detail": "Built modular web and mobile design systems, conducted usability testing and analytics reviews, and drove 40% client retention and 29% YoY revenue growth.",
-    "strength": "shipped",
-    "date": "2025-08",
-    "facets": {
-      "roles": [
-        "ux-designer",
-        "design-systems-designer",
-        "ux-researcher"
-      ],
-      "skills": [
-        "ui-design",
-        "design-systems",
-        "ux-research",
-        "statistics-data-analysis"
-      ],
-      "domains": [
-        "e-commerce",
-        "fintech",
-        "healthcare"
-      ],
-      "platforms": [
-        "web"
-      ],
-      "methods": [
-        "usability-testing"
-      ]
-    },
-    "source": {
-      "kind": "resume",
-      "label": "Resume"
-    },
-    "status": "approved"
+    "status": "approved",
+    "org": "ChiPark"
   },
   {
     "id": "depaul-misc-csc697-ai-tools",
@@ -113,7 +78,8 @@
       "kind": "course",
       "label": "CSC 697 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-misc-csc697-ar-showroom",
@@ -143,7 +109,8 @@
       "kind": "course",
       "label": "CSC 697 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-misc-csc697-visionos-research",
@@ -174,7 +141,8 @@
       "kind": "course",
       "label": "CSC 697 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-misc-csc697-visionos-system",
@@ -208,7 +176,8 @@
       "kind": "course",
       "label": "CSC 697 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-misc-hci440-meowmate",
@@ -243,7 +212,8 @@
       "kind": "course",
       "label": "HCI 440 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-misc-mixed-reality-tourism",
@@ -280,27 +250,34 @@
     "facets": {
       "roles": [
         "ux-designer",
-        "design-systems-designer"
+        "design-systems-designer",
+        "spatial-designer"
       ],
       "skills": [
         "figma",
         "design-systems",
         "ui-design",
-        "prototyping"
+        "prototyping",
+        "interaction-design"
       ],
-      "domains": [],
+      "domains": [
+        "spatial",
+        "environmental"
+      ],
       "platforms": [
         "ios",
         "desktop",
-        "web"
+        "web",
+        "visionos"
       ],
       "methods": []
     },
     "source": {
       "kind": "resume",
-      "label": "Resume"
+      "label": "Resume · Omnia"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "Omnia"
   },
   {
     "id": "depaul-misc-omnia-spatial-browser",
@@ -369,7 +346,9 @@
         "media-producer"
       ],
       "skills": [
-        "animation"
+        "animation",
+        "video-editing",
+        "scriptwriting"
       ],
       "domains": [
         "film-media"
@@ -432,9 +411,10 @@
     },
     "source": {
       "kind": "resume",
-      "label": "Resume"
+      "label": "Resume · Crazy Minds"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "Crazy Minds"
   },
   {
     "id": "depaul-misc-part2-leh-short-film",
@@ -489,7 +469,8 @@
       "kind": "course",
       "label": "HCI 440 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-misc-part2-short-film-scripts",
@@ -539,7 +520,8 @@
       "kind": "course",
       "label": "IT 403 Statistics and Data Analysis · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-misc-part2-student-film-dop",
@@ -593,7 +575,8 @@
       "kind": "course",
       "label": "HCI 440 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-misc-patched-reality-vr",
@@ -657,33 +640,6 @@
     "source": {
       "kind": "project",
       "label": "SAIC AIGA Spatial UI Talk"
-    },
-    "status": "approved"
-  },
-  {
-    "id": "depaul-misc-video-production",
-    "claim": "Produced custom 2D, 3D, and multi-camera video deliverables for 8+ clients ahead of schedule as Senior Video Producer at 222 Productions.",
-    "detail": "Managed client reviews in Notion and Frame.io using Premiere Pro and After Effects, and scripted two short films in Final Draft 12.",
-    "strength": "shipped",
-    "date": "2024-01",
-    "facets": {
-      "roles": [
-        "media-producer"
-      ],
-      "skills": [
-        "video-editing",
-        "animation",
-        "scriptwriting"
-      ],
-      "domains": [
-        "film-media"
-      ],
-      "platforms": [],
-      "methods": []
-    },
-    "source": {
-      "kind": "resume",
-      "label": "Resume"
     },
     "status": "approved"
   }
