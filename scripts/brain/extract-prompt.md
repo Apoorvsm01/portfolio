@@ -12,7 +12,7 @@ Output a single JSON object and nothing else (no prose, no code fence):
 
 ```
 {
-  "id": "<unit-slug>-<short-kebab>",        // unit slug from the bundle header; unique per item
+  "id": "<unit-slug>-<short-kebab>",        // unit slug from the bundle header with any "." replaced by "-"; lowercase kebab-case; unique
   "claim": "Designed ...",                   // one sentence, 160 characters at most
   "detail": "optional second sentence of context, no more than 300 characters",
   "strength": "studied" | "built" | "shipped" | "watched",
