@@ -10,7 +10,9 @@
     "brain:bundle": "node scripts/brain/bundle.mjs",
     "brain:validate": "node scripts/brain/validate.mjs",
     "brain:index": "node scripts/brain/gen-index.mjs",
-    "brain:promote": "node scripts/brain/promote.mjs"
+    "brain:promote": "node scripts/brain/promote.mjs",
+    "brain:review": "node scripts/brain/review-gen.mjs",
+    "brain:apply": "node scripts/brain/review-apply.mjs"
   },
   "dependencies": {
     "gsap": "^3.13.0",

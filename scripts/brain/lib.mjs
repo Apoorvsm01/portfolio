@@ -5,6 +5,10 @@ import { join } from "node:path";
 export const ROOT = new URL("../../", import.meta.url).pathname;
 export const EVIDENCE_DIR = join(ROOT, "content/brain/evidence");
 export const DRAFTS_DIR = join(ROOT, "brain-inbox/drafts");
+export const REVIEW_PATH = join(ROOT, "brain-inbox/review.md");
+
+// Unit name for a draft or evidence file: "depaul-hci-445.part2.json" -> "depaul-hci-445".
+export const unitOf = (file) => file.replace(/\.json$/, "").replace(/\.part\d+$/, "");
 
 export const jsonFiles = (dir) => {
   try {

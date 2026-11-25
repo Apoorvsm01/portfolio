@@ -96,3 +96,93 @@ test("classifyFile: include, exclude and tier rules", () => {
   assert.equal(c("Root/Omnia/Meeting notes.txt", 5000, true), "own");
   assert.equal(c("Root/Omnia/Sample notes.txt", 5000, true), null);
 });
+
+// ---- review-gen / review-apply ----------------------------------------------------------------
+import { parseReview as parseReviewRaw } from "../../../scripts/brain/review-apply.mjs";
+
+type Parsed = { unit: string; id: string; ticked: boolean; strength: string; claim: string; malformed?: boolean };
+const parseReview = (md: string) => parseReviewRaw(md) as Parsed[];
+import { flagsFor } from "../../../scripts/brain/review-gen.mjs";
+
+const reviewMd = [
+  "# Brain review",
+  "",
+  "Tick `[x]` to approve an item.",
+  "",
+  "## Course label (depaul-hci-450)",
+  "- [x] `alpha-one` **built** · Built a clickable prototype for the checkout flow.",
+  "  2024-03 · roles: ux-designer",
+  "- [ ] `alpha-two` **studied** · Read three papers on onboarding.",
+  "  2024-04",
+  "",
+  "## Other label (depaul-hci-445)",
+  "- [x] `beta-one` **shipped** · Edited claim text stays exactly as typed here.",
+  "  2023",
+  "",
+].join("\n");
+
+test("parseReview: tick state, unit and item ids", () => {
+  const items = parseReview(reviewMd);
+  assert.deepEqual(
+    items.map((i) => [i.id, i.ticked, i.unit]),
+    [
+      ["alpha-one", true, "depaul-hci-450"],
+      ["alpha-two", false, "depaul-hci-450"],
+      ["beta-one", true, "depaul-hci-445"],
+    ],
+  );
+});
+
+test("parseReview: edited claim and strength change are read back", () => {
+  const items = parseReview(reviewMd);
+  const beta = items.find((i) => i.id === "beta-one")!;
+  assert.equal(beta.claim, "Edited claim text stays exactly as typed here.");
+  assert.equal(beta.strength, "shipped");
+  const alpha = items.find((i) => i.id === "alpha-one")!;
+  assert.equal(alpha.strength, "built");
+});
+
+test("parseReview: an item line that does not match the format is reported, not dropped", () => {
+  const items = parseReview("## Label (depaul-hci-450)\n- [x] `gamma` strength missing · claim\n");
+  assert.equal(items.length, 1);
+  assert.ok(items[0].malformed);
+});
+
+const item = (id: string, claim: string, extra: object = {}) => ({
+  id,
+  claim,
+  strength: "built",
+  date: "2024",
+  facets: {},
+  source: { kind: "course", label: "HCI" },
+  status: "draft",
+  ...extra,
+});
+
+test("flagsFor: resume metric is flagged only when a digit appears in the claim", () => {
+  const r = item("r-1", "Cut page load time by 40% on the dashboard.", { source: { kind: "resume", label: "Resume" } });
+  assert.ok(flagsFor(r, [r], []).includes("metric from a resume — confirm it is still accurate"));
+  const plain = item("r-2", "Cut page load time on the dashboard.", { source: { kind: "resume", label: "Resume" } });
+  assert.equal(flagsFor(plain, [plain], []).length, 0);
+  const unitRule = item("r-3", "Led 3 designers on a redesign.");
+  assert.ok(flagsFor(unitRule, [unitRule], [], "apoorv-resume-2024").includes("metric from a resume — confirm it is still accurate"));
+});
+
+test("flagsFor: blocked word matches whole words only, case-insensitively", () => {
+  const hit = item("b-1", "Presented findings to the Salary committee.");
+  assert.ok(flagsFor(hit, [hit], ["salary"]).includes("blocked word: salary"));
+  const miss = item("b-2", "Redesigned the salaryless onboarding wizard.");
+  assert.deepEqual(flagsFor(miss, [miss], ["salary"]), []);
+  const inDetail = { ...item("b-3", "Ran a usability study."), detail: "Discussed the PASSWORD reset flow." };
+  assert.ok(flagsFor(inDetail, [inDetail], ["password"]).includes("blocked word: password"));
+});
+
+test("flagsFor: near-duplicate claim flags the later item only", () => {
+  const first = item("d-first", "Ran a moderated usability test with five participants.");
+  const second = item("d-second", "Ran a moderated usability test with five participants today.");
+  const all = [first, second];
+  assert.deepEqual(flagsFor(first, all, []), []);
+  assert.ok(flagsFor(second, all, []).includes("possible duplicate of d-first"));
+  const unrelated = item("d-third", "Designed a food delivery app for couriers.");
+  assert.deepEqual(flagsFor(unrelated, [first, unrelated], []), []);
+});
