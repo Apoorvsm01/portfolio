@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "brain:bundle": "node scripts/brain/bundle.mjs",
+    "brain:validate": "node scripts/brain/validate.mjs",
+    "brain:index": "node scripts/brain/gen-index.mjs",
+    "brain:promote": "node scripts/brain/promote.mjs"
   },
   "dependencies": {
     "gsap": "^3.13.0",
