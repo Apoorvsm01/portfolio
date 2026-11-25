@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useRef, useState, type KeyboardEvent, type ReactNode } from "react";
-import { layout, neighbourhood, type Graph, type GraphNode, type Highlight, type PlacedNode } from "./model";
+import { useEffect, useId, useMemo, useRef, useState, type KeyboardEvent, type ReactNode } from "react";
+import { useReducedMotion } from "../../lib/use-reduced-motion";
+import { CENTER_ID, layout, neighbourhood, type Graph, type GraphNode, type Highlight, type PlacedNode } from "./model";
 
 type Props = {
   graph: Graph;
@@ -10,19 +11,28 @@ type Props = {
   selected?: Set<string>;
   onToggle?: (node: GraphNode) => void;
   className?: string;
+  // Portrait for the centre node (already prefixed with the base path).
+  portrait?: string;
+  legend?: { domains: string; sources: string; skills: string };
 };
 
 const COMPACT_BELOW = 768;
 const DEFAULT_WIDTH = 1200;
 
-function sizeFor(width: number) {
+// The graph fills the box it is in: `measured` is that box's height. Without one, fall back to a width-based height.
+function sizeFor(width: number, measured = 0) {
   const compact = width < COMPACT_BELOW;
+  if (measured > 0) return { compact, height: Math.round(measured) };
   const raw = compact ? width * 1.5 : width * 0.567;
   const height = Math.round(compact ? Math.min(640, Math.max(480, raw)) : Math.min(720, Math.max(400, raw)));
   return { compact, height };
 }
 
-export default function KnowledgeGraph({ graph, highlight = null, selected, onToggle, className }: Props) {
+export default function KnowledgeGraph({ graph, highlight = null, selected, onToggle, className, portrait, legend }: Props) {
+  const uid = useId();
+  const reduced = useReducedMotion();
+  const [hidden, setHidden] = useState(false);
+  const [boxHeight, setBoxHeight] = useState(0);
   const wrap = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(DEFAULT_WIDTH);
   const [hover, setHover] = useState<string | null>(null);
@@ -30,14 +40,25 @@ export default function KnowledgeGraph({ graph, highlight = null, selected, onTo
   useEffect(() => {
     const el = wrap.current;
     if (!el) return;
-    const apply = (w: number) => w > 0 && setWidth(Math.round(w));
-    apply(el.getBoundingClientRect().width);
-    const ro = new ResizeObserver((entries) => apply(entries[0].contentRect.width));
+    const apply = (w: number, h: number) => {
+      if (w > 0) setWidth(Math.round(w));
+      setBoxHeight(Math.round(h));
+    };
+    const first = el.getBoundingClientRect();
+    apply(first.width, first.height);
+    const ro = new ResizeObserver((entries) => apply(entries[0].contentRect.width, entries[0].contentRect.height));
     ro.observe(el);
     return () => ro.disconnect();
   }, []);
 
-  const { compact, height } = sizeFor(width);
+  useEffect(() => {
+    const onVisibility = () => setHidden(document.hidden);
+    onVisibility();
+    document.addEventListener("visibilitychange", onVisibility);
+    return () => document.removeEventListener("visibilitychange", onVisibility);
+  }, []);
+
+  const { compact, height } = sizeFor(width, boxHeight);
   const placed = useMemo(() => layout(graph, { width, height, compact }), [graph, width, height, compact]);
   const hoverSet = useMemo(() => (hover ? neighbourhood(graph, hover) : null), [graph, hover]);
   const active = hoverSet ?? highlight;
@@ -52,6 +73,23 @@ export default function KnowledgeGraph({ graph, highlight = null, selected, onTo
     }
     return out;
   }, [graph]);
+
+  // Four signals travel me > domain > source along the edge curves: the heaviest domains, each with its heaviest source.
+  const signals = useMemo(() => {
+    const edgeOf = new Map(placed.edges.map((e) => [`${e.from}>${e.to}`, e]));
+    const out: { d: string; dur: number; begin: number }[] = [];
+    const domains = placed.nodes.filter((n) => n.kind === "domain").sort((a, b) => b.weight - a.weight || a.id.localeCompare(b.id));
+    for (const dom of domains) {
+      if (out.length >= 4) break;
+      const first = edgeOf.get(`${CENTER_ID}>${dom.id}`);
+      const second = placed.edges.filter((e) => e.from === dom.id && e.to.startsWith("source:")).sort((a, b) => b.weight - a.weight || a.id.localeCompare(b.id))[0];
+      if (!first || !second) continue;
+      const i = out.length;
+      out.push({ d: `${first.d}${second.d.replace(/^M[^Q]*/, "")}`, dur: [4.5, 5.5, 6.5, 7][i], begin: i * 1.3 });
+    }
+    return out;
+  }, [placed]);
+  const showSignals = !reduced && !hidden && !active && signals.length > 0;
 
   const handlers = (n: PlacedNode) => ({
     onMouseEnter: () => setHover(n.id),
@@ -84,6 +122,15 @@ export default function KnowledgeGraph({ graph, highlight = null, selected, onTo
         <circle className="kg-halo" cx={n.x} cy={n.y} r={n.r + 7} />
         <circle className="kg-hit" cx={n.x} cy={n.y} r={n.r + 8} />
         <circle className="kg-dot" cx={n.x} cy={n.y} r={n.r} />
+        {n.kind === "center" && portrait && (
+          <>
+            <clipPath id={`${uid}-me`}>
+              <circle cx={n.x} cy={n.y} r={n.r - 1} />
+            </clipPath>
+            <image href={portrait} x={n.x - n.r} y={n.y - n.r} width={n.r * 2} height={n.r * 2} preserveAspectRatio="xMidYMid slice" clipPath={`url(#${uid}-me)`} />
+            <circle className="kg-ring" cx={n.x} cy={n.y} r={n.r} />
+          </>
+        )}
         <circle className="kg-focus" cx={n.x} cy={n.y} r={n.r + 5} />
         <text className="kg-label" x={lb.x} y={lb.y} textAnchor={lb.anchor} fontSize={lb.fontSize}>
           {lb.text}
@@ -149,11 +196,29 @@ export default function KnowledgeGraph({ graph, highlight = null, selected, onTo
             const dim = active && !on ? "kg-dim" : "";
             // Resting weight: the radial tree (me > domain > source) reads at .5, source > skill edges at .18.
             const tier = e.from.startsWith("source:") ? "kg-edge--minor" : "kg-edge--major";
-            return <path key={e.id} d={e.d} pathLength={1} className={["kg-edge", tier, mode, dim].filter(Boolean).join(" ")} />;
+            return <path key={e.id} id={`${uid}-${e.id}`} d={e.d} pathLength={1} className={["kg-edge", tier, mode, dim].filter(Boolean).join(" ")} />;
           })}
         </g>
+        {showSignals && (
+          <g className="kg-signals" aria-hidden="true">
+            {signals.map((sg, i) => (
+              <circle key={i} className="kg-signal" r={2.5} opacity={0}>
+                <animateMotion path={sg.d} dur={`${sg.dur}s`} begin={`${sg.begin}s`} repeatCount="indefinite" />
+                <animate attributeName="opacity" values="0;0.8;0.8;0" keyTimes="0;0.12;0.88;1" dur={`${sg.dur}s`} begin={`${sg.begin}s`} repeatCount="indefinite" />
+              </circle>
+            ))}
+          </g>
+        )}
         <g className="kg-nodes">{placed.nodes.map((n) => renderNode(byId.get(n.id) as PlacedNode))}</g>
       </svg>
+
+      {legend && !compact && (
+        <ul className="kg-legend" aria-hidden="true">
+          <li><span className="kg-swatch kg-swatch--domain" />{legend.domains}</li>
+          <li><span className="kg-swatch kg-swatch--source" />{legend.sources}</li>
+          <li><span className="kg-swatch kg-swatch--skill" />{legend.skills}</li>
+        </ul>
+      )}
 
       <ul className="kg-sr" aria-label="Domains and the work behind them">
         {graph.nodes

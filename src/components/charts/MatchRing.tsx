@@ -1,4 +1,5 @@
 import { useId } from "react";
+import { STRENGTHS, type StrengthCounts } from "./model";
 import { SrTable } from "./parts";
 
 const S = 200;
@@ -7,12 +8,13 @@ const STROKE = 16;
 const R = (S - STROKE) / 2 - 4;
 const CIRC = 2 * Math.PI * R;
 
-/** Donut of the share of requirements backed by evidence. The arc draws in again whenever `pct` changes. */
-export function MatchRing({ pct, matched, total }: { pct: number; matched: number; total: number }) {
+/** Donut of the strength-weighted match, with a per-strength breakdown. The arc draws in again whenever `pct` changes. */
+export function MatchRing({ pct, counts, missing, total }: { pct: number; counts: StrengthCounts; missing: number; total: number }) {
   const uid = useId();
   const p = Math.min(Math.max(Math.round(pct), 0), 100);
   const offset = CIRC * (1 - p / 100);
-  const caption = `${matched} of ${total} requirements backed by evidence`;
+  const caption = `Evidence strength across ${total} ${total === 1 ? "requirement" : "requirements"}`;
+  const parts = [...STRENGTHS.filter((st) => st !== "watched" || counts.watched > 0).map((st) => ({ key: st as string, n: counts[st], label: st })), { key: "missing", n: missing, label: "missing" }];
 
   return (
     <figure className="chart chart-ring">
@@ -43,7 +45,15 @@ export function MatchRing({ pct, matched, total }: { pct: number; matched: numbe
         </text>
       </svg>
       <figcaption className="chart-caption chart-caption--center">{caption}</figcaption>
-      <SrTable caption="Requirement match" head={["Measure", "Value"]} rows={[["Matched", matched], ["Total", total], ["Percent", `${p}%`]]} />
+      <ul className="chart-breakdown">
+        {parts.map((part) => (
+          <li key={part.key}>
+            <span className="ev-dot" data-strength={part.key === "missing" ? undefined : part.key} data-missing={part.key === "missing" ? "true" : undefined} aria-hidden="true" />
+            {part.n} {part.label}
+          </li>
+        ))}
+      </ul>
+      <SrTable caption="Requirement match" head={["Measure", "Value"]} rows={[...parts.map((part) => [part.label, part.n]), ["Score", `${p}%`]]} />
     </figure>
   );
 }

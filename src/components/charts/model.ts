@@ -88,6 +88,30 @@ export function matchScore(requirements: Requirement[], items: ChartItem[]): Mat
   return { matched, missing, pct };
 }
 
+/** The old measure: the share of requirements with any evidence at all. Weak evidence counts as much as shipped work. */
+export const coverage = matchScore;
+
+export const STRENGTH_CREDIT: Record<Strength, number> = { shipped: 1, built: 0.75, studied: 0.5, watched: 0.25 };
+
+export type StrengthScore = { pct: number; total: number; counts: StrengthCounts; missing: number };
+
+/** Strength-weighted match: each requirement takes the credit of its best evidence, the mean is the score. */
+export function strengthScore(requirements: Requirement[], items: ChartItem[]): StrengthScore {
+  const counts: StrengthCounts = { shipped: 0, built: 0, studied: 0, watched: 0 };
+  let missing = 0;
+  let credit = 0;
+  for (const r of requirements) {
+    let best: Strength | undefined;
+    for (const i of items) if (carries(i, r) && rank(i.chunk.strength) > rank(best)) best = i.chunk.strength;
+    if (best) {
+      counts[best] += 1;
+      credit += STRENGTH_CREDIT[best];
+    } else missing += 1;
+  }
+  const pct = requirements.length ? Math.round((credit / requirements.length) * 100) : 0;
+  return { pct, total: requirements.length, counts, missing };
+}
+
 export type RequirementLink = { group: FacetGroup; id: string; source: string; strength: Strength };
 
 /** One edge per requirement and source group that proves it, carrying that link's strongest strength. */
@@ -108,4 +132,72 @@ export function requirementLinks(requirements: Requirement[], groups: SourceGrou
 /** Label lookup for a requirement: explicit label, else the taxonomy entry, else the id. */
 export function requirementLabel(r: Requirement, taxonomy: Taxonomy): string {
   return r.label ?? taxonomy[r.group]?.find((e) => e.id === r.id)?.label ?? r.id;
+}
+
+export type MapLink = RequirementLink & { count: number };
+export type MapModel = {
+  /** Requirements in display order: barycenter of their sources, unbacked ones last. */
+  requirements: Requirement[];
+  /** Sources in display order. */
+  sources: SourceGroup[];
+  links: MapLink[];
+  /** All sources that back at least one requirement, before the cap. */
+  totalSources: number;
+};
+
+/**
+ * The readable version of the requirement map: each requirement keeps its top `perReq` sources (best strength,
+ * then most items), at most `maxSources` sources survive (those that are a top source for the most requirements),
+ * then one barycenter pass orders sources by their requirements and requirements by their sources.
+ */
+export function mapModel(requirements: Requirement[], groups: SourceGroup[], perReq = 2, maxSources = 6): MapModel {
+  const all: MapLink[] = [];
+  requirements.forEach((r) => {
+    for (const g of groups) {
+      let best: Strength | undefined;
+      let count = 0;
+      for (const item of g.items) {
+        if (!carries(item, r)) continue;
+        count += 1;
+        if (rank(item.chunk.strength) > rank(best)) best = item.chunk.strength;
+      }
+      if (best) all.push({ group: r.group, id: r.id, source: g.key, strength: best, count });
+    }
+  });
+  const order = new Map(groups.map((g, i) => [g.key, i]));
+  const top: MapLink[] = [];
+  for (const r of requirements) {
+    const own = all
+      .filter((l) => l.group === r.group && l.id === r.id)
+      .sort((a, b) => rank(b.strength) - rank(a.strength) || b.count - a.count || order.get(a.source)! - order.get(b.source)!);
+    top.push(...own.slice(0, perReq));
+  }
+  const reach = new Map<string, number>();
+  for (const l of top) reach.set(l.source, (reach.get(l.source) ?? 0) + 1);
+  const keep = new Set(
+    [...reach.keys()].sort((a, b) => reach.get(b)! - reach.get(a)! || order.get(a)! - order.get(b)!).slice(0, maxSources),
+  );
+  const links = top.filter((l) => keep.has(l.source));
+
+  const reqKey = (r: Requirement) => `${r.group}:${r.id}`;
+  const reqIdx = new Map(requirements.map((r, i) => [reqKey(r), i]));
+  const bary = (vals: number[], fallback: number) => (vals.length ? vals.reduce((a, b) => a + b, 0) / vals.length : fallback);
+
+  const srcKeys = [...keep].sort((a, b) => reach.get(b)! - reach.get(a)! || order.get(a)! - order.get(b)!);
+  const srcBary = new Map(srcKeys.map((k, i) => [k, bary(links.filter((l) => l.source === k).map((l) => reqIdx.get(`${l.group}:${l.id}`)!), i)]));
+  const srcOrdered = [...srcKeys].sort((a, b) => srcBary.get(a)! - srcBary.get(b)! || order.get(a)! - order.get(b)!);
+  const srcIdx = new Map(srcOrdered.map((k, i) => [k, i]));
+
+  const backed = requirements.filter((r) => links.some((l) => l.group === r.group && l.id === r.id));
+  const unbacked = requirements.filter((r) => !backed.includes(r));
+  const reqBary = new Map(backed.map((r) => [reqKey(r), bary(links.filter((l) => l.group === r.group && l.id === r.id).map((l) => srcIdx.get(l.source)!), 0)]));
+  const reqOrdered = [...backed].sort((a, b) => reqBary.get(reqKey(a))! - reqBary.get(reqKey(b))! || reqIdx.get(reqKey(a))! - reqIdx.get(reqKey(b))!);
+
+  const byKey = new Map(groups.map((g) => [g.key, g]));
+  return {
+    requirements: [...reqOrdered, ...unbacked],
+    sources: srcOrdered.map((k) => byKey.get(k)!),
+    links,
+    totalSources: reach.size,
+  };
 }

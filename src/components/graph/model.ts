@@ -210,8 +210,9 @@ const TAU = Math.PI * 2;
 const norm = (t: number) => ((t % TAU) + TAU) % TAU;
 
 function radiusOf(n: GraphNode, maxByKind: Record<NodeKind, number>, compact: boolean): number {
-  if (n.kind === "center") return compact ? 24 : 28;
-  const [lo, hi] = n.kind === "domain" ? [8, 17] : n.kind === "source" ? [6, 13] : [4, 9];
+  if (n.kind === "center") return compact ? 26 : 34;
+  if (n.kind === "skill") return compact ? 3.5 : 4;
+  const [lo, hi] = n.kind === "domain" ? [11, 18] : [6, 11];
   // One heavy node (DePaul) must not shrink everything else to the minimum, so the scale saturates at half the max.
   const k = Math.min(1, Math.sqrt(n.weight / Math.max(1, maxByKind[n.kind] * 0.5)));
   const scale = compact ? 0.85 : 1;
@@ -266,6 +267,7 @@ function spread(items: Item[], a: number, b: number): void {
 
 const PRIORITY: Record<NodeKind, number> = { center: 4, domain: 3, source: 2, skill: 1 };
 const LABEL_LIMITS = [26, 18, 13, 9];
+const COMPACT_LIMITS = [12, 9, 6];
 const short = (s: string, max = LABEL_LIMITS[0]) => (s.length > max ? `${s.slice(0, max - 1).trimEnd()}…` : s);
 
 // Greedy chain over domain co-occurrence (shared sources): start at the heaviest domain, then keep appending the
@@ -312,9 +314,10 @@ export function layout(graph: Graph, { width, height, compact = false, domainOrd
   const cy = height / 2;
   const sideMargin = compact ? Math.min(70, width * 0.19) : Math.min(150, width * 0.13);
   const vMargin = compact ? 30 : 34;
-  const A = Math.max(40, width / 2 - sideMargin);
+  // The outer ring never reaches past 44% of the width, so skills do not drift to the far edges.
+  const A = Math.max(40, Math.min(width / 2 - sideMargin, width * 0.44));
   const B = Math.max(40, height / 2 - vMargin);
-  const fr = compact ? [0, 0.5, 1] : [0, 0.34, 0.66, 1];
+  const fr = compact ? [0, 0.5, 1] : [0, 0.46, 0.74, 1];
   const ring = (i: number) => ({ a: A * fr[i], b: B * fr[i] });
 
   const r = new Map(nodes.map((n) => [n.id, radiusOf(n, maxByKind, compact)]));
@@ -403,7 +406,8 @@ export function layout(graph: Graph, { width, height, compact = false, domainOrd
   const centerNode = placed.find((n) => n.kind === "center");
   if (centerNode) {
     centerNode.labelBox.x = centerNode.x;
-    centerNode.labelBox.y = centerNode.y + 4;
+    // The label sits under the portrait.
+    centerNode.labelBox.y = centerNode.y + centerNode.r + 14;
   }
   type Box = { x0: number; x1: number; y0: number; y1: number };
   const boxOf = (lb: LabelBox): Box => {
@@ -426,22 +430,27 @@ export function layout(graph: Graph, { width, height, compact = false, domainOrd
     const s = Math.sin(n.angle);
     const side = c >= 0 ? [right, left] : [left, right];
     const vert = s < 0 ? [above, below] : [below, above];
-    return Math.abs(c) > 0.35 ? [...side, ...vert] : [...vert, ...side];
+    const base = Math.abs(c) > 0.35 ? [...side, ...vert] : [...vert, ...side];
+    // Compact: when nothing fits, nudge the side labels up or down a line.
+    return compact ? [...base, ...side.flatMap((p) => [{ ...p, y: p.y - f }, { ...p, y: p.y + f }])] : base;
   };
 
+  const limits = compact ? COMPACT_LIMITS : LABEL_LIMITS;
+  const glyph = compact ? 0.6 : 0.56;
+  const pad = compact ? 8 : 2; // inner padding: labels stay this far inside the viewBox
   const order = [...placed].sort((p, q) => PRIORITY[q.kind] - PRIORITY[p.kind] || q.weight - p.weight || p.id.localeCompare(q.id));
   const taken: Box[] = centerNode ? [boxOf(centerNode.labelBox)] : [];
   for (const n of order) {
     if (n.kind === "center") continue;
     let chosen = false;
     // Shorten with an ellipsis (full text stays in `title`) before giving up on a label.
-    for (const limit of LABEL_LIMITS) {
+    for (const limit of limits) {
       const text = short(n.label, limit);
-      const w = text.length * n.labelBox.fontSize * 0.56;
+      const w = text.length * n.labelBox.fontSize * glyph;
       for (const spot of spots(n)) {
         const trial = { ...n.labelBox, ...spot, text, width: w };
         const b = boxOf(trial);
-        const inBounds = b.x0 >= 2 && b.x1 <= width - 2 && b.y0 >= 2 && b.y1 <= height - 2;
+        const inBounds = b.x0 >= pad && b.x1 <= width - pad && b.y0 >= pad && b.y1 <= height - pad;
         if (!inBounds || taken.some((o) => overlap(b, o)) || placed.some((o) => o !== n && hitsCircle(b, o))) continue;
         Object.assign(n.labelBox, spot, { text, width: w });
         taken.push(b);

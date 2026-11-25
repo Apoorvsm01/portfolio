@@ -17,7 +17,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     page("/work/", 0.9),
     page("/about/", 0.8),
     page("/personal/", 0.7),
-    page("/brain/", 0.7),
     ...getAllStudies().map((s) => page(`/work/${s.slug}/`, s.slug === site.featured.slug ? 0.9 : 0.7)),
   ];
 }

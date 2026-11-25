@@ -4,7 +4,6 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { site } from "../../content/site";
-import { brainCopy } from "../../content/brain/copy";
 import { motion, useReducedMotion } from "motion/react";
 import { asset } from "../lib/asset";
 import { GlobalNavIndicator } from "./motion/global-NavIndicator";
@@ -127,7 +126,6 @@ export function Nav() {
   const isWork = pathname === "/work" || pathname.startsWith("/work/");
   const isPersonal = pathname === "/personal" || pathname.startsWith("/personal/");
   const isAbout = pathname === "/about" || pathname === "/about/";
-  const isBrain = pathname === "/brain" || pathname === "/brain/";
 
   // Already on the home page, a plain link to "/" would do nothing. Reset it to its default state instead:
   // empty prompt, answer cleared, scrolled to the top (AskLanding listens for this event).
@@ -188,17 +186,6 @@ export function Nav() {
           >
             <span>Side projects</span>
             {isPersonal && <GlobalNavIndicator />}
-          </Link>
-
-
-          <Link
-            href="/brain/"
-            aria-current={isBrain ? "page" : undefined}
-            className="relative min-h-[44px] px-3 inline-flex items-center gap-1.5 hover:text-fg transition-colors data-[current=true]:text-fg link-underline"
-            data-current={isBrain ? "true" : undefined}
-          >
-            <span>{brainCopy.navLabel}</span>
-            {isBrain && <GlobalNavIndicator />}
           </Link>
 
           <Link
@@ -379,22 +366,6 @@ export function Nav() {
             >
               <span>Side projects</span>
               {isPersonal && (
-                <span
-                  className="w-2 h-2 rounded-full bg-accent inline-block"
-                  aria-hidden="true"
-                />
-              )}
-            </Link>
-
-
-            <Link
-              href="/brain/"
-              aria-current={isBrain ? "page" : undefined}
-              onClick={() => setIsOpen(false)}
-              className="font-display text-2xl sm:text-3xl font-black tracking-tight text-fg hover:text-accent flex items-center justify-between min-h-[44px]"
-            >
-              <span>{brainCopy.navLabel}</span>
-              {isBrain && (
                 <span
                   className="w-2 h-2 rounded-full bg-accent inline-block"
                   aria-hidden="true"

@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef } from "react";
 import type { ScopeCheck } from "../../lib/ask/types";
 import { askCopy } from "../../../content/ask";
+import { brainCopy } from "../../../content/brain/copy";
 import { m } from "motion/react";
 import { useReducedMotion } from "../../lib/use-reduced-motion";
 import { useEnter } from "../motion/home-motion";
@@ -14,42 +15,25 @@ type Props = {
   onFirstTouch: () => void;
   scope: ScopeCheck;
   busy: boolean;
+  // Status line under the box (for example "Fetching the job description…"); the scope hint wins over it.
+  notice?: string;
 };
 
-// Prompt pill wrapped in the rotating Apple Intelligence ring. The placeholder types itself through
-// example questions; the send button leans toward the pointer.
-export function PromptBox({ value, onChange, onSubmit, onFirstTouch, scope, busy }: Props) {
-  const [focused, setFocused] = useState(false);
-  const [ghost, setGhost] = useState("");
+// The one home input: a pill in the rotating Apple Intelligence ring. A textarea that grows with pasted text;
+// Enter sends, Shift+Enter adds a line. The send button leans toward the pointer.
+export function PromptBox({ value, onChange, onSubmit, onFirstTouch, scope, busy, notice }: Props) {
   const reduced = useReducedMotion();
   const sendRef = useRef<HTMLButtonElement | null>(null);
+  const areaRef = useRef<HTMLTextAreaElement | null>(null);
   const enter = useEnter(0.58, 12);
 
-  useEffect(() => {
-    const phrases = askCopy.placeholders;
-    if (reduced || value || focused) return;
-    let phrase = 0;
-    let chars = 0;
-    let deleting = false;
-    let timer: ReturnType<typeof setTimeout>;
-    const tick = () => {
-      const text = phrases[phrase];
-      chars += deleting ? -1 : 1;
-      setGhost(text.slice(0, Math.max(chars, 0)));
-      let delay = deleting ? 22 : 48;
-      if (!deleting && chars >= text.length) {
-        deleting = true;
-        delay = 1900;
-      } else if (deleting && chars <= 0) {
-        deleting = false;
-        phrase = (phrase + 1) % phrases.length;
-        delay = 380;
-      }
-      timer = setTimeout(tick, delay);
-    };
-    timer = setTimeout(tick, 600);
-    return () => clearTimeout(timer);
-  }, [value, focused, reduced]);
+  // Grow with the text, up to the CSS max-height, then scroll inside.
+  useLayoutEffect(() => {
+    const el = areaRef.current;
+    if (!el) return;
+    el.style.height = "auto";
+    el.style.height = `${el.scrollHeight}px`;
+  }, [value]);
 
   function lean(e: React.PointerEvent<HTMLFormElement>) {
     const btn = sendRef.current;
@@ -83,27 +67,26 @@ export function PromptBox({ value, onChange, onSubmit, onFirstTouch, scope, busy
           onPointerLeave={unlean}
         >
           <div className="ask-field">
-            <input
+            <textarea
+              ref={areaRef}
               className="ask-input"
-              type="text"
+              rows={1}
               value={value}
-              maxLength={200}
               autoComplete="off"
-              enterKeyHint="search"
-              aria-label="Ask about Apoorv’s work"
+              spellCheck={false}
+              enterKeyHint="send"
+              aria-label={brainCopy.input.label}
               aria-describedby="ask-hint"
-              placeholder="Ask about Apoorv’s work"
+              placeholder={brainCopy.input.placeholder}
               onChange={(e) => onChange(e.target.value)}
-              onFocus={() => {
-                setFocused(true);
-                onFirstTouch();
+              onFocus={onFirstTouch}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && !e.shiftKey && !e.nativeEvent.isComposing) {
+                  e.preventDefault();
+                  if (!busy && value.trim()) onSubmit();
+                }
               }}
-              onBlur={() => setFocused(false)}
             />
-            <span className="ask-ghost" data-hidden={Boolean(value) || focused} aria-hidden="true">
-              {reduced ? askCopy.placeholders[0] : ghost}
-              {!reduced && <i className="ask-caret" />}
-            </span>
           </div>
           <button ref={sendRef} className="ask-send" type="submit" disabled={busy || !value.trim()} aria-label={askCopy.submit}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -113,7 +96,7 @@ export function PromptBox({ value, onChange, onSubmit, onFirstTouch, scope, busy
         </form>
       </m.div>
       <p id="ask-hint" className="ask-hint" data-tone={out ? "warn" : undefined} aria-live="polite">
-        {out ? askCopy.scopeHint : ""}
+        {out ? askCopy.scopeHint : (notice ?? "")}
       </p>
     </>
   );

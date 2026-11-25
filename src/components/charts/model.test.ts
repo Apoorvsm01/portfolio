@@ -10,7 +10,7 @@ import * as askContent from "../../../content/ask.ts";
 import { facets } from "../../../content/brain/taxonomy.ts";
 import type { CaseStudy } from "../../../content/types.ts";
 import type { Evidence, FilterState, SourceGroup } from "../../lib/ask/types";
-import { matchScore, requirementLinks, skillScores, strengthCounts, timeline, type Requirement } from "./model.ts";
+import { coverage, mapModel, matchScore, requirementLinks, strengthScore, skillScores, strengthCounts, timeline, type Requirement } from "./model.ts";
 
 const readJson = <T>(dir: URL) =>
   readdirSync(dir)
@@ -134,4 +134,39 @@ test("requirementLinks picks the strongest strength per link", () => {
   } as unknown as SourceGroup;
   const [edge] = requirementLinks([{ group: "skills", id: "figma" }], [g]);
   assert.equal(edge.strength, "shipped");
+});
+
+test("coverage is the old matchScore", () => {
+  assert.equal(coverage, matchScore);
+});
+
+test("strengthScore weights each requirement by its best evidence", () => {
+  const item = (strength: string, skill: string) => ({ chunk: { strength, facets: { skills: [skill] } } }) as unknown as (typeof all)[number];
+  const reqs: Requirement[] = ["a", "b", "c", "d"].map((id) => ({ group: "skills", id }));
+  const items = [item("watched", "a"), item("shipped", "a"), item("built", "b"), item("studied", "c")];
+  const s = strengthScore(reqs, items);
+  assert.deepEqual(s.counts, { shipped: 1, built: 1, studied: 1, watched: 0 });
+  assert.equal(s.missing, 1);
+  assert.equal(s.pct, Math.round(((1 + 0.75 + 0.5) / 4) * 100));
+  // Watched-only evidence is not a full match, unlike coverage().
+  const weak = [item("watched", "a")];
+  assert.equal(coverage([reqs[0]], weak).pct, 100);
+  assert.equal(strengthScore([reqs[0]], weak).pct, 25);
+  assert.equal(strengthScore([], items).pct, 0);
+  assert.equal(strengthScore(reqs, []).pct, 0);
+});
+
+test("mapModel: top 2 sources per requirement, at most 6 sources, stable and consistent", () => {
+  const reqs: Requirement[] = [
+    { group: "skills", id: "figma" },
+    { group: "domains", id: "automotive" },
+    { group: "skills", id: "no-such-skill" },
+  ];
+  const m = mapModel(reqs, groups);
+  assert.ok(m.sources.length <= 6);
+  for (const r of reqs) assert.ok(m.links.filter((l) => l.id === r.id && l.group === r.group).length <= 2);
+  const keys = new Set(m.sources.map((g) => g.key));
+  assert.ok(m.links.every((l) => keys.has(l.source)));
+  assert.equal(m.requirements.length, reqs.length);
+  assert.equal(m.requirements[m.requirements.length - 1].id, "no-such-skill");
 });

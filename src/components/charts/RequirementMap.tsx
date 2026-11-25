@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useId, useMemo, useState, type ReactNode } from "react";
 import type { SourceGroup, Strength, Taxonomy } from "../../lib/ask/types";
-import { STRENGTH_LABEL, requirementLabel, requirementLinks, type Requirement, type RequirementLink } from "./model";
+import { STRENGTH_LABEL, mapModel, requirementLabel, type Requirement, type RequirementLink } from "./model";
 import { SrTable, plural, truncate } from "./parts";
 
 type Focus = { kind: "req" | "src"; key: string } | null;
@@ -67,47 +67,27 @@ function mobile(nReq: number, nSrc: number): Layout {
   };
 }
 
-/** Requirements (left) wired to the sources that prove them (right). Requirements without evidence are shown, dashed. */
+/** Requirements (left) wired to their top two sources (right). Requirements without evidence are shown, dashed. */
 export function RequirementMap({
-  requirements,
+  requirements: wanted,
   groups,
   taxonomy,
   caption,
-  maxSources = 8,
+  maxSources = 6,
 }: {
   requirements: Requirement[];
   groups: SourceGroup[];
   taxonomy: Taxonomy;
   caption?: string;
-  /** Most source nodes to draw. Every backed requirement keeps at least its strongest source. */
+  /** Most source nodes to draw. */
   maxSources?: number;
 }) {
   const uid = useId();
   const [focus, setFocus] = useState<Focus>(null);
 
-  const model = useMemo(() => {
-    const all = requirementLinks(requirements, groups);
-    const order = new Map(groups.map((g, i) => [g.key, i]));
-    const rankOf = (s: Strength) => ORDER.indexOf(s);
-    // Coverage first: each backed requirement contributes its strongest source. Then the sources that prove the most.
-    const keep = new Set<string>();
-    for (const r of requirements) {
-      const own = all.filter((l) => l.group === r.group && l.id === r.id);
-      own.sort((a, b) => rankOf(a.strength) - rankOf(b.strength) || order.get(a.source)! - order.get(b.source)!);
-      if (own[0]) keep.add(own[0].source);
-    }
-    const reach = new Map<string, number>();
-    for (const l of all) reach.set(l.source, (reach.get(l.source) ?? 0) + 1);
-    const rest = [...reach.keys()]
-      .filter((k) => !keep.has(k))
-      .sort((a, b) => reach.get(b)! - reach.get(a)! || order.get(a)! - order.get(b)!);
-    for (const k of rest) if (keep.size < maxSources) keep.add(k);
-    const sources = groups.filter((g) => keep.has(g.key));
-    const total = reach.size;
-    return { links: all.filter((l) => keep.has(l.source)), allLinks: all, sources, total };
-  }, [requirements, groups, maxSources]);
-
-  const { links, allLinks, sources, total } = model;
+  const model = useMemo(() => mapModel(wanted, groups, 2, maxSources), [wanted, groups, maxSources]);
+  const { requirements, sources, links, totalSources: total } = model;
+  const allLinks = links;
   if (requirements.length === 0) return <p className="chart-empty">Paste a job description to see which requirements the evidence backs.</p>;
 
   const linksOf = (r: Requirement) => allLinks.filter((l) => l.group === r.group && l.id === r.id);
@@ -122,6 +102,11 @@ export function RequirementMap({
       ? focus.key === key
       : links.some((l) => `${l.group}:${l.id}` === focus.key && l.source === key));
 
+  const srcNote = (key: string) => {
+    const ls = links.filter((l) => l.source === key);
+    const best = ls.length ? bestOf(ls) : undefined;
+    return `${plural(ls.length, "requirement")}${best ? ` · best: ${STRENGTH_LABEL[best].toLowerCase()}` : ""}`;
+  };
   const srcIndex = new Map(sources.map((s, i) => [s.key, i]));
   const reqIndex = new Map(requirements.map((r, i) => [rid(r), i]));
   const proven = requirements.filter((r) => linksOf(r).length > 0).length;
@@ -158,7 +143,7 @@ export function RequirementMap({
                 <path
                   key={`${l.group}:${l.id}>${l.source}`}
                   className={`chart-link chart-stroke-${l.strength}`}
-                  data-dim={lit(l, r) ? undefined : "true"}
+                  data-state={focus ? (lit(l, r) ? "on" : "dim") : undefined}
                   d={L.path(L.req(ri), L.src(si), ri * 7 + si * 3)}
                 />
               );
@@ -222,10 +207,9 @@ export function RequirementMap({
                   {truncate(s.label, 28)}
                 </text>
                 <text className="chart-label chart-label--note" x={p.x + NODE_PAD + (name === "wide" ? 4 : 0)} y={p.y + 35}>
-                  {plural(s.items.length, "item")}
-                  {s.strongest ? `, best: ${STRENGTH_LABEL[s.strongest].toLowerCase()}` : ""}
+                  {srcNote(s.key)}
                 </text>
-                <circle className={`chart-fill-${s.strongest ?? "watched"}`} cx={p.dotX} cy={p.dotY} r={5} />
+                <circle className={`chart-fill-${bestOf(links.filter((l) => l.source === s.key)) ?? "watched"}`} cx={p.dotX} cy={p.dotY} r={5} />
               </g>
             );
             return s.href ? (
@@ -258,4 +242,4 @@ export function RequirementMap({
 }
 
 const ORDER: Strength[] = ["shipped", "built", "studied", "watched"];
-const bestOf = (ls: RequirementLink[]) => ORDER.find((s) => ls.some((l) => l.strength === s))!;
+const bestOf = (ls: RequirementLink[]) => ORDER.find((s) => ls.some((l) => l.strength === s));

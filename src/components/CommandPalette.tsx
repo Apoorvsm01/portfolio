@@ -59,7 +59,7 @@ function buildItemsFromNavIndex(items: NavIndexItem[]): PaletteItem[] {
     title: brainCopy.navLabel,
     subtitle: brainCopy.palette.subtitle,
     keywords: brainCopy.palette.keywords,
-    url: "/brain/",
+    url: "/",
   });
 
   // 2. Case Studies (with domains)
