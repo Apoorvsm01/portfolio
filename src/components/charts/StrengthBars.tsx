@@ -15,21 +15,29 @@ export function StrengthBars({
   counts,
   selected = null,
   onPick,
+  onClear,
+  clearLabel = "Clear",
   caption,
 }: {
   counts: StrengthCounts;
   selected?: Strength | null;
   onPick?: (strength: Strength) => void;
+  onClear?: () => void;
+  clearLabel?: string;
   caption?: string;
 }) {
   const uid = useId();
-  const max = Math.max(...STRENGTHS.map((s) => counts[s]), 1);
+  // Never show a zero row. Counts are never filtered by this chart, so a missing row is genuinely empty.
+  const shown = STRENGTHS.filter((s) => counts[s] > 0);
+  const max = Math.max(...shown.map((s) => counts[s]), 1);
+  const floor = selected ? STRENGTHS.indexOf(selected) : -1;
   const total = STRENGTHS.reduce((n, s) => n + counts[s], 0);
 
   return (
     <figure className="chart chart-bars">
       <div role="group" aria-labelledby={`${uid}c`} className="chart-bars__list">
-        {STRENGTHS.map((s) => {
+        {shown.map((s) => {
+          const dim = floor >= 0 && STRENGTHS.indexOf(s) > floor;
           const n = counts[s];
           const w = n > 0 ? Math.max((n / max) * W, 6) : 0;
           return (
@@ -37,6 +45,7 @@ export function StrengthBars({
               key={s}
               type="button"
               className="chart-bars__row"
+              data-dim={dim || undefined}
               aria-pressed={selected === s}
               aria-label={`${STRENGTH_LABEL[s]}: ${plural(n, "item")}`}
               onClick={() => onPick?.(s)}
@@ -58,8 +67,16 @@ export function StrengthBars({
       </div>
       <figcaption id={`${uid}c`} className="chart-caption">
         {caption ?? `Evidence by strength, ${total} items.`}
+        {selected && onClear && (
+          <>
+            {" "}
+            <button type="button" className="chart-clear" onClick={onClear}>
+              {clearLabel}
+            </button>
+          </>
+        )}
       </figcaption>
-      <SrTable caption="Evidence by strength" head={["Strength", "Items"]} rows={STRENGTHS.map((s) => [STRENGTH_LABEL[s], counts[s]])} />
+      <SrTable caption="Evidence by strength" head={["Strength", "Items"]} rows={shown.map((s) => [STRENGTH_LABEL[s], counts[s]])} />
     </figure>
   );
 }

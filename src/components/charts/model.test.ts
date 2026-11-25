@@ -10,7 +10,7 @@ import * as askContent from "../../../content/ask.ts";
 import { facets } from "../../../content/brain/taxonomy.ts";
 import type { CaseStudy } from "../../../content/types.ts";
 import type { Evidence, FilterState, SourceGroup } from "../../lib/ask/types";
-import { coverage, mapModel, matchScore, requirementLinks, strengthScore, skillScores, strengthCounts, timeline, type Requirement } from "./model.ts";
+import { coverage, mapModel, matchScore, requirementLinks, strengthScore, skillScores, skillProof, withoutOwnFilter, strengthCounts, timeline, type Requirement } from "./model.ts";
 
 const readJson = <T>(dir: URL) =>
   readdirSync(dir)
@@ -169,4 +169,53 @@ test("mapModel: top 2 sources per requirement, at most 6 sources, stable and con
   assert.ok(m.links.every((l) => keys.has(l.source)));
   assert.equal(m.requirements.length, reqs.length);
   assert.equal(m.requirements[m.requirements.length - 1].id, "no-such-skill");
+});
+
+test("skillProof: counts sum to total, strongest is the best present strength", () => {
+  const rows = skillProof(all, facets, 100);
+  assert.ok(rows.length > 8);
+  for (const r of rows) {
+    assert.equal(r.counts.shipped + r.counts.built + r.counts.studied + r.counts.watched, r.total);
+    const best = (["shipped", "built", "studied", "watched"] as const).find((s) => r.counts[s] > 0);
+    assert.equal(r.strongest, best);
+  }
+});
+
+test("skillProof: ordered by shipped, then built, then total, then label; capped at n", () => {
+  const rows = skillProof(all, facets, 100);
+  for (let i = 1; i < rows.length; i++) {
+    const a = rows[i - 1];
+    const b = rows[i];
+    const cmp =
+      b.counts.shipped - a.counts.shipped ||
+      b.counts.built - a.counts.built ||
+      b.total - a.total ||
+      a.label.localeCompare(b.label);
+    assert.ok(cmp <= 0, `${a.id} should not come after ${b.id}`);
+  }
+  assert.equal(skillProof(all, facets).length, 8);
+});
+
+test("skillProof: figma, design systems and accessibility are each proven by shipped work", () => {
+  const rows = skillProof(all, facets, 1000);
+  for (const id of ["figma", "design-systems", "accessibility"]) {
+    const r = rows.find((x) => x.id === id);
+    assert.ok(r, `${id} has evidence`);
+    assert.equal(r.strongest, "shipped", id);
+  }
+});
+
+test("strength counts are identical with and without a strength floor once the chart's own filter is excluded", () => {
+  const base = strengthCounts(engine.filter(empty).items);
+  for (const minStrength of ["shipped", "built", "studied"] as const) {
+    const set = { ...empty, minStrength };
+    assert.notDeepEqual(strengthCounts(engine.filter(set).items), base, "the filtered view really differs");
+    assert.deepEqual(strengthCounts(engine.filter(withoutOwnFilter(set, "strength")).items), base);
+  }
+});
+
+test("skill proof keeps every skill when one skill is selected, once its own facet is excluded", () => {
+  const set = { ...empty, skills: ["figma"] };
+  const ids = (r: ReturnType<typeof skillProof>) => r.map((x) => x.id);
+  assert.deepEqual(ids(skillProof(engine.filter(withoutOwnFilter(set, "skills")).items, facets)), ids(skillProof(all, facets)));
 });
