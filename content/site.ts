@@ -146,7 +146,7 @@ export const site = {
 
   work: [
     { slug: "fleet-console", status: "Concept", domain: "Automotive", cover: "/work/fleet-console/02.jpg", org: "Woven by Toyota", blurb: "A concept console that puts coverage gaps and open incidents on the first screen.", link: { label: "Code on GitHub", href: "https://github.com/Apoorvsm01/fleet-console" } },
-    { slug: "how2to", status: "Prototype", domain: "Spatial", cover: "/work/how2to/03.png", org: "Omnia", blurb: "AI-powered, step-by-step spatial tutorials on visionOS." },
+    { slug: "how2to", status: "Shipped", domain: "Spatial", cover: "/work/how2to/03.png", org: "Omnia", blurb: "AI-powered, step-by-step spatial tutorials on visionOS." },
     { slug: "omniabrowser", status: "Shipped", domain: "Spatial", cover: "/work/omniabrowser/02.png", org: "Omnia", blurb: "A spatial browser for Apple Vision Pro." },
     { slug: "spatialshowroom", status: "Shipped", domain: "Spatial", cover: "/work/spatialshowroom/01.png", blurb: "A spatial showroom experience for Vision Pro." },
     { slug: "syncare-ai-health", status: "Study", domain: "Health", cover: "/work/syncare-ai-health/01.png", org: "Patched Reality", blurb: "Making AI-integrated health records easier to read." },
@@ -234,16 +234,16 @@ export const site = {
     body: "I want to work where the person who runs the study also ships the interface. If you’re building for cars, spatial computing or AI, write to me.",
   },
 
-  // Flag palette: one colour per intent and per organisation. Tuned for the warm ink ground and
+  // Flag palette: one colour per intent and per organisation. tuned for the cool ink ground and
   // the paper bands (each has a readable ink for text on top of it).
   flags: {
-    amber: { bg: "#f5a524", ink: "#12110f" },
+    amber: { bg: "#7C9CFF", ink: "#0A0C10" },
     blue: { bg: "#4aa3ff", ink: "#0b1420" },
-    lime: { bg: "#b6e05a", ink: "#12110f" },
-    pink: { bg: "#ee5c96", ink: "#12110f" },
+    lime: { bg: "#b6e05a", ink: "#0A0C10" },
+    pink: { bg: "#ee5c96", ink: "#0A0C10" },
     teal: { bg: "#3cc8b4", ink: "#0b1a17" },
-    violet: { bg: "#a98cf5", ink: "#12110f" },
-    yellow: { bg: "#f2c94c", ink: "#12110f" },
+    violet: { bg: "#a98cf5", ink: "#0A0C10" },
+    yellow: { bg: "#8FD9F0", ink: "#0A0C10" },
   },
 
   // Physical height of each framed device image's long side as shown, in mm, so devices sit at true relative size. iPhone 18 Pro portrait; iPhone Duo folded (outer) portrait; iPhone Duo unfolded (inner) shown landscape, so its height is the device's short side.

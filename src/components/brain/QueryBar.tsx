@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { brainCopy } from "../../../content/brain/copy";
 import { copyText } from "../../lib/copy-text";
 import { useId } from "react";
@@ -16,11 +16,14 @@ type Props = {
   match: "all" | "any";
   facetCount: number;
   onMatch: (m: "all" | "any") => void;
+  // Controls that share the bar: one before the count, one at the far end.
+  start?: ReactNode;
+  end?: ReactNode;
 };
 
 type Status = "link" | "summary" | "failed" | null;
 
-export function QueryBar({ count, tokens, onRemove, onClear, buildSummary, compact, match, facetCount, onMatch }: Props) {
+export function QueryBar({ count, tokens, onRemove, onClear, buildSummary, compact, match, facetCount, onMatch, start, end }: Props) {
   const matchName = useId();
   const [status, setStatus] = useState<Status>(null);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -70,13 +73,14 @@ export function QueryBar({ count, tokens, onRemove, onClear, buildSummary, compa
   return (
     <div className="brain-bar" role="region" aria-label={brainCopy.bar.label}>
       <div className="container-page brain-bar-inner">
+        {start}
         <p className="brain-count" aria-live="polite" aria-atomic="true">
           {count === null ? brainCopy.bar.loading : brainCopy.bar.showing(count)}
         </p>
         {tokens.length > 0 && (
           <ul className="brain-tokens">
             {tokens.map((t) => {
-              const k = t.kind === "facet" ? `${t.group}:${t.id}` : t.kind;
+              const k = t.kind === "facet" ? `${t.group}:${t.id}` : t.kind === "source" ? `source:${t.key}` : t.kind;
               return (
                 <li key={k}>
                   <button type="button" className="brain-token" onClick={() => onRemove(t)} aria-label={brainCopy.bar.remove(t.label)}>
@@ -102,6 +106,7 @@ export function QueryBar({ count, tokens, onRemove, onClear, buildSummary, compa
         ) : (
           <div className="brain-actions">{actions}</div>
         )}
+        {end && <div className="brain-bar-end">{end}</div>}
         <span className="sr-only" aria-live="polite">
           {status === "failed" ? brainCopy.bar.copyFailed : status ? brainCopy.bar.copied : ""}
         </span>

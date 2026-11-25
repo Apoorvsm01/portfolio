@@ -24,7 +24,8 @@
       "kind": "course",
       "label": "HCI 460 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-460-ilsos-redesign-recommendations",
@@ -52,7 +53,8 @@
       "kind": "course",
       "label": "HCI 460 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-460-remote-testing-critique",
@@ -83,7 +85,8 @@
       "kind": "course",
       "label": "HCI 460 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-460-sus-umux-benchmarking",
@@ -112,7 +115,8 @@
       "kind": "course",
       "label": "HCI 460 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-460-usability-report-findings",
@@ -142,7 +146,8 @@
       "kind": "course",
       "label": "HCI 460 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-460-usability-test-plan",
@@ -170,7 +175,8 @@
       "kind": "course",
       "label": "HCI 460 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-460-zoom-usability-tests",
@@ -197,6 +203,7 @@
       "kind": "course",
       "label": "HCI 460 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   }
 ]

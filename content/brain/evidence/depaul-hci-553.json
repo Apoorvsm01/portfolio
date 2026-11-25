@@ -25,7 +25,8 @@
       "kind": "course",
       "label": "HCI 553 Social Interaction Design · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-553-budds-lofi-prototype",
@@ -53,7 +54,8 @@
       "kind": "course",
       "label": "HCI 553 Social Interaction Design · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-553-budds-personas",
@@ -80,7 +82,8 @@
       "kind": "course",
       "label": "HCI 553 Social Interaction Design · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-553-card-sorting-usability",
@@ -109,7 +112,8 @@
       "kind": "course",
       "label": "HCI 553 Social Interaction Design · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-553-final-presentation",
@@ -133,7 +137,8 @@
       "kind": "course",
       "label": "HCI 553 Social Interaction Design · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-553-profile-discovery-testing",
@@ -160,7 +165,8 @@
       "kind": "course",
       "label": "HCI 553 Social Interaction Design · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-553-trust-safety-analysis",
@@ -183,6 +189,7 @@
       "kind": "course",
       "label": "HCI 553 Social Interaction Design · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   }
 ]

@@ -38,7 +38,7 @@ function body(): string {
   lines.push(`- [${site.personal.lead.title}](${site.url}/personal/): ${site.personal.lead.claim} (Personal project)`, "");
 
   lines.push("## Pages", "");
-  lines.push(`- [${brainCopy.navLabel}](${site.url}/brain/): ${brainCopy.llms}`, "");
+  lines.push(`- [${brainCopy.navLabel}](${site.url}/): ${brainCopy.llms}`, "");
 
   lines.push("## How I work", "", site.howIWorkIntro, "");
   for (const step of site.howIWork) lines.push(`- ${step.title}: ${step.body}`);

@@ -25,7 +25,7 @@ export const facetGroupLabels: Record<FacetGroup, string> = {
 export const facets: Taxonomy = {
   roles: [
     { id: "ux-engineer", label: "UX Engineer", aliases: ["ux engineer", "ux engineers", "design engineer", "design technologist", "design technologists"] },
-    { id: "ux-designer", label: "UX Designer", aliases: ["ux designer", "ux designers", "ui designer", "ui ux designer", "product designer", "interaction designer", "visual designer"] },
+    { id: "ux-designer", label: "UX Designer", aliases: ["ux designer", "ux designers", "ui designer", "ui ux designer", "product designer"] },
     { id: "ux-researcher", label: "UX Researcher", aliases: ["ux researcher", "ux researchers", "user researcher", "design researcher", "research collaborator"] },
     { id: "hmi-designer", label: "HMI Designer", aliases: ["hmi designer", "automotive designer", "in vehicle designer"] },
     { id: "spatial-designer", label: "Spatial Designer", aliases: ["spatial designer", "xr designer", "vr designer", "ar designer", "immersive designer"] },
@@ -86,7 +86,7 @@ export const facets: Taxonomy = {
     { id: "environmental", label: "Environment & sustainability", aliases: ["environmental", "sustainability", "air quality", "climate"] },
     { id: "future-of-work", label: "Remote & hybrid work", aliases: ["remote work", "hybrid work", "work from home", "online fatigue"] },
     { id: "film-media", label: "Film and media", aliases: ["film", "film and media", "mass communication", "broadcast", "journalism", "advertising"] },
-    { id: "education", label: "Education", aliases: ["education", "tutorial", "tutorials", "learning", "coursework", "course project"] },
+    { id: "education", label: "Education", aliases: ["education", "edtech", "coursework", "course project"] },
   ],
 
   platforms: [
@@ -101,7 +101,7 @@ export const facets: Taxonomy = {
     { id: "carplay", label: "CarPlay", aliases: ["carplay", "car play", "android auto"] },
     { id: "in-vehicle-hud", label: "In-vehicle display and HUD", aliases: ["in vehicle hud", "hud", "heads up display", "head up display", "vehicle sdk", "instrument cluster", "infotainment"] },
     { id: "carla-simulator", label: "CARLA simulator", aliases: ["carla", "carla simulator", "driving simulator", "simulator rig"] },
-    { id: "web", label: "Web", aliases: ["website", "web app", "responsive web", "web platform"] },
+    { id: "web", label: "Web", aliases: ["web app", "responsive web", "web platform"] },
     { id: "browser-extension", label: "Browser extension", aliases: ["browser extension", "chrome extension", "safari extension", "chrome and safari"] },
     { id: "desktop", label: "Desktop", aliases: ["desktop", "macos", "windows app"] },
   ],

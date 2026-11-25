@@ -17,9 +17,10 @@
     },
     "source": {
       "kind": "resume",
-      "label": "Resume"
+      "label": "Resume · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-documents-media-agency",

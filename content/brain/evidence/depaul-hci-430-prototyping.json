@@ -28,7 +28,8 @@
       "kind": "course",
       "label": "HCI 430 Prototyping & Implementation · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-430-prototyping-chipark-hifi-iteration",
@@ -61,7 +62,8 @@
       "kind": "course",
       "label": "HCI 430 Prototyping & Implementation · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-430-prototyping-chipark-lofi-sketches",
@@ -94,7 +96,8 @@
       "kind": "course",
       "label": "HCI 430 Prototyping & Implementation · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-430-prototyping-chipark-personas-research",
@@ -124,7 +127,8 @@
       "kind": "course",
       "label": "HCI 430 Prototyping & Implementation · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-430-prototyping-chipark-usability-study",
@@ -157,7 +161,8 @@
       "kind": "course",
       "label": "HCI 430 Prototyping & Implementation · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-430-prototyping-fidelity-analysis",
@@ -185,7 +190,8 @@
       "kind": "course",
       "label": "HCI 430 Prototyping & Implementation · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-430-prototyping-part2-chipark-competitive",
@@ -214,7 +220,8 @@
       "kind": "course",
       "label": "HCI 430 Prototyping · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-430-prototyping-part2-chipark-narrative",
@@ -246,7 +253,8 @@
       "kind": "course",
       "label": "HCI 430 Prototyping · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-430-prototyping-part2-chipark-personas",
@@ -280,7 +288,8 @@
       "kind": "course",
       "label": "HCI 430 Prototyping · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-430-prototyping-part2-chipark-sketches",
@@ -313,7 +322,8 @@
       "kind": "course",
       "label": "HCI 430 Prototyping · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-430-prototyping-rfp-plan",
@@ -351,6 +361,7 @@
       "kind": "course",
       "label": "HCI 430 Prototyping & Implementation · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   }
 ]

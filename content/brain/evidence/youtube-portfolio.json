@@ -21,7 +21,8 @@
       "label": "Crazy Minds Digital Marketing Services",
       "href": "https://youtu.be/52x1AuPGo6Y"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "Crazy Minds"
   },
   {
     "id": "youtube-7168sxks0-c",
@@ -76,30 +77,6 @@
       "kind": "video",
       "label": "Wint Wealth Explainer",
       "href": "https://youtu.be/EwI-A3sqXeo"
-    },
-    "status": "approved"
-  },
-  {
-    "id": "youtube-mn8ptsxdqow",
-    "claim": "Made a 6-minute sports information video.",
-    "strength": "built",
-    "date": "2022-11",
-    "facets": {
-      "roles": [
-        "media-producer"
-      ],
-      "skills": [
-        "video-editing",
-        "storytelling"
-      ],
-      "domains": [
-        "film-media"
-      ]
-    },
-    "source": {
-      "kind": "video",
-      "label": "Sports Info",
-      "href": "https://youtu.be/MN8pTSxDqow"
     },
     "status": "approved"
   },
@@ -268,7 +245,8 @@
       "label": "Crazy Minds Video",
       "href": "https://youtu.be/_nMKk5ygyYM"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "Crazy Minds"
   },
   {
     "id": "youtube-cqx1mhiwd6a",
@@ -343,7 +321,8 @@
         "media-producer"
       ],
       "skills": [
-        "video-editing"
+        "video-editing",
+        "storytelling"
       ],
       "domains": [
         "film-media"
@@ -353,31 +332,6 @@
       "kind": "video",
       "label": "Sports Info Instagram",
       "href": "https://youtu.be/jBtw-rF1Ksg"
-    },
-    "status": "approved"
-  },
-  {
-    "id": "youtube-krunae0lo4g",
-    "claim": "Made a 45-second video ad for Wint Wealth.",
-    "strength": "built",
-    "date": "2022-11",
-    "facets": {
-      "roles": [
-        "media-producer"
-      ],
-      "skills": [
-        "video-editing",
-        "storytelling"
-      ],
-      "domains": [
-        "fintech",
-        "film-media"
-      ]
-    },
-    "source": {
-      "kind": "video",
-      "label": "Wint Wealth Ad 1",
-      "href": "https://youtu.be/krUnae0Lo4g"
     },
     "status": "approved"
   },

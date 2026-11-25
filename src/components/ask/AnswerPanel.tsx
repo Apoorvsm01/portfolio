@@ -76,11 +76,13 @@ type AnswerProps = {
   onPick: (p: SuggestedPrompt) => void;
   onStreaming: (streaming: boolean) => void;
   onReset: () => void;
+  // Opens the matching evidence on the home page without a navigation; the link still works without it.
+  onOpenEvidence?: (search: string) => void;
 };
 
 // Writes the answer word by word: each word fades in out of a blur. The text itself is already composed
 // from the site's own copy; streaming is purely the reveal.
-export function AnswerPanel({ result, matchCount, onPick, onStreaming, onReset }: AnswerProps) {
+export function AnswerPanel({ result, matchCount, onPick, onStreaming, onReset, onOpenEvidence }: AnswerProps) {
   const lead = useMemo(() => words(result.lead), [result.lead]);
   const bullets = useMemo(() => result.bullets.map((b) => words(b.text)), [result.bullets]);
   const total = lead.length + bullets.reduce((n, b) => n + b.length, 0);
@@ -158,7 +160,15 @@ export function AnswerPanel({ result, matchCount, onPick, onStreaming, onReset }
               </ul>
             </>
           )}
-          <Link className="ask-brain-link" href={`/brain/${brainSearchFor(result.query, result.topicId, taxonomy)}`}>
+          <Link
+            className="ask-brain-link"
+            href={`/${brainSearchFor(result.query, result.topicId, taxonomy)}`}
+            onClick={(e) => {
+              if (!onOpenEvidence || e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+              e.preventDefault();
+              onOpenEvidence(brainSearchFor(result.query, result.topicId, taxonomy));
+            }}
+          >
             {brainCopy.fromAnswer} →
           </Link>
           <button type="button" className="ask-reset" onClick={onReset}>

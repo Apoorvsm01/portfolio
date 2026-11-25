@@ -20,7 +20,7 @@ export function Hero({
   firstImage,
   labelledSections = [],
 }: CaseStudyHeroProps) {
-  const flagBg = site.flags[meta.flag]?.bg ?? "#f5a524";
+  const flagBg = site.flags[meta.flag]?.bg ?? "#7C9CFF";
   const heroImage = firstImage ?? study.heroImages?.[0];
   const heroDims = heroImage ? imageDims(heroImage.src) : { width: 1200, height: 800 };
   const caption = heroImage?.alt?.trim() ? heroImage.alt : meta.claim;

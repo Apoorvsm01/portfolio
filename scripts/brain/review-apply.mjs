@@ -5,7 +5,7 @@ import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { spawnSync } from "node:child_process";
 import { strengths } from "../../content/brain/taxonomy.ts";
-import { DRAFTS_DIR, EVIDENCE_DIR, REVIEW_PATH, ROOT } from "./lib.mjs";
+import { DRAFTS_DIR, EVIDENCE_DIR, REVIEW_PATH, ROOT, withOrg } from "./lib.mjs";
 import { loadDrafts } from "./review-gen.mjs";
 
 const SECTION_RE = /^## (.+) \(([^()]+)\)\s*$/;
@@ -70,7 +70,7 @@ if (import.meta.main) {
           errors.push(`${e.id} (${unit}): no draft or evidence item with this id`);
           continue;
         }
-        current.set(e.id, { ...base, claim: e.claim, strength: e.strength, status: "approved" });
+        current.set(e.id, withOrg({ ...base, claim: e.claim, strength: e.strength, status: "approved" }, unit));
         counts.approved++;
       } else if (current.has(e.id)) {
         current.delete(e.id);

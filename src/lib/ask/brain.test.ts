@@ -276,3 +276,49 @@ test("match any: q ranks but does not filter, and facetCounts follows the mode",
   const c = e.facetCounts(state({ skills: ["figma"], match: "any" })).find((x) => x.id === "react")!;
   assert.ok(c.count >= 2);
 });
+
+test("diversity cap keys on slug, then org, then label", () => {
+  const mk = (n: number, org: string) => item(`omnia-${n}`, { org, claim: `Omnia item ${n}.`, source: { kind: "resume", label: `Resume · ${org}` } });
+  const crazy = (n: number) => item(`cm-${n}`, { org: "Crazy Minds", claim: `Crazy item ${n}.`, source: { kind: "resume", label: "Resume · Crazy Minds" } });
+  const e = make([mk(1, "Omnia"), mk(2, "Omnia"), mk(3, "Omnia"), crazy(1), crazy(2), crazy(3)]);
+  const ev = e.filter(state({ skills: ["figma"] })).items.filter((i) => i.chunk.kind === "evidence");
+  const firstFour = ev.slice(0, 4).map((i) => i.chunk.org);
+  // Two per org in the capped top, so the third of each is pushed behind the first four.
+  assert.deepEqual(firstFour.sort(), ["Crazy Minds", "Crazy Minds", "Omnia", "Omnia"]);
+  // A chunk with a slug is keyed by slug, regardless of org.
+  const withSlug = make([
+    item("s1", { org: "Omnia", slug: "omniabrowser", claim: "Slug one." }),
+    item("s2", { org: "Omnia", slug: "how2to", claim: "Slug two." }),
+    item("s3", { org: "Omnia", slug: "how2to", claim: "Slug three." }),
+  ]);
+  assert.equal(withSlug.groupBySource(withSlug.filter(state({ skills: ["figma"] })).items.filter((i) => i.chunk.kind === "evidence")).length, 2);
+});
+
+test("groupBySource: groups in rank order with strongest strength, org and slug", () => {
+  const e = make([
+    item("g1", { org: "Omnia", strength: "studied", claim: "Group one." }),
+    item("g2", { org: "Omnia", strength: "shipped", claim: "Group two." }),
+    item("g3", { org: "DePaul", strength: "built", claim: "Group three." }),
+    item("g4", { strength: "built", claim: "Group four.", source: { kind: "video", label: "Some video" } }),
+  ]);
+  const groups = e.groupBySource(e.filter(state({ skills: ["figma"] })).items.filter((i) => i.chunk.kind === "evidence"));
+  const omnia = groups.find((g) => g.key === "Omnia")!;
+  assert.equal(omnia.items.length, 2);
+  assert.equal(omnia.strongest, "shipped");
+  assert.equal(omnia.org, "Omnia");
+  assert.equal(omnia.label, "Omnia");
+  assert.equal(groups.find((g) => g.key === "Some video")!.label, "Some video");
+  const total = groups.reduce((n, g) => n + g.items.length, 0);
+  assert.equal(total, 4);
+  // Rank order: a group sits where its best-ranked item first appears.
+  assert.equal(groups[0].key, "Omnia");
+  const study = e.groupBySource(e.filter(empty).items).find((g) => g.slug === "omniabrowser")!;
+  assert.equal(study.href, "/work/omniabrowser/");
+  assert.equal(study.org, "Omnia");
+});
+
+test("tag audit: omniabrowser is spatial but not tagged education", () => {
+  const chunk = engine.filterable.find((c) => c.slug === "omniabrowser")!;
+  assert.ok(chunk.facets?.domains?.includes("spatial"));
+  assert.ok(!chunk.facets?.domains?.includes("education"), `got ${chunk.facets?.domains?.join(", ")}`);
+});

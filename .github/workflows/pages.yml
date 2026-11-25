@@ -27,6 +27,7 @@ jobs:
       - run: npm run build
         env:
           NEXT_PUBLIC_BASE_PATH: /portfolio
+          NEXT_PUBLIC_JD_ENDPOINT: https://jd-fetch.jd-fetch.workers.dev
       - run: touch out/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:

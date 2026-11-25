@@ -17,6 +17,7 @@ import type {
   FilterState,
   RefusalReason,
   ScopeCheck,
+  SourceGroup,
   SourceRef,
   Strength,
 } from "./types";
@@ -26,6 +27,7 @@ export type AskEngineInput = CorpusInput & { config: AskConfig; evidence?: Evide
 // The filter view shows this many top results with the diversity cap applied.
 const TOP_N = 12;
 const PER_SOURCE_CAP = 2;
+export const sourceKey = (c: Chunk) => c.slug ?? c.org ?? c.label;
 const strengthRank = (s: Strength | undefined) => (s ? strengthOrder.length - strengthOrder.indexOf(s) : 0);
 
 // ---------- text ----------
@@ -525,13 +527,32 @@ export function createAsk(input: AskEngineInput) {
     const top: FilterItem[] = [];
     const rest: FilterItem[] = [];
     for (const item of ranked) {
-      const key = item.chunk.slug ?? item.chunk.label;
+      const key = sourceKey(item.chunk);
       if (top.length < TOP_N && (perSource.get(key) ?? 0) < PER_SOURCE_CAP) {
         perSource.set(key, (perSource.get(key) ?? 0) + 1);
         top.push(item);
       } else rest.push(item);
     }
     return { items: [...top, ...rest], total: ranked.length };
+  }
+
+  // Groups ranked items by source key, in the order each source first appears. Pass `filter().items` (or any ranked
+  // list). The label is the study title for case-study groups and the source label otherwise; `strongest` is the
+  // best strength in the group.
+  function groupBySource(items: FilterItem[]): SourceGroup[] {
+    const groups = new Map<string, SourceGroup>();
+    for (const item of items) {
+      const c = item.chunk;
+      const key = sourceKey(c);
+      let g = groups.get(key);
+      if (!g) {
+        g = { key, label: c.slug || !c.org ? c.label : c.org, org: c.org, slug: c.slug, href: c.slug ? `/work/${c.slug}/` : undefined, strongest: undefined, items: [] };
+        groups.set(key, g);
+      }
+      g.items.push(item);
+      if (strengthRank(c.strength) > strengthRank(g.strongest)) g.strongest = c.strength;
+    }
+    return [...groups.values()];
   }
 
   // For every taxonomy entry: how many items would match if it were added to the current selection, and the
@@ -554,7 +575,7 @@ export function createAsk(input: AskEngineInput) {
     return out;
   }
 
-  return { ask, scope, explain, filter, facetCounts, size: chunks.length, chunks, filterable };
+  return { ask, scope, explain, filter, groupBySource, facetCounts, size: chunks.length, chunks, filterable };
 }
 
 export type AskEngine = ReturnType<typeof createAsk>;

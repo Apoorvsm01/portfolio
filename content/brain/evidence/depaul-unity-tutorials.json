@@ -25,7 +25,8 @@
       "kind": "course",
       "label": "Unity Tutorials · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-unity-tutorials-camera-audio-ui-spec",
@@ -53,7 +54,8 @@
       "kind": "course",
       "label": "Unity Tutorials · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-unity-tutorials-scene-rendering-spec",
@@ -79,6 +81,7 @@
       "kind": "course",
       "label": "Unity Tutorials · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   }
 ]

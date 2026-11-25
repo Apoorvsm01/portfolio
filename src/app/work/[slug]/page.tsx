@@ -82,12 +82,12 @@ export default async function CaseStudyPage({
 
   const meta = studyMeta[slug] ?? {
     claim: study.description,
-    band: "#12110f",
+    band: "#0A0C10",
     flag: "amber" as const,
     facts: study.facts.map((f) => ({ label: f.label, value: f.value })),
   };
 
-  const flagBg = site.flags[meta.flag]?.bg ?? "#f5a524";
+  const flagBg = site.flags[meta.flag]?.bg ?? "#7C9CFF";
   const firstImage = study.heroImages?.[0] ?? coverFor(study.slug)?.img;
   const remainingHeroImages = study.heroImages?.slice(1) ?? [];
 

@@ -73,10 +73,11 @@ export function toSearch(s: BrainState): string {
 
 export type Token =
   | { kind: "facet"; group: FacetGroup; id: string; label: string }
+  | { kind: "source"; key: string; label: string }
   | { kind: "min"; label: string }
   | { kind: "q"; label: string };
 
-// /brain link for a free-text question (used by the home Ask box): the question's topics as facets, plus the
+// Home-page filter link for a free-text question (used by the Ask answer): the question's topics as facets, plus the
 // answer's own topic when it is also a taxonomy id. No topics → fall back to a text search.
 export function brainSearchFor(question: string, topicId: string | undefined, taxonomy: Taxonomy): string {
   const s = emptyState();

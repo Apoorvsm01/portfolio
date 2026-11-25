@@ -26,7 +26,8 @@
       "kind": "project",
       "label": "Patched Reality"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "Patched Reality"
   },
   {
     "id": "depaul-patched-reality-art-school-fight-club-ui",
@@ -52,7 +53,8 @@
       "kind": "project",
       "label": "Patched Reality"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "Patched Reality"
   },
   {
     "id": "depaul-patched-reality-chicago-xr-demos",
@@ -79,7 +81,8 @@
       "kind": "project",
       "label": "Patched Reality"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "Patched Reality"
   },
   {
     "id": "depaul-patched-reality-level-progression-map",
@@ -112,7 +115,8 @@
       "kind": "project",
       "label": "Patched Reality"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "Patched Reality"
   },
   {
     "id": "depaul-patched-reality-spatial-design-system",
@@ -147,7 +151,8 @@
       "kind": "project",
       "label": "Patched Reality"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "Patched Reality"
   },
   {
     "id": "depaul-patched-reality-xr-qa-testing",
@@ -177,6 +182,7 @@
       "kind": "project",
       "label": "Patched Reality"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "Patched Reality"
   }
 ]

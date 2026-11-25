@@ -18,6 +18,7 @@
       "kind": "course",
       "label": "HCI 457 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   }
 ]

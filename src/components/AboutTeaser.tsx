@@ -62,7 +62,7 @@ export function AboutTeaser() {
         <ol className="border-t border-rule divide-y divide-rule list-none p-0 m-0">
           {recentTimeline.map((item) => {
             const flagBg =
-              site.flags[item.flag as keyof typeof site.flags]?.bg ?? "#f5a524";
+              site.flags[item.flag as keyof typeof site.flags]?.bg ?? "#7C9CFF";
 
             return (
               <li

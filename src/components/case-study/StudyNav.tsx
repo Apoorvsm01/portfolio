@@ -26,7 +26,7 @@ export function StudyNav({ currentSlug }: { currentSlug: string }) {
       : nextStudy.description);
 
   const flagName = nextMeta?.flag ?? "amber";
-  const flagBg = site.flags[flagName]?.bg ?? "#f5a524";
+  const flagBg = site.flags[flagName]?.bg ?? "#7C9CFF";
 
   return (
     <Reveal

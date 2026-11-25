@@ -23,7 +23,8 @@
       "kind": "course",
       "label": "HCI 472 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-472-color-schemes",
@@ -45,7 +46,8 @@
       "kind": "course",
       "label": "HCI 472 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-472-info-viz-critique",
@@ -72,7 +74,8 @@
       "kind": "course",
       "label": "HCI 472 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-472-linear-perspective",
@@ -95,7 +98,8 @@
       "kind": "course",
       "label": "HCI 472 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-472-type-hierarchies",
@@ -123,7 +127,8 @@
       "kind": "course",
       "label": "HCI 472 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-hci-472-visual-principles",
@@ -146,6 +151,7 @@
       "kind": "course",
       "label": "HCI 472 · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   }
 ]

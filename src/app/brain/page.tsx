@@ -1,27 +1,24 @@
 import type { Metadata } from "next";
-import { site } from "../../../content/site";
 import { brainCopy } from "../../../content/brain/copy";
-import { BrainExplorer } from "../../components/brain/BrainExplorer";
+import { RedirectToHome } from "../../components/brain/RedirectToHome";
+import { BASE_PATH } from "../../lib/asset";
 
+// The second brain is the home page now. This page stays so old links keep working.
 export const metadata: Metadata = {
-  title: brainCopy.meta.title,
-  description: brainCopy.meta.description,
-  alternates: { canonical: "/brain/" },
-  openGraph: {
-    title: `${brainCopy.meta.title} — ${site.name}`,
-    description: brainCopy.meta.description,
-    url: `${site.url}/brain/`,
-  },
+  title: brainCopy.moved.title,
+  alternates: { canonical: "/" },
+  robots: { index: false, follow: true },
 };
 
-export default function BrainPage() {
+export default function BrainMovedPage() {
   return (
     <main id="main" className="flex-1 w-full bg-ground">
-      <header className="container-page brain-header">
-        <h1 className="brain-title">{brainCopy.title}</h1>
-        <p className="brain-lede">{brainCopy.lede}</p>
-      </header>
-      <BrainExplorer />
+      <meta httpEquiv="refresh" content={`0; url=${BASE_PATH}/`} />
+      <div className="container-page brain-header">
+        <h1 className="brain-title">{brainCopy.moved.title}</h1>
+        <p className="brain-lede">{brainCopy.moved.body}</p>
+        <RedirectToHome />
+      </div>
     </main>
   );
 }

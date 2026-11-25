@@ -22,7 +22,8 @@
       "kind": "course",
       "label": "IT 403 Statistics and Data Analysis · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-it-403-statistics-and-data-analysis-error-matrix-probability",
@@ -47,7 +48,8 @@
       "kind": "course",
       "label": "IT 403 Statistics and Data Analysis · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-it-403-statistics-and-data-analysis-hypothesis-testing-rct",
@@ -72,7 +74,8 @@
       "kind": "course",
       "label": "IT 403 Statistics and Data Analysis · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-it-403-statistics-and-data-analysis-part2-email-sex-normality",
@@ -95,7 +98,8 @@
       "kind": "course",
       "label": "IT 403 Statistics and Data Analysis · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-it-403-statistics-and-data-analysis-part2-iqr-outlier-analysis",
@@ -118,7 +122,8 @@
       "kind": "course",
       "label": "IT 403 Statistics and Data Analysis · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-it-403-statistics-and-data-analysis-part2-spss-eda-gss",
@@ -141,7 +146,8 @@
       "kind": "course",
       "label": "IT 403 Statistics and Data Analysis · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-it-403-statistics-and-data-analysis-probability-in-hci-autonomy",
@@ -168,7 +174,8 @@
       "kind": "course",
       "label": "IT 403 Statistics and Data Analysis · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-it-403-statistics-and-data-analysis-spss-linear-regression",
@@ -193,7 +200,8 @@
       "kind": "course",
       "label": "IT 403 Statistics and Data Analysis · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-it-403-statistics-and-data-analysis-spss-normality-analysis",
@@ -218,7 +226,8 @@
       "kind": "course",
       "label": "IT 403 Statistics and Data Analysis · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-it-403-statistics-and-data-analysis-spss-survey-crosstabs",
@@ -245,6 +254,7 @@
       "kind": "course",
       "label": "IT 403 Statistics and Data Analysis · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   }
 ]

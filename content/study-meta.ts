@@ -11,7 +11,7 @@ export type Outcome = {
 
 export type StudyMeta = {
   claim: string; // headline-style one-liner, shown under the title and on cards
-  band: string; // deep background colour for the study's band (warm-ink family, readable with --fg)
+  band: string; // deep background colour for the study's band (cool-ink family, readable with --fg)
   flag: "amber" | "blue" | "lime" | "pink" | "teal" | "violet" | "yellow"; // accent for rules/underlines
   facts: { label: string; value: string }[]; // plain labels: My part / When / Built on / For
   outcomes?: { title: string; items: Outcome[]; note?: string };
@@ -114,7 +114,7 @@ export const studyMeta: Record<string, StudyMeta> = {
   },
   spatialshowroom: {
     claim: "A Vision Pro showroom, live on the App Store.",
-    band: "#1c1421",
+    band: "#121a2e",
     flag: "violet",
     tldr: {
       problem: "A Tesla showroom event needed an XR demo easy enough to run for about 100 people.",
@@ -130,7 +130,7 @@ export const studyMeta: Record<string, StudyMeta> = {
   },
   "syncare-ai-health": {
     claim: "Health records that don’t make you work to read them.",
-    band: "#101c16",
+    band: "#0f1c1f",
     flag: "teal",
     tldr: {
       problem: "Health records are hard to read, and patients work to make sense of them.",
@@ -148,7 +148,7 @@ export const studyMeta: Record<string, StudyMeta> = {
   },
   sitelens: {
     claim: "Inspection checklists that float where the work is.",
-    band: "#1b170f",
+    band: "#131c2b",
     flag: "yellow",
     tldr: {
       problem: "Construction inspections need checklists and data where the work is.",
