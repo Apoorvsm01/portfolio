@@ -4,8 +4,21 @@
     "claim": "Designed the UI and ran QA for Art School Fight Club, a web 3D game Patched Reality deployed in 2024.",
     "strength": "shipped",
     "date": "2024",
-    "facets": { "roles": ["ux-designer"], "skills": ["ui-design"], "platforms": ["web"] },
-    "source": { "kind": "project", "label": "Art School Fight Club · Patched Reality" },
+    "facets": {
+      "roles": [
+        "ux-designer"
+      ],
+      "skills": [
+        "ui-design"
+      ],
+      "platforms": [
+        "web"
+      ]
+    },
+    "source": {
+      "kind": "project",
+      "label": "Art School Fight Club · Patched Reality"
+    },
     "org": "Patched Reality",
     "status": "approved"
   },
@@ -14,8 +27,27 @@
     "claim": "Designed the CarPlay, iOS and web versions of ChiPark, a Chicago parking app used by 20K+ commuters monthly.",
     "strength": "shipped",
     "date": "2024",
-    "facets": { "roles": ["ux-designer"], "skills": ["ui-design", "interaction-design"], "domains": ["automotive"], "platforms": ["carplay", "ios", "web"] },
-    "source": { "kind": "project", "label": "ChiPark" },
+    "facets": {
+      "roles": [
+        "ux-designer"
+      ],
+      "skills": [
+        "ui-design",
+        "interaction-design"
+      ],
+      "domains": [
+        "automotive"
+      ],
+      "platforms": [
+        "carplay",
+        "ios",
+        "web"
+      ]
+    },
+    "source": {
+      "kind": "project",
+      "label": "ChiPark"
+    },
     "status": "approved"
   },
   {
@@ -23,8 +55,26 @@
     "claim": "Designed and launched How2To at Omnia, a voice-enabled, AI-powered tutorial app for hands-free learning on Apple Vision Pro.",
     "strength": "shipped",
     "date": "2025",
-    "facets": { "roles": ["ux-designer", "spatial-designer"], "skills": ["ui-design", "voice-ai"], "domains": ["spatial"], "platforms": ["visionos"] },
-    "source": { "kind": "project", "label": "How2To · Omnia" },
+    "facets": {
+      "roles": [
+        "ux-designer",
+        "spatial-designer"
+      ],
+      "skills": [
+        "ui-design",
+        "voice-ai"
+      ],
+      "domains": [
+        "spatial"
+      ],
+      "platforms": [
+        "visionos"
+      ]
+    },
+    "source": {
+      "kind": "project",
+      "label": "How2To · Omnia"
+    },
     "slug": "how2to",
     "org": "Omnia",
     "status": "approved"
@@ -34,8 +84,26 @@
     "claim": "Designed and built this portfolio: a static Next.js site with a retrieval-only Ask box and a filterable second brain, Lighthouse mobile 92–100.",
     "strength": "shipped",
     "date": "2026",
-    "facets": { "roles": ["ux-engineer", "front-end-engineer"], "skills": ["nextjs", "react", "typescript", "ai-llm-design"], "platforms": ["web"] },
-    "source": { "kind": "project", "label": "Portfolio site", "href": "https://apoorvsm01.github.io/portfolio/" },
+    "facets": {
+      "roles": [
+        "ux-engineer",
+        "front-end-engineer"
+      ],
+      "skills": [
+        "nextjs",
+        "react",
+        "typescript",
+        "ai-llm-design"
+      ],
+      "platforms": [
+        "web"
+      ]
+    },
+    "source": {
+      "kind": "project",
+      "label": "Portfolio site",
+      "href": "https://apoorvsm01.github.io/portfolio/"
+    },
     "status": "approved"
   },
   {
@@ -43,9 +111,54 @@
     "claim": "Designed the UI of Reach: Shoulder Health, a Meta Quest VR rehab app at Patched Reality that scaled to 10+ clinics.",
     "strength": "shipped",
     "date": "2024",
-    "facets": { "roles": ["ux-designer", "spatial-designer"], "skills": ["ui-design"], "domains": ["healthcare", "spatial"], "platforms": ["meta-quest"] },
-    "source": { "kind": "project", "label": "Reach: Shoulder Health · Patched Reality" },
+    "facets": {
+      "roles": [
+        "ux-designer",
+        "spatial-designer"
+      ],
+      "skills": [
+        "ui-design"
+      ],
+      "domains": [
+        "healthcare",
+        "spatial"
+      ],
+      "platforms": [
+        "meta-quest"
+      ]
+    },
+    "source": {
+      "kind": "project",
+      "label": "Reach: Shoulder Health · Patched Reality"
+    },
     "org": "Patched Reality",
+    "status": "approved"
+  },
+  {
+    "id": "shipped-woven-design-system",
+    "claim": "Built the Figma design system that Woven, TRI, TMNA and TCNA now share, with design tokens and visual regression tests.",
+    "strength": "shipped",
+    "date": "2026",
+    "facets": {
+      "roles": [
+        "ux-designer",
+        "design-systems-designer"
+      ],
+      "skills": [
+        "design-systems",
+        "figma",
+        "ui-design"
+      ],
+      "domains": [
+        "automotive"
+      ]
+    },
+    "source": {
+      "kind": "project",
+      "label": "Generative Drive Coach · Woven by Toyota"
+    },
+    "slug": "woven",
+    "org": "Woven by Toyota",
     "status": "approved"
   }
 ]
