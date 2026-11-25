@@ -6,19 +6,23 @@ let pending: Promise<AskEngine> | null = null;
 // page paints without it. Safe to call repeatedly.
 export function loadEngine(): Promise<AskEngine> {
   pending ??= (async () => {
-    const [{ createAsk }, { getAllStudies }, { site }, { studyMeta }, { personal }, ask] = await Promise.all([
+    const [{ createAsk }, { getAllStudies }, { site }, { studyMeta }, { personal }, ask, { facets }, { evidence }] = await Promise.all([
       import("./engine.ts"),
       import("../content"),
       import("../../../content/site"),
       import("../../../content/study-meta"),
       import("../../../content/personal"),
       import("../../../content/ask"),
+      import("../../../content/brain/taxonomy"),
+      import("../../../content/brain/evidence"),
     ]);
     return createAsk({
       site,
       studies: getAllStudies(),
       studyMeta,
       personal,
+      taxonomy: facets,
+      evidence,
       config: {
         copy: ask.askCopy,
         suggestedPrompts: ask.suggestedPrompts,
