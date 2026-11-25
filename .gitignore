@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# second brain: raw source material, never committed or shipped
+/brain-inbox/
