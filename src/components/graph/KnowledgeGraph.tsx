@@ -63,7 +63,8 @@ export default function KnowledgeGraph({ graph, highlight = null, selected, onTo
   const renderNode = (n: PlacedNode) => {
     const lit = !active || active.nodes.has(n.id);
     const isSelected = !!selected?.has(n.id);
-    const toggle = n.kind === "domain" || n.kind === "skill";
+    // Domains, skills and sources with no case study toggle a filter (sources by org); the rest link out.
+    const toggle = n.kind === "domain" || n.kind === "skill" || (n.kind === "source" && !n.slug);
     const cls = [
       "kg-node",
       `kg-node--${n.kind}`,
@@ -78,6 +79,7 @@ export default function KnowledgeGraph({ graph, highlight = null, selected, onTo
     const lb = n.labelBox;
     const body: ReactNode = (
       <>
+        {lb.text !== n.label && <title>{n.label}</title>}
         {n.kind === "center" && <circle className="kg-breath" cx={n.x} cy={n.y} r={n.r + 10} />}
         <circle className="kg-halo" cx={n.x} cy={n.y} r={n.r + 7} />
         <circle className="kg-hit" cx={n.x} cy={n.y} r={n.r + 8} />
@@ -127,12 +129,7 @@ export default function KnowledgeGraph({ graph, highlight = null, selected, onTo
         </Link>
       );
     }
-    // Sources without a case study are shown on hover only; the hidden list below is the keyboard route to them.
-    return (
-      <g key={n.id} className={cls} aria-hidden="true" {...handlers(n)}>
-        {body}
-      </g>
-    );
+    return null;
   };
 
   return (
@@ -150,7 +147,9 @@ export default function KnowledgeGraph({ graph, highlight = null, selected, onTo
             const on = !!active && active.edges.has(e.id);
             const mode = on ? (hoverSet ? "kg-edge--hover" : "kg-edge--on") : "";
             const dim = active && !on ? "kg-dim" : "";
-            return <path key={e.id} d={e.d} pathLength={1} className={["kg-edge", mode, dim].filter(Boolean).join(" ")} />;
+            // Resting weight: the radial tree (me > domain > source) reads at .5, source > skill edges at .18.
+            const tier = e.from.startsWith("source:") ? "kg-edge--minor" : "kg-edge--major";
+            return <path key={e.id} d={e.d} pathLength={1} className={["kg-edge", tier, mode, dim].filter(Boolean).join(" ")} />;
           })}
         </g>
         <g className="kg-nodes">{placed.nodes.map((n) => renderNode(byId.get(n.id) as PlacedNode))}</g>

@@ -3474,7 +3474,9 @@ header[data-nav][data-hidden="true"]:not(:focus-within) ~ div .brain-bar {
   stroke-width: 1;
   vector-effect: non-scaling-stroke;
 }
-.kg-edge--on, .kg-edge--hover { stroke: var(--glow); stroke-width: 1.5; }
+.kg-edge--major { opacity: 0.5; }
+.kg-edge--minor { opacity: 0.18; }
+.kg-edge--on, .kg-edge--hover { stroke: var(--glow); stroke-width: 1.5; opacity: 1; }
 .kg-node { outline: none; cursor: default; }
 .kg-node--domain, .kg-node--skill, .kg-link { cursor: pointer; }
 .kg-dot { fill: var(--surface-2); stroke: var(--strength-watched); stroke-width: 1.5; }
