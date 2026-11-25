@@ -321,10 +321,10 @@ outcomes per study). Use those fields; the old ones stay only for compatibility.
 ## C. Colour
 These replace the earlier palette. Dark is the default. A light theme still exists, but its "paper" values are
 the same ones the paper bands use.
-- `--ground #12110f` (warm ink), `--surface #1b1916`, `--surface-2 #26231f`, `--rule #2b2823`, `--fg #f1ece3`,
-  `--fg-2 #c9c2b5`, `--muted #a39c8f`, `--focus #9ad0ff`.
-- **Paper band**: `--paper #ede7db`, `--paper-ink #171513`, `--paper-muted #5c564c`, `--paper-rule #d6cfc1`.
-- **Accent** = `flags.amber` (`#f5a524`), used for primary buttons, the nav current-page marker and link underlines.
+- `--ground #0A0C10` (cool ink), `--surface #12151B`, `--surface-2 #1A1E26`, `--rule #232833`, `--fg #EEF1F6`,
+  `--fg-2 #B8C0CC`, `--muted #8A93A3`, `--focus #9ad0ff`.
+- **Paper band**: `--paper #F6F7F9`, `--paper-ink #0E1116`, `--paper-muted #4A5260`, `--paper-rule #DCE0E6`.
+- **Accent** = `flags.amber` (periwinkle `#7C9CFF`; light `#3B5BDB`), plus `--glow` mint `#5EEAD4` and `--strength-*` tokens for brain pills, used for primary buttons, the nav current-page marker and link underlines.
 - **Flags** (`site.flags`) colour the intent doors, org chips in the timeline, and the per-study accent.
 - **Bands**: full-bleed sections can be `ink` (the default), `paper` (light: How I work and the About teaser), or
   a study `band` colour (the Featured section uses `studyMeta.woven.band`; every case-study page uses its study's
