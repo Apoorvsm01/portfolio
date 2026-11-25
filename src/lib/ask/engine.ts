@@ -95,7 +95,7 @@ const OWNER_BOOST = 1.6;
 
 export function createAsk(input: AskEngineInput) {
   const { config, site, taxonomy } = input;
-  const chunks = buildCorpus(input);
+  const chunks = buildCorpus({ ...input, topics: input.topics ?? config.topics });
 
   // Index. Title words count three times and tags once more, so a heading beats a passing mention.
   const docs: Doc[] = chunks.map((chunk) => {
@@ -425,8 +425,12 @@ export function createAsk(input: AskEngineInput) {
   // Filtering has its own small index (case-study claims plus approved evidence) so that adding evidence never
   // shifts the BM25 statistics ask() relies on. Same tokenizer, stemmer and constants.
 
+  // One item per case study: its summary chunk, or the overview when the study has no summary. The source label
+  // is the study title.
+  const studyChunks = chunks.filter((c) => c.facets && c.strength && (c.kind === "summary" || c.id.endsWith(":overview")));
+  const hasSummary = new Set(studyChunks.filter((c) => c.kind === "summary").map((c) => c.slug));
   const filterable: Chunk[] = [
-    ...chunks.filter((c) => c.facets && c.strength && (c.kind === "summary" || c.id.endsWith(":overview"))),
+    ...studyChunks.filter((c) => c.kind === "summary" || !hasSummary.has(c.slug)).map((c) => ({ ...c, label: c.title })),
     ...buildEvidenceChunks(input.evidence ?? [], taxonomy),
   ];
   const fdocs = filterable.map((chunk) => {
@@ -474,28 +478,44 @@ export function createAsk(input: AskEngineInput) {
     return matched;
   }
 
+  // "any" mode: every selected facet the item carries, in any group; null when it carries none.
+  function matchedAny(chunk: Chunk, state: FilterState): Facets | null {
+    const matched: Facets = {};
+    let n = 0;
+    for (const group of facetGroups) {
+      const hit = selectedOf(state, group).filter((id) => (chunk.facets?.[group] ?? []).includes(id));
+      if (hit.length) {
+        matched[group] = hit;
+        n += hit.length;
+      }
+    }
+    return n ? matched : null;
+  }
+
   const matchedCount = (m: Facets) => facetGroups.reduce((n, g) => n + (m[g]?.length ?? 0), 0);
 
   // All items that pass the filters, ranked, with no diversity cap. With q set, items with no word in common with
   // it are dropped and the rest are ranked by BM25; without q they rank by strength, matched facets, then recency.
   function matching(state: FilterState, terms: Map<string, number> | null = queryTerms(state.q)): FilterItem[] {
     const floor = state.minStrength ? strengthRank(state.minStrength) : 0;
+    const anyMode = state.match === "any" && facetGroups.some((g) => selectedOf(state, g).length > 0);
     const out: FilterItem[] = [];
     for (const chunk of filterable) {
       if (strengthRank(chunk.strength) < floor) continue;
-      const matched = matchedFacets(chunk, state);
+      const matched = anyMode ? matchedAny(chunk, state) : matchedFacets(chunk, state);
       if (!matched) continue;
       const score = terms ? bm25(chunk, terms) : 0;
-      if (terms && score <= 0) continue;
+      if (terms && !anyMode && score <= 0) continue;
       out.push({ chunk, score, matched });
     }
+    const byStrength = (a: FilterItem, b: FilterItem) => strengthRank(b.chunk.strength) - strengthRank(a.chunk.strength);
+    const tail = (a: FilterItem, b: FilterItem) => (b.chunk.date ?? "").localeCompare(a.chunk.date ?? "") || a.chunk.id.localeCompare(b.chunk.id);
     return out.sort((a, b) =>
-      terms
-        ? b.score - a.score || strengthRank(b.chunk.strength) - strengthRank(a.chunk.strength)
-        : strengthRank(b.chunk.strength) - strengthRank(a.chunk.strength) ||
-          matchedCount(b.matched) - matchedCount(a.matched) ||
-          (b.chunk.date ?? "").localeCompare(a.chunk.date ?? "") ||
-          a.chunk.id.localeCompare(b.chunk.id),
+      anyMode
+        ? matchedCount(b.matched) - matchedCount(a.matched) || byStrength(a, b) || b.score - a.score || tail(a, b)
+        : terms
+          ? b.score - a.score || byStrength(a, b)
+          : byStrength(a, b) || matchedCount(b.matched) - matchedCount(a.matched) || tail(a, b),
     );
   }
 

@@ -17,8 +17,10 @@ const readJson = <T>(dir: URL) =>
     .map((f) => ({ file: f, data: JSON.parse(readFileSync(new URL(f, dir), "utf8")) as T }));
 
 const studies = readJson<CaseStudy>(new URL("../../../content/case-studies/", import.meta.url)).map((f) => f.data);
-const evidenceFiles = readJson<Evidence[]>(new URL("../../../content/brain/evidence/", import.meta.url));
-const evidence = evidenceFiles.flatMap((f) => f.data);
+// Engine tests run on fixtures, never on the real evidence folder, so SAMPLE items cannot reach the public page.
+const fixtureFiles = readJson<Evidence[]>(new URL("../../../content/brain/fixtures/", import.meta.url));
+const evidence = fixtureFiles.flatMap((f) => f.data);
+const realEvidence = readJson<Evidence[]>(new URL("../../../content/brain/evidence/", import.meta.url)).flatMap((f) => f.data);
 
 const config = {
   copy: askContent.askCopy,
@@ -127,7 +129,7 @@ test("diversity cap: at most 2 per slug or source label in the top 12", () => {
   const many = [
     ...Array.from({ length: 6 }, (_, i) => item(`same-label-${i}`, { source: { kind: "course", label: "SAMPLE one course" }, date: `2024-0${i + 1}` })),
     ...Array.from({ length: 6 }, (_, i) => item(`same-slug-${i}`, { slug: "woven", source: { kind: "project", label: `SAMPLE woven ${i}` } })),
-    ...Array.from({ length: 6 }, (_, i) => item(`other-${i}`, { source: { kind: "video", label: `SAMPLE other ${i}` } })),
+    ...Array.from({ length: 10 }, (_, i) => item(`other-${i}`, { source: { kind: "video", label: `SAMPLE other ${i}` } })),
   ];
   const e = make(many);
   const r = e.filter(state({ skills: ["figma"] }));
@@ -226,4 +228,51 @@ test("ask() output is unchanged by evidence", () => {
   for (const q of ["healthcare work", "CARLA simulator", "I’m searching for a UX designer"]) {
     assert.deepEqual(engine.ask(q), bare.ask(q));
   }
+});
+
+test("the real evidence folder holds no SAMPLE items", () => {
+  for (const ev of realEvidence) {
+    assert.ok(!ev.source.label.startsWith("SAMPLE"), `${ev.id}: SAMPLE item in content/brain/evidence`);
+  }
+});
+
+test("topic slugs add facets to case studies: ux-researcher + automotive includes woven", () => {
+  const woven = ids(state({ roles: ["ux-researcher"], domains: ["automotive"] }));
+  assert.ok(woven.some((id) => id.startsWith("woven:")), `got ${woven.join(", ")}`);
+});
+
+test("each case study appears once in the filter", () => {
+  const slugs = engine.filter(empty).items.map((i) => i.chunk.slug).filter(Boolean);
+  assert.equal(new Set(slugs).size, slugs.length);
+});
+
+test("match any: an item passes with one selected facet; ranks by matched count, then strength", () => {
+  const e = make([
+    item("two", { facets: { skills: ["figma"], roles: ["ux-designer"] }, strength: "studied" }),
+    item("one-strong", { facets: { skills: ["figma"] }, strength: "shipped" }),
+    item("one-weak", { facets: { roles: ["ux-designer"] }, strength: "studied" }),
+    item("none", { facets: { skills: ["react"] } }),
+  ]);
+  const s = state({ skills: ["figma"], roles: ["ux-designer"], match: "any" });
+  const got = ids(s, e).filter((id) => id.startsWith("evidence:"));
+  assert.deepEqual(got.slice(0, 3), ["evidence:two", "evidence:one-strong", "evidence:one-weak"]);
+  assert.ok(!got.includes("evidence:none"));
+  assert.deepEqual(ids({ ...s, match: "all" }, e).filter((id) => id.startsWith("evidence:")), ["evidence:two"]);
+  assert.equal(e.filter(s).items.find((i) => i.chunk.id === "evidence:two")!.matched.skills?.length, 1);
+  assert.equal(ids({ ...s, minStrength: "shipped" }, e).filter((id) => id.startsWith("evidence:")).join(), "evidence:one-strong");
+});
+
+test("match any: q ranks but does not filter, and facetCounts follows the mode", () => {
+  const e = make([
+    item("a", { claim: "Zebra crossing study.", facets: { skills: ["figma"] } }),
+    item("b", { claim: "Unrelated words.", facets: { skills: ["figma"] } }),
+  ]);
+  const r = e.filter(state({ skills: ["figma"], q: "zebra", match: "any" }));
+  const evid = r.items.filter((i) => i.chunk.id.startsWith("evidence:"));
+  assert.equal(evid.length, 2);
+  assert.equal(evid[0].chunk.id, "evidence:a");
+  const all = e.filter(state({ skills: ["figma"], q: "zebra" })).items.filter((i) => i.chunk.id.startsWith("evidence:"));
+  assert.equal(all.length, 1);
+  const c = e.facetCounts(state({ skills: ["figma"], match: "any" })).find((x) => x.id === "react")!;
+  assert.ok(c.count >= 2);
 });

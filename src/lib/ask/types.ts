@@ -14,6 +14,7 @@ export type Chunk = {
   label: string; // shown on source chips
   href: string; // internal path, or an external/mailto link
   slug?: string;
+  claim?: string; // on case-study summary chunks: the one-line claim, shown as the main line in the filter view
   tags: string[];
   // Set on passages that can be filtered (case-study chunks and approved evidence).
   facets?: Facets;
@@ -91,6 +92,8 @@ export type FilterState = {
   platforms: string[];
   methods: string[];
   minStrength?: Strength;
+  // "all" (default): AND across groups, OR within one. "any": an item passes if it matches at least one selected facet.
+  match?: "all" | "any";
   q?: string;
 };
 

@@ -12,6 +12,8 @@ export type CorpusInput = {
   personal: typeof Personal;
   // When given, case-study chunks get facets and a strength so they can be filtered alongside evidence.
   taxonomy?: Taxonomy;
+  // Topic ids that equal a taxonomy id add that id to every study in `slugs`, so hand-curated mappings count too.
+  topics?: { id: string; slugs: string[] }[];
 };
 
 const clean = (s: string) => s.replace(/\[([^\]]+)\]\([^)\s]+\)/g, "$1").replace(/\s+/g, " ").trim();
@@ -53,7 +55,7 @@ function blockText(block: Block): string {
   }
 }
 
-export function buildCorpus({ site, studies, studyMeta, personal, taxonomy }: CorpusInput): Chunk[] {
+export function buildCorpus({ site, studies, studyMeta, personal, taxonomy, topics }: CorpusInput): Chunk[] {
   const chunks: Chunk[] = [];
   const add = (chunk: Chunk) => {
     const text = clean(chunk.text);
@@ -94,6 +96,7 @@ export function buildCorpus({ site, studies, studyMeta, personal, taxonomy }: Co
         kind: "summary",
         title,
         label: `${title} · Summary`,
+        claim: clean(meta.claim),
         text: [meta.claim, metaFacts, outcomes].filter(Boolean).join(" "),
       });
     }
@@ -208,9 +211,20 @@ export function buildCorpus({ site, studies, studyMeta, personal, taxonomy }: Co
 
   if (taxonomy) {
     const byStudy = new Map(studies.map((study) => [study.slug, studyFilterProfile(study, site, studyMeta[study.slug], taxonomy)]));
+    for (const topic of topics ?? []) {
+      const group = FACET_GROUPS.find((g) => taxonomy[g].some((e) => e.id === topic.id));
+      if (!group) continue;
+      for (const slug of topic.slugs) {
+        const profile = byStudy.get(slug);
+        if (!profile) continue;
+        const have = profile.facets[group] ?? [];
+        if (!have.includes(topic.id)) profile.facets[group] = [...have, topic.id];
+      }
+    }
     for (const chunk of chunks) {
       const profile = chunk.slug ? byStudy.get(chunk.slug) : undefined;
-      if (profile) Object.assign(chunk, profile);
+      if (!profile) continue;
+      Object.assign(chunk, { ...profile, facets: { ...profile.facets } });
     }
   }
 
