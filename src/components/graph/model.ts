@@ -165,6 +165,7 @@ export type PlacedEdge = GraphEdge & { d: string };
 export type Layout = { width: number; height: number; compact: boolean; nodes: PlacedNode[]; edges: PlacedEdge[] };
 
 export const MIN_GAP = 8;
+const EVEN_PULL = 0.7; // 0 = pure circular mean of connected nodes, 1 = perfectly even spacing
 const TAU = Math.PI * 2;
 const norm = (t: number) => ((t % TAU) + TAU) % TAU;
 
@@ -273,6 +274,19 @@ export function layout(graph: Graph, { width, height, compact = false }: LayoutO
         if (base[i] - prev > widest.size) widest = { start: prev, size: base[i] - prev };
       }
       orphans.forEach((n, i) => placed.push({ id: n.id, r: r.get(n.id) as number, t: widest.start + (widest.size * (i + 1)) / (orphans.length + 1) }));
+    }
+    // Pull the ring toward even spacing (keeping each node's order) so a few busy domains do not crowd one side.
+    if (placed.length > 1) {
+      placed.sort((p, q) => norm(p.t) - norm(q.t) || p.id.localeCompare(q.id));
+      const n = placed.length;
+      const slot = (i: number) => (i / n) * TAU;
+      // Rotate the slots to the offset that moves nodes the least on average (circular mean of the differences).
+      const off = circularMean(placed.map((p, i) => ({ t: p.t - slot(i), w: 1 }))) ?? 0;
+      placed.forEach((p, i) => {
+        const target = slot(i) + off;
+        const diff = Math.atan2(Math.sin(target - p.t), Math.cos(target - p.t));
+        p.t += diff * EVEN_PULL;
+      });
     }
     spread(placed, a, b);
     for (const p of placed) t.set(p.id, p.t);
