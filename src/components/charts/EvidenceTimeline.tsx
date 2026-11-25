@@ -1,4 +1,5 @@
 import { useId } from "react";
+import type { Strength } from "../../lib/ask/types";
 import { STRENGTHS, STRENGTH_LABEL, type YearRow } from "./model";
 import { SrTable } from "./parts";
 
@@ -90,7 +91,7 @@ export function EvidenceTimeline({ rows, caption }: { rows: YearRow[]; caption?:
           })}
         </svg>
       </div>
-      <Legend />
+      <Legend present={STRENGTHS.filter((s) => rows.some((r) => r[s] > 0))} />
       <figcaption className="chart-caption">{caption ?? `Evidence per year, ${first} to ${last}.`}</figcaption>
       <SrTable
         caption={title}
@@ -101,10 +102,10 @@ export function EvidenceTimeline({ rows, caption }: { rows: YearRow[]; caption?:
   );
 }
 
-function Legend() {
+function Legend({ present }: { present: Strength[] }) {
   return (
     <ul className="chart-legend" aria-hidden="true">
-      {STRENGTHS.map((s) => (
+      {present.map((s) => (
         <li key={s}>
           <svg viewBox="0 0 10 10" width={10} height={10} focusable="false">
             <rect className={`chart-fill-${s}`} width={10} height={10} rx={2} />

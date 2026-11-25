@@ -87,8 +87,12 @@ export const brainCopy = {
   glance: {
     title: "At a glance",
     caption: "How strong the evidence is, which skills it backs, and when it happened. Updates with your filters.",
-    radar: "Skills the evidence backs most",
-    bars: "Evidence by strength. Select a bar to filter.",
+    skills: {
+      title: "What each skill is proven by",
+      caption: "Strongest evidence for each skill, then how many pieces of work back it. Select a skill to filter.",
+    },
+    bars: "Evidence by strength. Select a level to show it and anything stronger.",
+    clear: "Clear",
     timeline: "Evidence per year, stacked by strength",
     loading: "Loading the charts",
   },

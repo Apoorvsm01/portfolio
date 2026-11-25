@@ -1,6 +1,6 @@
 // Pure helpers behind the evidence charts. No React, no DOM: these run under node:test.
 // Type-only imports keep this file loadable by Node's type stripping without path aliases.
-import type { Chunk, FacetGroup, Strength, SourceGroup, Taxonomy } from "../../lib/ask/types";
+import type { Chunk, FacetGroup, FilterState, Strength, SourceGroup, Taxonomy } from "../../lib/ask/types";
 
 export type ChartItem = { chunk: Pick<Chunk, "facets" | "strength" | "date"> };
 
@@ -43,6 +43,41 @@ export function skillScores(items: ChartItem[], taxonomy: Taxonomy, n = 8): Skil
 }
 
 export type StrengthCounts = Record<Strength, number>;
+
+export type SkillProof = { id: string; label: string; strongest: Strength; counts: StrengthCounts; total: number };
+
+/**
+ * What each skill is proven by: its strongest evidence plus its own mix of strengths. Deliberately no cross-skill
+ * magnitude, so a skill tagged less often is never drawn as a weaker skill. Ordered by shipped, built, then total.
+ */
+export function skillProof(items: ChartItem[], taxonomy: Taxonomy, n = 8): SkillProof[] {
+  const raw = new Map<string, StrengthCounts>();
+  for (const { chunk } of items) {
+    if (!chunk.strength) continue;
+    for (const id of new Set(chunk.facets?.skills ?? [])) {
+      const cur = raw.get(id) ?? { shipped: 0, built: 0, studied: 0, watched: 0 };
+      cur[chunk.strength] += 1;
+      raw.set(id, cur);
+    }
+  }
+  const labels = new Map(taxonomy.skills.map((s) => [s.id, s.label]));
+  return [...raw.entries()]
+    .map(([id, counts]) => ({
+      id,
+      label: labels.get(id) ?? id,
+      strongest: STRENGTHS.find((s) => counts[s] > 0) as Strength,
+      counts,
+      total: counts.shipped + counts.built + counts.studied + counts.watched,
+    }))
+    .sort(
+      (a, b) =>
+        b.counts.shipped - a.counts.shipped ||
+        b.counts.built - a.counts.built ||
+        b.total - a.total ||
+        a.label.localeCompare(b.label),
+    )
+    .slice(0, n);
+}
 
 export function strengthCounts(items: ChartItem[]): StrengthCounts {
   const out: StrengthCounts = { shipped: 0, built: 0, studied: 0, watched: 0 };
@@ -200,4 +235,9 @@ export function mapModel(requirements: Requirement[], groups: SourceGroup[], per
     links,
     totalSources: reach.size,
   };
+}
+
+/** Cross-filter rule: a chart never filters itself. The filter a chart's own control sets is dropped before it counts. */
+export function withoutOwnFilter(filter: FilterState, own: "strength" | "skills"): FilterState {
+  return own === "strength" ? { ...filter, minStrength: undefined } : { ...filter, skills: [] };
 }

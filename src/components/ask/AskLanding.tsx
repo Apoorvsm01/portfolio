@@ -33,7 +33,7 @@ import { asset } from "../../lib/asset";
 import { MatchView } from "../home/MatchView";
 import { TopicsDialog } from "../home/TopicsDialog";
 import { useDesktop } from "../home/useDesktop";
-import type { Requirement } from "../charts/model";
+import { withoutOwnFilter, type Requirement } from "../charts/model";
 import { splitClaim, yearOf } from "../brain/claims";
 
 type Phase = "idle" | "thinking" | "answered" | "refused";
@@ -144,12 +144,24 @@ export function AskLanding({ projects }: { projects: ProjectCard[] }) {
   const filtered = useMemo(() => (engine ? engine.filter(filterState) : null), [engine, filterState]);
 
   // The graph's org-source nodes filter by source; that choice is local to the page, not part of the link.
-  const items = useMemo(() => {
-    if (!filtered) return null;
-    if (!sourceKeys.length || !graph) return filtered.items;
-    const wanted = new Set(sourceKeys);
-    return filtered.items.filter((it) => wanted.has(sourceKeyFor(graph, it.chunk) ?? ""));
-  }, [filtered, sourceKeys, graph]);
+  const bySource = useCallback(
+    <T extends { chunk: Parameters<typeof sourceKeyFor>[1] }>(list: T[]): T[] => {
+      if (!sourceKeys.length || !graph) return list;
+      const wanted = new Set(sourceKeys);
+      return list.filter((it) => wanted.has(sourceKeyFor(graph, it.chunk) ?? ""));
+    },
+    [sourceKeys, graph],
+  );
+  const items = useMemo(() => (filtered ? bySource(filtered.items) : null), [filtered, bySource]);
+  // Charts with their own control count everything except what that control sets, so selecting never empties them.
+  const strengthItems = useMemo(
+    () => (engine ? bySource(engine.filter(withoutOwnFilter(filterState, "strength")).items) : null),
+    [engine, filterState, bySource],
+  );
+  const skillItems = useMemo(
+    () => (engine ? bySource(engine.filter(withoutOwnFilter(filterState, "skills")).items) : null),
+    [engine, filterState, bySource],
+  );
   const allGroups = useMemo(() => (engine && filtered ? engine.groupBySource(filtered.items) : []), [engine, filtered]);
   const groups = useMemo(() => (engine && items ? orderGroups(engine.groupBySource(items)) : []), [engine, items]);
 
@@ -507,7 +519,16 @@ export function AskLanding({ projects }: { projects: ProjectCard[] }) {
           />
         )}
 
-        <AtAGlance items={items} minStrength={state.minStrength} onPickStrength={pickStrength} />
+        <AtAGlance
+          items={items}
+          strengthItems={strengthItems}
+          skillItems={skillItems}
+          minStrength={state.minStrength}
+          onPickStrength={pickStrength}
+          onClearStrength={() => setMin(undefined)}
+          selectedSkills={state.selected.skills}
+          onToggleSkill={(id) => toggle("skills", id)}
+        />
 
         <QueryBar
           count={items ? points : null}

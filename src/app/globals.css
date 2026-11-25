@@ -3125,9 +3125,29 @@ header[data-nav][data-hidden="true"]:not(:focus-within) ~ div .brain-bar {
 .chart-stroke-studied { stroke: var(--strength-studied); }
 .chart-stroke-watched { stroke: var(--strength-watched); }
 
-/* Radar */
-.chart-radar__area { fill: var(--glow); fill-opacity: .18; stroke: var(--glow); stroke-width: 1.5; stroke-linejoin: round; }
-.chart-radar__dot { fill: var(--glow); stroke: var(--ground); stroke-width: 2; }
+/* Skill proof */
+.chart-bg-shipped { background: var(--strength-shipped); }
+.chart-bg-built { background: var(--strength-built); }
+.chart-bg-studied { background: var(--strength-studied); }
+.chart-bg-watched { background: var(--strength-watched); }
+.skill-proof__title { margin: 0; font-family: var(--font-display), sans-serif; font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.02em; color: var(--fg); }
+.skill-proof__caption { margin: .25rem 0 .5rem; }
+.skill-proof__list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .125rem; }
+.skill-proof__row {
+  display: grid; gap: .25rem; width: 100%; padding: .375rem .5rem; border: 1px solid transparent; border-radius: 10px;
+  background: none; color: inherit; font: inherit; text-align: left; cursor: pointer;
+  transition: background-color var(--dur-hover, 140ms) ease, border-color var(--dur-hover, 140ms) ease;
+}
+.skill-proof__row:disabled { cursor: default; }
+.skill-proof__row:not(:disabled):hover { background: var(--surface-2); }
+.skill-proof__row[aria-pressed="true"] { background: var(--surface-2); border-color: var(--muted); }
+.skill-proof__row:focus-visible { outline: 2px solid var(--focus, var(--accent)); outline-offset: 2px; }
+.skill-proof__head { display: flex; align-items: center; justify-content: space-between; gap: .5rem; }
+.skill-proof__label { font-family: var(--font-display), sans-serif; font-size: 15px; font-weight: 500; color: var(--fg); }
+.skill-proof__counts { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.skill-proof__bar { display: flex; gap: 2px; height: 4px; border-radius: 2px; overflow: hidden; background: var(--surface-2); }
+.skill-proof__seg { min-width: 2px; }
+@media (prefers-reduced-motion: reduce) { .skill-proof__row { transition: none; } }
 
 /* Strength bars */
 .chart-bars__list { display: flex; flex-direction: column; gap: .125rem; }
@@ -3138,6 +3158,10 @@ header[data-nav][data-hidden="true"]:not(:focus-within) ~ div .brain-bar {
 }
 .chart-bars__row:disabled { cursor: default; }
 .chart-bars__row:not(:disabled):hover { background: var(--surface-2); }
+.chart-bars__row[data-dim] { opacity: .35; }
+.chart-bars__row[aria-pressed="true"] { opacity: 1; outline: 2px solid var(--focus, var(--accent)); outline-offset: -1px; }
+.chart-clear { padding: 0; border: 0; background: none; font: inherit; color: var(--fg); text-decoration: underline; cursor: pointer; }
+.chart-clear:focus-visible { outline: 2px solid var(--focus, var(--accent)); outline-offset: 2px; }
 .chart-bars__row[aria-pressed="true"] { background: var(--surface-2); border-color: var(--muted); }
 
 /* Timeline */
@@ -3184,13 +3208,11 @@ g:focus-visible > .chart-chip, .chart-node-link:focus-visible .chart-chip, .char
 
 /* Motion: only on mount or on change, and never under reduced motion */
 @media (prefers-reduced-motion: no-preference) {
-  .chart-radar__shape { animation: chart-radar-in 400ms cubic-bezier(.22, 1, .36, 1) both; }
   .chart-ring__arc { animation: chart-ring-in 600ms cubic-bezier(.22, 1, .36, 1) both; }
 }
 @media (prefers-reduced-motion: reduce) {
   .chart-tip, .chart-link, .chart-node, .chart-bars__row { transition: none; }
 }
-@keyframes chart-radar-in { from { opacity: 0; transform: scale(.92); } }
 @keyframes chart-ring-in { from { stroke-dashoffset: var(--ring-c); } }
 .chart-map__svg--narrow .chart-link[data-state="on"] { opacity: 1; }
 .chart-map__svg--narrow .chart-link[data-state="dim"] { opacity: .12; }
