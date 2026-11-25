@@ -146,7 +146,7 @@ export const site = {
 
   work: [
     { slug: "fleet-console", status: "Concept", domain: "Automotive", cover: "/work/fleet-console/02.jpg", org: "Woven by Toyota", blurb: "A concept console that puts coverage gaps and open incidents on the first screen.", link: { label: "Code on GitHub", href: "https://github.com/Apoorvsm01/fleet-console" } },
-    { slug: "how2to", status: "Prototype", domain: "Spatial", cover: "/work/how2to/03.png", org: "Omnia", blurb: "AI-powered, step-by-step spatial tutorials on visionOS." },
+    { slug: "how2to", status: "Shipped", domain: "Spatial", cover: "/work/how2to/03.png", org: "Omnia", blurb: "AI-powered, step-by-step spatial tutorials on visionOS." },
     { slug: "omniabrowser", status: "Shipped", domain: "Spatial", cover: "/work/omniabrowser/02.png", org: "Omnia", blurb: "A spatial browser for Apple Vision Pro." },
     { slug: "spatialshowroom", status: "Shipped", domain: "Spatial", cover: "/work/spatialshowroom/01.png", blurb: "A spatial showroom experience for Vision Pro." },
     { slug: "syncare-ai-health", status: "Study", domain: "Health", cover: "/work/syncare-ai-health/01.png", org: "Patched Reality", blurb: "Making AI-integrated health records easier to read." },
