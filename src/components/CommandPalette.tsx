@@ -1,5 +1,6 @@
 "use client";
 
+import { brainCopy } from "../../content/brain/copy";
 import { useState, useRef, useEffect, useCallback, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import { site } from "../../content/site";
@@ -50,6 +51,15 @@ function buildItemsFromNavIndex(items: NavIndexItem[]): PaletteItem[] {
     subtitle: "Story, Timeline & How I Work",
     keywords: "about bio story resume timeline platforms how i work",
     url: "/about/",
+  });
+
+  result.push({
+    id: "page-brain",
+    category: "Pages",
+    title: brainCopy.navLabel,
+    subtitle: brainCopy.palette.subtitle,
+    keywords: brainCopy.palette.keywords,
+    url: "/brain/",
   });
 
   // 2. Case Studies (with domains)
