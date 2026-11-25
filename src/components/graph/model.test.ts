@@ -43,7 +43,7 @@ test("graph has the requested ring sizes", () => {
   const count = (k: string) => graph.nodes.filter((n) => n.kind === k).length;
   assert.equal(count("center"), 1);
   assert.ok(count("domain") > 0 && count("domain") <= 8);
-  assert.ok(count("source") > 0 && count("source") <= 12);
+  assert.ok(count("source") > 0 && count("source") <= Math.max(14, studies.length));
   assert.ok(count("skill") > 0 && count("skill") <= 10);
   console.log("ring counts", { domains: count("domain"), sources: count("source"), skills: count("skill"), edges: graph.edges.length });
 });
@@ -143,6 +143,60 @@ test("highlightFor returns only existing ids and the edges between lit nodes", (
 });
 
 test("a graph with only the centre still lays out", () => {
-  const g: Graph = { nodes: [{ id: CENTER_ID, kind: "center", label: "Apoorv", weight: 1 }], edges: [] };
+  const g: Graph = { nodes: [{ id: CENTER_ID, kind: "center", label: "Apoorv", weight: 1 }], edges: [], orgToStudy: {} };
   assert.equal(layout(g, { width: 1200, height: 680 }).nodes.length, 1);
+});
+
+test("every case study is a source, labelled by its title, and Woven is never missing", () => {
+  const sources = graph.nodes.filter((n) => n.kind === "source");
+  for (const s of studies) assert.ok(sources.some((n) => n.slug === s.slug), `missing case study ${s.slug}`);
+  const woven = sources.find((n) => n.slug === "woven");
+  assert.ok(woven);
+  assert.equal(woven.label, studies.find((s) => s.slug === "woven")!.title);
+  assert.ok(sources.length <= Math.max(14, studies.length));
+});
+
+test("org sources: no bare Resume bucket, aliases applied, case studies listed before orgs", () => {
+  const sources = graph.nodes.filter((n) => n.kind === "source");
+  const labels = sources.map((n) => n.label);
+  assert.ok(!labels.includes("Resume"));
+  assert.ok(sources.every((n) => n.slug || n.org || n.key === "youtube"), "every source is a study, an employer or YouTube");
+  assert.ok(labels.includes("DePaul HCI") && !labels.includes("DePaul"));
+  assert.ok(!labels.includes("Apoorvsm01.github.io"));
+  const firstOrg = graph.nodes.findIndex((n) => n.kind === "source" && !n.slug);
+  const lastStudy = graph.nodes.map((n) => n.kind === "source" && !!n.slug).lastIndexOf(true);
+  assert.ok(lastStudy < firstOrg);
+});
+
+function crossings(l: Layout) {
+  const segs = l.edges.map((e) => ({ e, a: l.nodes.find((n) => n.id === e.from)!, b: l.nodes.find((n) => n.id === e.to)! }));
+  type P = { x: number; y: number };
+  const orient = (p: P, q: P, r: P) => Math.sign((q.x - p.x) * (r.y - p.y) - (q.y - p.y) * (r.x - p.x));
+  let n = 0;
+  for (let i = 0; i < segs.length; i++)
+    for (let j = i + 1; j < segs.length; j++) {
+      const s = segs[i];
+      const t = segs[j];
+      if (s.e.from === t.e.from || s.e.from === t.e.to || s.e.to === t.e.from || s.e.to === t.e.to) continue;
+      if (orient(s.a, s.b, t.a) !== orient(s.a, s.b, t.b) && orient(t.a, t.b, s.a) !== orient(t.a, t.b, s.b)) n++;
+    }
+  return n;
+}
+
+test("ordering domains by relatedness crosses fewer edges than ordering by weight", () => {
+  const related = crossings(layout(graph, { width: 1200, height: 680, domainOrder: "related" }));
+  const byWeight = crossings(layout(graph, { width: 1200, height: 680, domainOrder: "weight" }));
+  console.log("edge crossings", { related, byWeight });
+  assert.ok(related < byWeight, `${related} vs ${byWeight}`);
+});
+
+test("compact labels: long ones are shortened rather than hidden", () => {
+  const l = layout(graph, { width: 375, height: 560, compact: true });
+  const hidden = l.nodes.filter((n) => !n.labelBox.show);
+  console.log("compact hidden labels", hidden.map((n) => n.label));
+  assert.ok(hidden.length <= 3);
+  for (const n of l.nodes.filter((x) => x.labelBox.show)) {
+    const t = n.labelBox.text;
+    assert.ok(t === n.label || (t.endsWith("…") && n.label.startsWith(t.slice(0, -1))), `${n.label} -> ${t}`);
+  }
 });

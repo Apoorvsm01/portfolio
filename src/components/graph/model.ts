@@ -2,7 +2,7 @@
 // options always give the same nodes, edges and coordinates.
 import { facets as taxonomy, strengths as strengthOrder, type FacetGroup } from "../../../content/brain/taxonomy.ts";
 import type { AskEngine } from "../../lib/ask/engine.ts";
-import type { Facets, FilterState, Strength } from "../../lib/ask/types";
+import type { Facets, Strength } from "../../lib/ask/types";
 
 export type NodeKind = "center" | "domain" | "source" | "skill";
 
@@ -22,7 +22,7 @@ export type GraphNode = {
 
 export type GraphEdge = { id: string; from: string; to: string; weight: number };
 
-export type Graph = { nodes: GraphNode[]; edges: GraphEdge[] };
+export type Graph = { nodes: GraphNode[]; edges: GraphEdge[]; orgToStudy: Record<string, string> };
 
 export type GraphOptions = {
   maxDomains?: number;
@@ -37,7 +37,6 @@ export const strengthWeight: Record<Strength, number> = { shipped: 4, built: 3, 
 const rank = (s: Strength | undefined) => (s ? strengthOrder.length - strengthOrder.indexOf(s) : 0);
 const stronger = (a: Strength | undefined, b: Strength | undefined) => (rank(b) > rank(a) ? b : a);
 
-const empty: FilterState = { roles: [], skills: [], domains: [], platforms: [], methods: [] };
 
 type Acc = { weight: number; strongest?: Strength };
 const bump = (m: Map<string, Acc>, key: string, s: Strength | undefined) => {
@@ -48,17 +47,36 @@ const bump = (m: Map<string, Acc>, key: string, s: Strength | undefined) => {
 };
 const byWeight = <T extends { weight: number; id: string }>(a: T, b: T) => b.weight - a.weight || a.id.localeCompare(b.id);
 
+// Labels that read better than the raw source name.
+export const labelAlias: Record<string, string> = {
+  "Apoorvsm01.github.io": "Portfolio site",
+  DePaul: "DePaul HCI",
+  youtube: "YouTube work",
+};
+const YOUTUBE_KEY = "youtube";
+const FOLD_MAX_ITEMS = 2; // an org this thin that is also a case study's org folds into that study
+
+type Chunkish = { slug?: string; org?: string; href: string };
+
+// The source node a piece of evidence belongs to: its case study, else its employer, else YouTube work.
+// Items with none of these (the bare "Resume" bucket, solo side projects) belong to no source node.
+export function sourceKeyFor(graph: Pick<Graph, "orgToStudy">, chunk: Chunkish): string | undefined {
+  if (chunk.slug) return chunk.slug;
+  if (chunk.org) return graph.orgToStudy[chunk.org] ?? chunk.org;
+  return /^https?:\/\/(www\.)?(youtu\.be|youtube\.com)\//.test(chunk.href) ? YOUTUBE_KEY : undefined;
+}
+
 export function buildGraph(engine: AskEngine, opts: GraphOptions = {}): Graph {
   const maxDomains = opts.maxDomains ?? 8;
-  const maxSources = opts.maxSources ?? 12;
+  const maxSources = opts.maxSources ?? 14; // case studies always count, whatever the cap
   const maxSkills = opts.maxSkills ?? 10;
   const maxDomEdges = opts.maxDomainEdgesPerSource ?? 3;
   const maxSkillEdges = opts.maxSkillEdgesPerSource ?? 3;
 
-  const items = engine.filter(empty).items;
-  const groups = engine.groupBySource(items);
+  // Every filterable chunk, not engine.filter(), which caps and drops some studies when nothing is selected.
+  const items = engine.filterable.map((chunk) => ({ chunk }));
 
-  // Weighted evidence per facet entry, over every filterable item.
+  // Weighted evidence per facet entry, over every filterable item (sourced or not).
   const domainAcc = new Map<string, Acc>();
   const skillAcc = new Map<string, Acc>();
   for (const { chunk } of items) {
@@ -76,50 +94,72 @@ export function buildGraph(engine: AskEngine, opts: GraphOptions = {}): Graph {
   const domains = facetNodes("domains", domainAcc, "domain", maxDomains);
   const skills = facetNodes("skills", skillAcc, "skill", maxSkills);
 
-  const sources: GraphNode[] = groups
-    .map((g) => {
-      let weight = 0;
-      for (const i of g.items) weight += i.chunk.strength ? strengthWeight[i.chunk.strength] : 1;
-      return {
-        id: `source:${g.key}`,
-        kind: "source" as const,
-        label: g.label,
-        weight,
-        strongest: g.strongest,
-        key: g.key,
-        slug: g.slug,
-        org: g.org,
-      } satisfies GraphNode;
-    })
-    .sort(byWeight)
-    .slice(0, maxSources);
+  // Thin orgs that are also a case study's org fold into the study (e.g. one resume line for Woven by Toyota).
+  const studyOfOrg: Record<string, string> = {};
+  const orgCount = new Map<string, number>();
+  for (const { chunk } of items) {
+    if (chunk.slug && chunk.org) studyOfOrg[chunk.org] = chunk.slug;
+    else if (chunk.org) orgCount.set(chunk.org, (orgCount.get(chunk.org) ?? 0) + 1);
+  }
+  const orgToStudy: Record<string, string> = {};
+  for (const [org, n] of orgCount) if (studyOfOrg[org] && n <= FOLD_MAX_ITEMS) orgToStudy[org] = studyOfOrg[org];
+
+  type Grp = { key: string; label: string; study: boolean; slug?: string; org?: string; strongest?: Strength; weight: number; chunks: (typeof items)[number]["chunk"][] };
+  const groups = new Map<string, Grp>();
+  for (const { chunk } of items) {
+    const key = sourceKeyFor({ orgToStudy }, chunk);
+    if (key === undefined) continue;
+    let g = groups.get(key);
+    if (!g) {
+      g = { key, label: labelAlias[key] ?? (chunk.slug ? chunk.label : (chunk.org ?? chunk.label)), study: !!chunk.slug, slug: chunk.slug, org: chunk.org, weight: 0, chunks: [] };
+      groups.set(key, g);
+    }
+    // A study's own chunk names it; later evidence for the same slug must not rename it.
+    if (chunk.slug && (chunk.kind === "summary" || chunk.id.endsWith(":overview"))) g.label = chunk.label;
+    g.weight += chunk.strength ? strengthWeight[chunk.strength] : 1;
+    g.strongest = stronger(g.strongest, chunk.strength);
+    g.chunks.push(chunk);
+  }
+  const all = [...groups.values()];
+  const studies = all.filter((g) => g.study).sort((x, y) => y.weight - x.weight || x.key.localeCompare(y.key));
+  const orgs = all.filter((g) => !g.study).sort((x, y) => y.weight - x.weight || x.key.localeCompare(y.key));
+  const picked = [...studies, ...orgs.slice(0, Math.max(0, maxSources - studies.length))];
+
+  const sources: GraphNode[] = picked.map((g) => ({
+    id: `source:${g.key}`,
+    kind: "source" as const,
+    label: g.label,
+    weight: g.weight,
+    strongest: g.strongest,
+    key: g.key,
+    ...(g.slug ? { slug: g.slug } : {}),
+    ...(g.org && !g.study ? { org: g.org } : {}),
+  }));
 
   const domainIds = new Set(domains.map((d) => d.id));
   const skillIds = new Set(skills.map((s) => s.id));
-  const groupByKey = new Map(groups.map((g) => [g.key, g]));
 
   const edges: GraphEdge[] = [];
   const push = (from: string, to: string, weight: number) => edges.push({ id: `${from}>${to}`, from, to, weight });
 
   for (const d of domains) push(CENTER_ID, d.id, d.weight);
 
-  for (const s of sources) {
-    const g = groupByKey.get(s.key as string);
-    if (!g) continue;
+  for (const g of picked) {
+    const sid = `source:${g.key}`;
     const dom = new Map<string, number>();
     const skl = new Map<string, number>();
-    for (const { chunk } of g.items) {
+    for (const chunk of g.chunks) {
       for (const id of chunk.facets?.domains ?? []) if (domainIds.has(`domain:${id}`)) dom.set(id, (dom.get(id) ?? 0) + 1);
       for (const id of chunk.facets?.skills ?? []) if (skillIds.has(`skill:${id}`)) skl.set(id, (skl.get(id) ?? 0) + 1);
     }
     const top = (m: Map<string, number>, n: number) =>
-      [...m.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).slice(0, n);
-    for (const [id, w] of top(dom, maxDomEdges)) push(`domain:${id}`, s.id, w);
-    for (const [id, w] of top(skl, maxSkillEdges)) push(s.id, `skill:${id}`, w);
+      [...m.entries()].sort((x, y) => y[1] - x[1] || x[0].localeCompare(y[0])).slice(0, n);
+    for (const [id, w] of top(dom, maxDomEdges)) push(`domain:${id}`, sid, w);
+    for (const [id, w] of top(skl, maxSkillEdges)) push(sid, `skill:${id}`, w);
   }
 
   const center: GraphNode = { id: CENTER_ID, kind: "center", label: "Apoorv", weight: 1 };
-  return { nodes: [center, ...domains, ...sources, ...skills], edges };
+  return { nodes: [center, ...domains, ...sources, ...skills], edges, orgToStudy };
 }
 
 // ---------- highlight ----------
@@ -156,7 +196,7 @@ export function neighbourhood(graph: Graph, id: string): Highlight {
 
 // ---------- layout ----------
 
-export type LayoutOptions = { width: number; height: number; compact?: boolean };
+export type LayoutOptions = { width: number; height: number; compact?: boolean; domainOrder?: "related" | "weight" };
 
 export type LabelBox = { x: number; y: number; anchor: "start" | "middle" | "end"; text: string; width: number; fontSize: number; show: boolean };
 
@@ -165,14 +205,15 @@ export type PlacedEdge = GraphEdge & { d: string };
 export type Layout = { width: number; height: number; compact: boolean; nodes: PlacedNode[]; edges: PlacedEdge[] };
 
 export const MIN_GAP = 8;
-const EVEN_PULL = 0.7; // 0 = pure circular mean of connected nodes, 1 = perfectly even spacing
+const EVEN_PULL = 0.5; // 0 = pure circular mean of connected nodes, 1 = perfectly even spacing
 const TAU = Math.PI * 2;
 const norm = (t: number) => ((t % TAU) + TAU) % TAU;
 
 function radiusOf(n: GraphNode, maxByKind: Record<NodeKind, number>, compact: boolean): number {
   if (n.kind === "center") return compact ? 24 : 28;
   const [lo, hi] = n.kind === "domain" ? [8, 17] : n.kind === "source" ? [6, 13] : [4, 9];
-  const k = Math.sqrt(n.weight / Math.max(1, maxByKind[n.kind]));
+  // One heavy node (DePaul) must not shrink everything else to the minimum, so the scale saturates at half the max.
+  const k = Math.min(1, Math.sqrt(n.weight / Math.max(1, maxByKind[n.kind] * 0.5)));
   const scale = compact ? 0.85 : 1;
   return (lo + (hi - lo) * k) * scale;
 }
@@ -224,10 +265,41 @@ function spread(items: Item[], a: number, b: number): void {
 }
 
 const PRIORITY: Record<NodeKind, number> = { center: 4, domain: 3, source: 2, skill: 1 };
-const MAX_LABEL = 26;
-const short = (s: string) => (s.length > MAX_LABEL ? `${s.slice(0, MAX_LABEL - 1).trimEnd()}…` : s);
+const LABEL_LIMITS = [26, 18, 13, 9];
+const short = (s: string, max = LABEL_LIMITS[0]) => (s.length > max ? `${s.slice(0, max - 1).trimEnd()}…` : s);
 
-export function layout(graph: Graph, { width, height, compact = false }: LayoutOptions): Layout {
+// Greedy chain over domain co-occurrence (shared sources): start at the heaviest domain, then keep appending the
+// unplaced domain that shares the most evidence with the chain's current end. Ties go to the heavier domain.
+function relatedOrder(domains: GraphNode[], edges: GraphEdge[]): GraphNode[] {
+  const perSource = new Map<string, Map<string, number>>();
+  for (const e of edges) {
+    if (!e.from.startsWith("domain:")) continue;
+    const m = perSource.get(e.to) ?? new Map<string, number>();
+    m.set(e.from, e.weight);
+    perSource.set(e.to, m);
+  }
+  const co = new Map<string, number>();
+  for (const m of perSource.values()) {
+    const ds = [...m.entries()];
+    for (const [a, wa] of ds)
+      for (const [b, wb] of ds) if (a !== b) co.set(`${a}|${b}`, (co.get(`${a}|${b}`) ?? 0) + Math.min(wa, wb));
+  }
+  const left = [...domains].sort((a, b) => b.weight - a.weight || a.id.localeCompare(b.id));
+  const chain: GraphNode[] = left.splice(0, 1);
+  while (left.length) {
+    const end = chain[chain.length - 1].id;
+    let best = 0;
+    for (let i = 1; i < left.length; i++) {
+      const ci = co.get(`${end}|${left[i].id}`) ?? 0;
+      const cb = co.get(`${end}|${left[best].id}`) ?? 0;
+      if (ci > cb) best = i;
+    }
+    chain.push(...left.splice(best, 1));
+  }
+  return chain;
+}
+
+export function layout(graph: Graph, { width, height, compact = false, domainOrder = "related" }: LayoutOptions): Layout {
   const visible = (n: GraphNode) => !(compact && n.kind === "skill");
   const nodes = graph.nodes.filter(visible);
   const ids = new Set(nodes.map((n) => n.id));
@@ -253,8 +325,9 @@ export function layout(graph: Graph, { width, height, compact = false }: LayoutO
   const sources = ofKind("source");
   const skills = compact ? [] : ofKind("skill");
 
-  // Ring 1: evenly spaced, starting at the top, clockwise.
-  domains.forEach((d, i) => t.set(d.id, -Math.PI / 2 + (i / Math.max(1, domains.length)) * TAU));
+  // Ring 1: evenly spaced, starting at the top, clockwise, in an order that keeps related domains adjacent.
+  const ordered = domainOrder === "weight" ? domains : relatedOrder(domains, edges);
+  ordered.forEach((d, i) => t.set(d.id, -Math.PI / 2 + (i / Math.max(1, ordered.length)) * TAU));
 
   const place = (list: GraphNode[], neighbours: (id: string) => { id: string; w: number }[], ringIdx: number) => {
     const { a, b } = ring(ringIdx);
@@ -361,15 +434,21 @@ export function layout(graph: Graph, { width, height, compact = false }: LayoutO
   for (const n of order) {
     if (n.kind === "center") continue;
     let chosen = false;
-    for (const spot of spots(n)) {
-      const trial = { ...n.labelBox, ...spot };
-      const b = boxOf(trial);
-      const inBounds = b.x0 >= 2 && b.x1 <= width - 2 && b.y0 >= 2 && b.y1 <= height - 2;
-      if (!inBounds || taken.some((o) => overlap(b, o)) || placed.some((o) => o !== n && hitsCircle(b, o))) continue;
-      Object.assign(n.labelBox, spot);
-      taken.push(b);
-      chosen = true;
-      break;
+    // Shorten with an ellipsis (full text stays in `title`) before giving up on a label.
+    for (const limit of LABEL_LIMITS) {
+      const text = short(n.label, limit);
+      const w = text.length * n.labelBox.fontSize * 0.56;
+      for (const spot of spots(n)) {
+        const trial = { ...n.labelBox, ...spot, text, width: w };
+        const b = boxOf(trial);
+        const inBounds = b.x0 >= 2 && b.x1 <= width - 2 && b.y0 >= 2 && b.y1 <= height - 2;
+        if (!inBounds || taken.some((o) => overlap(b, o)) || placed.some((o) => o !== n && hitsCircle(b, o))) continue;
+        Object.assign(n.labelBox, spot, { text, width: w });
+        taken.push(b);
+        chosen = true;
+        break;
+      }
+      if (chosen) break;
     }
     if (!chosen) {
       // Hidden, but parked at the preferred spot so the hover reveal appears next to the node.
