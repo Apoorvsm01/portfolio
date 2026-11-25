@@ -21,9 +21,10 @@
     },
     "source": {
       "kind": "resume",
-      "label": "Resume"
+      "label": "Resume · DePaul"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "DePaul"
   },
   {
     "id": "depaul-resume-222-motion",
@@ -209,9 +210,10 @@
     },
     "source": {
       "kind": "resume",
-      "label": "Resume"
+      "label": "Resume · Omnia"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "Omnia"
   },
   {
     "id": "depaul-resume-part2-chipark-carplay-payments",
@@ -354,9 +356,10 @@
     },
     "source": {
       "kind": "resume",
-      "label": "Resume"
+      "label": "Resume · Crazy Minds"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "Crazy Minds"
   },
   {
     "id": "depaul-resume-part2-omnia-accessibility-research",
@@ -532,9 +535,10 @@
     },
     "source": {
       "kind": "resume",
-      "label": "Resume"
+      "label": "Resume · Omnia"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "Omnia"
   },
   {
     "id": "depaul-resume-part2-omnia-transparent-display-rd",
@@ -636,9 +640,10 @@
     },
     "source": {
       "kind": "resume",
-      "label": "Resume"
+      "label": "Resume · Patched Reality"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "Patched Reality"
   },
   {
     "id": "depaul-resume-part2-ux-writing-regulated-flows",
@@ -670,9 +675,10 @@
     },
     "source": {
       "kind": "resume",
-      "label": "Resume"
+      "label": "Resume · Omnia"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "Omnia"
   },
   {
     "id": "depaul-resume-part3-crazy-minds-motion-accessibility",
@@ -1179,9 +1185,10 @@
     },
     "source": {
       "kind": "resume",
-      "label": "Resume"
+      "label": "Resume · Patched Reality"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "Patched Reality"
   },
   {
     "id": "depaul-resume-patched-syncare",
@@ -1208,9 +1215,10 @@
     },
     "source": {
       "kind": "resume",
-      "label": "Resume"
+      "label": "Resume · Patched Reality"
     },
-    "status": "approved"
+    "status": "approved",
+    "org": "Patched Reality"
   },
   {
     "id": "depaul-resume-visionos-3d-viewer",
